@@ -1,9 +1,9 @@
 package assessment.entities.Team;
 
-import assessment.entities.Template.Template;
-import assessment.entities.User.User;
+import assessment.entities.Membership.Membership;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 
 import java.util.List;
 
@@ -15,42 +15,54 @@ public class Team {
     @Id
     private String id;
 
-    private String version;
-
+    @NotEmpty(message = "Name is required")
     private String name;
 
+    @NotEmpty(message = "The team must be active or inactive")
     private Boolean isActive;
 
-    private Template template;
+    private String templateId;
 
-    @DBRef
-    private List<User> teamMembers;
+    private List<Membership> userList;
 
-    @DBRef
-    private List<User> teamLeads;
+    private List<Membership> leaderList;
 
-// TODO: Add Image to Team Entity;
+    private String teamAvatar;
 
+    @Length(max = 255)
     private String teamDescription;
 
-    private Team() {}
+    @NotEmpty(message = "Team type is required")
+    private TeamType teamType;
 
-    public Team(String version, String name, Boolean isActive, Template template, List<User> teamMembers, List<User> teamLeads, String teamDescription) {
-        this.version = version;
+    private Integer reviewFrequency;
+
+    @NotEmpty(message = "Version is required")
+    private Integer version;
+
+    public Team(String id, String name, Boolean isActive, String templateId,
+                List<Membership> userList, List<Membership> leaderList, String
+                teamAvatar, String teamDescription, TeamType teamType, Integer
+                reviewFrequency, Integer version) {
+        this.id = id;
         this.name = name;
         this.isActive = isActive;
-        this.template = template;
-        this.teamMembers = teamMembers;
-        this.teamLeads = teamLeads;
+        this.templateId = templateId;
+        this.userList = userList;
+        this.leaderList = leaderList;
+        this.teamAvatar = teamAvatar;
         this.teamDescription = teamDescription;
-    }
-
-    public String getVersion() {
-        return version;
-    }
-
-    public void setVersion(String version) {
+        this.teamType = teamType;
+        this.reviewFrequency = reviewFrequency;
         this.version = version;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -69,28 +81,36 @@ public class Team {
         isActive = active;
     }
 
-    public Template getTemplate() {
-        return template;
+    public String getTemplateId() {
+        return templateId;
     }
 
-    public void setTemplate(Template template) {
-        this.template = template;
+    public void setTemplateId(String templateId) {
+        this.templateId = templateId;
     }
 
-    public List<User> getTeamMembers() {
-        return teamMembers;
+    public List<Membership> getUserList() {
+        return userList;
     }
 
-    public void setTeamMembers(List<User> teamMembers) {
-        this.teamMembers = teamMembers;
+    public void setUserList(List<Membership> userList) {
+        this.userList = userList;
     }
 
-    public List<User> getTeamLeads() {
-        return teamLeads;
+    public List<Membership> getLeaderList() {
+        return leaderList;
     }
 
-    public void setTeamLeads(List<User> teamLeads) {
-        this.teamLeads = teamLeads;
+    public void setLeaderList(List<Membership> leaderList) {
+        this.leaderList = leaderList;
+    }
+
+    public String getTeamAvatar() {
+        return teamAvatar;
+    }
+
+    public void setTeamAvatar(String teamAvatar) {
+        this.teamAvatar = teamAvatar;
     }
 
     public String getTeamDescription() {
@@ -99,5 +119,29 @@ public class Team {
 
     public void setTeamDescription(String teamDescription) {
         this.teamDescription = teamDescription;
+    }
+
+    public TeamType getTeamType() {
+        return teamType;
+    }
+
+    public void setTeamType(TeamType teamType) {
+        this.teamType = teamType;
+    }
+
+    public Integer getReviewFrequency() {
+        return reviewFrequency;
+    }
+
+    public void setReviewFrequency(Integer reviewFrequency) {
+        this.reviewFrequency = reviewFrequency;
+    }
+
+    public Integer getVersion() {
+        return version;
+    }
+
+    public void setVersion(Integer version) {
+        this.version = version;
     }
 }
