@@ -30,7 +30,8 @@ public class Team {
 
     private String avatar;
 
-    @Length(max = 255)
+    @Length(max = 255, message = "Team description length must not exceed " +
+            "255 characters")
     private String description;
 
     @NotEmpty(message = "Team type is required")
