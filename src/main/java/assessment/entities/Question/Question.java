@@ -15,7 +15,8 @@ public class Question {
     @NotEmpty(message = "Question type is required")
     private QuestionType type;
 
-    @Length(max = 255)
+    @Length(max = 255, message = "Question label length must not exceed 255 " +
+            "characters")
     @NotEmpty(message = "Question label is required")
     private String label;
 
