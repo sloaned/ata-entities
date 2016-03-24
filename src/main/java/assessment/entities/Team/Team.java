@@ -1,6 +1,7 @@
 package assessment.entities.Team;
 
 import assessment.entities.Membership.Membership;
+import assessment.entities.Template.Template;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
@@ -15,44 +16,44 @@ public class Team {
     @Id
     private String id;
 
-    @NotEmpty(message = "Name is required")
+    @NotEmpty(message = "Team name is required")
     private String name;
 
     @NotEmpty(message = "The team must be active or inactive")
     private Boolean isActive;
 
-    private String templateId;
+    private Template template;
 
     private List<Membership> userList;
 
     private List<Membership> leaderList;
 
-    private String teamAvatar;
+    private String avatar;
 
     @Length(max = 255)
-    private String teamDescription;
+    private String description;
 
     @NotEmpty(message = "Team type is required")
-    private TeamType teamType;
+    private TeamType type;
 
     private Integer reviewFrequency;
 
     @NotEmpty(message = "Version is required")
     private Integer version;
 
-    public Team(String id, String name, Boolean isActive, String templateId,
+    public Team(String id, String name, Boolean isActive, Template template,
                 List<Membership> userList, List<Membership> leaderList, String
-                teamAvatar, String teamDescription, TeamType teamType, Integer
+                avatar, String description, TeamType type, Integer
                 reviewFrequency, Integer version) {
         this.id = id;
         this.name = name;
         this.isActive = isActive;
-        this.templateId = templateId;
+        this.template = template;
         this.userList = userList;
         this.leaderList = leaderList;
-        this.teamAvatar = teamAvatar;
-        this.teamDescription = teamDescription;
-        this.teamType = teamType;
+        this.avatar = avatar;
+        this.description = description;
+        this.type = type;
         this.reviewFrequency = reviewFrequency;
         this.version = version;
     }
@@ -81,12 +82,12 @@ public class Team {
         isActive = active;
     }
 
-    public String getTemplateId() {
-        return templateId;
+    public Template getTemplate() {
+        return template;
     }
 
-    public void setTemplateId(String templateId) {
-        this.templateId = templateId;
+    public void setTemplate(Template template) {
+        this.template = template;
     }
 
     public List<Membership> getUserList() {
@@ -105,28 +106,28 @@ public class Team {
         this.leaderList = leaderList;
     }
 
-    public String getTeamAvatar() {
-        return teamAvatar;
+    public String getAvatar() {
+        return avatar;
     }
 
-    public void setTeamAvatar(String teamAvatar) {
-        this.teamAvatar = teamAvatar;
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 
-    public String getTeamDescription() {
-        return teamDescription;
+    public String getDescription() {
+        return description;
     }
 
-    public void setTeamDescription(String teamDescription) {
-        this.teamDescription = teamDescription;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public TeamType getTeamType() {
-        return teamType;
+    public TeamType getType() {
+        return type;
     }
 
-    public void setTeamType(TeamType teamType) {
-        this.teamType = teamType;
+    public void setType(TeamType type) {
+        this.type = type;
     }
 
     public Integer getReviewFrequency() {
