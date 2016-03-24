@@ -1,5 +1,7 @@
 package assessment.entities.Question;
 
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
 
 /**
@@ -10,37 +12,38 @@ public class Question {
     @Id
     private String id;
 
-    private String version;
+    @NotEmpty(message = "Question type is required")
+    private QuestionType type;
 
-    private QuestionType questionType;
-
+    @Length(max = 255)
+    @NotEmpty(message = "Question label is required")
     private String label;
 
-    private String comment;
+    @NotEmpty(message = "Version is required")
+    private Integer version;
 
-    public Question() {}
-
-    public Question(String version, QuestionType questionType, String label, String comment) {
+    public Question(Integer version, String id, QuestionType type, String
+            label) {
         this.version = version;
-        this.questionType = questionType;
+        this.id = id;
+        this.type = type;
         this.label = label;
-        this.comment = comment;
     }
 
-    public String getVersion() {
-        return version;
+    public String getId() {
+        return id;
     }
 
-    public void setVersion(String version) {
-        this.version = version;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public QuestionType getQuestionType() {
-        return questionType;
+    public QuestionType getType() {
+        return type;
     }
 
-    public void setQuestionType(QuestionType questionType) {
-        this.questionType = questionType;
+    public void setType(QuestionType type) {
+        this.type = type;
     }
 
     public String getLabel() {
@@ -51,11 +54,11 @@ public class Question {
         this.label = label;
     }
 
-    public String getComment() {
-        return comment;
+    public Integer getVersion() {
+        return version;
     }
 
-    public void setComment(String comment) {
-        this.comment = comment;
+    public void setVersion(Integer version) {
+        this.version = version;
     }
 }
