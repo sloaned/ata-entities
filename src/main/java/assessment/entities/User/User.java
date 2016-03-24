@@ -30,9 +30,10 @@ public class User {
      * User avatars are requested via Gravatar; the userAvatar field stores a
      * hash that must be calculated using the user's email address
      */
-    private String userAvatar;
+    private String avatar;
 
-    @Length(max = 255)
+    @Length(max = 255, message = "Profile description must be fewer than 255" +
+            " characters")
     private String profileDescription;
 
     @NotEmpty(message = "The user must be active or inactive")
@@ -50,14 +51,15 @@ public class User {
         this.version = 1;
     }
 
-    public User(String firstName, String lastName, String email, Role role,
-                String userAvatar, String profileDescription, Boolean isActive,
-                Integer version) {
+    public User(String id, String firstName, String lastName, String email,
+                Role role, String avatar, String profileDescription, Boolean
+                isActive, Integer version) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.role = role;
-        this.userAvatar = userAvatar;
+        this.avatar = avatar;
         this.profileDescription = profileDescription;
         this.isActive = isActive;
         this.version = version;
@@ -103,12 +105,12 @@ public class User {
         this.role = role;
     }
 
-    public String getUserAvatar() {
-        return userAvatar;
+    public String getAvatar() {
+        return avatar;
     }
 
-    public void setUserAvatar(String userAvatar) {
-        this.userAvatar = userAvatar;
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 
     public String getProfileDescription() {
