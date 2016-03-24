@@ -1,6 +1,7 @@
 package assessment.entities.User;
 
 import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
 
@@ -31,6 +32,7 @@ public class User {
      */
     private String userAvatar;
 
+    @Length(max = 255)
     private String profileDescription;
 
     @NotEmpty(message = "The user must be active or inactive")
