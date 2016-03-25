@@ -1,5 +1,8 @@
 package assessment.entities.Membership;
 
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+
 import java.util.Date;
 
 /**
@@ -7,40 +10,35 @@ import java.util.Date;
  */
 public class Membership {
 
-    private String userEmail;
+    @DBRef
+    @NotEmpty(message = "User ID is required")
+    private String userId;
 
-    private String version;
-
+    @NotEmpty(message = "The membership must be active or inactive")
     private Boolean isActive;
 
-    private Date addedDate;
+    private Date addedOn;
 
-    private Date removedDate;
+    private Date removedOn;
 
-    public Membership() {}
+    @NotEmpty(message = "Version is required")
+    private Integer version;
 
-    public Membership(String userEmail, String version, Boolean isActive, Date addedDate, Date removedDate) {
-        this.userEmail = userEmail;
-        this.version = version;
+    public Membership(String userId, Boolean isActive, Date addedOn, Date
+            removedOn, Integer version) {
+        this.userId = userId;
         this.isActive = isActive;
-        this.addedDate = addedDate;
-        this.removedDate = removedDate;
-    }
-
-    public String getUser() {
-        return userEmail;
-    }
-
-    public void setUser(String userEmail) {
-        this.userEmail = userEmail;
-    }
-
-    public String getVersion() {
-        return version;
-    }
-
-    public void setVersion(String version) {
+        this.addedOn = addedOn;
+        this.removedOn = removedOn;
         this.version = version;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public Boolean getActive() {
@@ -51,19 +49,27 @@ public class Membership {
         isActive = active;
     }
 
-    public Date getAddedDate() {
-        return addedDate;
+    public Date getAddedOn() {
+        return addedOn;
     }
 
-    public void setAddedDate(Date addedDate) {
-        this.addedDate = addedDate;
+    public void setAddedOn(Date addedOn) {
+        this.addedOn = addedOn;
     }
 
-    public Date getRemovedDate() {
-        return removedDate;
+    public Date getRemovedOn() {
+        return removedOn;
     }
 
-    public void setRemovedDate(Date removedDate) {
-        this.removedDate = removedDate;
+    public void setRemovedOn(Date removedOn) {
+        this.removedOn = removedOn;
+    }
+
+    public Integer getVersion() {
+        return version;
+    }
+
+    public void setVersion(Integer version) {
+        this.version = version;
     }
 }
