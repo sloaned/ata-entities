@@ -42,14 +42,7 @@ public class User {
     @NotEmpty(message = "Version is required")
     private Integer version;
 
-    public User(){
-        this.firstName = "Joe";
-        this.lastName = "Shmoe";
-        this.email = "jschmoe@normal.com";
-        this.role = Role.DEVELOPER;
-        this.isActive = true;
-        this.version = 1;
-    }
+    public User(){}
 
     public User(String id, String firstName, String lastName, String email,
                 Role role, String avatar, String profileDescription, Boolean
