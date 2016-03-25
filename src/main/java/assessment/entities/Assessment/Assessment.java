@@ -1,4 +1,4 @@
-package assessment.entities.Template;
+package assessment.entities.Assessment;
 
 import assessment.entities.Question.Question;
 import org.springframework.data.annotation.Id;
@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by gfisher on 3/16/2016.
  */
-public class Template {
+public class Assessment {
 
     @Id
     private String id;
@@ -19,9 +19,9 @@ public class Template {
 
     private List<Question> questions;
 
-    private Template() {}
+    private Assessment() {}
 
-    public Template(String version, String name, List<Question> questions) {
+    public Assessment(String version, String name, List<Question> questions) {
         this.version = version;
         this.name = name;
         this.questions = questions;

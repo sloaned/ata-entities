@@ -1,6 +1,6 @@
 package assessment.entities.Team;
 
-import assessment.entities.Template.Template;
+import assessment.entities.Assessment.Assessment;
 import assessment.entities.User.User;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
@@ -21,7 +21,7 @@ public class Team {
 
     private Boolean isActive;
 
-    private Template template;
+    private Assessment assessment;
 
     @DBRef
     private List<User> teamMembers;
@@ -35,11 +35,11 @@ public class Team {
 
     private Team() {}
 
-    public Team(String version, String name, Boolean isActive, Template template, List<User> teamMembers, List<User> teamLeads, String teamDescription) {
+    public Team(String version, String name, Boolean isActive, Assessment assessment, List<User> teamMembers, List<User> teamLeads, String teamDescription) {
         this.version = version;
         this.name = name;
         this.isActive = isActive;
-        this.template = template;
+        this.assessment = assessment;
         this.teamMembers = teamMembers;
         this.teamLeads = teamLeads;
         this.teamDescription = teamDescription;
@@ -69,12 +69,12 @@ public class Team {
         isActive = active;
     }
 
-    public Template getTemplate() {
-        return template;
+    public Assessment getAssessment() {
+        return assessment;
     }
 
-    public void setTemplate(Template template) {
-        this.template = template;
+    public void setAssessment(Assessment assessment) {
+        this.assessment = assessment;
     }
 
     public List<User> getTeamMembers() {
