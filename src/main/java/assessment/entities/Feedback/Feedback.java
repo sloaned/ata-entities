@@ -11,9 +11,6 @@ import org.springframework.data.annotation.Id;
  */
 public class Feedback {
 
-    @Id
-    private String id;
-
     @NotEmpty(message = "Question type is required")
     private QuestionType type;
 
@@ -32,22 +29,13 @@ public class Feedback {
     @NotEmpty(message = "Version is required")
     private Integer version;
 
-    public Feedback(String id, QuestionType type, String label, Integer score,
-            String comment, Integer version) {
-        this.id = id;
+    public Feedback(QuestionType type, String label, Integer score, String
+            comment, Integer version) {
         this.type = type;
         this.label = label;
         this.score = score;
         this.comment = comment;
         this.version = version;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
     }
 
     public QuestionType getType() {
