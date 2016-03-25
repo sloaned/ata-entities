@@ -1,6 +1,7 @@
 package assessment.entities.Assessment;
 
 import assessment.entities.Question.Question;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
 
 import java.util.List;
@@ -13,26 +14,28 @@ public class Assessment {
     @Id
     private String id;
 
-    private String version;
-
+    @NotEmpty(message = "Assessment name is required")
     private String name;
 
-    private List<Question> questions;
+    private List<Question> questionList;
 
-    private Assessment() {}
+    @NotEmpty(message = "Version is required")
+    private Integer version;
 
-    public Assessment(String version, String name, List<Question> questions) {
-        this.version = version;
+    public Assessment(String id, String name, List<Question> questionList,
+            Integer version) {
+        this.id = id;
         this.name = name;
-        this.questions = questions;
-    }
-
-    public String getVersion() {
-        return version;
-    }
-
-    public void setVersion(String version) {
+        this.questionList = questionList;
         this.version = version;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -43,11 +46,19 @@ public class Assessment {
         this.name = name;
     }
 
-    public List<Question> getQuestions() {
-        return questions;
+    public List<Question> getQuestionList() {
+        return questionList;
     }
 
-    public void setQuestions(List<Question> questions) {
-        this.questions = questions;
+    public void setQuestionList(List<Question> questionList) {
+        this.questionList = questionList;
+    }
+
+    public Integer getVersion() {
+        return version;
+    }
+
+    public void setVersion(Integer version) {
+        this.version = version;
     }
 }
