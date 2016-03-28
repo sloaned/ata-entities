@@ -1,5 +1,6 @@
 package assessment.entities.Membership;
 
+import assessment.entities.User.User;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 
@@ -12,7 +13,7 @@ public class Membership {
 
     @DBRef
     @NotEmpty(message = "User ID is required")
-    private String userId;
+    private User userId;
 
     @NotEmpty(message = "The membership must be active or inactive")
     private Boolean isActive;
@@ -24,7 +25,7 @@ public class Membership {
     @NotEmpty(message = "Version is required")
     private Integer version;
 
-    public Membership(String userId, Boolean isActive, Date addedOn, Date
+    public Membership(User userId, Boolean isActive, Date addedOn, Date
             removedOn, Integer version) {
         this.userId = userId;
         this.isActive = isActive;
@@ -33,11 +34,11 @@ public class Membership {
         this.version = version;
     }
 
-    public String getUserId() {
+    public User getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(User userId) {
         this.userId = userId;
     }
 
