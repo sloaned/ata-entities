@@ -2,6 +2,7 @@ package assessment.entities.Review;
 
 import assessment.entities.Feedback.Feedback;
 import assessment.entities.User.User;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 
@@ -27,6 +28,7 @@ public class Review {
     private String teamName;
 
     @NotEmpty
+    @JsonFormat(pattern = "MM/dd/yyyy", timezone="PST")
     private Date submittedDate;
 
     @NotEmpty
