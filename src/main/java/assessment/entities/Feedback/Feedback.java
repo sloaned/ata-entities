@@ -22,7 +22,7 @@ public class Feedback {
     @Range(min = 1, max = 5)
     private Integer score;
 
-    @Length(max = 1500, message = "Comment length must not exceed 255 " +
+    @Length(max = 1500, message = "Comment length must not exceed 1,500 " +
             "characters")
     private String comment;
 
