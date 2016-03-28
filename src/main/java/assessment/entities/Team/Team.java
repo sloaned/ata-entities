@@ -5,6 +5,7 @@ import assessment.entities.Template.Template;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 
 import java.util.List;
 
@@ -16,6 +17,7 @@ public class Team {
     @Id
     private String id;
 
+    @Indexed(unique = true)
     @NotEmpty(message = "Team name is required")
     private String name;
 
