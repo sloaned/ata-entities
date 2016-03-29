@@ -1,24 +1,17 @@
 package assessment.entities.User;
 
-import assessment.utilities.RegexConstants;
 import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
-import org.springframework.hateoas.ResourceSupport;
-
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
-
 
 /**
  * Created by gfisher on 3/14/2016.
  */
-public class User extends ResourceSupport {
+public class User {
 
     @Id
     private String id;
-
-    private String version;
 
     @NotEmpty(message = "First Name is required")
     private String firstName;
@@ -30,55 +23,47 @@ public class User extends ResourceSupport {
     @Email(message = "Email must be valid")
     private String email;
 
-    @NotNull(message = "Username is required")
-    @Pattern(regexp = RegexConstants.USERNAME)
-    private String username;
+    @NotEmpty(message = "Role is required")
+    private Role role;
 
-    @NotNull(message = "Password is required")
-    @Pattern(regexp = RegexConstants.PASSWORD)
-    private String password;
+    /**
+     * User avatars are requested via Gravatar; the userAvatar field stores a
+     * hash that must be calculated using the user's email address
+     */
+    private String avatar;
 
-
-//    TODO Add Image to User Entity
+    @Length(max = 255, message = "Profile description must be fewer than 255" +
+            " characters")
     private String profileDescription;
 
+    @NotEmpty(message = "The user must be active or inactive")
     private Boolean isActive;
 
-    public User(){
-        this.version = "default";
-        this.firstName = "Joe";
-        this.lastName = "Shmoe";
-        this.email = "jschmoe@normal.com";
-        this.username = "jshmoe";
-        this.password = "Password1!";
-        this.isActive = true;
-    }
+    @NotEmpty(message = "Version is required")
+    private Integer version;
 
-    public User(String version, String firstName, String lastName, String email, String username, String password, String profileDescription, Boolean isActive) {
-        this.version = version;
+    public User(){}
+
+    public User(String id, String firstName, String lastName, String email,
+                Role role, String avatar, String profileDescription, Boolean
+                isActive, Integer version) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.username = username;
-        this.password = password;
+        this.role = role;
+        this.avatar = avatar;
         this.profileDescription = profileDescription;
         this.isActive = isActive;
+        this.version = version;
     }
 
-    public String getUsername() {
-        return username;
+    public String getId() {
+        return id;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getFirstName() {
@@ -103,5 +88,45 @@ public class User extends ResourceSupport {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public String getProfileDescription() {
+        return profileDescription;
+    }
+
+    public void setProfileDescription(String profileDescription) {
+        this.profileDescription = profileDescription;
+    }
+
+    public Boolean getActive() {
+        return isActive;
+    }
+
+    public void setActive(Boolean active) {
+        isActive = active;
+    }
+
+    public Integer getVersion() {
+        return version;
+    }
+
+    public void setVersion(Integer version) {
+        this.version = version;
     }
 }

@@ -1,7 +1,7 @@
 package assessment.entities.Team;
 
+import assessment.entities.Assessment.Assessment;
 import assessment.entities.Membership.Membership;
-import assessment.entities.Template.Template;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
@@ -24,7 +24,7 @@ public class Team {
     @NotEmpty(message = "The team must be active or inactive")
     private Boolean isActive;
 
-    private Template template;
+    private Assessment assessment;
 
     private List<Membership> userList;
 
@@ -44,21 +44,18 @@ public class Team {
     @NotEmpty(message = "Version is required")
     private Integer version;
 
-    public Team(String id, String name, Boolean isActive, Template template,
+    public Team(String id, String name, Boolean isActive, Assessment assessment,
                 List<Membership> userList, List<Membership> leaderList, String
                 avatar, String description, TeamType type, Integer
                 reviewFrequency, Integer version) {
         this.id = id;
+        this.version = version;
         this.name = name;
         this.isActive = isActive;
-        this.template = template;
+        this.assessment = assessment;
         this.userList = userList;
         this.leaderList = leaderList;
-        this.avatar = avatar;
         this.description = description;
-        this.type = type;
-        this.reviewFrequency = reviewFrequency;
-        this.version = version;
     }
 
     public String getId() {
@@ -85,12 +82,12 @@ public class Team {
         isActive = active;
     }
 
-    public Template getTemplate() {
-        return template;
+    public Assessment getAssessment() {
+        return assessment;
     }
 
-    public void setTemplate(Template template) {
-        this.template = template;
+    public void setAssessment(Assessment assessment) {
+        this.assessment = assessment;
     }
 
     public List<Membership> getUserList() {
