@@ -2,6 +2,9 @@ package assessment.entities.Question;
 
 import org.springframework.data.annotation.Id;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+
 /**
  * Created by gfisher on 3/16/2016.
  */
@@ -11,7 +14,7 @@ public class Question {
     private String id;
 
     private String version;
-
+    @Enumerated(EnumType.STRING)
     private QuestionType questionType;
 
     private String label;

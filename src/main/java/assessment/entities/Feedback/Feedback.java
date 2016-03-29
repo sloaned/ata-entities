@@ -6,12 +6,14 @@ import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Range;
 import org.springframework.data.annotation.Id;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * Created by gfisher on 3/16/2016.
  */
 public class Feedback {
 
-    @NotEmpty(message = "Question type is required")
+    @NotNull(message = "Question type is required")
     private QuestionType type;
 
     @Length(max = 255, message = "Question label length must not exceed 255 " +
@@ -26,7 +28,7 @@ public class Feedback {
             "characters")
     private String comment;
 
-    @NotEmpty(message = "Version is required")
+    @NotNull(message = "Version is required")
     private Integer version;
 
     public Feedback(QuestionType type, String label, Integer score, String
