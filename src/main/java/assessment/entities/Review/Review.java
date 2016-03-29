@@ -13,13 +13,11 @@ import java.util.List;
  * Created by Alysha Recore on 3/28/2016.
  */
 public class Review {
-
-    //Verify that these are for sure refs instead of storing the whole object.
+    
     @DBRef
     @NotEmpty(message = "Reviewer must be defined.")
     private User reviewerId;
 
-    //Verify that these are for sure refs instead of storing the whole object.
     @DBRef
     @NotEmpty(message = "Reviewee must be defined.")
     private User reviewedId;
