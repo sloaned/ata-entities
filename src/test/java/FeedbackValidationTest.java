@@ -31,14 +31,14 @@ public class FeedbackValidationTest {
     public void typeNull() {
         Feedback myFeedback = new Feedback(null, "asd", 1, "grd", 3);
         Set<ConstraintViolation<Feedback>> violations = validator.validate(myFeedback);
-        assertFalse("should not pass due to null", violations.isEmpty());
+        assertFalse("should not pass due to null type", violations.isEmpty());
     }
 
     @Test
     public void versionNull() {
         Feedback myFeedback = new Feedback(null, null, null, null, null);
         Set<ConstraintViolation<Feedback>> violations = validator.validate(myFeedback);
-        assertFalse("should not pass due to null", violations.isEmpty());
+        assertFalse("should not pass because everything is null", violations.isEmpty());
     }
 
     @Test
@@ -65,7 +65,7 @@ public class FeedbackValidationTest {
         }
         Feedback myFeedback = new Feedback(type, word, 3, "wet", 3);
         Set<ConstraintViolation<Feedback>> violations = validator.validate(myFeedback);
-        assertFalse("should fail due to string length restrictions", violations.isEmpty());
+        assertFalse("should fail because your label was too long", violations.isEmpty());
     }
 
     @Test
@@ -77,7 +77,7 @@ public class FeedbackValidationTest {
         }
         Feedback myFeedback = new Feedback(type, "wet", 3, word, 3);
         Set<ConstraintViolation<Feedback>> violations = validator.validate(myFeedback);
-        assertFalse("should fail due to string length restrictions", violations.isEmpty());
+        assertFalse("should fail because your comment was too long", violations.isEmpty());
     }
 
     @Test
@@ -86,6 +86,6 @@ public class FeedbackValidationTest {
         String word = "word to ya";
         Feedback myFeedback = new Feedback(type, word, 9, word, 3);
         Set<ConstraintViolation<Feedback>> violations = validator.validate(myFeedback);
-        assertFalse("should fail due to string limit restrictions", violations.isEmpty());
+        assertFalse("your rateing was out of the acceptable rance", violations.isEmpty());
     }
 }
