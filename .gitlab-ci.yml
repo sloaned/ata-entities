@@ -1,7 +1,8 @@
 deploy:
   script:
     - mvn deploy
-
+  only:
+    - master
   tags:
     - docker
     - aws
