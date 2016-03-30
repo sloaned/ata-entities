@@ -1,0 +1,5 @@
+deploy:
+  script:
+    - mvn deploy
+  only:
+    - AA-8
