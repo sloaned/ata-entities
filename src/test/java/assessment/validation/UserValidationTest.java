@@ -5,12 +5,13 @@ import assessment.factories.User.UserFactory;
 import assessment.factories.User.UserOptions;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
 import java.util.Set;
+
+import static org.junit.Assert.assertTrue;
 
 /**
  * Created by hmccardell on 3/30/2016.

@@ -27,8 +27,9 @@ public class UserFactory extends TestBaseConstants {
                 user.setEmail(VALID_USER_EMAIL);
                 user.setFirstName(VALID_USER_FIRST_NAME);
                 user.setLastName(VALID_USER_LAST_NAME);
-                //user.setRole(role);
+                user.setRole(role);
                 user.setId(VALID_USER_ID);
+                user.setProfileDescription(VALID_USER_DESCRIPTION);
                 break;
 
             case VALID_INACTIVE_DEVELOPER:
@@ -40,6 +41,7 @@ public class UserFactory extends TestBaseConstants {
                 user.setLastName(VALID_USER_LAST_NAME);
                 user.setRole(role);
                 user.setId(VALID_USER_ID);
+                user.setProfileDescription(VALID_USER_DESCRIPTION);
                 break;
 
         }

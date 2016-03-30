@@ -2,8 +2,6 @@ package assessment.testbase;
 
 import assessment.entities.User.Role;
 
-import java.util.Date;
-
 /**
  * Created by hmccardell on 3/29/2016.
  */
@@ -34,7 +32,7 @@ public class TestBaseConstants {
     protected final static String VALID_USER_DESCRIPTION = "My name is Stuart Smalley, and I'm going to help people. I'm good enough, smart enough, and gosh darnit, people like me";
 
     /**
-     * FEED SECTION
+     * FEEDBACK SECTION
      */
 
 

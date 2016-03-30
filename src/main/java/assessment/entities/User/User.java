@@ -28,7 +28,7 @@ public class User {
     @Email(message = "Email must be valid")
     private String email;
 
-    @Null(message = "Role is required")
+    @NotNull(message = "Role is required")
     private Role role;
 
     /**
