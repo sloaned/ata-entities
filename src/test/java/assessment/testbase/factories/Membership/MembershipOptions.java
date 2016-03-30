@@ -1,4 +1,4 @@
-package assessment.testbase.Membership;
+package assessment.testbase.factories.Membership;
 
 /**
  * Created by hmccardell on 3/29/2016.
