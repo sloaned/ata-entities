@@ -1,5 +1,6 @@
-package assessment.testbase.factories.User;
+package assessment.factories.User;
 
+import assessment.entities.User.Role;
 import assessment.entities.User.User;
 import assessment.testbase.TestBaseConstants;
 
@@ -15,6 +16,7 @@ public class UserFactory extends TestBaseConstants {
     public User assembleUser(UserOptions userOption) {
 
         User user = new User();
+        Role role = Role.valueOf("DEVELOPER");
 
         switch(userOption){
 
@@ -25,7 +27,7 @@ public class UserFactory extends TestBaseConstants {
                 user.setEmail(VALID_USER_EMAIL);
                 user.setFirstName(VALID_USER_FIRST_NAME);
                 user.setLastName(VALID_USER_LAST_NAME);
-                user.setRole(ROLE_DEVELOPER);
+                //user.setRole(role);
                 user.setId(VALID_USER_ID);
                 break;
 
@@ -36,7 +38,7 @@ public class UserFactory extends TestBaseConstants {
                 user.setEmail(VALID_USER_EMAIL);
                 user.setFirstName(VALID_USER_FIRST_NAME);
                 user.setLastName(VALID_USER_LAST_NAME);
-                user.setRole(ROLE_DEVELOPER);
+                user.setRole(role);
                 user.setId(VALID_USER_ID);
                 break;
 

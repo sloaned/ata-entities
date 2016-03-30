@@ -1,4 +1,4 @@
-package assessment.testbase.factories.User;
+package assessment.factories.User;
 
 /**
  * Created by hmccardell on 3/29/2016.

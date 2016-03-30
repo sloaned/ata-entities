@@ -25,7 +25,6 @@ public class TestBaseConstants {
      */
     protected final static String VALID_USER_ID = "testid";
     protected final static String VALID_ROLE = "DEVELOPER";
-    protected final static Role ROLE_DEVELOPER = Role.valueOf("DEVELOPER");
     protected final static Role ROLE_LEAD = Role.valueOf("LEAD");
     protected final static Role ROLE_MENTOR = Role.valueOf("MENTOR");
     protected final static String VALID_USER_GRAVATAR_LINK = "www.gravatar.com/whatever";

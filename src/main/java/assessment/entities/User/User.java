@@ -3,7 +3,12 @@ package assessment.entities.User;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.Range;
 import org.springframework.data.annotation.Id;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Null;
+import javax.validation.constraints.Pattern;
 
 /**
  * Created by gfisher on 3/14/2016.
@@ -23,7 +28,7 @@ public class User {
     @Email(message = "Email must be valid")
     private String email;
 
-    @NotEmpty(message = "Role is required")
+    @Null(message = "Role is required")
     private Role role;
 
     /**
@@ -36,10 +41,10 @@ public class User {
             " characters")
     private String profileDescription;
 
-    @NotEmpty(message = "The user must be active or inactive")
+    @NotNull(message = "The user must be active or inactive")
     private Boolean isActive;
 
-    @NotEmpty(message = "Version is required")
+    @Range(min = 1, max = 100, message = "version is required")
     private Integer version;
 
     public User(){}
@@ -56,6 +61,21 @@ public class User {
         this.profileDescription = profileDescription;
         this.isActive = isActive;
         this.version = version;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id='" + id + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", role=" + role +
+                ", avatar='" + avatar + '\'' +
+                ", profileDescription='" + profileDescription + '\'' +
+                ", isActive=" + isActive +
+                ", version=" + version +
+                '}';
     }
 
     public String getId() {

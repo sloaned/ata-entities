@@ -1,9 +1,9 @@
-package assessment.testbase.factories.Membership;
+package assessment.factories.Membership;
 
 import assessment.entities.Membership.Membership;
 import assessment.testbase.TestBase;
-import assessment.testbase.factories.User.UserFactory;
-import assessment.testbase.factories.User.UserOptions;
+import assessment.factories.User.UserFactory;
+import assessment.factories.User.UserOptions;
 
 import java.text.ParseException;
 
