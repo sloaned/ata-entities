@@ -1,3 +1,5 @@
-build:
+deploy:
   script:
     - mvn deploy
+  only:
+    - master
