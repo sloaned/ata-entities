@@ -29,6 +29,14 @@ public class QuestionFactory extends TestBaseConstants {
                 question.setLabel(VALID_QUESTION_LABEL_QUALITATIVE);
                 question.setVersion(VALID_ENTITY_VERSION);
                 break;
+
+            case NULL_TYPE_QUESTION:
+                question.setLabel(VALID_QUESTION_LABEL_QUANTITATIVE);
+                question.setVersion(VALID_ENTITY_VERSION);
+                break;
+
+            case LONG_LABEL_QUESTION:
+                break;
         }
 
         return question;

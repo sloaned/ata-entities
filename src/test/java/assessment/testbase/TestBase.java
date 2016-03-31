@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Random;
 
 /**
  * Created by hmccardell on 3/29/2016.
@@ -20,7 +21,16 @@ public class TestBase extends TestBaseConstants {
     }
 
 
-
+    protected String generateRandomString(Integer length) {
+        Random rng = new Random();
+        String characterSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        char[] randomCharacters = new char[length];
+        for (int i = 0; i < length; i++) {
+            randomCharacters[i] = characterSet.charAt(rng.nextInt(characterSet
+                    .length()));
+        }
+        return new String(randomCharacters);
+    }
 
 
 
