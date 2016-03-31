@@ -1,9 +1,11 @@
 package assessment.entities.Team;
 
-import assessment.entities.Template.Template;
-import assessment.entities.User.User;
+import assessment.entities.Assessment.Assessment;
+import assessment.entities.Membership.Membership;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.index.Indexed;
 
 import java.util.List;
 
@@ -15,42 +17,53 @@ public class Team {
     @Id
     private String id;
 
-    private String version;
-
+    @Indexed(unique = true)
+    @NotEmpty(message = "Team name is required")
     private String name;
 
+    @NotEmpty(message = "The team must be active or inactive")
     private Boolean isActive;
 
-    private Template template;
+    private Assessment assessment;
 
-    @DBRef
-    private List<User> teamMembers;
+    private List<Membership> userList;
 
-    @DBRef
-    private List<User> teamLeads;
+    private List<Membership> leaderList;
 
-// TODO: Add Image to Team Entity;
+    private String avatar;
 
-    private String teamDescription;
+    @Length(max = 255, message = "Team description length must not exceed " +
+            "255 characters")
+    private String description;
 
-    private Team() {}
+    @NotEmpty(message = "Team type is required")
+    private TeamType type;
 
-    public Team(String version, String name, Boolean isActive, Template template, List<User> teamMembers, List<User> teamLeads, String teamDescription) {
+    private Integer reviewFrequency;
+
+    @NotEmpty(message = "Version is required")
+    private Integer version;
+
+    public Team(String id, String name, Boolean isActive, Assessment assessment,
+                List<Membership> userList, List<Membership> leaderList, String
+                avatar, String description, TeamType type, Integer
+                reviewFrequency, Integer version) {
+        this.id = id;
         this.version = version;
         this.name = name;
         this.isActive = isActive;
-        this.template = template;
-        this.teamMembers = teamMembers;
-        this.teamLeads = teamLeads;
-        this.teamDescription = teamDescription;
+        this.assessment = assessment;
+        this.userList = userList;
+        this.leaderList = leaderList;
+        this.description = description;
     }
 
-    public String getVersion() {
-        return version;
+    public String getId() {
+        return id;
     }
 
-    public void setVersion(String version) {
-        this.version = version;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -69,35 +82,67 @@ public class Team {
         isActive = active;
     }
 
-    public Template getTemplate() {
-        return template;
+    public Assessment getAssessment() {
+        return assessment;
     }
 
-    public void setTemplate(Template template) {
-        this.template = template;
+    public void setAssessment(Assessment assessment) {
+        this.assessment = assessment;
     }
 
-    public List<User> getTeamMembers() {
-        return teamMembers;
+    public List<Membership> getUserList() {
+        return userList;
     }
 
-    public void setTeamMembers(List<User> teamMembers) {
-        this.teamMembers = teamMembers;
+    public void setUserList(List<Membership> userList) {
+        this.userList = userList;
     }
 
-    public List<User> getTeamLeads() {
-        return teamLeads;
+    public List<Membership> getLeaderList() {
+        return leaderList;
     }
 
-    public void setTeamLeads(List<User> teamLeads) {
-        this.teamLeads = teamLeads;
+    public void setLeaderList(List<Membership> leaderList) {
+        this.leaderList = leaderList;
     }
 
-    public String getTeamDescription() {
-        return teamDescription;
+    public String getAvatar() {
+        return avatar;
     }
 
-    public void setTeamDescription(String teamDescription) {
-        this.teamDescription = teamDescription;
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public TeamType getType() {
+        return type;
+    }
+
+    public void setType(TeamType type) {
+        this.type = type;
+    }
+
+    public Integer getReviewFrequency() {
+        return reviewFrequency;
+    }
+
+    public void setReviewFrequency(Integer reviewFrequency) {
+        this.reviewFrequency = reviewFrequency;
+    }
+
+    public Integer getVersion() {
+        return version;
+    }
+
+    public void setVersion(Integer version) {
+        this.version = version;
     }
 }

@@ -1,5 +1,5 @@
-package assessment.entities.Feedback;
 
+import assessment.entities.Feedback.Feedback;
 import assessment.entities.Question.QuestionType;
 import org.junit.BeforeClass;
 import org.junit.Test;

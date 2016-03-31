@@ -1,5 +1,8 @@
 package assessment.entities.Token;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+
 import java.util.Date;
 
 /**
@@ -7,21 +10,36 @@ import java.util.Date;
  */
 public class Token {
 
+    @NotEmpty(message = "Token string is required")
+    private String token;
+
+    @NotEmpty(message = "First name is required")
     private String firstName;
 
+    @NotEmpty(message = "Last name is required")
     private String lastName;
 
+    @Email(message = "Email must be valid")
+    @NotEmpty(message = "Email is required")
     private String email;
 
-    private Date expirationDate;
+    @NotEmpty(message = "Expiration date is required")
+    private Date expiration;
 
-    public Token() {}
-
-    public Token(String firstName, String lastName, String email, Date expirationDate) {
+    public Token(String token, String firstName, String lastName, String email, Date expiration) {
+        this.token = token;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.expirationDate = expirationDate;
+        this.expiration = expiration;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 
     public String getFirstName() {
@@ -48,11 +66,11 @@ public class Token {
         this.email = email;
     }
 
-    public Date getExpirationDate() {
-        return expirationDate;
+    public Date getExpiration() {
+        return expiration;
     }
 
-    public void setExpirationDate(Date expirationDate) {
-        this.expirationDate = expirationDate;
+    public void setExpiration(Date expiration) {
+        this.expiration = expiration;
     }
 }
