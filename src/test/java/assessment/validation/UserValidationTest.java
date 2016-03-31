@@ -2,7 +2,7 @@ package assessment.validation;
 
 import assessment.entities.User.User;
 import assessment.factories.User.UserFactory;
-import assessment.factories.User.UserOptions;
+import assessment.factories.User.UserOption;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -25,16 +25,12 @@ public class UserValidationTest {
     @BeforeClass
     public static void setUp() {
         validator = Validation.buildDefaultValidatorFactory().getValidator();
-
     }
 
     @Test
-    public void HappyPathValidationOfUser() {
-        testUser = userFactory.assembleUser(UserOptions.VALID_ACTIVE_DEVELOPER);
-        System.out.println(testUser.toString());
-
+    public void HappyPathValidationOfUserFactory() {
+        testUser = userFactory.assembleUser(UserOption.VALID_ACTIVE_DEVELOPER);
         Set<ConstraintViolation<User>> violations = validator.validate(testUser);
-        assertTrue("the user factory has created a valid user", violations.isEmpty());
-
+        assertTrue("the user factory has created a user that doesn't match entity constraints", violations.isEmpty());
     }
 }

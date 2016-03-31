@@ -7,8 +7,6 @@ import org.hibernate.validator.constraints.Range;
 import org.springframework.data.annotation.Id;
 
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Null;
-import javax.validation.constraints.Pattern;
 
 /**
  * Created by gfisher on 3/14/2016.
@@ -44,7 +42,7 @@ public class User {
     @NotNull(message = "The user must be active or inactive")
     private Boolean isActive;
 
-    @Range(min = 1, max = 100, message = "version is required")
+    @Range(min = 1, message = "version greater than 1 is required")
     private Integer version;
 
     public User(){}

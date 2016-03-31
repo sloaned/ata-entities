@@ -7,8 +7,6 @@ import assessment.entities.User.Role;
  */
 public class TestBaseConstants {
 
-
-
     /**
      * GENERAL SECTION
      */
@@ -17,19 +15,24 @@ public class TestBaseConstants {
     protected final static String VALID_DATE_FORMAT = "yyyy-MM-dd";
 
 
-
     /**
      * USER SECTION
      */
     protected final static String VALID_USER_ID = "testid";
-    protected final static String VALID_ROLE = "DEVELOPER";
-    protected final static Role ROLE_LEAD = Role.valueOf("LEAD");
-    protected final static Role ROLE_MENTOR = Role.valueOf("MENTOR");
-    protected final static String VALID_USER_GRAVATAR_LINK = "www.gravatar.com/whatever";
+    protected final static String VALID_USER_GRAVATAR_HASH = "simulatedHASH0123456789SIMULATEDhash";
     protected final static String VALID_USER_EMAIL = "squag@catalystdevworks.com";
     protected final static String VALID_USER_FIRST_NAME = "Stuart";
     protected final static String VALID_USER_LAST_NAME = "Smalley";
     protected final static String VALID_USER_DESCRIPTION = "My name is Stuart Smalley, and I'm going to help people. I'm good enough, smart enough, and gosh darnit, people like me";
+
+
+    /**
+     * ROLE SECTION
+     */
+    protected final static Role ROLE_DEVELOPER = Role.valueOf("DEVELOPER");
+    protected final static Role ROLE_LEAD = Role.valueOf("LEAD");
+    protected final static Role ROLE_MENTOR = Role.valueOf("MENTOR");
+
 
     /**
      * FEEDBACK SECTION

@@ -13,21 +13,20 @@ import java.util.List;
  */
 public class UserFactory extends TestBaseConstants {
 
-    public User assembleUser(UserOptions userOption) {
+    public User assembleUser(UserOption userOption) {
 
         User user = new User();
-        Role role = Role.valueOf("DEVELOPER");
 
         switch(userOption){
 
             case VALID_ACTIVE_DEVELOPER:
                 user.setVersion(VALID_ENTITY_VERSION);
                 user.setActive(true);
-                user.setAvatar(VALID_USER_GRAVATAR_LINK);
+                user.setAvatar(VALID_USER_GRAVATAR_HASH);
                 user.setEmail(VALID_USER_EMAIL);
                 user.setFirstName(VALID_USER_FIRST_NAME);
                 user.setLastName(VALID_USER_LAST_NAME);
-                user.setRole(role);
+                user.setRole(ROLE_DEVELOPER);
                 user.setId(VALID_USER_ID);
                 user.setProfileDescription(VALID_USER_DESCRIPTION);
                 break;
@@ -35,21 +34,20 @@ public class UserFactory extends TestBaseConstants {
             case VALID_INACTIVE_DEVELOPER:
                 user.setVersion(VALID_ENTITY_VERSION);
                 user.setActive(false);
-                user.setAvatar(VALID_USER_GRAVATAR_LINK);
+                user.setAvatar(VALID_USER_GRAVATAR_HASH);
                 user.setEmail(VALID_USER_EMAIL);
                 user.setFirstName(VALID_USER_FIRST_NAME);
                 user.setLastName(VALID_USER_LAST_NAME);
-                user.setRole(role);
+                user.setRole(ROLE_DEVELOPER);
                 user.setId(VALID_USER_ID);
                 user.setProfileDescription(VALID_USER_DESCRIPTION);
                 break;
-
         }
 
         return user;
     }
 
-    public List<User> assembleUsersAsList(UserOptions option, int count) throws ParseException {
+    public List<User> assembleUsersAsList(UserOption option, int count) throws ParseException {
 
         List<User> result = new ArrayList<User>();
 
@@ -59,6 +57,5 @@ public class UserFactory extends TestBaseConstants {
 
         return result;
     }
-
 
 }
