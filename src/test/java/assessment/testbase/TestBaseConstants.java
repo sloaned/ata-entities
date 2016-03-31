@@ -1,5 +1,6 @@
 package assessment.testbase;
 
+import assessment.entities.Team.TeamType;
 import assessment.entities.User.Role;
 
 /**
@@ -18,6 +19,7 @@ public class TestBaseConstants {
     protected final static String VALID_PERSON_NAME = "test name'-";
     protected final static String VALID_DESCRIPTION = "My name is Stuart Smalley, and I'm going to help people. I'm good enough, smart enough, and gosh darnit, people like me";
     protected final static String VALID_OBJECT_NAME = "Test Name 1-'";
+    protected final static String VALID_GRAVATAR_HASH = "simulatedHASH0123456789SIMULATEDhash";
 
     /**
      * Invalid Input:
@@ -29,7 +31,6 @@ public class TestBaseConstants {
      *
      * Valid Input:
      */
-    protected final static String VALID_USER_GRAVATAR_HASH = "simulatedHASH0123456789SIMULATEDhash";
     protected final static String VALID_USER_EMAIL = "squag@catalystdevworks.com";
 
     /**
@@ -49,6 +50,29 @@ public class TestBaseConstants {
      * FEEDBACK SECTION
      */
 
+    /**
+     * TEAM SECTION
+     *
+     * Valid Input:
+     */
+    protected final static Integer VALID_REVIEW_FREQUENCY = 1;
 
+    /**
+     * Invalid Input:
+     */
+    protected final static Integer BAD_REVIEW_FREQUENCY = 5;
+
+    /**
+     * TEAM TYPE SECTION
+     *
+     * Valid Input:
+     */
+    protected final static TeamType TEAM_O3 = TeamType.valueOf("O3");
+    protected final static TeamType TEAM_DEV = TeamType.valueOf("DEV");
+
+    /**
+     * Invalid Input:
+     */
+    protected final static TeamType BAD_TEAM_TYPE = TeamType.valueOf("Not a team type");
 
 }

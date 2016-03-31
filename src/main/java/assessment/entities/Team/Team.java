@@ -21,7 +21,7 @@ public class Team {
 
     @Indexed(unique = true)
     @NotEmpty(message = "Team name is required.")
-    @Length(max = 100, message = "First name can be no longer than 100 characters.")
+    @Length(max = 100, message = "Team name can be no longer than 100 characters.")
     @Pattern(regexp = RegexConstants.OBJECT_NAME, message = "Team name contains invalid characters.")
     private String name;
 
@@ -43,7 +43,7 @@ public class Team {
     @NotEmpty(message = "Team type is required.")
     private TeamType type;
 
-    @Pattern(regexp = "^[3 1 ]*$", message = "Review Frequency must either be null, 1 or 3.")
+    @Pattern(regexp = "^[3 1 ]*$", message = "Review Frequency must either be null, 1, or 3.")
     private Integer reviewFrequency;
 
     @NotEmpty(message = "Version is required.")
@@ -63,6 +63,22 @@ public class Team {
         this.description = description;
     }
 
+    @Override
+    public String toString() {
+        return "Team {" +
+                "id ='" + id + '\'' +
+                ", name ='" + name + '\'' +
+                ", isActive =" + isActive + '\'' +
+                ", assessment ='" + assessment + '\'' +
+                ", userList ='" + userList + '\'' +
+                ", leaderList =" + leaderList + '\'' +
+                ", avatar ='" + avatar + '\'' +
+                ", description ='" + description + '\'' +
+                ", teamType = " +  type + '\'' +
+                ", reviewFrequency = " + reviewFrequency + '\'' +
+                ", version =" + version +
+                '}';
+    }
 
     public String getId() {
         return id;
