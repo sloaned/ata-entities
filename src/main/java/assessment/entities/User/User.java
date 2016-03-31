@@ -18,11 +18,13 @@ public class User {
     private String id;
 
     @NotEmpty(message = "First Name is required")
-    @Pattern(regexp = RegexConstants.PERSON_NAME, message = "Name doesn't meet requirements")
+    @Pattern(regexp = RegexConstants.PERSON_NAME, message = "First name doesn't meet requirements")
+    @Length(max = 50, message = "First name can be no longer than 50 characters")
     private String firstName;
 
     @NotEmpty(message = "Last Name is required")
-    @Pattern(regexp = RegexConstants.PERSON_NAME, message = "Name doesn't meet requirements")
+    @Pattern(regexp = RegexConstants.PERSON_NAME, message = "Last name doesn't meet requirements")
+    @Length(max = 50, message = "Last name can be no longer than 50 characters")
     private String lastName;
 
     @NotEmpty(message = "Email is required")

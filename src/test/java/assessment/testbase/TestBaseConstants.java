@@ -15,9 +15,9 @@ public class TestBaseConstants {
     protected final static int VALID_ENTITY_VERSION = 1;
     protected final static String VALID_DATE = "2016-03-25";
     protected final static String VALID_DATE_FORMAT = "yyyy-MM-dd";
-    protected final static String VALID_ENTITY_ID = "testid";
     protected final static String VALID_PERSON_NAME = "test name'-";
     protected final static String VALID_DESCRIPTION = "My name is Stuart Smalley, and I'm going to help people. I'm good enough, smart enough, and gosh darnit, people like me";
+    protected final static String VALID_OBJECT_NAME = "Test Name 1-'";
 
     /**
      * Invalid Input:
