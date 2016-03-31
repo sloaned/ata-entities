@@ -25,6 +25,10 @@ public class Membership {
     @NotEmpty(message = "Version is required")
     private Integer version;
 
+    public Membership(){
+
+    }
+
     public Membership(User userId, Boolean isActive, Date addedOn, Date
             removedOn, Integer version) {
         this.userId = userId;
