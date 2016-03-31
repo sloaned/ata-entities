@@ -27,6 +27,7 @@ public class FeedbackValidationTest {
 
     }
 
+
     @Test
     public void typeNull() {
         Feedback myFeedback = new Feedback(null, "asd", 1, "grd", 3);
