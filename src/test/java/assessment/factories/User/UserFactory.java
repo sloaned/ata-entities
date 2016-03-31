@@ -25,8 +25,6 @@ public class UserFactory extends TestBaseConstants {
                 user.setEmail(VALID_USER_EMAIL);
                 user.setFirstName(VALID_PERSON_NAME);
                 user.setLastName(VALID_PERSON_NAME);
-                user.setRole(ROLE_DEVELOPER);
-                user.setId(VALID_ENTITY_ID);
                 user.setProfileDescription(VALID_DESCRIPTION);
                 break;
 
@@ -38,7 +36,6 @@ public class UserFactory extends TestBaseConstants {
                 user.setFirstName(VALID_PERSON_NAME);
                 user.setLastName(VALID_PERSON_NAME);
                 user.setRole(ROLE_DEVELOPER);
-                user.setId(VALID_ENTITY_ID);
                 user.setProfileDescription(VALID_DESCRIPTION);
                 break;
         }
