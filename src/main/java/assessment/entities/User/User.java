@@ -1,12 +1,13 @@
 package assessment.entities.User;
 
-import org.hibernate.validator.constraints.Email;
+import assessment.utilities.RegexConstants;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Range;
 import org.springframework.data.annotation.Id;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 /**
  * Created by gfisher on 3/14/2016.
@@ -17,13 +18,15 @@ public class User {
     private String id;
 
     @NotEmpty(message = "First Name is required")
+    @Pattern(regexp = RegexConstants.PERSON_NAME, message = "Name doesn't meet requirements")
     private String firstName;
 
     @NotEmpty(message = "Last Name is required")
+    @Pattern(regexp = RegexConstants.PERSON_NAME, message = "Name doesn't meet requirements")
     private String lastName;
 
     @NotEmpty(message = "Email is required")
-    @Email(message = "Email must be valid")
+    @Pattern(regexp = RegexConstants.EMAIL, message = "Email must be valid")
     private String email;
 
     @NotNull(message = "Role is required")
