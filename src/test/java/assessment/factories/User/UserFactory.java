@@ -1,6 +1,5 @@
 package assessment.factories.User;
 
-import assessment.entities.User.Role;
 import assessment.entities.User.User;
 import assessment.testbase.TestBaseConstants;
 

@@ -42,7 +42,7 @@ public class User {
     @NotNull(message = "The user must be active or inactive")
     private Boolean isActive;
 
-    @Range(min = 1, message = "version greater than 1 is required")
+    @Range(min = 1, message = "version of at least 1 is required")
     private Integer version;
 
     public User(){}
