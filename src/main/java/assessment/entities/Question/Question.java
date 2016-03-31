@@ -4,6 +4,8 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
 
+import javax.validation.constraints.NotNull;
+
 /**
  * Created by gfisher on 3/16/2016.
  */
@@ -12,7 +14,7 @@ public class Question {
     @Id
     private String id;
 
-    @NotEmpty(message = "Question type is required")
+    @NotNull(message = "Question type is required")
     private QuestionType type;
 
     @Length(max = 255, message = "Question label length must not exceed 255 " +
@@ -22,6 +24,8 @@ public class Question {
 
     @NotEmpty(message = "Version is required")
     private Integer version;
+
+    public Question() {}
 
     public Question(Integer version, String id, QuestionType type, String
             label) {

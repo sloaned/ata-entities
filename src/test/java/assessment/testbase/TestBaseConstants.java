@@ -1,5 +1,6 @@
 package assessment.testbase;
 
+import assessment.entities.Question.QuestionType;
 import assessment.entities.User.Role;
 
 /**
@@ -32,6 +33,25 @@ public class TestBaseConstants {
     protected final static Role ROLE_DEVELOPER = Role.valueOf("DEVELOPER");
     protected final static Role ROLE_LEAD = Role.valueOf("LEAD");
     protected final static Role ROLE_MENTOR = Role.valueOf("MENTOR");
+
+
+    /**
+     * QUESTION SECTION
+     */
+    protected final static String VALID_QUESTION_LABEL_QUANTITATIVE = "How " +
+            "would you rate your teammate's overall performance on the " +
+            "project?";
+    protected final static String VALID_QUESTION_LABEL_QUALITATIVE = "Did " +
+            "your teammate consistently meet their sprint commitments?";
+
+
+    /**
+     * QUESTION TYPE SECTION
+     */
+    protected final static QuestionType QUESTION_TYPE_QUANTITATIVE =
+            QuestionType.valueOf("QUANTITATIVE");
+    protected final static QuestionType QUESTION_TYPE_QUALITATIVE =
+            QuestionType.valueOf("QUALITATIVE");
 
 
     /**
