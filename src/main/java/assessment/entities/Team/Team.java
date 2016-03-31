@@ -49,6 +49,8 @@ public class Team {
     @NotEmpty(message = "Version is required.")
     private Integer version;
 
+    public Team(){};
+
     public Team(String id, String name, Boolean isActive, Assessment assessment,
                 List<Membership> userList, List<Membership> leaderList, String
                 avatar, String description, TeamType type, Integer
