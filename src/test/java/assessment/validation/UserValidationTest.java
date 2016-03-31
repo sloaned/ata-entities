@@ -28,9 +28,17 @@ public class UserValidationTest {
     }
 
     @Test
-    public void HappyPathValidationOfUserFactory() {
+    public void HappyPathValidationOfUserFactoryValidActiveDeveloper() {
         testUser = userFactory.assembleUser(UserOption.VALID_ACTIVE_DEVELOPER);
         Set<ConstraintViolation<User>> violations = validator.validate(testUser);
-        assertTrue("the user factory has created a user that doesn't match entity constraints", violations.isEmpty());
+        assertTrue("INVALID USER: the user factory assembled a user that doesn't pass entity validation", violations.isEmpty());
     }
+
+    @Test
+    public void HappyPathValidationOfUserFactoryValidInactiveDeveloper() {
+        testUser = userFactory.assembleUser(UserOption.VALID_INACTIVE_DEVELOPER);
+        Set<ConstraintViolation<User>> violations = validator.validate(testUser);
+        assertTrue("INVALID USER: the user factory assembled a user that doesn't pass entity validation", violations.isEmpty());
+    }
+
 }
