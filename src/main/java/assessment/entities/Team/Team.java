@@ -7,6 +7,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 
+import javax.validation.constraints.Pattern;
 import java.util.List;
 
 /**
@@ -39,6 +40,7 @@ public class Team {
     @NotEmpty(message = "Team type is required")
     private TeamType type;
 
+    @Pattern(regexp = "^[3 1 ]*$")
     private Integer reviewFrequency;
 
     @NotEmpty(message = "Version is required")
