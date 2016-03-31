@@ -1,6 +1,7 @@
 package assessment.factories.Question;
 
 import assessment.entities.Question.Question;
+import assessment.testbase.TestBase;
 import assessment.testbase.TestBaseConstants;
 
 import java.text.ParseException;
@@ -36,6 +37,26 @@ public class QuestionFactory extends TestBaseConstants {
                 break;
 
             case LONG_LABEL_QUESTION:
+                question.setType(QUESTION_TYPE_QUANTITATIVE);
+                TestBase testBase = new TestBase();
+                question.setLabel(testBase.generateRandomString(256));
+                question.setVersion(VALID_ENTITY_VERSION);
+                break;
+
+            case EMPTY_LABEL_QUESTION:
+                question.setType(QUESTION_TYPE_QUANTITATIVE);
+                question.setLabel("");
+                question.setVersion(VALID_ENTITY_VERSION);
+                break;
+
+            case NULL_LABEL_QUESTION:
+                question.setType(QUESTION_TYPE_QUANTITATIVE);
+                question.setVersion(VALID_ENTITY_VERSION);
+                break;
+
+            case NULL_VERSION_QUESTION:
+                question.setType(QUESTION_TYPE_QUANTITATIVE);
+                question.setLabel(VALID_QUESTION_LABEL_QUANTITATIVE);
                 break;
         }
 
