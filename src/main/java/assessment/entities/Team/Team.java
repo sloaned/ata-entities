@@ -2,6 +2,7 @@ package assessment.entities.Team;
 
 import assessment.entities.Assessment.Assessment;
 import assessment.entities.Membership.Membership;
+import assessment.utilities.RegexConstants;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
@@ -19,7 +20,9 @@ public class Team {
     private String id;
 
     @Indexed(unique = true)
-    @NotEmpty(message = "Team name is required")
+    @NotEmpty(message = "Team name is required.")
+    @Length(max = 100, message = "First name can be no longer than 100 characters.")
+    @Pattern(regexp = RegexConstants.OBJECT_NAME, message = "Team name contains invalid characters.")
     private String name;
 
     @NotEmpty(message = "The team must be active or inactive")
@@ -34,16 +37,16 @@ public class Team {
     private String avatar;
 
     @Length(max = 255, message = "Team description length must not exceed " +
-            "255 characters")
+            "255 characters.")
     private String description;
 
-    @NotEmpty(message = "Team type is required")
+    @NotEmpty(message = "Team type is required.")
     private TeamType type;
 
-    @Pattern(regexp = "^[3 1 ]*$")
+    @Pattern(regexp = "^[3 1 ]*$", message = "Review Frequency must either be null, 1 or 3.")
     private Integer reviewFrequency;
 
-    @NotEmpty(message = "Version is required")
+    @NotEmpty(message = "Version is required.")
     private Integer version;
 
     public Team(String id, String name, Boolean isActive, Assessment assessment,
@@ -59,6 +62,7 @@ public class Team {
         this.leaderList = leaderList;
         this.description = description;
     }
+
 
     public String getId() {
         return id;
