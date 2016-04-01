@@ -16,6 +16,7 @@ public class QuestionFactory extends TestBaseConstants {
     public Question assembleQuestion(QuestionOption questionOption) {
 
         Question question = new Question();
+        TestBase testBase = new TestBase();
 
         switch(questionOption){
 
@@ -38,7 +39,6 @@ public class QuestionFactory extends TestBaseConstants {
 
             case LONG_LABEL_QUESTION:
                 question.setType(QUESTION_TYPE_QUANTITATIVE);
-                TestBase testBase = new TestBase();
                 question.setLabel(testBase.generateRandomString(256));
                 question.setVersion(VALID_ENTITY_VERSION);
                 break;
