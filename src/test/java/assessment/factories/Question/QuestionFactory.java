@@ -11,12 +11,11 @@ import java.util.List;
 /**
  * Created by jtucker on 3/31/2016.
  */
-public class QuestionFactory extends TestBaseConstants {
+public class QuestionFactory extends TestBase {
 
     public Question assembleQuestion(QuestionOption questionOption) {
 
         Question question = new Question();
-        TestBase testBase = new TestBase();
 
         switch(questionOption){
 
@@ -39,7 +38,7 @@ public class QuestionFactory extends TestBaseConstants {
 
             case LONG_LABEL_QUESTION:
                 question.setType(QUESTION_TYPE_QUANTITATIVE);
-                question.setLabel(testBase.generateRandomString(256));
+                question.setLabel(generateRandomString(256));
                 question.setVersion(VALID_ENTITY_VERSION);
                 break;
 

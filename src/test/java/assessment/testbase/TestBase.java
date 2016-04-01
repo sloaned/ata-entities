@@ -21,7 +21,7 @@ public class TestBase extends TestBaseConstants {
     }
 
 
-    public String generateRandomString(Integer length) {
+    protected String generateRandomString(Integer length) {
         Random rng = new Random();
         String characterSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         char[] randomCharacters = new char[length];
