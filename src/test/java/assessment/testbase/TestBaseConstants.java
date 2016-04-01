@@ -1,5 +1,7 @@
 package assessment.testbase;
 
+import assessment.entities.question.Question;
+import assessment.entities.question.QuestionType;
 import assessment.entities.user.Role;
 
 /**
@@ -46,9 +48,24 @@ public class TestBaseConstants {
 
 
     /**
-     * FEEDBACK SECTION
+     * QUESTION SECTION
      */
+    protected final static QuestionType QUESTION_TYPE_QUANTITATIVE = QuestionType.QUANTITATIVE;
+    protected final static QuestionType QUESTION_TYPE_QUALITATIVE = QuestionType.QUALITATIVE;
 
+    /**
+     * FEEDBACK SECTION
+     *
+     * Valid Input:
+     */
+    protected final static Integer VALID_FEEDBACK_VERSION = 1;
+    protected final static String VALID_FEEDBACK_LABEL = "Valid Feedback Label";
+    protected final static Integer VALID_FEEDBACK_SCORE = 3;
+    protected final static String VALID_FEEDBACK_COMMENT = "A Valid comment for a feedback entity";
 
-
+    /**
+     * Invalid Input:
+     */
+    protected final static String INVALID_FEEDBACK_LABEL_EMTPY = "";
+    protected final static Integer INVALID_FEEDBACK_SCORE_OVERBOUND = 6;
 }

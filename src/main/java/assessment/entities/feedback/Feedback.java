@@ -39,6 +39,17 @@ public class Feedback {
         this.version = version;
     }
 
+    @Override
+    public String toString() {
+        return "Feedback{" +
+                "type=" + type +
+                ", label='" + label + '\'' +
+                ", score=" + score +
+                ", comment='" + comment + '\'' +
+                ", version=" + version +
+                '}';
+    }
+
     public QuestionType getType() {
         return type;
     }
