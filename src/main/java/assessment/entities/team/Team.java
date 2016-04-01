@@ -1,7 +1,7 @@
-package assessment.entities.Team;
+package assessment.entities.team;
 
-import assessment.entities.Assessment.Assessment;
-import assessment.entities.Membership.Membership;
+import assessment.entities.assessment.Assessment;
+import assessment.entities.membership.Membership;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
@@ -46,8 +46,8 @@ public class Team {
 
     public Team(String id, String name, Boolean isActive, Assessment assessment,
                 List<Membership> userList, List<Membership> leaderList, String
-                avatar, String description, TeamType type, Integer
-                reviewFrequency, Integer version) {
+                        avatar, String description, TeamType type, Integer
+                        reviewFrequency, Integer version) {
         this.id = id;
         this.version = version;
         this.name = name;

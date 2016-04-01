@@ -1,43 +1,61 @@
-package assessment.entities.Feedback;
+package assessment.entities.question;
 
-import assessment.entities.Question.QuestionType;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
-import org.hibernate.validator.constraints.Range;
 import org.springframework.data.annotation.Id;
 
+import javax.validation.constraints.NotNull;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.validation.constraints.NotNull;
 
 /**
  * Created by gfisher on 3/16/2016.
  */
-public class Feedback {
+public class Question {
+
+    @Id
+    private String id;
 
     @NotNull(message = "Question type is required")
+    @Enumerated(EnumType.STRING)
     private QuestionType type;
+
 
     @Length(max = 255, message = "Question label length must not exceed 255 " +
             "characters")
     @NotEmpty(message = "Question label is required")
     private String label;
 
-    @Range(min = 1, max = 5)
-    private Integer score;
-
-    @Length(max = 1500, message = "Comment length must not exceed 1,500 " +
-            "characters")
-    private String comment;
-
     @NotNull(message = "Version is required")
     private Integer version;
 
-    public Feedback(QuestionType type, String label, Integer score, String
-            comment, Integer version) {
+    public Question() {}
+
+    public Question(Integer version, String id, QuestionType type, String
+            label) {
+        this.version = version;
+        this.id = id;
         this.type = type;
         this.label = label;
-        this.score = score;
-        this.comment = comment;
-        this.version = version;
+    }
+
+    @Override
+    public String toString() {
+        return "Question{" +
+                "id='" + id + '\'' +
+                ", type=" + type +
+                ", label='" + label + '\'' +
+                ", version=" + version +
+                '}';
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public QuestionType getType() {
@@ -54,22 +72,6 @@ public class Feedback {
 
     public void setLabel(String label) {
         this.label = label;
-    }
-
-    public Integer getScore() {
-        return score;
-    }
-
-    public void setScore(Integer score) {
-        this.score = score;
-    }
-
-    public String getComment() {
-        return comment;
-    }
-
-    public void setComment(String comment) {
-        this.comment = comment;
     }
 
     public Integer getVersion() {

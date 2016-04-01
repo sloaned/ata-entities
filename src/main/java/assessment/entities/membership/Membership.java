@@ -1,6 +1,6 @@
-package assessment.entities.Membership;
+package assessment.entities.membership;
 
-import assessment.entities.User.User;
+import assessment.entities.user.User;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 

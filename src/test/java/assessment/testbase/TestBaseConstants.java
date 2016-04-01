@@ -1,7 +1,7 @@
 package assessment.testbase;
 
-import assessment.entities.Question.QuestionType;
-import assessment.entities.User.Role;
+import assessment.entities.question.QuestionType;
+import assessment.entities.user.Role;
 
 /**
  * Created by hmccardell on 3/29/2016.
