@@ -13,7 +13,7 @@ import java.util.List;
  * Created by Alysha Recore on 3/28/2016.
  */
 public class Review {
-    
+
     @DBRef
     @NotEmpty(message = "Reviewer must be defined.")
     private User reviewerId;

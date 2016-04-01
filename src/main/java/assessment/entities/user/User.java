@@ -54,7 +54,7 @@ public class User {
 
     public User(String id, String firstName, String lastName, String email,
                 Role role, String avatar, String profileDescription, Boolean
-                isActive, Integer version) {
+                        isActive, Integer version) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;

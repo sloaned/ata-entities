@@ -8,7 +8,7 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
 /**
- * Created by gfisher on 3/16/2016.
+ * Created by hmccardell on 4/1/2016.
  */
 public class Question {
 

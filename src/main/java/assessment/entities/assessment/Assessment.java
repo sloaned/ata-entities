@@ -4,7 +4,6 @@ import assessment.entities.question.Question;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
-
 import java.util.List;
 
 /**
@@ -25,7 +24,7 @@ public class Assessment {
     private Integer version;
 
     public Assessment(String id, String name, List<Question> questionList,
-            Integer version) {
+                      Integer version) {
         this.id = id;
         this.name = name;
         this.questionList = questionList;

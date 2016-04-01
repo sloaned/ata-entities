@@ -46,8 +46,8 @@ public class Team {
 
     public Team(String id, String name, Boolean isActive, Assessment assessment,
                 List<Membership> userList, List<Membership> leaderList, String
-                avatar, String description, TeamType type, Integer
-                reviewFrequency, Integer version) {
+                        avatar, String description, TeamType type, Integer
+                        reviewFrequency, Integer version) {
         this.id = id;
         this.version = version;
         this.name = name;
