@@ -2,7 +2,6 @@ package assessment.factories.Team;
 
 import assessment.entities.Team.Team;
 import assessment.testbase.TestBase;
-import assessment.testbase.TestBaseConstants;
 
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -11,12 +10,11 @@ import java.util.List;
 /**
  * Created by Alysha Recore on 3/31/2016.
  */
-public class TeamFactory extends TestBaseConstants {
+public class TeamFactory extends TestBase {
 
     public Team assembleTeam (TeamOption teamOption){
 
         Team team = new Team();
-        TestBase testBase = new TestBase();
 
         switch(teamOption){
 
@@ -57,12 +55,7 @@ public class TeamFactory extends TestBaseConstants {
                 team.setAssessment(ASSESSMENT);
                 team.setAvatar(VALID_GRAVATAR_HASH);
                 team.setDescription(VALID_DESCRIPTION);
-
-                String description = "";
-                for (int i = 0; i < 257; i++) {
-                    description = description + "A";
-                }
-                team.setDescription(description);
+                team.setDescription(generateRandomString(257));
                 break;
 
             case BAD_TEAM_LONG_NAME:
@@ -75,12 +68,7 @@ public class TeamFactory extends TestBaseConstants {
                 team.setAssessment(ASSESSMENT);
                 team.setAvatar(VALID_GRAVATAR_HASH);
                 team.setDescription(VALID_DESCRIPTION);
-
-                String name = "";
-                for (int i = 0; i < 102; i++) {
-                    name = name + "A";
-                }
-                team.setName(name);
+                team.setName(generateRandomString(110));
 
             case BAD_TEAM_NULL_NAME:
                 team.setActive(false);
