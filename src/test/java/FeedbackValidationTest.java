@@ -36,7 +36,9 @@ public class FeedbackValidationTest {
 
     @Test
     public void versionNull() {
-        Feedback myFeedback = new Feedback(null, null, null, null, null);
+        QuestionType type = QUANTITATIVE;
+
+        Feedback myFeedback = new Feedback(type, "", 2, "", null);
         Set<ConstraintViolation<Feedback>> violations = validator.validate(myFeedback);
         assertFalse("should not pass because everything is null", violations.isEmpty());
     }
@@ -57,7 +59,7 @@ public class FeedbackValidationTest {
     }
 
     @Test
-    public void labelLengthTest() {
+    public void labelTooLongTest() {
         QuestionType type = QUANTITATIVE;
         String word = "";
         for (int i = 0; i < 500; i++) {
@@ -69,7 +71,7 @@ public class FeedbackValidationTest {
     }
 
     @Test
-    public void commentLengthTest() {
+    public void commentTooLongTest() {
         QuestionType type = QUANTITATIVE;
         String word = "";
         for (int i = 0; i < 1501; i++) {
@@ -81,11 +83,11 @@ public class FeedbackValidationTest {
     }
 
     @Test
-    public void RangeTest() {
+    public void scoreRangeTestOverBound() {
         QuestionType type = QUANTITATIVE;
         String word = "word to ya";
         Feedback myFeedback = new Feedback(type, word, 9, word, 3);
         Set<ConstraintViolation<Feedback>> violations = validator.validate(myFeedback);
-        assertFalse("your rateing was out of the acceptable rance", violations.isEmpty());
+        assertFalse("your rating was out of the acceptable rance", violations.isEmpty());
     }
 }
