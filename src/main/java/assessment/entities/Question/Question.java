@@ -35,6 +35,16 @@ public class Question {
         this.label = label;
     }
 
+    @Override
+    public String toString() {
+        return "Question{" +
+                "id='" + id + '\'' +
+                ", type=" + type +
+                ", label='" + label + '\'' +
+                ", version=" + version +
+                '}';
+    }
+
     public String getId() {
         return id;
     }
