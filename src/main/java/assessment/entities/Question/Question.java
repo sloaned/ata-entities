@@ -22,7 +22,7 @@ public class Question {
     @NotEmpty(message = "Question label is required")
     private String label;
 
-    @NotEmpty(message = "Version is required")
+    @NotNull(message = "Version is required")
     private Integer version;
 
     public Question() {}
