@@ -50,8 +50,36 @@ public class TeamValidationTest {
     }
 
     @Test
-    public void SadPathValidationOfTeamFactoryInvalidTeam2() {
+    public void SadPathValidationOfTeamFactoryInvalidTeamLongName() {
         testTeam = teamFactory.assembleTeam(TeamOption.BAD_TEAM_LONG_NAME);
+        Set<ConstraintViolation<Team>> violations = validator.validate(testTeam);
+        assertFalse("INVALID TEAM: The team factory assembled a team that doesn't pass entity validation", violations.isEmpty());
+    }
+
+    @Test
+    public void SadPathValidationOfTeamFactoryInvalidTeamNullName() {
+        testTeam = teamFactory.assembleTeam(TeamOption.BAD_TEAM_NULL_NAME);
+        Set<ConstraintViolation<Team>> violations = validator.validate(testTeam);
+        assertFalse("INVALID TEAM: The team factory assembled a team that doesn't pass entity validation", violations.isEmpty());
+    }
+
+    @Test
+    public void SadPathValidationOfTeamFactoryInvalidTeamNullActive() {
+        testTeam = teamFactory.assembleTeam(TeamOption.BAD_TEAM_NULL_ACTIVE);
+        Set<ConstraintViolation<Team>> violations = validator.validate(testTeam);
+        assertFalse("INVALID TEAM: The team factory assembled a team that doesn't pass entity validation", violations.isEmpty());
+    }
+
+    @Test
+    public void SadPathValidationOfTeamFactoryInvalidTeamNullType() {
+        testTeam = teamFactory.assembleTeam(TeamOption.BAD_TEAM_NULL_TYPE);
+        Set<ConstraintViolation<Team>> violations = validator.validate(testTeam);
+        assertFalse("INVALID TEAM: The team factory assembled a team that doesn't pass entity validation", violations.isEmpty());
+    }
+
+    @Test
+    public void SadPathValidationOfTeamFactoryInvalidTeamNullVersion() {
+        testTeam = teamFactory.assembleTeam(TeamOption.BAD_TEAM_NULL_VERSION);
         Set<ConstraintViolation<Team>> violations = validator.validate(testTeam);
         assertFalse("INVALID TEAM: The team factory assembled a team that doesn't pass entity validation", violations.isEmpty());
     }

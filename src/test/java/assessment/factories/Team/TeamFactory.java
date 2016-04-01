@@ -82,7 +82,53 @@ public class TeamFactory extends TestBaseConstants {
                 }
                 team.setName(name);
 
+            case BAD_TEAM_NULL_NAME:
+                team.setActive(false);
+                team.setAvatar(VALID_GRAVATAR_HASH);
+                team.setDescription(VALID_DESCRIPTION);
+                team.setReviewFrequency(VALID_REVIEW_FREQUENCY);
+                team.setTeamType(TEAM_O3);
+                team.setVersion(VALID_ENTITY_VERSION);
+                team.setLeaderList(LEADER_LIST);
+                team.setUserList(USER_LIST);
+                team.setAssessment(ASSESSMENT);
+                break;
 
+            case BAD_TEAM_NULL_ACTIVE:
+                team.setAvatar(VALID_GRAVATAR_HASH);
+                team.setDescription(VALID_DESCRIPTION);
+                team.setName(VALID_OBJECT_NAME);
+                team.setReviewFrequency(VALID_REVIEW_FREQUENCY);
+                team.setTeamType(TEAM_O3);
+                team.setVersion(VALID_ENTITY_VERSION);
+                team.setLeaderList(LEADER_LIST);
+                team.setUserList(USER_LIST);
+                team.setAssessment(ASSESSMENT);
+                break;
+
+            case BAD_TEAM_NULL_TYPE:
+                team.setActive(false);
+                team.setAvatar(VALID_GRAVATAR_HASH);
+                team.setDescription(VALID_DESCRIPTION);
+                team.setName(VALID_OBJECT_NAME);
+                team.setReviewFrequency(VALID_REVIEW_FREQUENCY);
+                team.setVersion(VALID_ENTITY_VERSION);
+                team.setLeaderList(LEADER_LIST);
+                team.setUserList(USER_LIST);
+                team.setAssessment(ASSESSMENT);
+                break;
+
+            case BAD_TEAM_NULL_VERSION:
+                team.setActive(false);
+                team.setAvatar(VALID_GRAVATAR_HASH);
+                team.setDescription(VALID_DESCRIPTION);
+                team.setName(VALID_OBJECT_NAME);
+                team.setReviewFrequency(VALID_REVIEW_FREQUENCY);
+                team.setTeamType(TEAM_O3);
+                team.setLeaderList(LEADER_LIST);
+                team.setUserList(USER_LIST);
+                team.setAssessment(ASSESSMENT);
+                break;
         }
         return team;
     }
