@@ -1,7 +1,7 @@
-package assessment.factories.User;
+package assessment.factories.user;
 
-import assessment.entities.User.User;
-import assessment.testbase.TestBaseConstants;
+import assessment.entities.user.User;
+import assessment.testbase.TestBase;
 
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ import java.util.List;
 /**
  * Created by hmccardell on 3/29/2016.
  */
-public class UserFactory extends TestBaseConstants {
+public class UserFactory extends TestBase {
 
     public User assembleUser(UserOption userOption) {
 

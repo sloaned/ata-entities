@@ -1,9 +1,11 @@
 package assessment.testbase;
 
-import assessment.entities.Assessment.Assessment;
-import assessment.entities.Membership.Membership;
-import assessment.entities.Team.TeamType;
-import assessment.entities.User.Role;
+
+import assessment.entities.assessment.Assessment;
+import assessment.entities.membership.Membership;
+import assessment.entities.team.TeamType;
+import assessment.entities.question.QuestionType;
+import assessment.entities.user.Role;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +39,8 @@ public class TestBaseConstants {
      *
      * Valid Input:
      */
+
+    protected final static String VALID_USER_GRAVATAR_HASH = "205e460b479e2e5b48aec07710c08d50";
     protected final static String VALID_USER_EMAIL = "squag@catalystdevworks.com";
 
     /**
@@ -50,6 +54,25 @@ public class TestBaseConstants {
     protected final static Role ROLE_DEVELOPER = Role.valueOf("DEVELOPER");
     protected final static Role ROLE_LEAD = Role.valueOf("LEAD");
     protected final static Role ROLE_MENTOR = Role.valueOf("MENTOR");
+
+
+    /**
+     * QUESTION SECTION
+     */
+    protected final static String VALID_QUESTION_LABEL_QUANTITATIVE = "How " +
+            "would you rate your teammate's overall performance on the " +
+            "project?";
+    protected final static String VALID_QUESTION_LABEL_QUALITATIVE = "Did " +
+            "your teammate consistently meet their sprint commitments?";
+
+
+    /**
+     * QUESTION TYPE SECTION
+     */
+    protected final static QuestionType QUESTION_TYPE_QUANTITATIVE =
+            QuestionType.valueOf("QUANTITATIVE");
+    protected final static QuestionType QUESTION_TYPE_QUALITATIVE =
+            QuestionType.valueOf("QUALITATIVE");
 
 
     /**

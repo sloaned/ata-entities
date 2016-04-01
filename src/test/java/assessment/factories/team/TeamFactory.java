@@ -1,8 +1,7 @@
-package assessment.factories.Team;
+package assessment.factories.team;
 
-import assessment.entities.Team.Team;
+import assessment.entities.team.Team;
 import assessment.testbase.TestBase;
-
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;

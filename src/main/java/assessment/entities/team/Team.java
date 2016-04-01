@@ -1,8 +1,9 @@
-package assessment.entities.Team;
+package assessment.entities.team;
 
-import assessment.entities.Assessment.Assessment;
-import assessment.entities.Membership.Membership;
 import assessment.utilities.RegexConstants;
+import assessment.entities.assessment.Assessment;
+import assessment.entities.membership.Membership;
+
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
@@ -51,21 +52,20 @@ public class Team {
 
     public Team(){};
 
-    public Team(String id, String name, Boolean isActive, Assessment assessment,
-                List<Membership> userList, List<Membership> leaderList, String
-                avatar, String description, TeamType teamType, Integer
-                reviewFrequency, Integer version) {
+    public Team(String id, String name, Boolean isActive, Assessment assessment, List<Membership> userList,
+                List<Membership> leaderList, String avatar, String description, TeamType teamType,
+                Integer reviewFrequency, Integer version) {
         this.id = id;
-        this.version = version;
         this.name = name;
         this.isActive = isActive;
         this.assessment = assessment;
         this.userList = userList;
         this.leaderList = leaderList;
+        this.avatar = avatar;
         this.description = description;
         this.teamType = teamType;
-        this.avatar = avatar;
         this.reviewFrequency = reviewFrequency;
+        this.version = version;
     }
 
     @Override

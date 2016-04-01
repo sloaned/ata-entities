@@ -1,4 +1,4 @@
-package assessment.factories.Team;
+package assessment.factories.team;
 
 /**
  * Created by Alysha Recore on 3/31/2016.

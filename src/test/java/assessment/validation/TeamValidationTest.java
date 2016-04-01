@@ -1,8 +1,8 @@
 package assessment.validation;
 
-import assessment.entities.Team.Team;
-import assessment.factories.Team.TeamFactory;
-import assessment.factories.Team.TeamOption;
+import assessment.entities.team.Team;
+import assessment.factories.team.TeamFactory;
+import assessment.factories.team.TeamOption;
 import org.junit.Before;
 import org.junit.Test;
 
