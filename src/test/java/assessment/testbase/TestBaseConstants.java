@@ -64,7 +64,6 @@ public class TestBaseConstants {
     public List<Membership> USER_LIST = new ArrayList<Membership>();
     public Assessment ASSESSMENT = new Assessment();
 
-
     /**
      * TEAM TYPE SECTION
      */

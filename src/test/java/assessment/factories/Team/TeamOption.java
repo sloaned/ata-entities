@@ -5,5 +5,5 @@ package assessment.factories.Team;
  */
 public enum TeamOption {
 
-    VALID_ACTIVE_TEAM, VALID_INACTIVE_TEAM, BAD_TEAM
+    VALID_ACTIVE_TEAM, VALID_INACTIVE_TEAM, BAD_TEAM, BAD_TEAM_LONG_NAME
 }

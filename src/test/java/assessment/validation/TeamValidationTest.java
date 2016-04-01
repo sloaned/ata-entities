@@ -11,6 +11,7 @@ import javax.validation.Validation;
 import javax.validation.Validator;
 import java.util.Set;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -41,7 +42,17 @@ public class TeamValidationTest {
         assertTrue("INVALID TEAM: The team factory assembled a team that doesn't pass entity validation", violations.isEmpty());
     }
 
-    @Test void SadPathValidationOfTeamFactoryInvalidTeam() {
+    @Test
+    public void SadPathValidationOfTeamFactoryInvalidTeam() {
         testTeam = teamFactory.assembleTeam(TeamOption.BAD_TEAM);
+        Set<ConstraintViolation<Team>> violations = validator.validate(testTeam);
+        assertFalse("INVALID TEAM: The team factory assembled a team that doesn't pass entity validation", violations.isEmpty());
+    }
+
+    @Test
+    public void SadPathValidationOfTeamFactoryInvalidTeam2() {
+        testTeam = teamFactory.assembleTeam(TeamOption.BAD_TEAM_LONG_NAME);
+        Set<ConstraintViolation<Team>> violations = validator.validate(testTeam);
+        assertFalse("INVALID TEAM: The team factory assembled a team that doesn't pass entity validation", violations.isEmpty());
     }
 }
