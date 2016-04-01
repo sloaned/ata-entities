@@ -13,11 +13,24 @@ public class TeamFactory extends TestBaseConstants {
 
         switch(teamOption){
             case VALID_ACTIVE_TEAM:
+                team.setActive(true);
+                team.setAvatar(VALID_GRAVATAR_HASH);
+                team.setDescription(VALID_DESCRIPTION);
+                team.setName(VALID_OBJECT_NAME);
+                team.setReviewFrequency(VALID_REVIEW_FREQUENCY);
+                team.setType(TEAM_DEV);
+                team.setVersion(VALID_ENTITY_VERSION);
 
                 break;
 
             case VALID_INACTIVE_TEAM:
-
+                team.setActive(false);
+                team.setAvatar(VALID_GRAVATAR_HASH);
+                team.setDescription(VALID_DESCRIPTION);
+                team.setName(VALID_OBJECT_NAME);
+                team.setReviewFrequency(VALID_REVIEW_FREQUENCY);
+                team.setType(TEAM_O3);
+                team.setVersion(VALID_ENTITY_VERSION);
                 break;
         }
         return team;
