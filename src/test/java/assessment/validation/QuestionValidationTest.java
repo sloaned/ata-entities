@@ -1,8 +1,8 @@
 package assessment.validation;
 
-import assessment.entities.Question.Question;
-import assessment.factories.Question.QuestionFactory;
-import assessment.factories.Question.QuestionOption;
+import assessment.entities.question.Question;
+import assessment.factories.question.QuestionFactory;
+import assessment.factories.question.QuestionOption;
 import org.junit.BeforeClass;
 import org.junit.Test;
 

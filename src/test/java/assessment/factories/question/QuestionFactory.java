@@ -1,6 +1,7 @@
-package assessment.factories.Question;
+package assessment.factories.question;
 
-import assessment.entities.Question.Question;
+
+import assessment.entities.question.Question;
 import assessment.testbase.TestBase;
 import assessment.testbase.TestBaseConstants;
 
