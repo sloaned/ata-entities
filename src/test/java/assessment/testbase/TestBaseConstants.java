@@ -26,7 +26,7 @@ public class TestBaseConstants {
     protected final static String VALID_PERSON_NAME = "test name'-";
     protected final static String VALID_DESCRIPTION = "My name is Stuart Smalley, and I'm going to help people. I'm good enough, smart enough, and gosh darnit, people like me";
     protected final static String VALID_OBJECT_NAME = "Test Name 1-'";
-    protected final static String VALID_GRAVATAR_HASH = "simulatedHASH0123456789SIMULATEDhash";
+    protected final static String VALID_GRAVATAR_HASH = "205e460b479e2e5b48aec07710c08d50";
 
     /**
      * Invalid Input:
@@ -40,7 +40,6 @@ public class TestBaseConstants {
      * Valid Input:
      */
 
-    protected final static String VALID_USER_GRAVATAR_HASH = "205e460b479e2e5b48aec07710c08d50";
     protected final static String VALID_USER_EMAIL = "squag@catalystdevworks.com";
 
     /**
