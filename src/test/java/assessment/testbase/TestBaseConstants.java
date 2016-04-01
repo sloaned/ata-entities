@@ -1,7 +1,12 @@
 package assessment.testbase;
 
+import assessment.entities.Assessment.Assessment;
+import assessment.entities.Membership.Membership;
 import assessment.entities.Team.TeamType;
 import assessment.entities.User.Role;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by hmccardell on 3/29/2016.
@@ -25,6 +30,7 @@ public class TestBaseConstants {
      * Invalid Input:
      */
     protected final static String BAD_PERSON_NAME = "$@598";
+    protected final static String BAD_OBJECT_NAME = "$%@#";
 
     /**
      * USER SECTION
@@ -52,27 +58,17 @@ public class TestBaseConstants {
 
     /**
      * TEAM SECTION
-     *
-     * Valid Input:
      */
     protected final static Integer VALID_REVIEW_FREQUENCY = 1;
+    public List<Membership> LEADER_LIST = new ArrayList<Membership>();
+    public List<Membership> USER_LIST = new ArrayList<Membership>();
+    public Assessment ASSESSMENT = new Assessment();
 
-    /**
-     * Invalid Input:
-     */
-    protected final static Integer BAD_REVIEW_FREQUENCY = 5;
 
     /**
      * TEAM TYPE SECTION
-     *
-     * Valid Input:
      */
     protected final static TeamType TEAM_O3 = TeamType.valueOf("O3");
     protected final static TeamType TEAM_DEV = TeamType.valueOf("DEV");
-
-    /**
-     * Invalid Input:
-     */
-    protected final static TeamType BAD_TEAM_TYPE = TeamType.valueOf("Not a team type");
 
 }

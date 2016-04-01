@@ -8,6 +8,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import java.util.List;
 
@@ -25,7 +26,7 @@ public class Team {
     @Pattern(regexp = RegexConstants.OBJECT_NAME, message = "Team name contains invalid characters.")
     private String name;
 
-    @NotEmpty(message = "The team must be active or inactive")
+    @NotNull(message = "The team must be active or inactive")
     private Boolean isActive;
 
     private Assessment assessment;
@@ -40,20 +41,19 @@ public class Team {
             "255 characters.")
     private String description;
 
-    @NotEmpty(message = "Team type is required.")
-    private TeamType type;
-
-    @Pattern(regexp = "^[3 1 ]*$", message = "Review Frequency must either be null, 1, or 3.")
+    @NotNull(message = "Team type is required.")
+    private TeamType teamType;
+    
     private Integer reviewFrequency;
 
-    @NotEmpty(message = "Version is required.")
+    @NotNull(message = "Version is required.")
     private Integer version;
 
     public Team(){};
 
     public Team(String id, String name, Boolean isActive, Assessment assessment,
                 List<Membership> userList, List<Membership> leaderList, String
-                avatar, String description, TeamType type, Integer
+                avatar, String description, TeamType teamType, Integer
                 reviewFrequency, Integer version) {
         this.id = id;
         this.version = version;
@@ -63,6 +63,9 @@ public class Team {
         this.userList = userList;
         this.leaderList = leaderList;
         this.description = description;
+        this.teamType = teamType;
+        this.avatar = avatar;
+        this.reviewFrequency = reviewFrequency;
     }
 
     @Override
@@ -76,7 +79,7 @@ public class Team {
                 ", leaderList =" + leaderList + '\'' +
                 ", avatar ='" + avatar + '\'' +
                 ", description ='" + description + '\'' +
-                ", teamType = " +  type + '\'' +
+                ", teamType = " +  teamType + '\'' +
                 ", reviewFrequency = " + reviewFrequency + '\'' +
                 ", version =" + version +
                 '}';
@@ -146,12 +149,12 @@ public class Team {
         this.description = description;
     }
 
-    public TeamType getType() {
-        return type;
+    public TeamType getTeamType() {
+        return teamType;
     }
 
-    public void setType(TeamType type) {
-        this.type = type;
+    public void setTeamType(TeamType teamType) {
+        this.teamType = teamType;
     }
 
     public Integer getReviewFrequency() {

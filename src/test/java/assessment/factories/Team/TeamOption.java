@@ -4,5 +4,6 @@ package assessment.factories.Team;
  * Created by Alysha Recore on 3/31/2016.
  */
 public enum TeamOption {
-    VALID_ACTIVE_TEAM, VALID_INACTIVE_TEAM, BAD_ACTIVE_TEAM, BAD_INACTIVE_TEAM
+
+    VALID_ACTIVE_TEAM, VALID_INACTIVE_TEAM, BAD_TEAM
 }

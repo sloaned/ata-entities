@@ -24,6 +24,8 @@ public class Assessment {
     @NotEmpty(message = "Version is required")
     private Integer version;
 
+    public Assessment(){};
+
     public Assessment(String id, String name, List<Question> questionList,
             Integer version) {
         this.id = id;

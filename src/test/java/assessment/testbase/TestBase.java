@@ -32,8 +32,4 @@ public class TestBase extends TestBaseConstants {
         return new String(randomCharacters);
     }
 
-
-
-
-
 }
