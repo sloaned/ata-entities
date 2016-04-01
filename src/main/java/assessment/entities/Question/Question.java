@@ -4,6 +4,9 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+
 /**
  * Created by gfisher on 3/16/2016.
  */
@@ -12,8 +15,9 @@ public class Question {
     @Id
     private String id;
 
-    @NotEmpty(message = "Question type is required")
+    @Enumerated(EnumType.STRING)
     private QuestionType type;
+
 
     @Length(max = 255, message = "Question label length must not exceed 255 " +
             "characters")

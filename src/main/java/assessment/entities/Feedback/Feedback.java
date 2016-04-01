@@ -1,87 +1,51 @@
 package assessment.entities.Feedback;
 
-import assessment.entities.Team.Team;
-import org.hibernate.validator.constraints.Email;
+import assessment.entities.Question.QuestionType;
+import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Range;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
+
+import javax.validation.constraints.NotNull;
 
 /**
  * Created by gfisher on 3/16/2016.
  */
 public class Feedback {
 
-    @Id
-    private String id;
+    @NotNull(message = "Question type is required")
+    private QuestionType type;
 
-    private String version;
-
-    @Range(min=1,max=5)
-    private Integer value;
-
-    private String comment;
-
-    @Email
-    private String reviewedEmail;
-
-    @Email
-    private String reviewerEmail;
-
+    @Length(max = 255, message = "Question label length must not exceed 255 " +
+            "characters")
+    @NotEmpty(message = "Question label is required")
     private String label;
 
-    @DBRef
-    private Team teamId;
+    @Range(min = 1, max = 5)
+    private Integer score;
 
-    public Feedback() {}
+    @Length(max = 1500, message = "Comment length must not exceed 1,500 " +
+            "characters")
+    private String comment;
 
-    public Feedback(String version, Integer value, String comment, String reviewedEmail, String reviewerEmail, String label, Team teamId) {
-        this.version = version;
-        this.value = value;
-        this.comment = comment;
-        this.reviewedEmail = reviewedEmail;
-        this.reviewerEmail = reviewerEmail;
+    @NotNull(message = "Version is required")
+    private Integer version;
+
+    public Feedback(QuestionType type, String label, Integer score, String
+            comment, Integer version) {
+        this.type = type;
         this.label = label;
-        this.teamId = teamId;
-    }
-
-    public String getVersion() {
-        return version;
-    }
-
-    public void setVersion(String version) {
+        this.score = score;
+        this.comment = comment;
         this.version = version;
     }
 
-    public Integer getValue() {
-        return value;
+    public QuestionType getType() {
+        return type;
     }
 
-    public void setValue(Integer value) {
-        this.value = value;
-    }
-
-    public String getComment() {
-        return comment;
-    }
-
-    public void setComment(String comment) {
-        this.comment = comment;
-    }
-
-    public String getReviewed() {
-        return reviewedEmail;
-    }
-
-    public void setReviewed(String reviewed) {
-        this.reviewedEmail = reviewed;
-    }
-
-    public String getReviewer() {
-        return reviewerEmail;
-    }
-
-    public void setReviewer(String reviewerEmail) {
-        this.reviewerEmail = reviewerEmail;
+    public void setType(QuestionType type) {
+        this.type = type;
     }
 
     public String getLabel() {
@@ -92,11 +56,27 @@ public class Feedback {
         this.label = label;
     }
 
-    public Team getTeamId() {
-        return teamId;
+    public Integer getScore() {
+        return score;
     }
 
-    public void setTeamId(Team teamId) {
-        this.teamId = teamId;
+    public void setScore(Integer score) {
+        this.score = score;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public Integer getVersion() {
+        return version;
+    }
+
+    public void setVersion(Integer version) {
+        this.version = version;
     }
 }
