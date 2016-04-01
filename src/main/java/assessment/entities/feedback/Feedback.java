@@ -1,6 +1,6 @@
-package assessment.entities.Feedback;
+package assessment.entities.feedback;
 
-import assessment.entities.Question.QuestionType;
+import assessment.entities.question.QuestionType;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Range;

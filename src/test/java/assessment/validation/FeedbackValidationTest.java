@@ -1,7 +1,7 @@
 package assessment.validation;
 
-import assessment.entities.Feedback.Feedback;
-import assessment.entities.Question.QuestionType;
+import assessment.entities.feedback.Feedback;
+import assessment.entities.question.QuestionType;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -11,7 +11,7 @@ import javax.validation.Validator;
 import java.util.Set;
 
 
-import static assessment.entities.Question.QuestionType.QUANTITATIVE;
+import static assessment.entities.question.QuestionType.QUANTITATIVE;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 

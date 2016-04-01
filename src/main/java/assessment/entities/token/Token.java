@@ -1,4 +1,4 @@
-package assessment.entities.Token;
+package assessment.entities.token;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
