@@ -23,11 +23,9 @@ public class UserFactory extends TestBaseConstants {
                 user.setActive(true);
                 user.setAvatar(VALID_USER_GRAVATAR_HASH);
                 user.setEmail(VALID_USER_EMAIL);
-                user.setFirstName(VALID_USER_FIRST_NAME);
-                user.setLastName(VALID_USER_LAST_NAME);
-                user.setRole(ROLE_DEVELOPER);
-                user.setId(VALID_USER_ID);
-                user.setProfileDescription(VALID_USER_DESCRIPTION);
+                user.setFirstName(VALID_PERSON_NAME);
+                user.setLastName(VALID_PERSON_NAME);
+                user.setProfileDescription(VALID_DESCRIPTION);
                 break;
 
             case VALID_INACTIVE_DEVELOPER:
@@ -35,11 +33,10 @@ public class UserFactory extends TestBaseConstants {
                 user.setActive(false);
                 user.setAvatar(VALID_USER_GRAVATAR_HASH);
                 user.setEmail(VALID_USER_EMAIL);
-                user.setFirstName(VALID_USER_FIRST_NAME);
-                user.setLastName(VALID_USER_LAST_NAME);
+                user.setFirstName(VALID_PERSON_NAME);
+                user.setLastName(VALID_PERSON_NAME);
                 user.setRole(ROLE_DEVELOPER);
-                user.setId(VALID_USER_ID);
-                user.setProfileDescription(VALID_USER_DESCRIPTION);
+                user.setProfileDescription(VALID_DESCRIPTION);
                 break;
         }
 
