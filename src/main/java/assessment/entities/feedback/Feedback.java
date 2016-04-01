@@ -4,7 +4,6 @@ import assessment.entities.question.QuestionType;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Range;
-import org.springframework.data.annotation.Id;
 
 import javax.validation.constraints.NotNull;
 
