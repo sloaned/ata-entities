@@ -1,3 +1,4 @@
+package assessment.validation;
 
 import assessment.entities.Feedback.Feedback;
 import assessment.entities.Question.QuestionType;
@@ -88,6 +89,6 @@ public class FeedbackValidationTest {
         String word = "word to ya";
         Feedback myFeedback = new Feedback(type, word, 9, word, 3);
         Set<ConstraintViolation<Feedback>> violations = validator.validate(myFeedback);
-        assertFalse("your rating was out of the acceptable rance", violations.isEmpty());
+        assertFalse("your rating was out of the acceptable range", violations.isEmpty());
     }
 }
