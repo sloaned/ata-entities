@@ -1,6 +1,6 @@
-package assessment.entities.Assessment;
+package assessment.entities.assessment;
 
-import assessment.entities.Question.Question;
+import assessment.entities.question.Question;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
@@ -16,7 +16,7 @@ public class Assessment {
     private String id;
 
     @Indexed(unique = true)
-    @NotEmpty(message = "Assessment name is required")
+    @NotEmpty(message = "assessment name is required")
     private String name;
 
     private List<Question> questionList;

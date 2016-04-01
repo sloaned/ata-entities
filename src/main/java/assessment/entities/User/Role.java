@@ -1,4 +1,4 @@
-package assessment.entities.User;
+package assessment.entities.user;
 
 /**
  * Created by gfisher on 3/16/2016.

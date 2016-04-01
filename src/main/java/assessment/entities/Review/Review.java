@@ -1,7 +1,7 @@
-package assessment.entities.Review;
+package assessment.entities.review;
 
-import assessment.entities.Feedback.Feedback;
-import assessment.entities.User.User;
+import assessment.entities.feedback.Feedback;
+import assessment.entities.user.User;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.mongodb.core.mapping.DBRef;

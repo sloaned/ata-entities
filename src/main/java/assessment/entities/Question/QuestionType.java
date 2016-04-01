@@ -1,4 +1,4 @@
-package assessment.entities.Question;
+package assessment.entities.question;
 
 /**
  * Created by gfisher on 3/16/2016.

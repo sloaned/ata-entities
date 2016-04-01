@@ -1,4 +1,4 @@
-package assessment.entities.Token;
+package assessment.entities.token;
 
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -10,7 +10,7 @@ import java.util.Date;
  */
 public class Token {
 
-    @NotEmpty(message = "Token string is required")
+    @NotEmpty(message = "token string is required")
     private String token;
 
     @NotEmpty(message = "First name is required")

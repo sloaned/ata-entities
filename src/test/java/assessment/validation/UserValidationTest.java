@@ -1,8 +1,8 @@
 package assessment.validation;
 
-import assessment.entities.User.User;
-import assessment.factories.User.UserFactory;
-import assessment.factories.User.UserOption;
+import assessment.entities.user.User;
+import assessment.factories.user.UserFactory;
+import assessment.factories.user.UserOption;
 import org.junit.BeforeClass;
 import org.junit.Test;
 

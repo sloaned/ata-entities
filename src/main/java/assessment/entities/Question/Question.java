@@ -1,4 +1,4 @@
-package assessment.entities.Question;
+package assessment.entities.question;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -19,9 +19,9 @@ public class Question {
     private QuestionType type;
 
 
-    @Length(max = 255, message = "Question label length must not exceed 255 " +
+    @Length(max = 255, message = "question label length must not exceed 255 " +
             "characters")
-    @NotEmpty(message = "Question label is required")
+    @NotEmpty(message = "question label is required")
     private String label;
 
     @NotEmpty(message = "Version is required")

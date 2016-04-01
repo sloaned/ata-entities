@@ -1,10 +1,9 @@
-package assessment.entities.Feedback;
+package assessment.entities.feedback;
 
-import assessment.entities.Question.QuestionType;
+import assessment.entities.question.QuestionType;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Range;
-import org.springframework.data.annotation.Id;
 
 import javax.validation.constraints.NotNull;
 
@@ -13,12 +12,12 @@ import javax.validation.constraints.NotNull;
  */
 public class Feedback {
 
-    @NotNull(message = "Question type is required")
+    @NotNull(message = "question type is required")
     private QuestionType type;
 
-    @Length(max = 255, message = "Question label length must not exceed 255 " +
+    @Length(max = 255, message = "question label length must not exceed 255 " +
             "characters")
-    @NotEmpty(message = "Question label is required")
+    @NotEmpty(message = "question label is required")
     private String label;
 
     @Range(min = 1, max = 5)

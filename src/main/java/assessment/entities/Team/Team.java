@@ -1,7 +1,7 @@
-package assessment.entities.Team;
+package assessment.entities.team;
 
-import assessment.entities.Assessment.Assessment;
-import assessment.entities.Membership.Membership;
+import assessment.entities.assessment.Assessment;
+import assessment.entities.membership.Membership;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
@@ -18,7 +18,7 @@ public class Team {
     private String id;
 
     @Indexed(unique = true)
-    @NotEmpty(message = "Team name is required")
+    @NotEmpty(message = "team name is required")
     private String name;
 
     @NotEmpty(message = "The team must be active or inactive")
@@ -32,11 +32,11 @@ public class Team {
 
     private String avatar;
 
-    @Length(max = 255, message = "Team description length must not exceed " +
+    @Length(max = 255, message = "team description length must not exceed " +
             "255 characters")
     private String description;
 
-    @NotEmpty(message = "Team type is required")
+    @NotEmpty(message = "team type is required")
     private TeamType type;
 
     private Integer reviewFrequency;

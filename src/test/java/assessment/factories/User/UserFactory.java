@@ -1,6 +1,6 @@
-package assessment.factories.User;
+package assessment.factories.user;
 
-import assessment.entities.User.User;
+import assessment.entities.user.User;
 import assessment.testbase.TestBase;
 
 import java.text.ParseException;
