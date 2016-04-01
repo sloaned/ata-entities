@@ -1,6 +1,10 @@
 package assessment.testbase;
 
+import assessment.entities.question.Question;
 import assessment.entities.user.Role;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by hmccardell on 3/29/2016.
@@ -23,6 +27,7 @@ public class TestBaseConstants {
      * Invalid Input:
      */
     protected final static String BAD_PERSON_NAME = "$@598";
+    protected final static String BAD_OBJECT_NAME = "$%@#";
 
     /**
      * USER SECTION
@@ -48,6 +53,11 @@ public class TestBaseConstants {
     /**
      * FEEDBACK SECTION
      */
+
+    /**
+     * ASSESSMENT SECTION
+     */
+    protected List<Question> QUESTION_LIST = new ArrayList<Question>();
 
 
 
