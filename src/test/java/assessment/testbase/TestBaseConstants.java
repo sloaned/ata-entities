@@ -21,7 +21,6 @@ public class TestBaseConstants {
      * Valid Input:
      */
     protected final static int VALID_ENTITY_VERSION = 1;
-    protected final static String VALID_DATE = "2016-03-25";
     protected final static String VALID_DATE_FORMAT = "yyyy-MM-dd";
     protected final static String VALID_PERSON_NAME = "test name'-";
     protected final static String VALID_DESCRIPTION = "My name is Stuart Smalley, and I'm going to help people. I'm good enough, smart enough, and gosh darnit, people like me";
@@ -81,6 +80,7 @@ public class TestBaseConstants {
     /**
      * TEAM SECTION
      */
+    protected final static String VALID_TEAM_NAME = "Hayes' Heroes";
     protected final static Integer VALID_REVIEW_FREQUENCY = 1;
     public List<Membership> LEADER_LIST = new ArrayList<Membership>();
     public List<Membership> USER_LIST = new ArrayList<Membership>();
@@ -92,4 +92,17 @@ public class TestBaseConstants {
     protected final static TeamType TEAM_O3 = TeamType.valueOf("O3");
     protected final static TeamType TEAM_DEV = TeamType.valueOf("DEV");
 
+
+    /**
+     * REVIEW SECTION
+     *
+     * Valid input:
+     */
+    protected final static Double VALID_SUMMARY_SCORE = 3.74;
+
+    /**
+     * Invalid input:
+     */
+    protected final static Double SMALL_SUMMARY_SCORE = 0.99;
+    protected final static Double LARGE_SUMMARY_SCORE = 5.01;
 }
