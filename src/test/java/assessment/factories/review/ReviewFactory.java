@@ -21,23 +21,31 @@ public class ReviewFactory extends TestBase{
 
         Review review = new Review();
 
+        UserFactory userFactory = new UserFactory();
+        User testReviewer = userFactory.assembleUser(UserOption.VALID_ACTIVE_DEVELOPER);
+        User testReviewed = userFactory.assembleUser(UserOption.VALID_INACTIVE_DEVELOPER);
+
+        Feedback testFeedbackObject = new Feedback();
+        List<Feedback> testFeedback = new ArrayList<Feedback>();
+        testFeedback.add(testFeedbackObject);
+
         switch(reviewOption){
 
             case VALID_REVIEW:
-                UserFactory userFactory = new UserFactory();
-                User reviewer = userFactory.assembleUser(UserOption.VALID_ACTIVE_DEVELOPER);
-                User reviewed = userFactory.assembleUser(UserOption.VALID_INACTIVE_DEVELOPER);
-
-                review.setReviewerId(reviewer);
-                review.setReviewedId(reviewed);
+                review.setReviewerId(testReviewer);
+                review.setReviewedId(testReviewed);
                 review.setTeamName(VALID_TEAM_NAME);
                 review.setSubmittedDate(new Date());
+                review.setFeedback(testFeedback);
+                review.setSummaryScore(VALID_SUMMARY_SCORE);
+                review.setVersion(VALID_ENTITY_VERSION);
+                break;
 
-                Feedback feedback1 = new Feedback();
-                List<Feedback> feedback = new ArrayList<Feedback>();
-                feedback.add(feedback1);
-
-                review.setFeedback(feedback);
+            case NULL_REVIEWER_ID_REVIEW:
+                review.setReviewedId(testReviewed);
+                review.setTeamName(VALID_TEAM_NAME);
+                review.setSubmittedDate(new Date());
+                review.setFeedback(testFeedback);
                 review.setSummaryScore(VALID_SUMMARY_SCORE);
                 review.setVersion(VALID_ENTITY_VERSION);
                 break;

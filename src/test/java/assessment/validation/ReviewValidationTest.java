@@ -1,9 +1,6 @@
 package assessment.validation;
 
-import assessment.entities.question.Question;
 import assessment.entities.review.Review;
-import assessment.factories.question.QuestionFactory;
-import assessment.factories.question.QuestionOption;
 import assessment.factories.review.ReviewFactory;
 import assessment.factories.review.ReviewOption;
 import org.junit.BeforeClass;
@@ -14,6 +11,7 @@ import javax.validation.Validation;
 import javax.validation.Validator;
 import java.util.Set;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 /**
@@ -25,6 +23,12 @@ public class ReviewValidationTest {
     private Review testReview;
     ReviewFactory reviewFactory = new ReviewFactory();
 
+    private void assertThereIsExactlyOneViolation(Validator validator, Review review) {
+        Set<ConstraintViolation<Review>> violations = validator.validate(review);
+        assertFalse("VALID REVIEW: the review factory assembled a review that passes entity validation", violations.isEmpty());
+        assertFalse("INVALID REVIEW: the review factory assembled a review that failed multiple validations", violations.size() > 1);
+    }
+
     @BeforeClass
     public static void setUp() {
         validator = Validation.buildDefaultValidatorFactory().getValidator();
@@ -35,6 +39,12 @@ public class ReviewValidationTest {
         testReview = reviewFactory.assembleReview(ReviewOption.VALID_REVIEW);
         Set<ConstraintViolation<Review>> violations = validator.validate(testReview);
         assertTrue("INVALID REVIEW: the review factory assembled a review that doesn't pass entity validation", violations.isEmpty());
+    }
+
+    @Test
+    public void TestNullReviewerIdReview() {
+        testReview = reviewFactory.assembleReview(ReviewOption.NULL_REVIEWER_ID_REVIEW);
+        assertThereIsExactlyOneViolation(validator, testReview);
     }
 
 }

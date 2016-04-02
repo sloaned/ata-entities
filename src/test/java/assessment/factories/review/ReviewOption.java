@@ -5,6 +5,6 @@ package assessment.factories.review;
  */
 public enum ReviewOption {
 
-    VALID_REVIEW, INVALID_REVIEW
+    VALID_REVIEW, NULL_REVIEWER_ID_REVIEW
 
 }
