@@ -47,4 +47,10 @@ public class ReviewValidationTest {
         assertThereIsExactlyOneViolation(validator, testReview);
     }
 
+    @Test
+    public void TestNullReviewedIdReview() {
+        testReview = reviewFactory.assembleReview(ReviewOption.NULL_REVIEWED_ID_REVIEW);
+        assertThereIsExactlyOneViolation(validator, testReview);
+    }
+
 }

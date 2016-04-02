@@ -17,9 +17,9 @@ import java.util.List;
  */
 public class ReviewFactory extends TestBase{
 
-    public Review assembleReview(ReviewOption reviewOption) {
+    public Review assembleBaseReview() {
 
-        Review review = new Review();
+        Review baseReview = new Review();
 
         UserFactory userFactory = new UserFactory();
         User testReviewer = userFactory.assembleUser(UserOption.VALID_ACTIVE_DEVELOPER);
@@ -29,37 +29,52 @@ public class ReviewFactory extends TestBase{
         List<Feedback> testFeedback = new ArrayList<Feedback>();
         testFeedback.add(testFeedbackObject);
 
+        baseReview.setReviewerId(testReviewer);
+        baseReview.setReviewedId(testReviewed);
+        baseReview.setTeamName(VALID_TEAM_NAME);
+        baseReview.setSubmittedDate(new Date());
+        baseReview.setFeedback(testFeedback);
+        baseReview.setSummaryScore(VALID_SUMMARY_SCORE);
+        baseReview.setVersion(VALID_ENTITY_VERSION);
+
+        return baseReview;
+    }
+
+    public Review assembleReview(ReviewOption reviewOption) {
+
+        Review review = assembleBaseReview();
+
         switch(reviewOption){
 
             case VALID_REVIEW:
-                review.setReviewerId(testReviewer);
-                review.setReviewedId(testReviewed);
-                review.setTeamName(VALID_TEAM_NAME);
-                review.setSubmittedDate(new Date());
-                review.setFeedback(testFeedback);
-                review.setSummaryScore(VALID_SUMMARY_SCORE);
-                review.setVersion(VALID_ENTITY_VERSION);
                 break;
 
             case NULL_REVIEWER_ID_REVIEW:
-                review.setReviewedId(testReviewed);
-                review.setTeamName(VALID_TEAM_NAME);
-                review.setSubmittedDate(new Date());
-                review.setFeedback(testFeedback);
-                review.setSummaryScore(VALID_SUMMARY_SCORE);
-                review.setVersion(VALID_ENTITY_VERSION);
+                review.setReviewerId(null);
+                break;
+
+            case NULL_REVIEWED_ID_REVIEW:
+                review.setReviewedId(null);
+                break;
+
+            case EMPTY_TEAM_NAME_REVIEW:
+                review.setTeamName("");
+                break;
+
+            case NULL_TEAM_NAME_REVIEW:
+                review.setTeamName(null);
                 break;
         }
 
         return review;
     }
 
-    public List<Review> assembleReviewsAsList(ReviewOption option, int count) throws ParseException {
+    public List<Review> assembleReviewsAsList(ReviewOption reviewOption, int count) throws ParseException {
 
         List<Review> result = new ArrayList<Review>();
 
         for (int i = 0; i < count; i++) {
-            result.add(assembleReview(option));
+            result.add(assembleReview(reviewOption));
         }
 
         return result;
