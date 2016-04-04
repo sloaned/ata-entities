@@ -53,4 +53,40 @@ public class ReviewValidationTest {
         assertThereIsExactlyOneViolation(validator, testReview);
     }
 
+    @Test
+    public void TestEmptyTeamNameReview() {
+        testReview = reviewFactory.assembleReview(ReviewOption.EMPTY_TEAM_NAME_REVIEW);
+        assertThereIsExactlyOneViolation(validator, testReview);
+    }
+
+    @Test
+    public void TestNullTeamNameReview() {
+        testReview = reviewFactory.assembleReview(ReviewOption.NULL_TEAM_NAME_REVIEW);
+        assertThereIsExactlyOneViolation(validator, testReview);
+    }
+
+    @Test
+    public void TestNullSubmittedDateReview() {
+        testReview = reviewFactory.assembleReview(ReviewOption.NULL_SUBMITTED_DATE_REVIEW);
+        assertThereIsExactlyOneViolation(validator, testReview);
+    }
+
+    @Test
+    public void TestEmptyFeedbackReview() {
+        testReview = reviewFactory.assembleReview(ReviewOption.EMPTY_FEEDBACK_REVIEW);
+        assertThereIsExactlyOneViolation(validator, testReview);
+    }
+
+    @Test
+    public void TestNullFeedbackReview() {
+        testReview = reviewFactory.assembleReview(ReviewOption.NULL_FEEDBACK_REVIEW);
+        assertThereIsExactlyOneViolation(validator, testReview);
+    }
+
+    @Test
+    public void TestNullVersionReview() {
+        testReview = reviewFactory.assembleReview(ReviewOption.NULL_VERSION_REVIEW);
+        assertThereIsExactlyOneViolation(validator, testReview);
+    }
+
 }

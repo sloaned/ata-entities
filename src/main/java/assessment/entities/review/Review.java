@@ -73,6 +73,20 @@ public class Review {
         this.version = version;
     }
 
+    @Override
+    public String toString() {
+        return "Review{" +
+                "id='" + id + '\'' +
+                ", reviewerId=" + reviewerId +
+                ", reviewedId=" + reviewedId +
+                ", teamName='" + teamName + '\'' +
+                ", submittedDate=" + submittedDate +
+                ", feedback=" + feedback +
+                ", summaryScore=" + summaryScore +
+                ", version=" + version +
+                '}';
+    }
+
     /**
      * Getters and Setters
      */

@@ -64,6 +64,22 @@ public class ReviewFactory extends TestBase{
             case NULL_TEAM_NAME_REVIEW:
                 review.setTeamName(null);
                 break;
+
+            case NULL_SUBMITTED_DATE_REVIEW:
+                review.setSubmittedDate(null);
+                break;
+
+            case EMPTY_FEEDBACK_REVIEW:
+                review.setFeedback(new ArrayList<Feedback>());
+                break;
+
+            case NULL_FEEDBACK_REVIEW:
+                review.setFeedback(null);
+                break;
+
+            case NULL_VERSION_REVIEW:
+                review.setVersion(null);
+                break;
         }
 
         return review;
