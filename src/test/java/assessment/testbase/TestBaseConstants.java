@@ -103,6 +103,6 @@ public class TestBaseConstants {
     /**
      * Invalid input:
      */
-    protected final static Double SMALL_SUMMARY_SCORE = 0.99;
-    protected final static Double LARGE_SUMMARY_SCORE = 5.01;
+    protected final static Double SMALL_SUMMARY_SCORE = -100.0;
+    protected final static Double LARGE_SUMMARY_SCORE = 100.0;
 }

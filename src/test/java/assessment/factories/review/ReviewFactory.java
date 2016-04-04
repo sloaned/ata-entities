@@ -82,11 +82,11 @@ public class ReviewFactory extends TestBase{
                 break;
 
             case SMALL_SUMMARY_SCORE_REVIEW:
-                review.setSummaryScore(generateRandomDouble(-100.0, 1.0));
+                review.setSummaryScore(generateRandomDouble(SMALL_SUMMARY_SCORE, 1.0));
                 break;
 
             case LARGE_SUMMARY_SCORE_REVIEW:
-                review.setSummaryScore(generateRandomDouble(5.01, 100.0));
+                review.setSummaryScore(generateRandomDouble(5.01, LARGE_SUMMARY_SCORE));
                 break;
         }
 
