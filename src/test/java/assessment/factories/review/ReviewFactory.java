@@ -80,6 +80,14 @@ public class ReviewFactory extends TestBase{
             case NULL_VERSION_REVIEW:
                 review.setVersion(null);
                 break;
+
+            case SMALL_SUMMARY_SCORE_REVIEW:
+                review.setSummaryScore(generateRandomDouble(-100.0, 1.0));
+                break;
+
+            case LARGE_SUMMARY_SCORE_REVIEW:
+                review.setSummaryScore(generateRandomDouble(5.01, 100.0));
+                break;
         }
 
         return review;

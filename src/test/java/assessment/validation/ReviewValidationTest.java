@@ -89,4 +89,16 @@ public class ReviewValidationTest {
         assertThereIsExactlyOneViolation(validator, testReview);
     }
 
+    @Test
+    public void TestSmallSummaryScoreReview() {
+        testReview = reviewFactory.assembleReview(ReviewOption.SMALL_SUMMARY_SCORE_REVIEW);
+        assertThereIsExactlyOneViolation(validator, testReview);
+    }
+
+    @Test
+    public void TestLargeSummaryScoreReview() {
+        testReview = reviewFactory.assembleReview(ReviewOption.LARGE_SUMMARY_SCORE_REVIEW);
+        assertThereIsExactlyOneViolation(validator, testReview);
+    }
+
 }
