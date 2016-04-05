@@ -30,6 +30,8 @@ public class Feedback {
     @NotNull(message = "Version is required")
     private Integer version;
 
+    public Feedback() {}
+
     public Feedback(QuestionType type, String label, Integer score, String
             comment, Integer version) {
         this.type = type;
@@ -37,6 +39,17 @@ public class Feedback {
         this.score = score;
         this.comment = comment;
         this.version = version;
+    }
+
+    @Override
+    public String toString() {
+        return "Feedback{" +
+                "type=" + type +
+                ", label='" + label + '\'' +
+                ", score=" + score +
+                ", comment='" + comment + '\'' +
+                ", version=" + version +
+                '}';
     }
 
     public QuestionType getType() {
