@@ -23,6 +23,12 @@ public class AssessmentValidationTest {
     private Assessment testAssessment;
     AssessmentFactory assessmentFactory = new AssessmentFactory();
 
+    private void assertThereIsExactlyOneViolation(Validator validator, Assessment assessment) {
+        Set<ConstraintViolation<Assessment>> violations = validator.validate(assessment);
+        assertFalse("VALID ASSESSMENT: the assessment factory assembled an assessment that passes entity validation", violations.isEmpty());
+        assertFalse("INVALID ASSESSMENT: the assessment factory assembled an assessment that failed multiple validations", violations.size() > 1);
+    }
+
     @BeforeClass
     public static void setUp() {
         validator = Validation.buildDefaultValidatorFactory().getValidator();
@@ -39,32 +45,24 @@ public class AssessmentValidationTest {
     @Test
     public void HappyPathValidationOfAssessmentFactoryBadAssessmentLongName() {
         testAssessment = assessmentFactory.assembleAssessment(AssessmentOption.BAD_ASSESSMENT_LONG_NAME);
-        Set<ConstraintViolation<Assessment>> violations = validator.validate(testAssessment);
-        assertFalse("INVALID ASSESSMENT: the assessment factory assembled an assessment that doesn't " +
-                "pass entity validation", violations.isEmpty());
+        assertThereIsExactlyOneViolation(validator, testAssessment);
     }
 
     @Test
     public void HappyPathValidationOfAssessmentFactoryBadAssessmentBadName() {
         testAssessment = assessmentFactory.assembleAssessment(AssessmentOption.BAD_ASSESSMENT_BAD_NAME);
-        Set<ConstraintViolation<Assessment>> violations = validator.validate(testAssessment);
-        assertFalse("INVALID ASSESSMENT: the assessment factory assembled an assessment that doesn't " +
-                "pass entity validation", violations.isEmpty());
+        assertThereIsExactlyOneViolation(validator, testAssessment);
     }
 
     @Test
     public void HappyPathValidationOfAssessmentFactoryBadAssessmentNullName() {
         testAssessment = assessmentFactory.assembleAssessment(AssessmentOption.BAD_ASSESSMENT_NULL_NAME);
-        Set<ConstraintViolation<Assessment>> violations = validator.validate(testAssessment);
-        assertFalse("INVALID ASSESSMENT: the assessment factory assembled an assessment that doesn't " +
-                "pass entity validation", violations.isEmpty());
+        assertThereIsExactlyOneViolation(validator, testAssessment);
     }
 
     @Test
     public void HappyPathValidationOfAssessmentFactoryBadAssessmentNullVersion() {
         testAssessment = assessmentFactory.assembleAssessment(AssessmentOption.BAD_ASSESSMENT_NULL_VERSION);
-        Set<ConstraintViolation<Assessment>> violations = validator.validate(testAssessment);
-        assertFalse("INVALID ASSESSMENT: the assessment factory assembled an assessment that doesn't " +
-                "pass entity validation", violations.isEmpty());
+        assertThereIsExactlyOneViolation(validator, testAssessment);
     }
 }
