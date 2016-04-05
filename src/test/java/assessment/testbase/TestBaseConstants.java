@@ -1,8 +1,13 @@
 package assessment.testbase;
 
-import assessment.entities.question.Question;
+import assessment.entities.assessment.Assessment;
+import assessment.entities.membership.Membership;
+import assessment.entities.team.TeamType;
 import assessment.entities.question.QuestionType;
 import assessment.entities.user.Role;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by hmccardell on 3/29/2016.
@@ -20,18 +25,21 @@ public class TestBaseConstants {
     protected final static String VALID_PERSON_NAME = "test name'-";
     protected final static String VALID_DESCRIPTION = "My name is Stuart Smalley, and I'm going to help people. I'm good enough, smart enough, and gosh darnit, people like me";
     protected final static String VALID_OBJECT_NAME = "Test Name 1-'";
+    protected final static String VALID_GRAVATAR_HASH = "simulatedHASH0123456789SIMULATEDhash";
 
     /**
      * Invalid Input:
      */
     protected final static String BAD_PERSON_NAME = "$@598";
+    protected final static String BAD_OBJECT_NAME = "$%@#";
 
     /**
      * USER SECTION
      *
      * Valid Input:
      */
-    protected final static String VALID_USER_GRAVATAR_HASH = "simulatedHASH0123456789SIMULATEDhash";
+
+    protected final static String VALID_USER_GRAVATAR_HASH = "205e460b479e2e5b48aec07710c08d50";
     protected final static String VALID_USER_EMAIL = "squag@catalystdevworks.com";
 
     /**
@@ -49,11 +57,24 @@ public class TestBaseConstants {
 
     /**
      * QUESTION SECTION
+<<<<<<< HEAD
+=======
+     */
+    protected final static String VALID_QUESTION_LABEL_QUANTITATIVE = "How " +
+            "would you rate your teammate's overall performance on the " +
+            "project?";
+    protected final static String VALID_QUESTION_LABEL_QUALITATIVE = "Did " +
+            "your teammate consistently meet their sprint commitments?";
+
+    /**
+     * FEEDBACK SECTION
+>>>>>>> 639d6238ab0e2d49f16e4dc8e7a0924087d21b79
      */
     protected final static QuestionType QUESTION_TYPE_QUANTITATIVE = QuestionType.QUANTITATIVE;
     protected final static QuestionType QUESTION_TYPE_QUALITATIVE = QuestionType.QUALITATIVE;
 
     /**
+<<<<<<< HEAD
      * FEEDBACK SECTION
      *
      * Valid Input:
@@ -68,4 +89,18 @@ public class TestBaseConstants {
      */
     protected final static String INVALID_FEEDBACK_LABEL_EMTPY = "";
     protected final static Integer INVALID_FEEDBACK_SCORE_OVERBOUND = 6;
+    /**
+     * TEAM SECTION
+     */
+    protected final static Integer VALID_REVIEW_FREQUENCY = 1;
+    public List<Membership> LEADER_LIST = new ArrayList<Membership>();
+    public List<Membership> USER_LIST = new ArrayList<Membership>();
+    public Assessment ASSESSMENT = new Assessment();
+
+    /**
+     * TEAM TYPE SECTION
+     */
+    protected final static TeamType TEAM_O3 = TeamType.valueOf("O3");
+    protected final static TeamType TEAM_DEV = TeamType.valueOf("DEV");
+
 }

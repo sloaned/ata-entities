@@ -4,28 +4,31 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
 
+import javax.validation.constraints.NotNull;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 
 /**
- * Created by hmccardell on 4/1/2016.
+ * Created by gfisher on 3/16/2016.
  */
 public class Question {
 
     @Id
     private String id;
 
+    @NotNull(message = "Question type is required")
     @Enumerated(EnumType.STRING)
     private QuestionType type;
 
-
-    @Length(max = 255, message = "question label length must not exceed 255 " +
+    @Length(max = 255, message = "Question label length must not exceed 255 " +
             "characters")
-    @NotEmpty(message = "question label is required")
+    @NotEmpty(message = "Question label is required")
     private String label;
 
-    @NotEmpty(message = "Version is required")
+    @NotNull(message = "Version is required")
     private Integer version;
+
+    public Question() {}
 
     public Question(Integer version, String id, QuestionType type, String
             label) {
@@ -33,6 +36,16 @@ public class Question {
         this.id = id;
         this.type = type;
         this.label = label;
+    }
+
+    @Override
+    public String toString() {
+        return "Question{" +
+                "id='" + id + '\'' +
+                ", type=" + type +
+                ", label='" + label + '\'' +
+                ", version=" + version +
+                '}';
     }
 
     public String getId() {
