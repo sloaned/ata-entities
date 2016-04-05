@@ -1,8 +1,14 @@
 package assessment.entities.assessment;
+
 import assessment.entities.question.Question;
+import assessment.utilities.RegexConstants;
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.util.List;
 
 /**
@@ -15,11 +21,13 @@ public class Assessment {
 
     @Indexed(unique = true)
     @NotEmpty(message = "Assessment name is required")
+    @Length(max = 100, message = "Assessment name can be no longer than 100 characters.")
+    @Pattern(regexp = RegexConstants.OBJECT_NAME, message = "Assessment name contains invalid characters.")
     private String name;
 
     private List<Question> questionList;
 
-    @NotEmpty(message = "Version is required")
+    @NotNull(message = "Version is required")
     private Integer version;
 
     public Assessment(){};
@@ -30,6 +38,16 @@ public class Assessment {
         this.name = name;
         this.questionList = questionList;
         this.version = version;
+    }
+
+    @Override
+    public String toString() {
+        return "Assessment{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", questionList=" + questionList +
+                ", version=" + version +
+                '}';
     }
 
     public String getId() {
