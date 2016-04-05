@@ -40,6 +40,16 @@ public class Assessment {
         this.version = version;
     }
 
+    @Override
+    public String toString() {
+        return "Assessment{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", questionList=" + questionList +
+                ", version=" + version +
+                '}';
+    }
+
     public String getId() {
         return id;
     }
