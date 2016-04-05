@@ -17,7 +17,7 @@ import static org.junit.Assert.assertTrue;
 /**
  * Created by Alysha Recore on 4/1/2016.
  */
-public class AssesementValidationTest {
+public class AssessmentValidationTest {
 
     private static Validator validator;
     private Assessment testAssessment;
@@ -29,7 +29,7 @@ public class AssesementValidationTest {
     }
 
     @Test
-    public void HappyPathValidationOfAssesementFactoryValidAssesement() {
+    public void HappyPathValidationOfAssessmentFactoryValidAssessment() {
         testAssessment = assessmentFactory.assembleAssessment(AssessmentOption.VALID_ASSESSMENT);
         Set<ConstraintViolation<Assessment>> violations = validator.validate(testAssessment);
         assertTrue("INVALID ASSESSMENT: the assessment factory assembled an assessment that doesn't " +
@@ -37,7 +37,7 @@ public class AssesementValidationTest {
     }
 
     @Test
-    public void HappyPathValidationOfAssesementFactoryBadAssesementLongName() {
+    public void HappyPathValidationOfAssessmentFactoryBadAssessmentLongName() {
         testAssessment = assessmentFactory.assembleAssessment(AssessmentOption.BAD_ASSESSMENT_LONG_NAME);
         Set<ConstraintViolation<Assessment>> violations = validator.validate(testAssessment);
         assertFalse("INVALID ASSESSMENT: the assessment factory assembled an assessment that doesn't " +
@@ -45,7 +45,7 @@ public class AssesementValidationTest {
     }
 
     @Test
-    public void HappyPathValidationOfAssesementFactoryBadAssesementBadName() {
+    public void HappyPathValidationOfAssessmentFactoryBadAssessmentBadName() {
         testAssessment = assessmentFactory.assembleAssessment(AssessmentOption.BAD_ASSESSMENT_BAD_NAME);
         Set<ConstraintViolation<Assessment>> violations = validator.validate(testAssessment);
         assertFalse("INVALID ASSESSMENT: the assessment factory assembled an assessment that doesn't " +
@@ -53,7 +53,7 @@ public class AssesementValidationTest {
     }
 
     @Test
-    public void HappyPathValidationOfAssesementFactoryBadAssesementNullName() {
+    public void HappyPathValidationOfAssessmentFactoryBadAssessmentNullName() {
         testAssessment = assessmentFactory.assembleAssessment(AssessmentOption.BAD_ASSESSMENT_NULL_NAME);
         Set<ConstraintViolation<Assessment>> violations = validator.validate(testAssessment);
         assertFalse("INVALID ASSESSMENT: the assessment factory assembled an assessment that doesn't " +
@@ -61,7 +61,7 @@ public class AssesementValidationTest {
     }
 
     @Test
-    public void HappyPathValidationOfAssesementFactoryBadAssesementNullVersion() {
+    public void HappyPathValidationOfAssessmentFactoryBadAssessmentNullVersion() {
         testAssessment = assessmentFactory.assembleAssessment(AssessmentOption.BAD_ASSESSMENT_NULL_VERSION);
         Set<ConstraintViolation<Assessment>> violations = validator.validate(testAssessment);
         assertFalse("INVALID ASSESSMENT: the assessment factory assembled an assessment that doesn't " +
