@@ -21,16 +21,10 @@ public class ReviewFactory extends TestBase{
 
         Review baseReview = new Review();
 
-        UserFactory userFactory = new UserFactory();
-        User testReviewer = userFactory.assembleUser(UserOption.VALID_ACTIVE_DEVELOPER);
-        User testReviewed = userFactory.assembleUser(UserOption.VALID_INACTIVE_DEVELOPER);
-
         Feedback testFeedbackObject = new Feedback();
         List<Feedback> testFeedback = new ArrayList<Feedback>();
         testFeedback.add(testFeedbackObject);
 
-        baseReview.setReviewerId(testReviewer);
-        baseReview.setReviewedId(testReviewed);
         baseReview.setTeamName(VALID_TEAM_NAME);
         baseReview.setSubmittedDate(new Date());
         baseReview.setFeedback(testFeedback);
@@ -43,6 +37,13 @@ public class ReviewFactory extends TestBase{
     public Review assembleReview(ReviewOption reviewOption) {
 
         Review review = assembleBaseReview();
+
+        UserFactory userFactory = new UserFactory();
+        User testReviewer = userFactory.assembleUser(UserOption.VALID_ACTIVE_DEVELOPER);
+        User testReviewed = userFactory.assembleUser(UserOption.VALID_INACTIVE_DEVELOPER);
+
+        review.setReviewerId(testReviewer);
+        review.setReviewedId(testReviewed);
 
         switch(reviewOption){
 
@@ -87,6 +88,16 @@ public class ReviewFactory extends TestBase{
 
             case LARGE_SUMMARY_SCORE_REVIEW:
                 review.setSummaryScore(generateRandomDouble(5.01, LARGE_SUMMARY_SCORE));
+                break;
+
+            case SELF_REVIEW:
+                String randomId = generateRandomString(10);
+
+                testReviewer.setId(randomId);
+                testReviewed.setId(randomId);
+
+                review.setReviewerId(testReviewer);
+                review.setReviewedId(testReviewed);
                 break;
         }
 

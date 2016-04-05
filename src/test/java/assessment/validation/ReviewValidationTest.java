@@ -101,4 +101,10 @@ public class ReviewValidationTest {
         assertThereIsExactlyOneViolation(validator, testReview);
     }
 
+    @Test
+    public void testSelfReview() {
+        testReview = reviewFactory.assembleReview(ReviewOption.SELF_REVIEW);
+        assertThereIsExactlyOneViolation(validator, testReview);
+    }
+
 }

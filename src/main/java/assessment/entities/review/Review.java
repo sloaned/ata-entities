@@ -8,6 +8,7 @@ import org.hibernate.validator.constraints.Range;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 
+import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
@@ -46,6 +47,19 @@ public class Review {
 
     @NotNull(message = "Version is required")
     private Integer version;
+
+    @AssertTrue(message = "Reviewer and reviewee cannot be the same user")
+    private boolean isValid() {
+        boolean result = true;
+
+        if (reviewerId != null && reviewedId != null) {
+            if (reviewerId.getId() != null && reviewedId.getId() != null) {
+                result = !this.reviewerId.getId().equals(this.reviewedId.getId());
+            }
+        }
+
+        return result;
+    }
 
     /**
      * Default constructor
