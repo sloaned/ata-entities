@@ -52,6 +52,10 @@ public class Review {
     private boolean isValid() {
         boolean result = true;
 
+        /**
+         * User ids cannot be checked if Users are null; if either id is null
+         * there is no need to validate
+         */
         if (reviewerId != null && reviewedId != null) {
             if (reviewerId.getId() != null && reviewedId.getId() != null) {
                 result = !this.reviewerId.getId().equals(this.reviewedId.getId());
