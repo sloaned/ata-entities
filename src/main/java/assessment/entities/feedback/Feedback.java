@@ -32,6 +32,8 @@ public class Feedback {
     @NotNull(message = "Version is required")
     private Integer version;
 
+    public Feedback() {}
+
     public Feedback(FeedbackType type, String label, Integer score, String
             comment, Integer version) {
         this.type = type;

@@ -4,7 +4,13 @@ import assessment.entities.feedback.Feedback;
 import assessment.entities.user.User;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.Range;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
+
+import javax.validation.constraints.AssertTrue;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 
 import java.util.Date;
 import java.util.List;
@@ -14,28 +20,50 @@ import java.util.List;
  */
 public class Review {
 
+    @Id
+    private String id;
+
     @DBRef
-    @NotEmpty(message = "Reviewer must be defined.")
+    @NotNull(message = "Reviewer must be defined.")
     private User reviewerId;
 
     @DBRef
-    @NotEmpty(message = "Reviewee must be defined.")
+    @NotNull(message = "Reviewee must be defined.")
     private User reviewedId;
 
     @NotEmpty(message = "Reviewee's associated team must be defined.")
     private String teamName;
 
-    @NotEmpty
     @JsonFormat(pattern = "MM/dd/yyyy", timezone="PST")
+    @NotNull(message = "Submitted date is required")
+    @Past(message = "Submitted date cannot be in the past")
     private Date submittedDate;
 
-    @NotEmpty
+    @NotEmpty(message = "At least one Feedback object is required")
     private List<Feedback> feedback;
 
-    private Integer summaryScore;
+    @Range(min = 1, max = 5)
+    private Double summaryScore;
 
-    @NotEmpty(message = "Version is required")
+    @NotNull(message = "Version is required")
     private Integer version;
+
+    @AssertTrue(message = "Reviewer and reviewee cannot be the same user")
+    private boolean isValid() {
+        boolean result = true;
+
+        /**
+         * User ids cannot be checked if Users are null; if either id is null
+         * there is no need to validate
+         */
+        if (reviewerId != null && reviewedId != null) {
+            if (reviewerId.getId() != null && reviewedId.getId() != null) {
+                result = !this.reviewerId.getId().equals(this.reviewedId.getId());
+            }
+        }
+
+        return result;
+    }
 
     /**
      * Default constructor
@@ -53,7 +81,7 @@ public class Review {
      * @param version
      */
     public Review(User reviewerId, User reviewedId, String teamName, Date submittedDate, List<Feedback> feedback,
-                  Integer summaryScore, Integer version){
+                  Double summaryScore, Integer version){
         this.reviewerId = reviewerId;
         this.reviewedId = reviewedId;
         this.teamName = teamName;
@@ -61,6 +89,20 @@ public class Review {
         this.feedback = feedback;
         this.summaryScore = summaryScore;
         this.version = version;
+    }
+
+    @Override
+    public String toString() {
+        return "Review{" +
+                "id='" + id + '\'' +
+                ", reviewerId=" + reviewerId +
+                ", reviewedId=" + reviewedId +
+                ", teamName='" + teamName + '\'' +
+                ", submittedDate=" + submittedDate +
+                ", feedback=" + feedback +
+                ", summaryScore=" + summaryScore +
+                ", version=" + version +
+                '}';
     }
 
     /**
@@ -106,11 +148,11 @@ public class Review {
         this.feedback = feedback;
     }
 
-    public Integer getSummaryScore() {
+    public Double getSummaryScore() {
         return summaryScore;
     }
 
-    public void setSummaryScore(Integer summaryScore) {
+    public void setSummaryScore(Double summaryScore) {
         this.summaryScore = summaryScore;
     }
 
