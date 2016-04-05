@@ -1,6 +1,7 @@
 package assessment.testbase;
 
 import assessment.entities.assessment.Assessment;
+import assessment.entities.feedback.FeedbackType;
 import assessment.entities.membership.Membership;
 import assessment.entities.team.TeamType;
 import assessment.entities.question.QuestionType;
@@ -57,8 +58,6 @@ public class TestBaseConstants {
 
     /**
      * QUESTION SECTION
-<<<<<<< HEAD
-=======
      */
     protected final static String VALID_QUESTION_LABEL_QUANTITATIVE = "How " +
             "would you rate your teammate's overall performance on the " +
@@ -66,15 +65,10 @@ public class TestBaseConstants {
     protected final static String VALID_QUESTION_LABEL_QUALITATIVE = "Did " +
             "your teammate consistently meet their sprint commitments?";
 
-    /**
-     * FEEDBACK SECTION
->>>>>>> 639d6238ab0e2d49f16e4dc8e7a0924087d21b79
-     */
     protected final static QuestionType QUESTION_TYPE_QUANTITATIVE = QuestionType.QUANTITATIVE;
     protected final static QuestionType QUESTION_TYPE_QUALITATIVE = QuestionType.QUALITATIVE;
 
     /**
-<<<<<<< HEAD
      * FEEDBACK SECTION
      *
      * Valid Input:
@@ -83,12 +77,18 @@ public class TestBaseConstants {
     protected final static String VALID_FEEDBACK_LABEL = "Valid Feedback Label";
     protected final static Integer VALID_FEEDBACK_SCORE = 3;
     protected final static String VALID_FEEDBACK_COMMENT = "A Valid comment for a feedback entity";
-
     /**
      * Invalid Input:
      */
     protected final static String INVALID_FEEDBACK_LABEL_EMTPY = "";
     protected final static Integer INVALID_FEEDBACK_SCORE_OVERBOUND = 6;
+
+    /**
+     * FEEDBACK TYPE SECTION
+     */
+    protected final static FeedbackType FEEDBACK_TYPE_KUDOS = FeedbackType.KUDOS;
+    protected final static FeedbackType FEEDBACK_TYPE_ASSESSMENT = FeedbackType.ASSESSMENT;
+
     /**
      * TEAM SECTION
      */

@@ -1,6 +1,7 @@
 package assessment.factories.feedback;
 
 import assessment.entities.feedback.Feedback;
+import assessment.entities.feedback.FeedbackType;
 import assessment.testbase.TestBase;
 
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ public class FeedbackFactory extends TestBase {
         switch (option) {
             case VALID_QUALITATIVE_FEEDBACK:
                 feedback = new Feedback(
-                        QUESTION_TYPE_QUALITATIVE,
+                        FEEDBACK_TYPE_KUDOS,
                         VALID_FEEDBACK_LABEL,
                         VALID_FEEDBACK_SCORE,
                         VALID_FEEDBACK_COMMENT,
@@ -28,7 +29,7 @@ public class FeedbackFactory extends TestBase {
 
             case VALID_QUANTITATIVE_FEEDBACK:
                 feedback = new Feedback(
-                        QUESTION_TYPE_QUANTITATIVE,
+                        FEEDBACK_TYPE_KUDOS,
                         VALID_FEEDBACK_LABEL,
                         VALID_FEEDBACK_SCORE,
                         VALID_FEEDBACK_COMMENT,
@@ -48,7 +49,7 @@ public class FeedbackFactory extends TestBase {
 
             case INVALID_FEEDBACK_NULL_VERSION:
                 feedback = new Feedback(
-                        QUESTION_TYPE_QUALITATIVE,
+                        FEEDBACK_TYPE_KUDOS,
                         VALID_FEEDBACK_LABEL,
                         VALID_FEEDBACK_SCORE,
                         VALID_FEEDBACK_COMMENT,
@@ -58,7 +59,7 @@ public class FeedbackFactory extends TestBase {
 
             case INVALID_FEEDBACK_EMPTY_LABEL:
                 feedback = new Feedback(
-                        QUESTION_TYPE_QUALITATIVE,
+                        FEEDBACK_TYPE_KUDOS,
                         INVALID_FEEDBACK_LABEL_EMTPY,
                         VALID_FEEDBACK_SCORE,
                         VALID_FEEDBACK_COMMENT,
@@ -68,7 +69,7 @@ public class FeedbackFactory extends TestBase {
 
             case INVALID_FEEDBACK_LONG_LABEL:
                 feedback = new Feedback(
-                        QUESTION_TYPE_QUALITATIVE,
+                        FEEDBACK_TYPE_KUDOS,
                         generateRandomString(256),
                         VALID_FEEDBACK_SCORE,
                         VALID_FEEDBACK_COMMENT,
@@ -78,7 +79,7 @@ public class FeedbackFactory extends TestBase {
 
             case INVALID_FEEDBACK_LONG_COMMENT:
                 feedback = new Feedback(
-                        QUESTION_TYPE_QUALITATIVE,
+                        FEEDBACK_TYPE_KUDOS,
                         VALID_FEEDBACK_LABEL,
                         VALID_FEEDBACK_SCORE,
                         generateRandomString(1501),
@@ -88,7 +89,7 @@ public class FeedbackFactory extends TestBase {
 
             case INVALID_FEEDBACK_OVERBOUND_SCORE:
                 feedback = new Feedback(
-                        QUESTION_TYPE_QUALITATIVE,
+                        FEEDBACK_TYPE_KUDOS,
                         VALID_FEEDBACK_LABEL,
                         INVALID_FEEDBACK_SCORE_OVERBOUND,
                         VALID_FEEDBACK_COMMENT,

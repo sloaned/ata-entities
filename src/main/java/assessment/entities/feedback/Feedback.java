@@ -1,10 +1,11 @@
 package assessment.entities.feedback;
 
-import assessment.entities.question.QuestionType;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Range;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -13,7 +14,8 @@ import javax.validation.constraints.NotNull;
 public class Feedback {
 
     @NotNull(message = "question type is required")
-    private QuestionType type;
+    @Enumerated(EnumType.STRING)
+    private FeedbackType type;
 
     @Length(max = 255, message = "question label length must not exceed 255 " +
             "characters")
@@ -30,7 +32,7 @@ public class Feedback {
     @NotNull(message = "Version is required")
     private Integer version;
 
-    public Feedback(QuestionType type, String label, Integer score, String
+    public Feedback(FeedbackType type, String label, Integer score, String
             comment, Integer version) {
         this.type = type;
         this.label = label;
@@ -50,11 +52,11 @@ public class Feedback {
                 '}';
     }
 
-    public QuestionType getType() {
+    public FeedbackType getType() {
         return type;
     }
 
-    public void setType(QuestionType type) {
+    public void setType(FeedbackType type) {
         this.type = type;
     }
 
