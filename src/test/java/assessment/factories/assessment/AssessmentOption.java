@@ -1,4 +1,4 @@
-package assessment.assessment;
+package assessment.factories.assessment;
 
 /**
  * Created by jtucker on 4/5/2016.

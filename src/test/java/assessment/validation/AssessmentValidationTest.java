@@ -1,7 +1,7 @@
 package assessment.validation;
 
-import assessment.assessment.AssessmentFactory;
-import assessment.assessment.AssessmentOption;
+import assessment.factories.assessment.AssessmentFactory;
+import assessment.factories.assessment.AssessmentOption;
 import assessment.entities.assessment.Assessment;
 import org.junit.BeforeClass;
 import org.junit.Test;

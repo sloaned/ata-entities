@@ -1,4 +1,4 @@
-package assessment.assessment;
+package assessment.factories.assessment;
 
 import assessment.entities.assessment.Assessment;
 import assessment.testbase.TestBase;
