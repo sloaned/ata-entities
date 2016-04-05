@@ -1,6 +1,6 @@
 package assessment.testbase;
 
-
+import assessment.entities.question.Question;
 import assessment.entities.assessment.Assessment;
 import assessment.entities.membership.Membership;
 import assessment.entities.team.TeamType;
@@ -78,6 +78,11 @@ public class TestBaseConstants {
     /**
      * FEEDBACK SECTION
      */
+
+    /**
+     * ASSESSMENT SECTION
+     */
+    protected List<Question> QUESTION_LIST = new ArrayList<Question>();
 
     /**
      * TEAM SECTION
