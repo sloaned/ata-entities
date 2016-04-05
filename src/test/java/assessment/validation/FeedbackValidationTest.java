@@ -10,8 +10,6 @@ import javax.validation.Validation;
 import javax.validation.Validator;
 import java.util.Set;
 
-
-import static assessment.entities.question.QuestionType.QUANTITATIVE;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -37,7 +35,7 @@ public class FeedbackValidationTest {
 
     @Test
     public void versionNull() {
-        QuestionType type = QUANTITATIVE;
+        QuestionType type = QuestionType.BOOLEAN;
 
         Feedback myFeedback = new Feedback(type, "", 2, "", null);
         Set<ConstraintViolation<Feedback>> violations = validator.validate(myFeedback);
@@ -53,7 +51,7 @@ public class FeedbackValidationTest {
 
     @Test
     public void HappyPath() {
-        QuestionType type = QUANTITATIVE;
+        QuestionType type = QuestionType.BOOLEAN;
         Feedback myFeedback = new Feedback(type, "sag", 2, "sdf", 4);
         Set<ConstraintViolation<Feedback>> violations = validator.validate(myFeedback);
         assertTrue("should pass", violations.isEmpty());
@@ -61,7 +59,7 @@ public class FeedbackValidationTest {
 
     @Test
     public void labelTooLongTest() {
-        QuestionType type = QUANTITATIVE;
+        QuestionType type = QuestionType.BOOLEAN;
         String word = "";
         for (int i = 0; i < 500; i++) {
             word = word + "B";
@@ -73,7 +71,7 @@ public class FeedbackValidationTest {
 
     @Test
     public void commentTooLongTest() {
-        QuestionType type = QUANTITATIVE;
+        QuestionType type = QuestionType.BOOLEAN;
         String word = "";
         for (int i = 0; i < 1501; i++) {
             word = word + "B";
@@ -85,7 +83,7 @@ public class FeedbackValidationTest {
 
     @Test
     public void scoreRangeTestOverBound() {
-        QuestionType type = QUANTITATIVE;
+        QuestionType type = QuestionType.BOOLEAN;
         String word = "word to ya";
         Feedback myFeedback = new Feedback(type, word, 9, word, 3);
         Set<ConstraintViolation<Feedback>> violations = validator.validate(myFeedback);
