@@ -3,7 +3,6 @@ package assessment.factories.question;
 
 import assessment.entities.question.Question;
 import assessment.testbase.TestBase;
-import assessment.testbase.TestBaseConstants;
 
 import java.text.ParseException;
 import java.util.ArrayList;

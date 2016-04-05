@@ -7,7 +7,6 @@ import org.springframework.data.annotation.Id;
 import javax.validation.constraints.NotNull;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.validation.constraints.NotNull;
 
 /**
  * Created by gfisher on 3/16/2016.
