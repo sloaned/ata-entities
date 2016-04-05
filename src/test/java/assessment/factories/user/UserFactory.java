@@ -21,7 +21,7 @@ public class UserFactory extends TestBase {
             case VALID_ACTIVE_DEVELOPER:
                 user.setVersion(VALID_ENTITY_VERSION);
                 user.setActive(true);
-                user.setAvatar(VALID_USER_GRAVATAR_HASH);
+                user.setAvatar(VALID_GRAVATAR_HASH);
                 user.setEmail(VALID_USER_EMAIL);
                 user.setFirstName(VALID_PERSON_NAME);
                 user.setLastName(VALID_PERSON_NAME);
@@ -32,7 +32,7 @@ public class UserFactory extends TestBase {
             case VALID_INACTIVE_DEVELOPER:
                 user.setVersion(VALID_ENTITY_VERSION);
                 user.setActive(false);
-                user.setAvatar(VALID_USER_GRAVATAR_HASH);
+                user.setAvatar(VALID_GRAVATAR_HASH);
                 user.setEmail(VALID_USER_EMAIL);
                 user.setFirstName(VALID_PERSON_NAME);
                 user.setLastName(VALID_PERSON_NAME);

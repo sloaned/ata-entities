@@ -1,6 +1,10 @@
 package assessment.testbase;
 
 import assessment.entities.question.Question;
+import assessment.entities.assessment.Assessment;
+import assessment.entities.membership.Membership;
+import assessment.entities.team.TeamType;
+import assessment.entities.question.QuestionType;
 import assessment.entities.user.Role;
 
 import java.util.ArrayList;
@@ -22,6 +26,7 @@ public class TestBaseConstants {
     protected final static String VALID_PERSON_NAME = "test name'-";
     protected final static String VALID_DESCRIPTION = "My name is Stuart Smalley, and I'm going to help people. I'm good enough, smart enough, and gosh darnit, people like me";
     protected final static String VALID_OBJECT_NAME = "Test Name 1-'";
+    protected final static String VALID_GRAVATAR_HASH = "simulatedHASH0123456789SIMULATEDhash";
 
     /**
      * Invalid Input:
@@ -34,7 +39,8 @@ public class TestBaseConstants {
      *
      * Valid Input:
      */
-    protected final static String VALID_USER_GRAVATAR_HASH = "simulatedHASH0123456789SIMULATEDhash";
+
+    protected final static String VALID_USER_GRAVATAR_HASH = "205e460b479e2e5b48aec07710c08d50";
     protected final static String VALID_USER_EMAIL = "squag@catalystdevworks.com";
 
     /**
@@ -51,6 +57,25 @@ public class TestBaseConstants {
 
 
     /**
+     * QUESTION SECTION
+     */
+    protected final static String VALID_QUESTION_LABEL_QUANTITATIVE = "How " +
+            "would you rate your teammate's overall performance on the " +
+            "project?";
+    protected final static String VALID_QUESTION_LABEL_QUALITATIVE = "Did " +
+            "your teammate consistently meet their sprint commitments?";
+
+
+    /**
+     * QUESTION TYPE SECTION
+     */
+    protected final static QuestionType QUESTION_TYPE_QUANTITATIVE =
+            QuestionType.valueOf("QUANTITATIVE");
+    protected final static QuestionType QUESTION_TYPE_QUALITATIVE =
+            QuestionType.valueOf("QUALITATIVE");
+
+
+    /**
      * FEEDBACK SECTION
      */
 
@@ -59,6 +84,18 @@ public class TestBaseConstants {
      */
     protected List<Question> QUESTION_LIST = new ArrayList<Question>();
 
+    /**
+     * TEAM SECTION
+     */
+    protected final static Integer VALID_REVIEW_FREQUENCY = 1;
+    public List<Membership> LEADER_LIST = new ArrayList<Membership>();
+    public List<Membership> USER_LIST = new ArrayList<Membership>();
+    public Assessment ASSESSMENT = new Assessment();
 
+    /**
+     * TEAM TYPE SECTION
+     */
+    protected final static TeamType TEAM_O3 = TeamType.valueOf("O3");
+    protected final static TeamType TEAM_DEV = TeamType.valueOf("DEV");
 
 }
