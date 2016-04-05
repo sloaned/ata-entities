@@ -1,7 +1,6 @@
 package assessment.validation;
 
 import assessment.entities.feedback.Feedback;
-import assessment.entities.question.QuestionType;
 import assessment.factories.feedback.FeedbackFactory;
 import static assessment.factories.feedback.FeedbackOption.*;
 import org.junit.BeforeClass;
@@ -12,8 +11,6 @@ import javax.validation.Validation;
 import javax.validation.Validator;
 import java.util.Set;
 
-
-import static assessment.entities.question.QuestionType.QUANTITATIVE;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -40,8 +37,6 @@ public class FeedbackValidationTest {
 
     @Test
     public void versionNull() {
-        QuestionType type = QUANTITATIVE;
-
         Feedback myFeedback = feedbackFactory.assembleFeedback(INVALID_FEEDBACK_NULL_VERSION);
         Set<ConstraintViolation<Feedback>> violations = validator.validate(myFeedback);
         assertFalse("should not pass because everything is null", violations.isEmpty());

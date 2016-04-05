@@ -1,7 +1,6 @@
 package assessment.factories.feedback;
 
 import assessment.entities.feedback.Feedback;
-import assessment.entities.feedback.FeedbackType;
 import assessment.testbase.TestBase;
 
 import java.util.ArrayList;
