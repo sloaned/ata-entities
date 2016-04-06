@@ -30,6 +30,7 @@ public class QuestionFactory extends TestBase {
                 question.setLabel(VALID_QUESTION_LABEL_QUALITATIVE);
                 question.setVersion(VALID_ENTITY_VERSION);
                 break;
+
             case VALID_COMPETENCY_QUESTION:
                 question.setType(QUESTION_TYPE_COMPETENCY);
                 question.setLabel(VALID_QUESTION_LABEL_QUALITATIVE);
