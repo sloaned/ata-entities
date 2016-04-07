@@ -1,0 +1,15 @@
+package assessment.factories.feedback;
+
+/**
+ * Options for the feedback entity you want
+ */
+public enum FeedbackOption {
+    VALID_QUALITATIVE_FEEDBACK,
+    VALID_QUANTITATIVE_FEEDBACK,
+    INVALID_FEEDBACK_NULL_TYPE,
+    INVALID_FEEDBACK_NULL_VERSION,
+    INVALID_FEEDBACK_EMPTY_LABEL,
+    INVALID_FEEDBACK_LONG_LABEL,
+    INVALID_FEEDBACK_LONG_COMMENT,
+    INVALID_FEEDBACK_OVERBOUND_SCORE,
+}

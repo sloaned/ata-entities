@@ -1,7 +1,8 @@
 package assessment.validation;
 
 import assessment.entities.feedback.Feedback;
-import assessment.entities.question.QuestionType;
+import assessment.factories.feedback.FeedbackFactory;
+import static assessment.factories.feedback.FeedbackOption.*;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -19,6 +20,7 @@ import static org.junit.Assert.assertTrue;
 
 public class FeedbackValidationTest {
     private static Validator validator;
+    private FeedbackFactory feedbackFactory = new FeedbackFactory();
 
     @BeforeClass
     public static void setUp() {
@@ -28,64 +30,49 @@ public class FeedbackValidationTest {
 
     @Test
     public void typeNull() {
-        Feedback myFeedback = new Feedback(null, "asd", 1, "grd", 3);
+        Feedback myFeedback = feedbackFactory.assembleFeedback(INVALID_FEEDBACK_NULL_TYPE);
         Set<ConstraintViolation<Feedback>> violations = validator.validate(myFeedback);
         assertFalse("should not pass due to null type", violations.isEmpty());
     }
 
     @Test
     public void versionNull() {
-        QuestionType type = QuestionType.BOOLEAN;
-
-        Feedback myFeedback = new Feedback(type, "", 2, "", null);
+        Feedback myFeedback = feedbackFactory.assembleFeedback(INVALID_FEEDBACK_NULL_VERSION);
         Set<ConstraintViolation<Feedback>> violations = validator.validate(myFeedback);
         assertFalse("should not pass because everything is null", violations.isEmpty());
     }
 
     @Test
     public void labelEmpty() {
-        Feedback myFeedback = new Feedback(null, "", 0, "", 0);
+        Feedback myFeedback = feedbackFactory.assembleFeedback(INVALID_FEEDBACK_EMPTY_LABEL);
         Set<ConstraintViolation<Feedback>> violations = validator.validate(myFeedback);
         assertFalse("should fail due to empty strings and object", violations.isEmpty());
     }
 
     @Test
     public void HappyPath() {
-        QuestionType type = QuestionType.BOOLEAN;
-        Feedback myFeedback = new Feedback(type, "sag", 2, "sdf", 4);
+        Feedback myFeedback = feedbackFactory.assembleFeedback(VALID_QUANTITATIVE_FEEDBACK);
         Set<ConstraintViolation<Feedback>> violations = validator.validate(myFeedback);
         assertTrue("should pass", violations.isEmpty());
     }
 
     @Test
     public void labelTooLongTest() {
-        QuestionType type = QuestionType.BOOLEAN;
-        String word = "";
-        for (int i = 0; i < 500; i++) {
-            word = word + "B";
-        }
-        Feedback myFeedback = new Feedback(type, word, 3, "wet", 3);
+        Feedback myFeedback = feedbackFactory.assembleFeedback(INVALID_FEEDBACK_LONG_LABEL);
         Set<ConstraintViolation<Feedback>> violations = validator.validate(myFeedback);
         assertFalse("should fail because your label was too long", violations.isEmpty());
     }
 
     @Test
     public void commentTooLongTest() {
-        QuestionType type = QuestionType.BOOLEAN;
-        String word = "";
-        for (int i = 0; i < 1501; i++) {
-            word = word + "B";
-        }
-        Feedback myFeedback = new Feedback(type, "wet", 3, word, 3);
+        Feedback myFeedback = feedbackFactory.assembleFeedback(INVALID_FEEDBACK_LONG_COMMENT);
         Set<ConstraintViolation<Feedback>> violations = validator.validate(myFeedback);
         assertFalse("should fail because your comment was too long", violations.isEmpty());
     }
 
     @Test
     public void scoreRangeTestOverBound() {
-        QuestionType type = QuestionType.BOOLEAN;
-        String word = "word to ya";
-        Feedback myFeedback = new Feedback(type, word, 9, word, 3);
+        Feedback myFeedback = feedbackFactory.assembleFeedback(INVALID_FEEDBACK_OVERBOUND_SCORE);
         Set<ConstraintViolation<Feedback>> violations = validator.validate(myFeedback);
         assertFalse("your rating was out of the acceptable range", violations.isEmpty());
     }

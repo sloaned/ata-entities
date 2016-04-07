@@ -2,6 +2,7 @@ package assessment.testbase;
 
 import assessment.entities.question.Question;
 import assessment.entities.assessment.Assessment;
+import assessment.entities.feedback.FeedbackType;
 import assessment.entities.membership.Membership;
 import assessment.entities.team.TeamType;
 import assessment.entities.question.QuestionType;
@@ -63,18 +64,31 @@ public class TestBaseConstants {
     protected final static String VALID_QUESTION_LABEL_QUALITATIVE = "Did " +
             "your teammate consistently meet their sprint commitments?";
 
-
-    /**
-     * QUESTION TYPE SECTION
-     */
     protected final static QuestionType QUESTION_TYPE_BOOLEAN = QuestionType.BOOLEAN;
     protected final static QuestionType QUESTION_TYPE_MULTIPLE_CHOICE = QuestionType.MULTIPLE_CHOICE;
     protected final static QuestionType QUESTION_TYPE_COMPETENCY = QuestionType.COMPETENCY;
 
-
     /**
      * FEEDBACK SECTION
+     *
+     * Valid Input:
      */
+    protected final static Integer VALID_FEEDBACK_VERSION = 1;
+    protected final static String VALID_FEEDBACK_LABEL = "Valid Feedback Label";
+    protected final static Integer VALID_FEEDBACK_SCORE = 3;
+    protected final static String VALID_FEEDBACK_COMMENT = "A Valid comment for a feedback entity";
+    /**
+     * Invalid Input:
+     */
+    protected final static String INVALID_FEEDBACK_LABEL_EMTPY = "";
+    protected final static Integer INVALID_FEEDBACK_SCORE_OVERBOUND = 6;
+
+
+    /**
+     * FEEDBACK TYPE SECTION
+     */
+    protected final static FeedbackType FEEDBACK_TYPE_KUDOS = FeedbackType.KUDOS;
+    protected final static FeedbackType FEEDBACK_TYPE_ASSESSMENT = FeedbackType.ASSESSMENT;
 
     /**
      * ASSESSMENT SECTION

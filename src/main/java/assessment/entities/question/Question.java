@@ -20,7 +20,6 @@ public class Question {
     @Enumerated(EnumType.STRING)
     private QuestionType type;
 
-
     @Length(max = 255, message = "Question label length must not exceed 255 " +
             "characters")
     @NotEmpty(message = "Question label is required")

@@ -12,7 +12,7 @@ import java.util.Date;
 public class Membership {
 
     @DBRef
-    @NotEmpty(message = "User ID is required")
+    @NotEmpty(message = "user ID is required")
     private User userId;
 
     @NotEmpty(message = "The membership must be active or inactive")

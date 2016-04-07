@@ -35,7 +35,7 @@ public class User {
     private Role role;
 
     /**
-     * User avatars are requested via Gravatar; the userAvatar field stores a
+     * user avatars are requested via Gravatar; the userAvatar field stores a
      * hash that must be calculated using the user's email address
      */
     private String avatar;
@@ -68,7 +68,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "user{" +
                 "id='" + id + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
