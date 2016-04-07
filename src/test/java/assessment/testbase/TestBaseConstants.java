@@ -64,8 +64,9 @@ public class TestBaseConstants {
     protected final static String VALID_QUESTION_LABEL_QUALITATIVE = "Did " +
             "your teammate consistently meet their sprint commitments?";
 
-    protected final static QuestionType QUESTION_TYPE_QUANTITATIVE = QuestionType.QUANTITATIVE;
-    protected final static QuestionType QUESTION_TYPE_QUALITATIVE = QuestionType.QUALITATIVE;
+    protected final static QuestionType QUESTION_TYPE_BOOLEAN = QuestionType.BOOLEAN;
+    protected final static QuestionType QUESTION_TYPE_MULTIPLE_CHOICE = QuestionType.MULTIPLE_CHOICE;
+    protected final static QuestionType QUESTION_TYPE_COMPETENCY = QuestionType.COMPETENCY;
 
     /**
      * FEEDBACK SECTION
@@ -81,6 +82,7 @@ public class TestBaseConstants {
      */
     protected final static String INVALID_FEEDBACK_LABEL_EMTPY = "";
     protected final static Integer INVALID_FEEDBACK_SCORE_OVERBOUND = 6;
+
 
     /**
      * FEEDBACK TYPE SECTION

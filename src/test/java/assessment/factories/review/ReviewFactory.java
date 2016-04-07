@@ -26,7 +26,14 @@ public class ReviewFactory extends TestBase{
         testFeedback.add(testFeedbackObject);
 
         baseReview.setTeamName(VALID_TEAM_NAME);
-        baseReview.setSubmittedDate(new Date());
+
+        /**
+         * Add an offset to make sure the date isn't in the past.
+         * 1000 * 60 = one minute in milliseconds
+         */
+        long offset = 1000 * 60;
+
+        baseReview.setSubmittedDate(new Date(System.currentTimeMillis() + offset));
         baseReview.setFeedback(testFeedback);
         baseReview.setSummaryScore(VALID_SUMMARY_SCORE);
         baseReview.setVersion(VALID_ENTITY_VERSION);

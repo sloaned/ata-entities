@@ -9,8 +9,8 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 
 import javax.validation.constraints.AssertTrue;
+import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
 
 import java.util.Date;
 import java.util.List;
@@ -36,7 +36,7 @@ public class Review {
 
     @JsonFormat(pattern = "MM/dd/yyyy", timezone="PST")
     @NotNull(message = "Submitted date is required")
-    @Past(message = "Submitted date cannot be in the past")
+    @Future(message = "Submitted date cannot be in the past")
     private Date submittedDate;
 
     @NotEmpty(message = "At least one Feedback object is required")
