@@ -35,15 +35,22 @@ public class QuestionValidationTest {
     }
 
     @Test
-    public void TestValidQuantitativeQuestion() {
-        testQuestion = questionFactory.assembleQuestion(QuestionOption.VALID_QUANTITATIVE_QUESTION);
+    public void TestValidBooleanQuestion() {
+        testQuestion = questionFactory.assembleQuestion(QuestionOption.VALID_BOOLEAN_QUESTION);
         Set<ConstraintViolation<Question>> violations = validator.validate(testQuestion);
         assertTrue("INVALID QUESTION: the question factory assembled a question that doesn't pass entity validation", violations.isEmpty());
     }
 
     @Test
-    public void TestValidQualitativeQuestion() {
-        testQuestion = questionFactory.assembleQuestion(QuestionOption.VALID_QUALITATIVE_QUESTION);
+    public void TestValidMultipleChoiceQuestion() {
+        testQuestion = questionFactory.assembleQuestion(QuestionOption.VALID_MULTIPLE_CHOICE_QUESTION);
+        Set<ConstraintViolation<Question>> violations = validator.validate(testQuestion);
+        assertTrue("INVALID QUESTION: the question factory assembled a question that doesn't pass entity validation", violations.isEmpty());
+    }
+
+    @Test
+    public void TestValidCompetencyQuestion() {
+        testQuestion = questionFactory.assembleQuestion(QuestionOption.VALID_COMPETENCY_QUESTION);
         Set<ConstraintViolation<Question>> violations = validator.validate(testQuestion);
         assertTrue("INVALID QUESTION: the question factory assembled a question that doesn't pass entity validation", violations.isEmpty());
     }

@@ -67,10 +67,9 @@ public class TestBaseConstants {
     /**
      * QUESTION TYPE SECTION
      */
-    protected final static QuestionType QUESTION_TYPE_QUANTITATIVE =
-            QuestionType.valueOf("QUANTITATIVE");
-    protected final static QuestionType QUESTION_TYPE_QUALITATIVE =
-            QuestionType.valueOf("QUALITATIVE");
+    protected final static QuestionType QUESTION_TYPE_BOOLEAN = QuestionType.BOOLEAN;
+    protected final static QuestionType QUESTION_TYPE_MULTIPLE_CHOICE = QuestionType.MULTIPLE_CHOICE;
+    protected final static QuestionType QUESTION_TYPE_COMPETENCY = QuestionType.COMPETENCY;
 
 
     /**
