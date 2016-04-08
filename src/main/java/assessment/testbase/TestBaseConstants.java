@@ -1,11 +1,11 @@
 package assessment.testbase;
 
-import assessment.entities.question.Question;
 import assessment.entities.assessment.Assessment;
 import assessment.entities.feedback.FeedbackType;
 import assessment.entities.membership.Membership;
-import assessment.entities.team.TeamType;
+import assessment.entities.question.Question;
 import assessment.entities.question.QuestionType;
+import assessment.entities.team.TeamType;
 import assessment.entities.user.Role;
 
 import java.util.ArrayList;
@@ -27,6 +27,8 @@ public class TestBaseConstants {
     protected final static String VALID_DESCRIPTION = "My name is Stuart Smalley, and I'm going to help people. I'm good enough, smart enough, and gosh darnit, people like me";
     protected final static String VALID_OBJECT_NAME = "Test Name 1-'";
     protected final static String VALID_GRAVATAR_HASH = "205e460b479e2e5b48aec07710c08d50";
+    protected final static String VALID_DATE = "2016-02-02";
+    protected final static String EMPTY_STRING = "";
 
     /**
      * Invalid Input:
@@ -80,7 +82,7 @@ public class TestBaseConstants {
     /**
      * Invalid Input:
      */
-    protected final static String INVALID_FEEDBACK_LABEL_EMTPY = "";
+
     protected final static Integer INVALID_FEEDBACK_SCORE_OVERBOUND = 6;
 
 

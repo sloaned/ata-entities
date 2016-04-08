@@ -37,6 +37,25 @@ public class TestBase extends TestBaseConstants {
         return new String(randomCharacters);
     }
 
+
+    /**
+     * generates a random string composed of capital letters between A and Z
+     * and numbers 0 through 9 to simulate a hash
+     * @param length - number of characters in the generated string
+     * @return - the randomly generated string
+     */
+    protected String generateRandomHash(Integer length) {
+        Random rng = new Random();
+        String characterSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        char[] randomCharacters = new char[length];
+        for (int i = 0; i < length; i++) {
+            randomCharacters[i] = characterSet.charAt(rng.nextInt(characterSet
+                    .length()));
+        }
+        return new String(randomCharacters);
+    }
+
+
     /**
      * generates a random Double in the range of a minimum value (inclusive)
      * and a maximum value (exclusive)

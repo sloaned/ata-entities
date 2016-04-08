@@ -1,9 +1,9 @@
 package assessment.entities.membership;
 
-import assessment.entities.user.User;
 import org.hibernate.validator.constraints.NotEmpty;
-import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.hibernate.validator.constraints.Range;
 
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 /**
@@ -11,25 +11,25 @@ import java.util.Date;
  */
 public class Membership {
 
-    @DBRef
     @NotEmpty(message = "user ID is required")
-    private User userId;
+    private String userId;
 
-    @NotEmpty(message = "The membership must be active or inactive")
+    @NotNull(message = "The membership must be active or inactive")
     private Boolean isActive;
 
+    @NotNull(message = "A user on a team must have a date they were added to that team")
     private Date addedOn;
 
     private Date removedOn;
 
-    @NotEmpty(message = "Version is required")
+    @Range(min = 1, message = "version of at least 1 is required")
     private Integer version;
 
     public Membership(){
 
     }
 
-    public Membership(User userId, Boolean isActive, Date addedOn, Date
+    public Membership(String userId, Boolean isActive, Date addedOn, Date
             removedOn, Integer version) {
         this.userId = userId;
         this.isActive = isActive;
@@ -38,11 +38,11 @@ public class Membership {
         this.version = version;
     }
 
-    public User getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(User userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
