@@ -22,6 +22,7 @@ public class Membership {
 
     private Date removedOn;
 
+    @NotNull
     @Range(min = 1, message = "version of at least 1 is required")
     private Integer version;
 
@@ -36,6 +37,17 @@ public class Membership {
         this.addedOn = addedOn;
         this.removedOn = removedOn;
         this.version = version;
+    }
+
+    @Override
+    public String toString() {
+        return "Membership{" +
+                "userId='" + userId + '\'' +
+                ", isActive=" + isActive +
+                ", addedOn=" + addedOn +
+                ", removedOn=" + removedOn +
+                ", version=" + version +
+                '}';
     }
 
     public String getUserId() {

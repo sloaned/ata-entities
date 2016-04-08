@@ -62,4 +62,12 @@ public class MembershipValidationTest {
         assertFalse("expected version 0", violations.isEmpty());
     }
 
+    @Test
+    public void SadPathValidationOfMembershpFactoryNullVersion() throws ParseException{
+        Membership invalidMembership = membershipFactory.assembleMembership(MembershipOption.INVALID_MEMBERSHIP_VERSION_NULL);
+        Set<ConstraintViolation<Membership>> violations = validator.validate(invalidMembership);
+        assertFalse("expected version 0", violations.isEmpty());
+    }
+
+
 }
