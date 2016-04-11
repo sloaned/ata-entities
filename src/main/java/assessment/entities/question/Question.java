@@ -1,7 +1,9 @@
 package assessment.entities.question;
 
+import assessment.testbase.TestBaseConstants;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.Range;
 import org.springframework.data.annotation.Id;
 
 import javax.validation.constraints.NotNull;
@@ -26,16 +28,19 @@ public class Question {
     private String label;
 
     @NotNull(message = "Version is required")
+    @Range(min = 1, message = "version of at least 1 is required")
     private Integer version;
 
-    public Question() {}
+    public Question() {
+        this.version = TestBaseConstants.QUESTION_CURRENT_VERSION;
+    }
 
-    public Question(Integer version, String id, QuestionType type, String
+    public Question(String id, QuestionType type, String
             label) {
-        this.version = version;
         this.id = id;
         this.type = type;
         this.label = label;
+        this.version = TestBaseConstants.QUESTION_CURRENT_VERSION;
     }
 
     @Override

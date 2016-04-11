@@ -1,9 +1,11 @@
 package assessment.entities.assessment;
 
 import assessment.entities.question.Question;
+import assessment.testbase.TestBaseConstants;
 import assessment.utilities.RegexConstants;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.Range;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 
@@ -28,16 +30,16 @@ public class Assessment {
     private List<Question> questionList;
 
     @NotNull(message = "Version is required")
+    @Range(min = 1, message = "version of at least 1 is required")
     private Integer version;
 
-    public Assessment(){};
+    public Assessment(){}
 
-    public Assessment(String id, String name, List<Question> questionList,
-                      Integer version) {
+    public Assessment(String id, String name, List<Question> questionList) {
         this.id = id;
         this.name = name;
         this.questionList = questionList;
-        this.version = version;
+        this.version = TestBaseConstants.ASSESSMENT_CURRENT_VERSION;
     }
 
     @Override

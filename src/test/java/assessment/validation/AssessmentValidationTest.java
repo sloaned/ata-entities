@@ -9,6 +9,7 @@ import org.junit.Test;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
+import java.text.ParseException;
 import java.util.Set;
 
 import static org.junit.Assert.assertFalse;
@@ -35,7 +36,7 @@ public class AssessmentValidationTest {
     }
 
     @Test
-    public void HappyPathValidationOfAssessmentFactoryValidAssessment() {
+    public void HappyPathAssessmentValidation() {
         testAssessment = assessmentFactory.assembleAssessment(AssessmentOption.VALID_ASSESSMENT);
         Set<ConstraintViolation<Assessment>> violations = validator.validate(testAssessment);
         assertTrue("INVALID ASSESSMENT: the assessment factory assembled an assessment that doesn't " +
@@ -43,26 +44,36 @@ public class AssessmentValidationTest {
     }
 
     @Test
-    public void HappyPathValidationOfAssessmentFactoryBadAssessmentLongName() {
-        testAssessment = assessmentFactory.assembleAssessment(AssessmentOption.BAD_ASSESSMENT_LONG_NAME);
+    public void SadPathValidationOfAssessmentFactoryBadAssessmentLongName() {
+        testAssessment = assessmentFactory.assembleAssessment(AssessmentOption.INVALID_ASSESSMENT_NAME_LONG);
         assertThereIsExactlyOneViolation(validator, testAssessment);
     }
 
     @Test
-    public void HappyPathValidationOfAssessmentFactoryBadAssessmentBadName() {
-        testAssessment = assessmentFactory.assembleAssessment(AssessmentOption.BAD_ASSESSMENT_BAD_NAME);
+    public void SadPathValidationOfAssessmentFactoryBadAssessmentBadName() {
+        testAssessment = assessmentFactory.assembleAssessment(AssessmentOption.INVALID_ASSESSMENT_NAME_SPECIAL_CHARACTERS);
         assertThereIsExactlyOneViolation(validator, testAssessment);
     }
 
     @Test
-    public void HappyPathValidationOfAssessmentFactoryBadAssessmentNullName() {
-        testAssessment = assessmentFactory.assembleAssessment(AssessmentOption.BAD_ASSESSMENT_NULL_NAME);
+    public void SadPathValidationOfAssessmentFactoryBadAssessmentNullName() {
+        testAssessment = assessmentFactory.assembleAssessment(AssessmentOption.INVALID_ASSESSMENT_NULL_NAME);
         assertThereIsExactlyOneViolation(validator, testAssessment);
     }
 
     @Test
-    public void HappyPathValidationOfAssessmentFactoryBadAssessmentNullVersion() {
-        testAssessment = assessmentFactory.assembleAssessment(AssessmentOption.BAD_ASSESSMENT_NULL_VERSION);
-        assertThereIsExactlyOneViolation(validator, testAssessment);
+    public void SadPathValidationOfAssessmentFactoryVersionZero() throws ParseException {
+        testAssessment = assessmentFactory.assembleAssessment(AssessmentOption.INVALID_ASSESSMENT_VERSION_ZERO);
+        Set<ConstraintViolation<Assessment>> violations = validator.validate(testAssessment);
+        assertFalse("expected version 0", violations.isEmpty());
     }
+
+    @Test
+    public void SadPathValidationOfAssessmentFactoryNullVersion() throws ParseException{
+        testAssessment = assessmentFactory.assembleAssessment(AssessmentOption.INVALID_ASSESSMENT_VERSION_NULL);
+        Set<ConstraintViolation<Assessment>> violations = validator.validate(testAssessment);
+        assertFalse("expected version null", violations.isEmpty());
+    }
+
+
 }

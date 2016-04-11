@@ -1,5 +1,6 @@
 package assessment.entities.feedback;
 
+import assessment.testbase.TestBaseConstants;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Range;
@@ -30,17 +31,20 @@ public class Feedback {
     private String comment;
 
     @NotNull(message = "Version is required")
+    @Range(min = 1, message = "version of at least 1 is required")
     private Integer version;
 
-    public Feedback() {}
+    public Feedback() {
+        this.version = TestBaseConstants.FEEDBACK_CURRENT_VERSION;
+    }
 
     public Feedback(FeedbackType type, String label, Integer score, String
-            comment, Integer version) {
+            comment) {
         this.type = type;
         this.label = label;
         this.score = score;
         this.comment = comment;
-        this.version = version;
+        this.version = TestBaseConstants.FEEDBACK_CURRENT_VERSION;
     }
 
     @Override

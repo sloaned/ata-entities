@@ -1,11 +1,13 @@
 package assessment.entities.team;
 
+import assessment.testbase.TestBaseConstants;
 import assessment.utilities.RegexConstants;
 import assessment.entities.assessment.Assessment;
 import assessment.entities.membership.Membership;
 
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.Range;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 
@@ -47,14 +49,17 @@ public class Team {
     
     private Integer reviewFrequency;
 
-    @NotNull(message = "Version is required.")
+    @NotNull(message = "Version is required")
+    @Range(min = 1, message = "version of at least 1 is required")
     private Integer version;
 
-    public Team(){};
+    public Team(){
+        this.version = TestBaseConstants.TEAM_CURRENT_VERSION;
+    }
 
     public Team(String id, String name, Boolean isActive, Assessment assessment, List<Membership> userList,
                 List<Membership> leaderList, String avatar, String description, TeamType teamType,
-                Integer reviewFrequency, Integer version) {
+                Integer reviewFrequency) {
         this.id = id;
         this.name = name;
         this.isActive = isActive;
@@ -65,7 +70,7 @@ public class Team {
         this.description = description;
         this.teamType = teamType;
         this.reviewFrequency = reviewFrequency;
-        this.version = version;
+        this.version = TestBaseConstants.TEAM_CURRENT_VERSION;
     }
 
     @Override

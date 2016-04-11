@@ -36,7 +36,7 @@ public class ReviewFactory extends TestBase{
         baseReview.setSubmittedDate(new Date(System.currentTimeMillis() + offset));
         baseReview.setFeedback(testFeedback);
         baseReview.setSummaryScore(VALID_SUMMARY_SCORE);
-        baseReview.setVersion(VALID_ENTITY_VERSION);
+        baseReview.setVersion(REVIEW_CURRENT_VERSION);
 
         return baseReview;
     }
@@ -57,47 +57,47 @@ public class ReviewFactory extends TestBase{
             case VALID_REVIEW:
                 break;
 
-            case NULL_REVIEWER_ID_REVIEW:
+            case INVALID_REVIEW_REVIEWER_ID_NULL:
                 review.setReviewerId(null);
                 break;
 
-            case NULL_REVIEWED_ID_REVIEW:
+            case INVALID_REVIEW_REVIEWED_ID_NULL:
                 review.setReviewedId(null);
                 break;
 
-            case EMPTY_TEAM_NAME_REVIEW:
+            case INVALID_REVIEW_TEAM_NAME_EMPTY:
                 review.setTeamName("");
                 break;
 
-            case NULL_TEAM_NAME_REVIEW:
+            case INVALID_REVIEW_TEAM_NAME_NULL:
                 review.setTeamName(null);
                 break;
 
-            case NULL_SUBMITTED_DATE_REVIEW:
+            case INVALID_REVIEW_SUBMITTED_DATE_NULL:
                 review.setSubmittedDate(null);
                 break;
 
-            case EMPTY_FEEDBACK_REVIEW:
+            case INVALID_REVIEW_FEEDBACK_EMPTY:
                 review.setFeedback(new ArrayList<Feedback>());
                 break;
 
-            case NULL_FEEDBACK_REVIEW:
+            case INVALID_REVIEW_FEEDBACK_NULL:
                 review.setFeedback(null);
                 break;
 
-            case NULL_VERSION_REVIEW:
+            case INVALID_REVIEW_VERSION_NULL:
                 review.setVersion(null);
                 break;
 
-            case SMALL_SUMMARY_SCORE_REVIEW:
+            case INVALID_REVIEW_SUMMARY_SCORE_SMALL:
                 review.setSummaryScore(generateRandomDouble(SMALL_SUMMARY_SCORE, 1.0));
                 break;
 
-            case LARGE_SUMMARY_SCORE_REVIEW:
+            case INVALID_REVIEW_SUMMARY_SCORE_LARGE:
                 review.setSummaryScore(generateRandomDouble(5.01, LARGE_SUMMARY_SCORE));
                 break;
 
-            case SELF_REVIEW:
+            case INVALID_REVIEW_SELF_REVIEW:
                 String randomId = generateRandomString(10);
 
                 testReviewer.setId(randomId);

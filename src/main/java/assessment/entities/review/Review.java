@@ -2,6 +2,7 @@ package assessment.entities.review;
 
 import assessment.entities.feedback.Feedback;
 import assessment.entities.user.User;
+import assessment.testbase.TestBaseConstants;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Range;
@@ -46,6 +47,7 @@ public class Review {
     private Double summaryScore;
 
     @NotNull(message = "Version is required")
+    @Range(min = 1, message = "version of at least 1 is required")
     private Integer version;
 
     @AssertTrue(message = "Reviewer and reviewee cannot be the same user")
@@ -68,7 +70,9 @@ public class Review {
     /**
      * Default constructor
      */
-    public Review() {}
+    public Review() {
+        this.version = TestBaseConstants.REVIEW_CURRENT_VERSION;
+    }
 
     /**
      * Constructor with parameters
@@ -78,17 +82,16 @@ public class Review {
      * @param submittedDate
      * @param feedback
      * @param summaryScore
-     * @param version
      */
     public Review(User reviewerId, User reviewedId, String teamName, Date submittedDate, List<Feedback> feedback,
-                  Double summaryScore, Integer version){
+                  Double summaryScore){
         this.reviewerId = reviewerId;
         this.reviewedId = reviewedId;
         this.teamName = teamName;
         this.submittedDate = submittedDate;
         this.feedback = feedback;
         this.summaryScore = summaryScore;
-        this.version = version;
+        this.version = TestBaseConstants.REVIEW_CURRENT_VERSION;
     }
 
     @Override
