@@ -1,5 +1,6 @@
 package assessment.entities.membership;
 
+import assessment.testbase.TestBaseConstants;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Range;
 
@@ -27,16 +28,16 @@ public class Membership {
     private Integer version;
 
     public Membership(){
-
+        this.version = TestBaseConstants.MEMBERSHIP_CURRENT_VERSION;
     }
 
     public Membership(String userId, Boolean isActive, Date addedOn, Date
-            removedOn, Integer version) {
+            removedOn) {
         this.userId = userId;
         this.isActive = isActive;
         this.addedOn = addedOn;
         this.removedOn = removedOn;
-        this.version = version;
+        this.version = TestBaseConstants.MEMBERSHIP_CURRENT_VERSION;
     }
 
     @Override

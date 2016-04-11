@@ -21,25 +21,37 @@ public class AssessmentFactory extends TestBase {
             case VALID_ASSESSMENT:
                 assessment.setName(VALID_OBJECT_NAME);
                 assessment.setQuestionList(QUESTION_LIST);
-                assessment.setVersion(VALID_ENTITY_VERSION);
+                assessment.setVersion(ASSESSMENT_CURRENT_VERSION);
                 break;
 
-            case BAD_ASSESSMENT_LONG_NAME:
+            case INVALID_ASSESSMENT_NAME_LONG:
                 assessment.setName(generateRandomString(102));
-                assessment.setVersion(VALID_ENTITY_VERSION);
+                assessment.setQuestionList(QUESTION_LIST);
+                assessment.setVersion(ASSESSMENT_CURRENT_VERSION);
                 break;
 
-            case BAD_ASSESSMENT_BAD_NAME:
-                assessment.setName(BAD_OBJECT_NAME);
-                assessment.setVersion(VALID_ENTITY_VERSION);
+            case INVALID_ASSESSMENT_NAME_SPECIAL_CHARACTERS:
+                assessment.setName(INVALID_OBJECT_NAME_SPECIAL_CHARACTERS);
+                assessment.setQuestionList(QUESTION_LIST);
+                assessment.setVersion(ASSESSMENT_CURRENT_VERSION);
                 break;
 
-            case BAD_ASSESSMENT_NULL_NAME:
-                assessment.setVersion(VALID_ENTITY_VERSION);
+            case INVALID_ASSESSMENT_NULL_NAME:
+                assessment.setName(null);
+                assessment.setQuestionList(QUESTION_LIST);
+                assessment.setVersion(ASSESSMENT_CURRENT_VERSION);
                 break;
 
-            case BAD_ASSESSMENT_NULL_VERSION:
+            case INVALID_ASSESSMENT_VERSION_ZERO:
                 assessment.setName(VALID_OBJECT_NAME);
+                assessment.setQuestionList(QUESTION_LIST);
+                assessment.setVersion(0);
+                break;
+
+            case INVALID_ASSESSMENT_VERSION_NULL:
+                assessment.setName(VALID_OBJECT_NAME);
+                assessment.setQuestionList(QUESTION_LIST);
+                assessment.setVersion(null);
                 break;
         }
 

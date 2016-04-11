@@ -19,31 +19,31 @@ public class MembershipFactory extends TestBase {
                 membership.setActive(true);
                 membership.setAddedOn(getDate(VALID_DATE));
                 membership.setRemovedOn(null);
-                membership.setVersion(CURRENT_ENTITY_VERSION);
+                membership.setVersion(MEMBERSHIP_CURRENT_VERSION);
                 break;
 
-            case INVALID_MEMBERSHIP_EMPTY_USER_ID:
+            case INVALID_MEMBERSHIP_ID_EMPTY:
                 membership.setUserId(EMPTY_STRING);
                 membership.setActive(true);
                 membership.setAddedOn(getDate(VALID_DATE));
                 membership.setRemovedOn(null);
-                membership.setVersion(CURRENT_ENTITY_VERSION);
+                membership.setVersion(VALID_ENTITY_VERSION);
                 break;
 
-            case INVALID_MEMBERSHIP_NULL_ISACTIVE:
+            case INVALID_MEMBERSHIP_ISACTIVE_NULL:
                 membership.setUserId(generateRandomHash(15));
                 membership.setActive(null);
                 membership.setAddedOn(getDate(VALID_DATE));
                 membership.setRemovedOn(null);
-                membership.setVersion(CURRENT_ENTITY_VERSION);
+                membership.setVersion(VALID_ENTITY_VERSION);
                 break;
 
-            case INVALID_MEMBERSHIP_NULL_ADDED_DATE:
+            case INVALID_MEMBERSHIP_ADDED_DATE_NULL:
                 membership.setUserId(generateRandomHash(15));
                 membership.setActive(true);
                 membership.setAddedOn(getDate(null));
                 membership.setRemovedOn(null);
-                membership.setVersion(CURRENT_ENTITY_VERSION);
+                membership.setVersion(VALID_ENTITY_VERSION);
                 break;
 
             case INVALID_MEMBERSHIP_VERSION_ZERO:
@@ -53,6 +53,7 @@ public class MembershipFactory extends TestBase {
                 membership.setRemovedOn(null);
                 membership.setVersion(0);
                 break;
+
             case INVALID_MEMBERSHIP_VERSION_NULL:
                 membership.setUserId(generateRandomHash(15));
                 membership.setActive(true);

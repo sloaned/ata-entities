@@ -35,35 +35,35 @@ public class MembershipValidationTest {
     }
 
     @Test
-    public void SadPathValidationOfMembershpFactoryEmptyUserId() throws ParseException{
-        Membership invalidMembership = membershipFactory.assembleMembership(MembershipOption.INVALID_MEMBERSHIP_EMPTY_USER_ID);
+    public void SadPathValidationOfMembershipFactoryEmptyUserId() throws ParseException{
+        Membership invalidMembership = membershipFactory.assembleMembership(MembershipOption.INVALID_MEMBERSHIP_ID_EMPTY);
         Set<ConstraintViolation<Membership>> violations = validator.validate(invalidMembership);
         assertFalse("expected empty user ID", violations.isEmpty());
     }
 
     @Test
-    public void SadPathValidationOfMembershpFactoryNullIsActive() throws ParseException{
-        Membership invalidMembership = membershipFactory.assembleMembership(MembershipOption.INVALID_MEMBERSHIP_NULL_ISACTIVE);
+    public void SadPathValidationOfMembershipFactoryNullIsActive() throws ParseException{
+        Membership invalidMembership = membershipFactory.assembleMembership(MembershipOption.INVALID_MEMBERSHIP_ISACTIVE_NULL);
         Set<ConstraintViolation<Membership>> violations = validator.validate(invalidMembership);
         assertFalse("expected null isActive", violations.isEmpty());
     }
 
     @Test
-    public void SadPathValidationOfMembershpFactoryNullAddedOn() throws ParseException{
-        Membership invalidMembership = membershipFactory.assembleMembership(MembershipOption.INVALID_MEMBERSHIP_NULL_ADDED_DATE);
+    public void SadPathValidationOfMembershipFactoryNullAddedOn() throws ParseException{
+        Membership invalidMembership = membershipFactory.assembleMembership(MembershipOption.INVALID_MEMBERSHIP_ADDED_DATE_NULL);
         Set<ConstraintViolation<Membership>> violations = validator.validate(invalidMembership);
         assertFalse("expected null addedOn date", violations.isEmpty());
     }
 
     @Test
-    public void SadPathValidationOfMembershpFactoryVersionZero() throws ParseException{
+    public void SadPathValidationOfMembershipFactoryVersionZero() throws ParseException{
         Membership invalidMembership = membershipFactory.assembleMembership(MembershipOption.INVALID_MEMBERSHIP_VERSION_ZERO);
         Set<ConstraintViolation<Membership>> violations = validator.validate(invalidMembership);
         assertFalse("expected version 0", violations.isEmpty());
     }
 
     @Test
-    public void SadPathValidationOfMembershpFactoryNullVersion() throws ParseException{
+    public void SadPathValidationOfMembershipFactoryNullVersion() throws ParseException{
         Membership invalidMembership = membershipFactory.assembleMembership(MembershipOption.INVALID_MEMBERSHIP_VERSION_NULL);
         Set<ConstraintViolation<Membership>> violations = validator.validate(invalidMembership);
         assertFalse("expected version null", violations.isEmpty());

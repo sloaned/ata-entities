@@ -35,75 +35,81 @@ public class ReviewValidationTest {
     }
 
     @Test
-    public void TestValidReview() {
+    public void HappyPathReviewValidation() {
         testReview = reviewFactory.assembleReview(ReviewOption.VALID_REVIEW);
         Set<ConstraintViolation<Review>> violations = validator.validate(testReview);
         assertTrue("INVALID REVIEW: the review factory assembled a review that doesn't pass entity validation", violations.isEmpty());
     }
 
     @Test
-    public void TestNullReviewerIdReview() {
-        testReview = reviewFactory.assembleReview(ReviewOption.NULL_REVIEWER_ID_REVIEW);
+    public void SadPathReviewReviewerNull() {
+        testReview = reviewFactory.assembleReview(ReviewOption.INVALID_REVIEW_REVIEWER_ID_NULL);
         assertThereIsExactlyOneViolation(validator, testReview);
     }
 
     @Test
-    public void TestNullReviewedIdReview() {
-        testReview = reviewFactory.assembleReview(ReviewOption.NULL_REVIEWED_ID_REVIEW);
+    public void SadPathReviewReviewedIdNull() {
+        testReview = reviewFactory.assembleReview(ReviewOption.INVALID_REVIEW_REVIEWED_ID_NULL);
         assertThereIsExactlyOneViolation(validator, testReview);
     }
 
     @Test
-    public void TestEmptyTeamNameReview() {
-        testReview = reviewFactory.assembleReview(ReviewOption.EMPTY_TEAM_NAME_REVIEW);
+    public void SadPathReviewTeamNameEmpty() {
+        testReview = reviewFactory.assembleReview(ReviewOption.INVALID_REVIEW_TEAM_NAME_EMPTY);
         assertThereIsExactlyOneViolation(validator, testReview);
     }
 
     @Test
-    public void TestNullTeamNameReview() {
-        testReview = reviewFactory.assembleReview(ReviewOption.NULL_TEAM_NAME_REVIEW);
+    public void SadPathReviewTeamNameNull() {
+        testReview = reviewFactory.assembleReview(ReviewOption.INVALID_REVIEW_TEAM_NAME_NULL);
         assertThereIsExactlyOneViolation(validator, testReview);
     }
 
     @Test
-    public void TestNullSubmittedDateReview() {
-        testReview = reviewFactory.assembleReview(ReviewOption.NULL_SUBMITTED_DATE_REVIEW);
+    public void SadPathReviewSubmittedDateNull() {
+        testReview = reviewFactory.assembleReview(ReviewOption.INVALID_REVIEW_SUBMITTED_DATE_NULL);
         assertThereIsExactlyOneViolation(validator, testReview);
     }
 
     @Test
-    public void TestEmptyFeedbackReview() {
-        testReview = reviewFactory.assembleReview(ReviewOption.EMPTY_FEEDBACK_REVIEW);
+    public void SadPathReviewFeedbackEmpty() {
+        testReview = reviewFactory.assembleReview(ReviewOption.INVALID_REVIEW_FEEDBACK_EMPTY);
         assertThereIsExactlyOneViolation(validator, testReview);
     }
 
     @Test
-    public void TestNullFeedbackReview() {
-        testReview = reviewFactory.assembleReview(ReviewOption.NULL_FEEDBACK_REVIEW);
+    public void SadPathReviewFeedbackNull() {
+        testReview = reviewFactory.assembleReview(ReviewOption.INVALID_REVIEW_FEEDBACK_NULL);
         assertThereIsExactlyOneViolation(validator, testReview);
     }
 
     @Test
-    public void TestNullVersionReview() {
-        testReview = reviewFactory.assembleReview(ReviewOption.NULL_VERSION_REVIEW);
+    public void SadPathReviewVersionNull() {
+        testReview = reviewFactory.assembleReview(ReviewOption.INVALID_REVIEW_VERSION_NULL);
         assertThereIsExactlyOneViolation(validator, testReview);
     }
 
     @Test
-    public void TestSmallSummaryScoreReview() {
-        testReview = reviewFactory.assembleReview(ReviewOption.SMALL_SUMMARY_SCORE_REVIEW);
+    public void SadPathReviewVersionZero() {
+        testReview = reviewFactory.assembleReview(ReviewOption.INVALID_REVIEW_VERSION_ZERO);
         assertThereIsExactlyOneViolation(validator, testReview);
     }
 
     @Test
-    public void TestLargeSummaryScoreReview() {
-        testReview = reviewFactory.assembleReview(ReviewOption.LARGE_SUMMARY_SCORE_REVIEW);
+    public void SadPathReviewSummaryScoreSmall() {
+        testReview = reviewFactory.assembleReview(ReviewOption.INVALID_REVIEW_SUMMARY_SCORE_SMALL);
         assertThereIsExactlyOneViolation(validator, testReview);
     }
 
     @Test
-    public void testSelfReview() {
-        testReview = reviewFactory.assembleReview(ReviewOption.SELF_REVIEW);
+    public void SadPathReviewSummaryScoreLarge() {
+        testReview = reviewFactory.assembleReview(ReviewOption.INVALID_REVIEW_SUMMARY_SCORE_LARGE);
+        assertThereIsExactlyOneViolation(validator, testReview);
+    }
+
+    @Test
+    public void SadPathReviewSelfReview() {
+        testReview = reviewFactory.assembleReview(ReviewOption.INVALID_REVIEW_SELF_REVIEW);
         assertThereIsExactlyOneViolation(validator, testReview);
     }
 

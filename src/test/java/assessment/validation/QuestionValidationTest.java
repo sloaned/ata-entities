@@ -35,53 +35,59 @@ public class QuestionValidationTest {
     }
 
     @Test
-    public void TestValidBooleanQuestion() {
+    public void HappyPathBooleanQuestion() {
         testQuestion = questionFactory.assembleQuestion(QuestionOption.VALID_BOOLEAN_QUESTION);
         Set<ConstraintViolation<Question>> violations = validator.validate(testQuestion);
         assertTrue("INVALID QUESTION: the question factory assembled a question that doesn't pass entity validation", violations.isEmpty());
     }
 
     @Test
-    public void TestValidMultipleChoiceQuestion() {
+    public void HappyPathMultipleChoiceQuestion() {
         testQuestion = questionFactory.assembleQuestion(QuestionOption.VALID_MULTIPLE_CHOICE_QUESTION);
         Set<ConstraintViolation<Question>> violations = validator.validate(testQuestion);
         assertTrue("INVALID QUESTION: the question factory assembled a question that doesn't pass entity validation", violations.isEmpty());
     }
 
     @Test
-    public void TestValidCompetencyQuestion() {
+    public void HappyPathCompetencyQuestion() {
         testQuestion = questionFactory.assembleQuestion(QuestionOption.VALID_COMPETENCY_QUESTION);
         Set<ConstraintViolation<Question>> violations = validator.validate(testQuestion);
         assertTrue("INVALID QUESTION: the question factory assembled a question that doesn't pass entity validation", violations.isEmpty());
     }
 
     @Test
-    public void TestNullTypeQuestion() {
-        testQuestion = questionFactory.assembleQuestion(QuestionOption.NULL_TYPE_QUESTION);
+    public void SadPathNullType() {
+        testQuestion = questionFactory.assembleQuestion(QuestionOption.INVALID_QUESTION_TYPE_NULL);
         assertThereIsExactlyOneViolation(validator, testQuestion);
     }
 
     @Test
-    public void TestLongLabelQuestion() {
-        testQuestion = questionFactory.assembleQuestion(QuestionOption.LONG_LABEL_QUESTION);
+    public void SadPathLabelTooLong() {
+        testQuestion = questionFactory.assembleQuestion(QuestionOption.INVALID_QUESTION_LABEL_LONG);
         assertThereIsExactlyOneViolation(validator, testQuestion);
     }
 
     @Test
-    public void TestEmptyLabelQuestion() {
-        testQuestion = questionFactory.assembleQuestion(QuestionOption.EMPTY_LABEL_QUESTION);
+    public void SadPathLabelEmpty() {
+        testQuestion = questionFactory.assembleQuestion(QuestionOption.INVALID_QUESTION_LABEL_EMPTY);
         assertThereIsExactlyOneViolation(validator, testQuestion);
     }
 
     @Test
-    public void TestNullLabelQuestion() {
-        testQuestion = questionFactory.assembleQuestion(QuestionOption.NULL_LABEL_QUESTION);
+    public void SadPathLabelNull() {
+        testQuestion = questionFactory.assembleQuestion(QuestionOption.INVALID_QUESTION_LABEL_NULL);
         assertThereIsExactlyOneViolation(validator, testQuestion);
     }
 
     @Test
-    public void TestNullVersionQuestion() {
-        testQuestion = questionFactory.assembleQuestion(QuestionOption.NULL_VERSION_QUESTION);
+    public void SadPathVersionNull() {
+        testQuestion = questionFactory.assembleQuestion(QuestionOption.INVALID_QUESTION_VERSION_NULL);
+        assertThereIsExactlyOneViolation(validator, testQuestion);
+    }
+
+    @Test
+    public void SadPathVersionZero() {
+        testQuestion = questionFactory.assembleQuestion(QuestionOption.INVALID_QUESTION_VERSION_ZERO);
         assertThereIsExactlyOneViolation(validator, testQuestion);
     }
 

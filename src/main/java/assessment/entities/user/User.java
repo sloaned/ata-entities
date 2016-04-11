@@ -1,5 +1,6 @@
 package assessment.entities.user;
 
+import assessment.testbase.TestBaseConstants;
 import assessment.utilities.RegexConstants;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -47,14 +48,17 @@ public class User {
     @NotNull(message = "The user must be active or inactive")
     private Boolean isActive;
 
+    @NotNull(message = "Version is required")
     @Range(min = 1, message = "version of at least 1 is required")
     private Integer version;
 
-    public User(){}
+    public User(){
+        this.version = TestBaseConstants.USER_CURRENT_VERSION;
+    }
 
     public User(String id, String firstName, String lastName, String email,
                 Role role, String avatar, String profileDescription, Boolean
-                        isActive, Integer version) {
+                        isActive) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -63,7 +67,7 @@ public class User {
         this.avatar = avatar;
         this.profileDescription = profileDescription;
         this.isActive = isActive;
-        this.version = version;
+        this.version = TestBaseConstants.USER_CURRENT_VERSION;
     }
 
     @Override
@@ -137,11 +141,11 @@ public class User {
         this.profileDescription = profileDescription;
     }
 
-    public Boolean getActive() {
+    public Boolean getIsActive() {
         return isActive;
     }
 
-    public void setActive(Boolean active) {
+    public void setIsActive(Boolean active) {
         isActive = active;
     }
 

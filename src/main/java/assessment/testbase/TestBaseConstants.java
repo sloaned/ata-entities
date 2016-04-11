@@ -16,6 +16,20 @@ import java.util.List;
  */
 public class TestBaseConstants {
 
+
+    /**
+     * ENTITY VERSIONS
+     *
+     */
+    public final static int ASSESSMENT_CURRENT_VERSION = 1;
+    public final static int FEEDBACK_CURRENT_VERSION = 1;
+    public final static int MEMBERSHIP_CURRENT_VERSION = 1;
+    public final static int QUESTION_CURRENT_VERSION = 1;
+    public final static int REVIEW_CURRENT_VERSION = 1;
+    public final static int TEAM_CURRENT_VERSION = 1;
+    public final static int USER_CURRENT_VERSION = 1;
+
+
     /**
      * GENERAL SECTION
      *
@@ -23,19 +37,18 @@ public class TestBaseConstants {
      */
     protected final static int VALID_ENTITY_VERSION = 1;
     protected final static String VALID_DATE_FORMAT = "yyyy-MM-dd";
-    protected final static String VALID_PERSON_NAME = "test name'-";
+    protected final static String VALID_USER_NAME = "test name'-";
     protected final static String VALID_DESCRIPTION = "My name is Stuart Smalley, and I'm going to help people. I'm good enough, smart enough, and gosh darnit, people like me";
     protected final static String VALID_OBJECT_NAME = "Test Name 1-'";
     protected final static String VALID_GRAVATAR_HASH = "205e460b479e2e5b48aec07710c08d50";
     protected final static String VALID_DATE = "2016-02-02";
     protected final static String EMPTY_STRING = "";
-    protected final static Integer CURRENT_ENTITY_VERSION = 1;
 
     /**
      * Invalid Input:
      */
-    protected final static String BAD_PERSON_NAME = "$@598";
-    protected final static String BAD_OBJECT_NAME = "$%@#";
+    protected final static String INVALID_USER_NAME_SPECIAL_CHARACTERS = "$@598";
+    protected final static String INVALID_OBJECT_NAME_SPECIAL_CHARACTERS = "$%@#";
 
     /**
      * USER SECTION
@@ -48,7 +61,8 @@ public class TestBaseConstants {
     /**
      * Invalid Input
      */
-    protected final static String BAD_USER_EMAIL = "bad email example!";
+    protected final static String INVALID_USER_EMAIL = "bad email example!";
+
 
     /**
      * ROLE SECTION
@@ -76,7 +90,6 @@ public class TestBaseConstants {
      *
      * Valid Input:
      */
-    protected final static Integer VALID_FEEDBACK_VERSION = 1;
     protected final static String VALID_FEEDBACK_LABEL = "Valid Feedback Label";
     protected final static Integer VALID_FEEDBACK_SCORE = 3;
     protected final static String VALID_FEEDBACK_COMMENT = "A Valid comment for a feedback entity";
