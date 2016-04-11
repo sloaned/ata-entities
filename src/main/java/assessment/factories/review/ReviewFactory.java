@@ -89,6 +89,10 @@ public class ReviewFactory extends TestBase{
                 review.setVersion(null);
                 break;
 
+            case INVALID_REVIEW_VERSION_ZERO:
+                review.setVersion(0);
+                break;
+
             case INVALID_REVIEW_SUMMARY_SCORE_SMALL:
                 review.setSummaryScore(generateRandomDouble(SMALL_SUMMARY_SCORE, 1.0));
                 break;

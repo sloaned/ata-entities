@@ -90,6 +90,12 @@ public class ReviewValidationTest {
     }
 
     @Test
+    public void SadPathReviewVersionZero() {
+        testReview = reviewFactory.assembleReview(ReviewOption.INVALID_REVIEW_VERSION_ZERO);
+        assertThereIsExactlyOneViolation(validator, testReview);
+    }
+
+    @Test
     public void SadPathReviewSummaryScoreSmall() {
         testReview = reviewFactory.assembleReview(ReviewOption.INVALID_REVIEW_SUMMARY_SCORE_SMALL);
         assertThereIsExactlyOneViolation(validator, testReview);

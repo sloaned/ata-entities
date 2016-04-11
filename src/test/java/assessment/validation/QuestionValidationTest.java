@@ -87,7 +87,7 @@ public class QuestionValidationTest {
 
     @Test
     public void SadPathVersionZero() {
-        testQuestion = questionFactory.assembleQuestion(QuestionOption.INVALID_QUESTION_VERSION_NULL);
+        testQuestion = questionFactory.assembleQuestion(QuestionOption.INVALID_QUESTION_VERSION_ZERO);
         assertThereIsExactlyOneViolation(validator, testQuestion);
     }
 
