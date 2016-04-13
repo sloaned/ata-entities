@@ -34,7 +34,7 @@ public class Token {
 
     //assuming the json object with be lowercase with _, specs aren't clear yet. Fix if needed
     @JsonProperty("user_details")
-    private List<TokenUser> userDetails;
+    private TokenUser userDetails;
 
     public String getId() {
         return id;
@@ -100,11 +100,11 @@ public class Token {
         this.scope = scope;
     }
 
-    public List<TokenUser> getUserDetails() {
+    public TokenUser getUserDetails() {
         return userDetails;
     }
 
-    public void setUserDetails(List<TokenUser> userDetails) {
+    public void setUserDetails(TokenUser userDetails) {
         this.userDetails = userDetails;
     }
 }
