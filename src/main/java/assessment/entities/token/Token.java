@@ -1,76 +1,110 @@
 package assessment.entities.token;
 
-import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.NotEmpty;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.Date;
+import java.util.List;
 
 /**
- * Created by gfisher on 3/16/2016.
+ * Token object which will be used for OAuth
+ * Doesn't worry about validation since it should only be passed and received, not manipulated
  */
 public class Token {
 
-    @NotEmpty(message = "token string is required")
-    private String token;
+    private String id;
 
-    @NotEmpty(message = "First name is required")
-    private String firstName;
+    @JsonProperty("user_id")
+    private String userId;
 
-    @NotEmpty(message = "Last name is required")
-    private String lastName;
+    @JsonProperty("client_id")
+    private String clientId;
 
-    @Email(message = "Email must be valid")
-    @NotEmpty(message = "Email is required")
-    private String email;
+    @JsonProperty("access_token")
+    private String accessToken;
 
-    @NotEmpty(message = "Expiration date is required")
-    private Date expiration;
+    @JsonProperty("token_type")
+    private String tokenType;
 
-    public Token(String token, String firstName, String lastName, String email, Date expiration) {
-        this.token = token;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.expiration = expiration;
+    @JsonProperty("refresh_token")
+    private String refreshToken;
+
+    @JsonProperty("expires_in")
+    private Long expiresIn; //can probably be a date object, just make sure to translate unix time properly
+
+    private String scope; // might want to change to Enum
+
+    //assuming the json object with be lowercase with _, specs aren't clear yet. Fix if needed
+    @JsonProperty("user_details")
+    private TokenUser userDetails;
+
+    public String getId() {
+        return id;
     }
 
-    public String getToken() {
-        return token;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public void setToken(String token) {
-        this.token = token;
+    public String getUserId() {
+        return userId;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public String getClientId() {
+        return clientId;
     }
 
-    public String getLastName() {
-        return lastName;
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public String getAccessToken() {
+        return accessToken;
     }
 
-    public String getEmail() {
-        return email;
+    public void setAccessToken(String accessToken) {
+        this.accessToken = accessToken;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public String getTokenType() {
+        return tokenType;
     }
 
-    public Date getExpiration() {
-        return expiration;
+    public void setTokenType(String tokenType) {
+        this.tokenType = tokenType;
     }
 
-    public void setExpiration(Date expiration) {
-        this.expiration = expiration;
+    public String getRefreshToken() {
+        return refreshToken;
+    }
+
+    public void setRefreshToken(String refreshToken) {
+        this.refreshToken = refreshToken;
+    }
+
+    public Long getExpiresIn() {
+        return expiresIn;
+    }
+
+    public void setExpiresIn(Long expiresIn) {
+        this.expiresIn = expiresIn;
+    }
+
+    public String getScope() {
+        return scope;
+    }
+
+    public void setScope(String scope) {
+        this.scope = scope;
+    }
+
+    public TokenUser getUserDetails() {
+        return userDetails;
+    }
+
+    public void setUserDetails(TokenUser userDetails) {
+        this.userDetails = userDetails;
     }
 }
