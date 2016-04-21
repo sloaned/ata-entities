@@ -35,6 +35,9 @@ public class User {
     @NotNull(message = "Role is required")
     private Role role;
 
+    @NotNull(message = "Title is required")
+    private String title;
+
     /**
      * user avatars are requested via Gravatar; the userAvatar field stores a
      * hash that must be calculated using the user's email address
@@ -71,12 +74,13 @@ public class User {
 
     @Override
     public String toString() {
-        return "user{" +
+        return "User{" +
                 "id='" + id + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", role=" + role +
+                ", title='" + title + '\'' +
                 ", avatar='" + avatar + '\'' +
                 ", profileDescription='" + profileDescription + '\'' +
                 ", isActive=" + isActive +
@@ -122,6 +126,14 @@ public class User {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getAvatar() {
