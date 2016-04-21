@@ -35,9 +35,7 @@ public class Question {
         this.version = TestBaseConstants.QUESTION_CURRENT_VERSION;
     }
 
-    public Question(String id, QuestionType type, String
-            label) {
-        this.id = id;
+    public Question(QuestionType type, String label) {
         this.type = type;
         this.label = label;
         this.version = TestBaseConstants.QUESTION_CURRENT_VERSION;

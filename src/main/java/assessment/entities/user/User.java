@@ -56,10 +56,9 @@ public class User {
         this.version = TestBaseConstants.USER_CURRENT_VERSION;
     }
 
-    public User(String id, String firstName, String lastName, String email,
+    public User(String firstName, String lastName, String email,
                 Role role, String avatar, String profileDescription, Boolean
                         isActive) {
-        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;

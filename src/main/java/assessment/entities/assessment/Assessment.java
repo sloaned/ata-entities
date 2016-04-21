@@ -35,8 +35,7 @@ public class Assessment {
 
     public Assessment(){}
 
-    public Assessment(String id, String name, List<Question> questionList) {
-        this.id = id;
+    public Assessment(String name, List<Question> questionList) {
         this.name = name;
         this.questionList = questionList;
         this.version = TestBaseConstants.ASSESSMENT_CURRENT_VERSION;
