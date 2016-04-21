@@ -43,6 +43,7 @@ public class TestBaseConstants {
     protected final static String VALID_GRAVATAR_HASH = "205e460b479e2e5b48aec07710c08d50";
     protected final static String VALID_DATE = "2016-02-02";
     protected final static String EMPTY_STRING = "";
+    protected final static String VALID_TITLE = "Developer 1";
 
     /**
      * Invalid Input:

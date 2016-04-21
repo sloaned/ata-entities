@@ -27,6 +27,7 @@ public class UserFactory extends TestBase {
                 user.setLastName(VALID_USER_NAME);
                 user.setRole(ROLE_DEVELOPER);
                 user.setProfileDescription(VALID_DESCRIPTION);
+                user.setTitle(VALID_TITLE);
                 break;
 
             case VALID_INACTIVE_DEVELOPER:
@@ -38,6 +39,7 @@ public class UserFactory extends TestBase {
                 user.setLastName(VALID_USER_NAME);
                 user.setRole(ROLE_DEVELOPER);
                 user.setProfileDescription(VALID_DESCRIPTION);
+                user.setTitle(VALID_TITLE);
                 break;
 
             case INVALID_USER_FIRST_NAME_EMPTY:
@@ -49,6 +51,7 @@ public class UserFactory extends TestBase {
                 user.setLastName(VALID_USER_NAME);
                 user.setRole(ROLE_DEVELOPER);
                 user.setProfileDescription(VALID_DESCRIPTION);
+                user.setTitle(VALID_TITLE);
                 break;
 
             case INVALID_USER_FIRST_NAME_NULL:
@@ -60,6 +63,7 @@ public class UserFactory extends TestBase {
                 user.setLastName(VALID_USER_NAME);
                 user.setRole(ROLE_DEVELOPER);
                 user.setProfileDescription(VALID_DESCRIPTION);
+                user.setTitle(VALID_TITLE);
                 break;
 
             case INVALID_USER_FIRST_NAME_SPECIAL_CHARACTERS:
@@ -71,6 +75,7 @@ public class UserFactory extends TestBase {
                 user.setLastName(VALID_USER_NAME);
                 user.setRole(ROLE_DEVELOPER);
                 user.setProfileDescription(VALID_DESCRIPTION);
+                user.setTitle(VALID_TITLE);
                 break;
 
             case INVALID_USER_FIRST_NAME_LONG:
@@ -82,6 +87,7 @@ public class UserFactory extends TestBase {
                 user.setLastName(VALID_USER_NAME);
                 user.setRole(ROLE_DEVELOPER);
                 user.setProfileDescription(VALID_DESCRIPTION);
+                user.setTitle(VALID_TITLE);
                 break;
 
             case INVALID_USER_LAST_NAME_EMPTY:
@@ -93,6 +99,7 @@ public class UserFactory extends TestBase {
                 user.setLastName(EMPTY_STRING);
                 user.setRole(ROLE_DEVELOPER);
                 user.setProfileDescription(VALID_DESCRIPTION);
+                user.setTitle(VALID_TITLE);
                 break;
 
             case INVALID_USER_LAST_NAME_NULL:
@@ -104,6 +111,7 @@ public class UserFactory extends TestBase {
                 user.setLastName(null);
                 user.setRole(ROLE_DEVELOPER);
                 user.setProfileDescription(VALID_DESCRIPTION);
+                user.setTitle(VALID_TITLE);
                 break;
 
             case INVALID_USER_LAST_NAME_SPECIAL_CHARACTERS:
@@ -115,6 +123,7 @@ public class UserFactory extends TestBase {
                 user.setLastName(INVALID_USER_NAME_SPECIAL_CHARACTERS);
                 user.setRole(ROLE_DEVELOPER);
                 user.setProfileDescription(VALID_DESCRIPTION);
+                user.setTitle(VALID_TITLE);
                 break;
 
             case INVALID_USER_LAST_NAME_LONG:
@@ -126,6 +135,7 @@ public class UserFactory extends TestBase {
                 user.setLastName(generateRandomString(51));
                 user.setRole(ROLE_DEVELOPER);
                 user.setProfileDescription(VALID_DESCRIPTION);
+                user.setTitle(VALID_TITLE);
                 break;
 
             case INVALID_USER_ROLE_NULL:
@@ -137,6 +147,7 @@ public class UserFactory extends TestBase {
                 user.setLastName(VALID_USER_NAME);
                 user.setRole(null);
                 user.setProfileDescription(VALID_DESCRIPTION);
+                user.setTitle(VALID_TITLE);
                 break;
 
             case INVALID_USER_EMAIL_EMPTY:
@@ -148,6 +159,7 @@ public class UserFactory extends TestBase {
                 user.setLastName(VALID_USER_NAME);
                 user.setRole(ROLE_DEVELOPER);
                 user.setProfileDescription(VALID_DESCRIPTION);
+                user.setTitle(VALID_TITLE);
                 break;
 
             case INVALID_USER_EMAIL_NULL:
@@ -159,6 +171,7 @@ public class UserFactory extends TestBase {
                 user.setLastName(VALID_USER_NAME);
                 user.setRole(ROLE_DEVELOPER);
                 user.setProfileDescription(VALID_DESCRIPTION);
+                user.setTitle(VALID_TITLE);
                 break;
 
             case INVALID_USER_EMAIL_INVALID_ADDRESS:
@@ -181,6 +194,7 @@ public class UserFactory extends TestBase {
                 user.setLastName(VALID_USER_NAME);
                 user.setRole(ROLE_DEVELOPER);
                 user.setProfileDescription(VALID_DESCRIPTION);
+                user.setTitle(VALID_TITLE);
                 break;
 
             case INVALID_USER_VERSION_NULL:
@@ -192,6 +206,7 @@ public class UserFactory extends TestBase {
                 user.setLastName(VALID_USER_NAME);
                 user.setRole(ROLE_DEVELOPER);
                 user.setProfileDescription(VALID_DESCRIPTION);
+                user.setTitle(VALID_TITLE);
                 break;
 
             case INVALID_USER_DESCRIPTION_LONG:
@@ -203,6 +218,7 @@ public class UserFactory extends TestBase {
                 user.setLastName(VALID_USER_NAME);
                 user.setRole(ROLE_DEVELOPER);
                 user.setProfileDescription(generateRandomString(256));
+                user.setTitle(VALID_TITLE);
                 break;
 
             case INVALID_USER_ISACTIVE_NULL:
@@ -214,8 +230,32 @@ public class UserFactory extends TestBase {
                 user.setLastName(VALID_USER_NAME);
                 user.setRole(ROLE_DEVELOPER);
                 user.setProfileDescription(generateRandomString(256));
+                user.setTitle(VALID_TITLE);
                 break;
 
+            case INVALID_USER_TITLE_NULL:
+                user.setVersion(VALID_ENTITY_VERSION);
+                user.setIsActive(null);
+                user.setAvatar(VALID_GRAVATAR_HASH);
+                user.setEmail(VALID_USER_EMAIL);
+                user.setFirstName(VALID_USER_NAME);
+                user.setLastName(VALID_USER_NAME);
+                user.setRole(ROLE_DEVELOPER);
+                user.setProfileDescription(generateRandomString(256));
+                user.setTitle(null);
+                break;
+
+            case INVALID_USER_TITLE_EMPTY:
+                user.setVersion(VALID_ENTITY_VERSION);
+                user.setIsActive(null);
+                user.setAvatar(VALID_GRAVATAR_HASH);
+                user.setEmail(VALID_USER_EMAIL);
+                user.setFirstName(VALID_USER_NAME);
+                user.setLastName(VALID_USER_NAME);
+                user.setRole(ROLE_DEVELOPER);
+                user.setProfileDescription(generateRandomString(256));
+                user.setTitle(EMPTY_STRING);
+                break;
         }
 
         return user;
