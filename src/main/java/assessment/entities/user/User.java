@@ -35,7 +35,7 @@ public class User {
     @NotNull(message = "Role is required")
     private Role role;
 
-    @NotNull(message = "Title is required")
+    @NotEmpty(message = "Title is required and can't be empty")
     private String title;
 
     /**
