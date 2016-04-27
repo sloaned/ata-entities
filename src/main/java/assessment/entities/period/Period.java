@@ -25,7 +25,7 @@ public class Period {
     @Range(min = 1, message = "Series number of at least 1 is required")
     private Integer seriesNumber;
 
-    @NotEmpty(message = "Name cannot be empty")
+    @NotEmpty(message = "Period name cannot be empty")
     @Length(max = 100, message = "Period name can be no longer than 100 characters.")
     @Pattern(regexp = RegexConstants.OBJECT_NAME, message = "Period name contains invalid characters.")
     private String name;
