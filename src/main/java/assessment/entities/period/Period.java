@@ -48,6 +48,21 @@ public class Period {
         version = TestBaseConstants.PERIOD_CURRENT_VERSION;
     }
 
+    @Override
+    public String toString() {
+        return "Period{" +
+                "id='" + id + '\'' +
+                ", assessmentId='" + assessmentId + '\'' +
+                ", seriesNumber=" + seriesNumber +
+                ", name='" + name + '\'' +
+                ", teamId='" + teamId + '\'' +
+                ", dateTriggered=" + dateTriggered +
+                ", summaryScore=" + summaryScore +
+                ", reviews=" + reviews +
+                ", version=" + version +
+                '}';
+    }
+
     public String getId() {
         return id;
     }
