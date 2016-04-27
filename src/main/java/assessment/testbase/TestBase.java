@@ -11,13 +11,21 @@ import java.util.Random;
  */
 public class TestBase extends TestBaseConstants {
 
-    protected Date getDate(String date) throws ParseException {
+    protected Date getDate(String date){
+
+        Date dateToReturn = null;
+
         if (date == null) {
             return null;
         }
-
-        DateFormat dateFormat = new SimpleDateFormat(VALID_DATE_FORMAT);
-        return dateFormat.parse(date);
+        try {
+            DateFormat dateFormat = new SimpleDateFormat(VALID_DATE_FORMAT);
+            dateToReturn = dateFormat.parse(date);
+        }
+        catch (java.text.ParseException e){
+            e.printStackTrace();
+        }
+        return dateToReturn;
     }
 
 
