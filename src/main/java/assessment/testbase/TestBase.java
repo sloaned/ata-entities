@@ -68,4 +68,17 @@ public class TestBase extends TestBaseConstants {
         return min + rng.nextDouble() * range;
     }
 
+    /**
+     * Generates a random integer between min and max range, both inclusive
+     * @param min The minimum value
+     * @param max The maximum value
+     * @return The random number
+     */
+    protected int generateRandomInteger(int min, int max) {
+        //add one to make it inclusive
+        int range = max + 1 - min;
+        double random = Math.random() * range;
+
+        return min + (int) random;
+    }
 }
