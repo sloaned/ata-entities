@@ -42,6 +42,14 @@ public class PeriodFactory extends TestBase {
                 period.setTeamId(generateRandomHash(24));
                 period.setDateTriggered(new Date());
                 break;
+            case INVALID_PERIOD_ASSESSMENT_ID_EMPTY_STRING:
+                period.setId(generateRandomHash(24));
+                period.setAssessmentId("");
+                period.setSeriesNumber(generateRandomInteger(1, 10));
+                period.setName(VALID_PERIOD_NAME + generateRandomString(5));
+                period.setTeamId(generateRandomHash(24));
+                period.setDateTriggered(new Date());
+                break;
             case INVALID_PERIOD_SERIES_NUMBER_NULL:
                 period.setId(generateRandomHash(24));
                 period.setAssessmentId(generateRandomHash(24));
@@ -82,12 +90,20 @@ public class PeriodFactory extends TestBase {
                 period.setTeamId(generateRandomHash(24));
                 period.setDateTriggered(new Date());
                 break;
-            case INVALID_PERIOD_TEAM_NAME_NULL:
+            case INVALID_PERIOD_TEAM_ID_NULL:
                 period.setId(generateRandomHash(24));
                 period.setAssessmentId(generateRandomHash(24));
                 period.setSeriesNumber(generateRandomInteger(1, 10));
                 period.setName(VALID_PERIOD_NAME + generateRandomString(5));
                 period.setTeamId(null);
+                period.setDateTriggered(new Date());
+                break;
+            case INVALID_PERIOD_TEAM_ID_EMPTY_STRING:
+                period.setId(generateRandomHash(24));
+                period.setAssessmentId(generateRandomHash(24));
+                period.setSeriesNumber(generateRandomInteger(1, 10));
+                period.setName(VALID_PERIOD_NAME + generateRandomString(5));
+                period.setTeamId("");
                 period.setDateTriggered(new Date());
                 break;
             case INVALID_PERIOD_DATE_NULL:
@@ -97,6 +113,15 @@ public class PeriodFactory extends TestBase {
                 period.setName(VALID_PERIOD_NAME + generateRandomString(5));
                 period.setTeamId(generateRandomHash(24));
                 period.setDateTriggered(null);
+                break;
+            case INVALID_PERIOD_VERSION_NULL:
+                period.setId(generateRandomHash(24));
+                period.setAssessmentId(generateRandomHash(24));
+                period.setSeriesNumber(generateRandomInteger(1, 10));
+                period.setName(VALID_PERIOD_NAME + generateRandomString(5));
+                period.setTeamId(generateRandomHash(24));
+                period.setDateTriggered(new Date());
+                period.setVersion(null);
                 break;
             case INVALID_PERIOD_VERSION_0:
                 period.setId(generateRandomHash(24));

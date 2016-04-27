@@ -56,6 +56,14 @@ public class PeriodValidationTest {
     }
 
     @Test
+    public void sadInvalidPeriodWithAssessmentIdAsEmptyStringFailsValidation() {
+        Period period = factory.assemblePeriod(PeriodOption.INVALID_PERIOD_ASSESSMENT_ID_EMPTY_STRING);
+
+        Set<ConstraintViolation<Period>> violations = validator.validate(period);
+        assertThereIsExactlyOneViolation(validator, period);
+    }
+
+    @Test
     public void sadInvalidPeriodWithSeriesNumberAsNullFailsValidation() {
         Period period = factory.assemblePeriod(PeriodOption.INVALID_PERIOD_SERIES_NUMBER_NULL);
 
@@ -96,8 +104,32 @@ public class PeriodValidationTest {
     }
 
     @Test
-    public void sadInvalidPeriodWithTeamNameAsNullFailsValidation() {
-        Period period = factory.assemblePeriod(PeriodOption.INVALID_PERIOD_TEAM_NAME_NULL);
+    public void sadInvalidPeriodWithTeamIdAsNullFailsValidation() {
+        Period period = factory.assemblePeriod(PeriodOption.INVALID_PERIOD_TEAM_ID_NULL);
+
+        Set<ConstraintViolation<Period>> violations = validator.validate(period);
+        assertThereIsExactlyOneViolation(validator, period);
+    }
+
+    @Test
+    public void sadInvalidPeriodWithTeamIdAsEmptyStringFailsValidation() {
+        Period period = factory.assemblePeriod(PeriodOption.INVALID_PERIOD_TEAM_ID_EMPTY_STRING);
+
+        Set<ConstraintViolation<Period>> violations = validator.validate(period);
+        assertThereIsExactlyOneViolation(validator, period);
+    }
+
+    @Test
+    public void sadInvalidPeriodWithDateTriggeredAsNullFailsValidation() {
+        Period period = factory.assemblePeriod(PeriodOption.INVALID_PERIOD_DATE_NULL);
+
+        Set<ConstraintViolation<Period>> violations = validator.validate(period);
+        assertThereIsExactlyOneViolation(validator, period);
+    }
+
+    @Test
+    public void sadInvalidPeriodWithVersionAsNullFailsValidation() {
+        Period period = factory.assemblePeriod(PeriodOption.INVALID_PERIOD_VERSION_NULL);
 
         Set<ConstraintViolation<Period>> violations = validator.validate(period);
         assertThereIsExactlyOneViolation(validator, period);
