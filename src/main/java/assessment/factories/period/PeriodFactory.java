@@ -90,6 +90,14 @@ public class PeriodFactory extends TestBase {
                 period.setTeamId(generateRandomHash(24));
                 period.setDateTriggered(new Date());
                 break;
+            case INVALID_PERIOD_NAME_TOO_LONG:
+                period.setId(generateRandomHash(24));
+                period.setAssessmentId(generateRandomHash(24));
+                period.setSeriesNumber(generateRandomInteger(1, 10));
+                period.setName(generateRandomString(105));
+                period.setTeamId(generateRandomHash(24));
+                period.setDateTriggered(new Date());
+                break;
             case INVALID_PERIOD_TEAM_ID_NULL:
                 period.setId(generateRandomHash(24));
                 period.setAssessmentId(generateRandomHash(24));

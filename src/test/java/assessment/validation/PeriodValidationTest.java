@@ -51,7 +51,6 @@ public class PeriodValidationTest {
     public void sadInvalidPeriodWithAssessmentIdAsNullFailsValidation() {
         Period period = factory.assemblePeriod(PeriodOption.INVALID_PERIOD_ASSESSMENT_ID_NULL);
 
-        Set<ConstraintViolation<Period>> violations = validator.validate(period);
         assertThereIsExactlyOneViolation(validator, period);
     }
 
@@ -59,7 +58,6 @@ public class PeriodValidationTest {
     public void sadInvalidPeriodWithAssessmentIdAsEmptyStringFailsValidation() {
         Period period = factory.assemblePeriod(PeriodOption.INVALID_PERIOD_ASSESSMENT_ID_EMPTY_STRING);
 
-        Set<ConstraintViolation<Period>> violations = validator.validate(period);
         assertThereIsExactlyOneViolation(validator, period);
     }
 
@@ -67,7 +65,6 @@ public class PeriodValidationTest {
     public void sadInvalidPeriodWithSeriesNumberAsNullFailsValidation() {
         Period period = factory.assemblePeriod(PeriodOption.INVALID_PERIOD_SERIES_NUMBER_NULL);
 
-        Set<ConstraintViolation<Period>> violations = validator.validate(period);
         assertThereIsExactlyOneViolation(validator, period);
     }
 
@@ -75,7 +72,6 @@ public class PeriodValidationTest {
     public void sadInvalidPeriodWithSeriesNumberAs0FailsValidation() {
         Period period = factory.assemblePeriod(PeriodOption.INVALID_PERIOD_SERIES_NUMBER_0);
 
-        Set<ConstraintViolation<Period>> violations = validator.validate(period);
         assertThereIsExactlyOneViolation(validator, period);
     }
 
@@ -83,7 +79,6 @@ public class PeriodValidationTest {
     public void sadInvalidPeriodWithNameAsNullFailsValidation() {
         Period period = factory.assemblePeriod(PeriodOption.INVALID_PERIOD_NAME_NULL);
 
-        Set<ConstraintViolation<Period>> violations = validator.validate(period);
         assertThereIsExactlyOneViolation(validator, period);
     }
 
@@ -91,7 +86,6 @@ public class PeriodValidationTest {
     public void sadInvalidPeriodWithNameContainingSpecialCharsFailsValidation() {
         Period period = factory.assemblePeriod(PeriodOption.INVALID_PERIOD_NAME_WITH_SPECIAL_CHARS);
 
-        Set<ConstraintViolation<Period>> violations = validator.validate(period);
         assertThereIsExactlyOneViolation(validator, period);
     }
 
@@ -104,10 +98,16 @@ public class PeriodValidationTest {
     }
 
     @Test
+    public void sadInvalidPeriodWithNameContainingAStringThatsTooLongFailsValidation() {
+        Period period = factory.assemblePeriod(PeriodOption.INVALID_PERIOD_NAME_TOO_LONG);
+
+        assertThereIsExactlyOneViolation(validator, period);
+    }
+
+    @Test
     public void sadInvalidPeriodWithTeamIdAsNullFailsValidation() {
         Period period = factory.assemblePeriod(PeriodOption.INVALID_PERIOD_TEAM_ID_NULL);
 
-        Set<ConstraintViolation<Period>> violations = validator.validate(period);
         assertThereIsExactlyOneViolation(validator, period);
     }
 
@@ -115,7 +115,6 @@ public class PeriodValidationTest {
     public void sadInvalidPeriodWithTeamIdAsEmptyStringFailsValidation() {
         Period period = factory.assemblePeriod(PeriodOption.INVALID_PERIOD_TEAM_ID_EMPTY_STRING);
 
-        Set<ConstraintViolation<Period>> violations = validator.validate(period);
         assertThereIsExactlyOneViolation(validator, period);
     }
 
@@ -123,7 +122,6 @@ public class PeriodValidationTest {
     public void sadInvalidPeriodWithDateTriggeredAsNullFailsValidation() {
         Period period = factory.assemblePeriod(PeriodOption.INVALID_PERIOD_DATE_NULL);
 
-        Set<ConstraintViolation<Period>> violations = validator.validate(period);
         assertThereIsExactlyOneViolation(validator, period);
     }
 
@@ -131,7 +129,6 @@ public class PeriodValidationTest {
     public void sadInvalidPeriodWithVersionAsNullFailsValidation() {
         Period period = factory.assemblePeriod(PeriodOption.INVALID_PERIOD_VERSION_NULL);
 
-        Set<ConstraintViolation<Period>> violations = validator.validate(period);
         assertThereIsExactlyOneViolation(validator, period);
     }
 
@@ -139,7 +136,6 @@ public class PeriodValidationTest {
     public void sadInvalidPeriodWithVersionAs0FailsValidation() {
         Period period = factory.assemblePeriod(PeriodOption.INVALID_PERIOD_VERSION_0);
 
-        Set<ConstraintViolation<Period>> violations = validator.validate(period);
         assertThereIsExactlyOneViolation(validator, period);
     }
 }
