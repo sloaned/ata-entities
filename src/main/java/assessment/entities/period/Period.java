@@ -22,6 +22,7 @@ public class Period {
     private String assessmentId;
 
     @NotNull(message = "Series number cannot be null")
+    @Range(min = 1, message = "Series number of at least 1 is required")
     private Integer seriesNumber;
 
     @NotEmpty(message = "Name cannot be empty")
