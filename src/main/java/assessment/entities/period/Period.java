@@ -30,10 +30,8 @@ public class Period {
     @Pattern(regexp = RegexConstants.OBJECT_NAME, message = "Period name contains invalid characters.")
     private String name;
 
-    @NotEmpty(message = "Team name cannot be empty")
-    @Length(max = 100, message = "Team name can be no longer than 100 characters.")
-    @Pattern(regexp = RegexConstants.OBJECT_NAME, message = "Team name contains invalid characters.")
-    private String teamName;
+    @NotEmpty(message = "Team id cannot be empty")
+    private String teamId;
 
     @NotNull(message = "Date triggered cannot be null")
     private Date dateTriggered;
@@ -82,12 +80,12 @@ public class Period {
         this.name = name;
     }
 
-    public String getTeamName() {
-        return teamName;
+    public String getTeamId() {
+        return teamId;
     }
 
-    public void setTeamName(String teamName) {
-        this.teamName = teamName;
+    public void setTeamId(String teamId) {
+        this.teamId = teamId;
     }
 
     public Date getDateTriggered() {

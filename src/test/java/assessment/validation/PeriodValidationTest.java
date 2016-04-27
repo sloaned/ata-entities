@@ -104,22 +104,6 @@ public class PeriodValidationTest {
     }
 
     @Test
-    public void sadInvalidPeriodWithTeamNameContainingSpecialCharsFailsValidation() {
-        Period period = factory.assemblePeriod(PeriodOption.INVALID_PERIOD_TEAM_NAME_WITH_SPECIAL_CHARS);
-
-        Set<ConstraintViolation<Period>> violations = validator.validate(period);
-        assertThereIsExactlyOneViolation(validator, period);
-    }
-
-    @Test
-    public void sadInvalidPeriodWithTeamNameAsEmptyStringFailsValidation() {
-        Period period = factory.assemblePeriod(PeriodOption.INVALID_PERIOD_TEAM_NAME_EMPTY_STRING);
-
-        Set<ConstraintViolation<Period>> violations = validator.validate(period);
-        assertTrue("Entity passes either NotEmpty validation, Pattern validation, or both on team name", violations.size() == 2);
-    }
-
-    @Test
     public void sadInvalidPeriodWithVersionAs0FailsValidation() {
         Period period = factory.assemblePeriod(PeriodOption.INVALID_PERIOD_VERSION_0);
 
