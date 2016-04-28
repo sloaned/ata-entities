@@ -28,6 +28,7 @@ public class TestBaseConstants {
     public final static int REVIEW_CURRENT_VERSION = 1;
     public final static int TEAM_CURRENT_VERSION = 1;
     public final static int USER_CURRENT_VERSION = 1;
+    public final static int PERIOD_CURRENT_VERSION = 1;
 
 
     /**
@@ -140,4 +141,11 @@ public class TestBaseConstants {
      */
     protected final static Double SMALL_SUMMARY_SCORE = -100.0;
     protected final static Double LARGE_SUMMARY_SCORE = 100.0;
+
+    /**
+    * PERIOD SECTION
+    *
+    * Valid input
+    */
+    protected final static String VALID_PERIOD_NAME = "PeriodTest-";
 }
