@@ -33,7 +33,7 @@ public class TestBaseConstants {
 
 
     /**
-     * GENERAL 
+     * GENERAL
      *
      * Valid Input:
      */
@@ -43,7 +43,7 @@ public class TestBaseConstants {
     protected final static String VALID_DESCRIPTION = "My name is Stuart Smalley, and I'm going to help people. I'm good enough, smart enough, and gosh darnit, people like me";
     protected final static String VALID_OBJECT_NAME = "Test Name 1-'";
     protected final static String VALID_GRAVATAR_HASH = "205e460b479e2e5b48aec07710c08d50";
-    protected final static String VALID_DATE = "2016-02-02";
+    protected final static String PAST_DATE = "2016-02-02";
     protected final static String EMPTY_STRING = "";
     protected final static int DATE_OFFSET = 60 * 1000;
     protected final static String VALID_TITLE = "Developer 1";
@@ -55,7 +55,7 @@ public class TestBaseConstants {
     protected final static String INVALID_OBJECT_NAME_SPECIAL_CHARACTERS = "$%@#";
 
     /**
-     * USER 
+     * USER
      *
      * Valid Input:
      */
@@ -70,7 +70,7 @@ public class TestBaseConstants {
 
 
     /**
-     * ROLE 
+     * ROLE
      */
     protected final static Role ROLE_DEVELOPER = Role.valueOf("DEVELOPER");
     protected final static Role ROLE_LEAD = Role.valueOf("LEAD");
@@ -78,7 +78,7 @@ public class TestBaseConstants {
 
 
     /**
-     * QUESTION 
+     * QUESTION
      */
     protected final static String VALID_QUESTION_LABEL_QUANTITATIVE = "How " +
             "would you rate your teammate's overall performance on the " +
@@ -91,7 +91,7 @@ public class TestBaseConstants {
     protected final static QuestionType QUESTION_TYPE_COMPETENCY = QuestionType.COMPETENCY;
 
     /**
-     * FEEDBACK 
+     * FEEDBACK
      *
      * Valid Input:
      */
@@ -106,18 +106,18 @@ public class TestBaseConstants {
 
 
     /**
-     * FEEDBACK TYPE 
+     * FEEDBACK TYPE
      */
     protected final static FeedbackType FEEDBACK_TYPE_KUDOS = FeedbackType.KUDOS;
     protected final static FeedbackType FEEDBACK_TYPE_ASSESSMENT = FeedbackType.ASSESSMENT;
 
     /**
-     * ASSESSMENT 
+     * ASSESSMENT
      */
     protected List<Question> QUESTION_LIST = new ArrayList<Question>();
 
     /**
-     * TEAM 
+     * TEAM
      */
     protected final static String VALID_TEAM_NAME = "Hayes' Heroes";
     protected final static Integer VALID_REVIEW_FREQUENCY = 1;
@@ -126,14 +126,14 @@ public class TestBaseConstants {
     public Assessment ASSESSMENT = new Assessment();
 
     /**
-     * TEAM TYPE 
+     * TEAM TYPE
      */
     protected final static TeamType TEAM_O3 = TeamType.valueOf("O3");
     protected final static TeamType TEAM_DEV = TeamType.valueOf("DEV");
 
 
     /**
-     * REVIEW 
+     * REVIEW
      *
      * Valid input:
      */

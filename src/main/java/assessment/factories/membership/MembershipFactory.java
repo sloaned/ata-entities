@@ -17,7 +17,7 @@ public class MembershipFactory extends TestBase {
             case VALID_ACTIVE_MEMBERSHIP:
                 membership.setUserId(generateRandomHash(15));
                 membership.setActive(true);
-                membership.setAddedOn(getDate(VALID_DATE));
+                membership.setAddedOn(getDate(PAST_DATE));
                 membership.setRemovedOn(null);
                 membership.setVersion(MEMBERSHIP_CURRENT_VERSION);
                 break;
@@ -25,7 +25,7 @@ public class MembershipFactory extends TestBase {
             case INVALID_MEMBERSHIP_ID_EMPTY:
                 membership.setUserId(EMPTY_STRING);
                 membership.setActive(true);
-                membership.setAddedOn(getDate(VALID_DATE));
+                membership.setAddedOn(getDate(PAST_DATE));
                 membership.setRemovedOn(null);
                 membership.setVersion(VALID_ENTITY_VERSION);
                 break;
@@ -33,7 +33,7 @@ public class MembershipFactory extends TestBase {
             case INVALID_MEMBERSHIP_ISACTIVE_NULL:
                 membership.setUserId(generateRandomHash(15));
                 membership.setActive(null);
-                membership.setAddedOn(getDate(VALID_DATE));
+                membership.setAddedOn(getDate(PAST_DATE));
                 membership.setRemovedOn(null);
                 membership.setVersion(VALID_ENTITY_VERSION);
                 break;
@@ -49,7 +49,7 @@ public class MembershipFactory extends TestBase {
             case INVALID_MEMBERSHIP_VERSION_ZERO:
                 membership.setUserId(generateRandomHash(15));
                 membership.setActive(true);
-                membership.setAddedOn(getDate(VALID_DATE));
+                membership.setAddedOn(getDate(PAST_DATE));
                 membership.setRemovedOn(null);
                 membership.setVersion(0);
                 break;
@@ -57,7 +57,7 @@ public class MembershipFactory extends TestBase {
             case INVALID_MEMBERSHIP_VERSION_NULL:
                 membership.setUserId(generateRandomHash(15));
                 membership.setActive(true);
-                membership.setAddedOn(getDate(VALID_DATE));
+                membership.setAddedOn(getDate(PAST_DATE));
                 membership.setRemovedOn(null);
                 membership.setVersion(null);
                 break;

@@ -6,6 +6,7 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.Range;
 import org.springframework.data.annotation.Id;
 
+import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
@@ -96,5 +97,22 @@ public class Kudo {
     public Integer getVersion() {
         return version;
     }
+
+    @AssertTrue(message = "Reviewer and reviewee cannot be the same user")
+    private boolean isValid() {
+        boolean result = true;
+
+        /**
+         * If the the reviewer is null or empty or the reviewed is null or empty, don't check them
+         */
+        if (reviewerId != null && reviewedId != null) {
+            if (reviewerId != "" && reviewedId != "") {
+                result = !this.reviewerId.equals(this.reviewedId);
+            }
+        }
+
+        return result;
+    }
+
 
 }
