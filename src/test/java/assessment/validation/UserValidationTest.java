@@ -140,4 +140,18 @@ public class UserValidationTest {
         Set<ConstraintViolation<User>> violations = validator.validate(testUser);
         assertFalse("expected version null", violations.isEmpty());
     }
+
+    @Test
+    public void SadPathValidationOfUserFactoryTitleIsNull() throws ParseException{
+        testUser = userFactory.assembleUser(UserOption.INVALID_USER_TITLE_NULL);
+        Set<ConstraintViolation<User>> violations = validator.validate(testUser);
+        assertFalse("expected title null", violations.isEmpty());
+    }
+
+    @Test
+    public void SadPathValidationOfUserFactoryTitleIsEmpty() throws ParseException{
+        testUser = userFactory.assembleUser(UserOption.INVALID_USER_TITLE_EMPTY);
+        Set<ConstraintViolation<User>> violations = validator.validate(testUser);
+        assertFalse("expected title to be empty", violations.isEmpty());
+    }
 }
