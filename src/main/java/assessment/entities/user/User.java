@@ -9,6 +9,7 @@ import org.springframework.data.annotation.Id;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import java.util.Date;
 
 /**
  * Created by gfisher on 3/14/2016.
@@ -32,9 +33,6 @@ public class User {
     @Pattern(regexp = RegexConstants.EMAIL, message = "Email must be valid")
     private String email;
 
-    @NotNull(message = "Role is required")
-    private Role role;
-
     @NotEmpty(message = "Title is required and can't be empty")
     private String title;
 
@@ -51,41 +49,31 @@ public class User {
     @NotNull(message = "The user must be active or inactive")
     private Boolean isActive;
 
+    @NotNull(message = "Start date cannot be null")
+    private Date startDate;
+
+    private Date endDate;
+
     @NotNull(message = "Version is required")
     @Range(min = 1, message = "version of at least 1 is required")
     private Integer version;
 
-    public User(){
+    public User() {
         this.version = TestBaseConstants.USER_CURRENT_VERSION;
     }
 
-    public User(String firstName, String lastName, String email,
-                Role role, String avatar, String profileDescription, Boolean
-                        isActive) {
+    public User(String id, String firstName, String lastName, String email, String title, String avatar, String profileDescription, Boolean isActive, Date startDate, Date endDate, Integer version) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.role = role;
+        this.title = title;
         this.avatar = avatar;
         this.profileDescription = profileDescription;
         this.isActive = isActive;
-        this.version = TestBaseConstants.USER_CURRENT_VERSION;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id='" + id + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", role=" + role +
-                ", title='" + title + '\'' +
-                ", avatar='" + avatar + '\'' +
-                ", profileDescription='" + profileDescription + '\'' +
-                ", isActive=" + isActive +
-                ", version=" + version +
-                '}';
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.version = version;
     }
 
     public String getId() {
@@ -120,14 +108,6 @@ public class User {
         this.email = email;
     }
 
-    public Role getRole() {
-        return role;
-    }
-
-    public void setRole(Role role) {
-        this.role = role;
-    }
-
     public String getTitle() {
         return title;
     }
@@ -152,12 +132,28 @@ public class User {
         this.profileDescription = profileDescription;
     }
 
-    public Boolean getIsActive() {
+    public Boolean getActive() {
         return isActive;
     }
 
-    public void setIsActive(Boolean isActive) {
-        this.isActive = isActive;
+    public void setActive(Boolean active) {
+        isActive = active;
+    }
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
     }
 
     public Integer getVersion() {
@@ -166,5 +162,22 @@ public class User {
 
     public void setVersion(Integer version) {
         this.version = version;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id='" + id + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", title='" + title + '\'' +
+                ", avatar='" + avatar + '\'' +
+                ", profileDescription='" + profileDescription + '\'' +
+                ", isActive=" + isActive +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                ", version=" + version +
+                '}';
     }
 }

@@ -22,12 +22,11 @@ public class TeamFactory extends TestBase {
                 team.setAvatar(VALID_GRAVATAR_HASH);
                 team.setDescription(VALID_DESCRIPTION);
                 team.setName(VALID_OBJECT_NAME);
-                team.setReviewFrequency(VALID_REVIEW_FREQUENCY);
-                team.setTeamType(TEAM_DEV);
+                //team.setSummaryScore(VALID_REVIEW_FREQUENCY);
+                //team.setTeamType(TEAM_DEV);
                 team.setVersion(TEAM_CURRENT_VERSION);
-                team.setLeaderList(LEADER_LIST);
-                team.setUserList(USER_LIST);
-                team.setAssessment(ASSESSMENT);
+                team.setMemberList(USER_LIST);
+                //team.setTemplate(Template);
                 break;
 
             case VALID_INACTIVE_TEAM:
@@ -35,35 +34,32 @@ public class TeamFactory extends TestBase {
                 team.setAvatar(VALID_GRAVATAR_HASH);
                 team.setDescription(VALID_DESCRIPTION);
                 team.setName(VALID_OBJECT_NAME);
-                team.setReviewFrequency(VALID_REVIEW_FREQUENCY);
-                team.setTeamType(TEAM_O3);
+                //team.setSummaryScore(VALID_REVIEW_FREQUENCY);
+                //team.setTeamType(TEAM_O3);
                 team.setVersion(VALID_ENTITY_VERSION);
-                team.setLeaderList(LEADER_LIST);
-                team.setUserList(USER_LIST);
-                team.setAssessment(ASSESSMENT);
+                team.setMemberList(USER_LIST);
+                //team.setTemplate(Template);
                 break;
 
             case INVALID_TEAM_NAME_SPECIAL_CHARACTERS:
                 team.setActive(true);
                 team.setName(INVALID_OBJECT_NAME_SPECIAL_CHARACTERS);
-                team.setReviewFrequency(VALID_REVIEW_FREQUENCY);
-                team.setTeamType(TEAM_O3);
+                //team.setSummaryScore(VALID_REVIEW_FREQUENCY);
+                //team.setTeamType(TEAM_O3);
                 team.setVersion(VALID_ENTITY_VERSION);
-                team.setLeaderList(LEADER_LIST);
-                team.setUserList(USER_LIST);
-                team.setAssessment(ASSESSMENT);
+                team.setMemberList(USER_LIST);
+                //team.setTemplate(Template);
                 team.setAvatar(VALID_GRAVATAR_HASH);
                 team.setDescription(VALID_DESCRIPTION);
                 break;
 
             case INVALID_TEAM_NAME_LONG:
                 team.setActive(false);
-                team.setReviewFrequency(VALID_REVIEW_FREQUENCY);
-                team.setTeamType(TEAM_O3);
+                //team.setSummaryScore(VALID_REVIEW_FREQUENCY);
+                //team.setTeamType(TEAM_O3);
                 team.setVersion(VALID_ENTITY_VERSION);
-                team.setLeaderList(LEADER_LIST);
-                team.setUserList(USER_LIST);
-                team.setAssessment(ASSESSMENT);
+                team.setMemberList(USER_LIST);
+                //team.setTemplate(Template);
                 team.setAvatar(VALID_GRAVATAR_HASH);
                 team.setDescription(VALID_DESCRIPTION);
                 team.setName(generateRandomString(110));
@@ -72,12 +68,11 @@ public class TeamFactory extends TestBase {
                 team.setActive(false);
                 team.setAvatar(VALID_GRAVATAR_HASH);
                 team.setDescription(VALID_DESCRIPTION);
-                team.setReviewFrequency(VALID_REVIEW_FREQUENCY);
-                team.setTeamType(TEAM_O3);
+                //team.setSummaryScore(VALID_REVIEW_FREQUENCY);
+                //team.setTeamType(TEAM_O3);
                 team.setVersion(VALID_ENTITY_VERSION);
-                team.setLeaderList(LEADER_LIST);
-                team.setUserList(USER_LIST);
-                team.setAssessment(ASSESSMENT);
+                team.setMemberList(USER_LIST);
+                //team.setTemplate(Template);
                 team.setName(null);
                 break;
 
@@ -85,12 +80,11 @@ public class TeamFactory extends TestBase {
                 team.setAvatar(VALID_GRAVATAR_HASH);
                 team.setDescription(VALID_DESCRIPTION);
                 team.setName(VALID_OBJECT_NAME);
-                team.setReviewFrequency(VALID_REVIEW_FREQUENCY);
-                team.setTeamType(TEAM_O3);
+                //team.setSummaryScore(VALID_REVIEW_FREQUENCY);
+                //team.setTeamType(TEAM_O3);
                 team.setVersion(VALID_ENTITY_VERSION);
-                team.setLeaderList(LEADER_LIST);
-                team.setUserList(USER_LIST);
-                team.setAssessment(ASSESSMENT);
+                team.setMemberList(USER_LIST);
+                //team.setTemplate(Template);
                 team.setActive(null);
                 break;
 
@@ -99,12 +93,11 @@ public class TeamFactory extends TestBase {
                 team.setAvatar(VALID_GRAVATAR_HASH);
                 team.setDescription(VALID_DESCRIPTION);
                 team.setName(VALID_OBJECT_NAME);
-                team.setReviewFrequency(VALID_REVIEW_FREQUENCY);
+                //team.setSummaryScore(VALID_REVIEW_FREQUENCY);
                 team.setVersion(VALID_ENTITY_VERSION);
-                team.setLeaderList(LEADER_LIST);
-                team.setUserList(USER_LIST);
-                team.setAssessment(ASSESSMENT);
-                team.setTeamType(null);
+                team.setMemberList(USER_LIST);
+                //team.setTemplate(Template);
+                //team.setTeamType(null);
                 break;
 
             case INVALID_TEAM_VERSION_NULL:
@@ -112,11 +105,10 @@ public class TeamFactory extends TestBase {
                 team.setAvatar(VALID_GRAVATAR_HASH);
                 team.setDescription(VALID_DESCRIPTION);
                 team.setName(VALID_OBJECT_NAME);
-                team.setReviewFrequency(VALID_REVIEW_FREQUENCY);
-                team.setTeamType(TEAM_O3);
-                team.setLeaderList(LEADER_LIST);
-                team.setUserList(USER_LIST);
-                team.setAssessment(ASSESSMENT);
+                //team.setSummaryScore(VALID_REVIEW_FREQUENCY);
+                //team.setTeamType(TEAM_O3);
+                team.setMemberList(USER_LIST);
+                //team.setTemplate(Template);
                 team.setVersion(null);
                 break;
 
@@ -125,11 +117,10 @@ public class TeamFactory extends TestBase {
                 team.setAvatar(VALID_GRAVATAR_HASH);
                 team.setDescription(VALID_DESCRIPTION);
                 team.setName(VALID_OBJECT_NAME);
-                team.setReviewFrequency(VALID_REVIEW_FREQUENCY);
-                team.setTeamType(TEAM_O3);
-                team.setLeaderList(LEADER_LIST);
-                team.setUserList(USER_LIST);
-                team.setAssessment(ASSESSMENT);
+                //team.setSummaryScore(VALID_REVIEW_FREQUENCY);
+                //team.setTeamType(TEAM_O3);
+                team.setMemberList(USER_LIST);
+                //team.setTemplate(Template);
                 team.setVersion(0);
                 break;
         }

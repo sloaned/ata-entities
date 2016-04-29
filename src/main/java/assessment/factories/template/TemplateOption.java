@@ -1,9 +1,9 @@
-package assessment.factories.assessment;
+package assessment.factories.template;
 
 /**
  * Created by jtucker on 4/5/2016.
  */
-public enum AssessmentOption {
+public enum TemplateOption {
 
     VALID_ASSESSMENT,
     INVALID_ASSESSMENT_NAME_LONG,

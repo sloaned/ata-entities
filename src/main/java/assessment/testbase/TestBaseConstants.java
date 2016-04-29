@@ -1,8 +1,8 @@
 package assessment.testbase;
 
-import assessment.entities.assessment.Assessment;
+import assessment.entities.team.Member;
+import assessment.entities.template.Template;
 import assessment.entities.feedback.FeedbackType;
-import assessment.entities.membership.Membership;
 import assessment.entities.question.Question;
 import assessment.entities.question.QuestionType;
 import assessment.entities.team.TeamType;
@@ -21,12 +21,12 @@ public class TestBaseConstants {
      * ENTITY VERSIONS
      *
      */
-    public final static int ASSESSMENT_CURRENT_VERSION = 1;
     public final static int FEEDBACK_CURRENT_VERSION = 1;
     public final static int MEMBERSHIP_CURRENT_VERSION = 1;
     public final static int QUESTION_CURRENT_VERSION = 1;
     public final static int REVIEW_CURRENT_VERSION = 1;
     public final static int TEAM_CURRENT_VERSION = 1;
+    public final static int TEMPLATE_CURRENT_VERSION = 1;
     public final static int USER_CURRENT_VERSION = 1;
     public final static int PERIOD_CURRENT_VERSION = 1;
 
@@ -95,11 +95,11 @@ public class TestBaseConstants {
     protected final static String VALID_FEEDBACK_LABEL = "Valid Feedback Label";
     protected final static Integer VALID_FEEDBACK_SCORE = 3;
     protected final static String VALID_FEEDBACK_COMMENT = "A Valid comment for a feedback entity";
+
     /**
      * Invalid Input:
      */
-
-    protected final static Integer INVALID_FEEDBACK_SCORE_OVERBOUND = 6;
+    protected final static Integer INVALID_SCORE_OVERBOUND = 6;
 
 
     /**
@@ -109,7 +109,7 @@ public class TestBaseConstants {
     protected final static FeedbackType FEEDBACK_TYPE_ASSESSMENT = FeedbackType.ASSESSMENT;
 
     /**
-     * ASSESSMENT SECTION
+     * Template SECTION
      */
     protected List<Question> QUESTION_LIST = new ArrayList<Question>();
 
@@ -118,9 +118,9 @@ public class TestBaseConstants {
      */
     protected final static String VALID_TEAM_NAME = "Hayes' Heroes";
     protected final static Integer VALID_REVIEW_FREQUENCY = 1;
-    public List<Membership> LEADER_LIST = new ArrayList<Membership>();
-    public List<Membership> USER_LIST = new ArrayList<Membership>();
-    public Assessment ASSESSMENT = new Assessment();
+    public List<Member> LEADER_LIST = new ArrayList<Member>();
+    public List<Member> USER_LIST = new ArrayList<Member>();
+    public Template Template = new Template();
 
     /**
      * TEAM TYPE SECTION

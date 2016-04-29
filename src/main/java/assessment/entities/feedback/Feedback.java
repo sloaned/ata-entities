@@ -18,9 +18,9 @@ public class Feedback {
     @Enumerated(EnumType.STRING)
     private FeedbackType type;
 
+    @NotEmpty(message = "question label is required")
     @Length(max = 255, message = "question label length must not exceed 255 " +
             "characters")
-    @NotEmpty(message = "question label is required")
     private String label;
 
     @Range(min = 1, max = 5)
@@ -45,17 +45,6 @@ public class Feedback {
         this.score = score;
         this.comment = comment;
         this.version = TestBaseConstants.FEEDBACK_CURRENT_VERSION;
-    }
-
-    @Override
-    public String toString() {
-        return "Feedback{" +
-                "type=" + type +
-                ", label='" + label + '\'' +
-                ", score=" + score +
-                ", comment='" + comment + '\'' +
-                ", version=" + version +
-                '}';
     }
 
     public FeedbackType getType() {
@@ -96,5 +85,16 @@ public class Feedback {
 
     public void setVersion(Integer version) {
         this.version = version;
+    }
+
+    @Override
+    public String toString() {
+        return "Feedback{" +
+                "type=" + type +
+                ", label='" + label + '\'' +
+                ", score=" + score +
+                ", comment='" + comment + '\'' +
+                ", version=" + version +
+                '}';
     }
 }

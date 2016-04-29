@@ -12,7 +12,6 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
-
 import java.util.Date;
 import java.util.List;
 
@@ -35,7 +34,7 @@ public class Review {
     @NotEmpty(message = "Reviewee's associated team must be defined.")
     private String teamName;
 
-    @JsonFormat(pattern = "MM/dd/yyyy", timezone="PST")
+    @JsonFormat(pattern = "MM/dd/yyyy", timezone = "PST")
     @NotNull(message = "Submitted date is required")
     @Future(message = "Submitted date cannot be in the past")
     private Date submittedDate;
@@ -76,6 +75,7 @@ public class Review {
 
     /**
      * Constructor with parameters
+     *
      * @param reviewerId
      * @param reviewedId
      * @param teamName
@@ -84,7 +84,7 @@ public class Review {
      * @param summaryScore
      */
     public Review(User reviewerId, User reviewedId, String teamName, Date submittedDate, List<Feedback> feedback,
-                  Double summaryScore){
+                  Double summaryScore) {
         this.reviewerId = reviewerId;
         this.reviewedId = reviewedId;
         this.teamName = teamName;
@@ -92,20 +92,6 @@ public class Review {
         this.feedback = feedback;
         this.summaryScore = summaryScore;
         this.version = TestBaseConstants.REVIEW_CURRENT_VERSION;
-    }
-
-    @Override
-    public String toString() {
-        return "Review{" +
-                "id='" + id + '\'' +
-                ", reviewerId=" + reviewerId +
-                ", reviewedId=" + reviewedId +
-                ", teamName='" + teamName + '\'' +
-                ", submittedDate=" + submittedDate +
-                ", feedback=" + feedback +
-                ", summaryScore=" + summaryScore +
-                ", version=" + version +
-                '}';
     }
 
     /**
@@ -165,5 +151,19 @@ public class Review {
 
     public void setVersion(Integer version) {
         this.version = version;
+    }
+
+    @Override
+    public String toString() {
+        return "Review{" +
+                "id='" + id + '\'' +
+                ", reviewerId=" + reviewerId +
+                ", reviewedId=" + reviewedId +
+                ", teamName='" + teamName + '\'' +
+                ", submittedDate=" + submittedDate +
+                ", feedback=" + feedback +
+                ", summaryScore=" + summaryScore +
+                ", version=" + version +
+                '}';
     }
 }

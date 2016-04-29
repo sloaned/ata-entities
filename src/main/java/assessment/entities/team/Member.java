@@ -1,16 +1,17 @@
-package assessment.entities.membership;
+package assessment.entities.team;
 
-import assessment.testbase.TestBaseConstants;
+import assessment.entities.user.Role;
 import org.hibernate.validator.constraints.NotEmpty;
-import org.hibernate.validator.constraints.Range;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 /**
  * Created by gfisher on 3/16/2016.
  */
-public class Membership {
+public class Member {
 
     @NotEmpty(message = "user ID is required")
     private String userId;
@@ -24,31 +25,18 @@ public class Membership {
     private Date removedOn;
 
     @NotNull
-    @Range(min = 1, message = "version of at least 1 is required")
-    private Integer version;
+    @Enumerated(value = EnumType.STRING)
+    private Role role;
 
-    public Membership(){
-        this.version = TestBaseConstants.MEMBERSHIP_CURRENT_VERSION;
+    public Member() {
     }
 
-    public Membership(String userId, Boolean isActive, Date addedOn, Date
-            removedOn) {
+    public Member(String userId, Boolean isActive, Date addedOn, Date removedOn, Role role) {
         this.userId = userId;
         this.isActive = isActive;
         this.addedOn = addedOn;
         this.removedOn = removedOn;
-        this.version = TestBaseConstants.MEMBERSHIP_CURRENT_VERSION;
-    }
-
-    @Override
-    public String toString() {
-        return "Membership{" +
-                "userId='" + userId + '\'' +
-                ", isActive=" + isActive +
-                ", addedOn=" + addedOn +
-                ", removedOn=" + removedOn +
-                ", version=" + version +
-                '}';
+        this.role = role;
     }
 
     public String getUserId() {
@@ -83,11 +71,22 @@ public class Membership {
         this.removedOn = removedOn;
     }
 
-    public Integer getVersion() {
-        return version;
+    public Role getRole() {
+        return role;
     }
 
-    public void setVersion(Integer version) {
-        this.version = version;
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    @Override
+    public String toString() {
+        return "Member{" +
+                "userId='" + userId + '\'' +
+                ", isActive=" + isActive +
+                ", addedOn=" + addedOn +
+                ", removedOn=" + removedOn +
+                ", role=" + role +
+                '}';
     }
 }

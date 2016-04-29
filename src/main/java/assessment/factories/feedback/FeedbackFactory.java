@@ -2,6 +2,7 @@ package assessment.factories.feedback;
 
 import assessment.entities.feedback.Feedback;
 import assessment.testbase.TestBase;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,20 +16,13 @@ public class FeedbackFactory extends TestBase {
         Feedback feedback = new Feedback();
 
         switch (option) {
-            case VALID_QUALITATIVE_FEEDBACK:
-                feedback.setType(FEEDBACK_TYPE_KUDOS);
-                feedback.setLabel(VALID_FEEDBACK_LABEL);
-                feedback.setScore(VALID_FEEDBACK_SCORE);
-                feedback.setComment(VALID_FEEDBACK_COMMENT);
-                feedback.setVersion(FEEDBACK_CURRENT_VERSION);
-                break;
 
-            case VALID_QUANTITATIVE_FEEDBACK:
-                feedback.setType(FEEDBACK_TYPE_KUDOS);
+            case VALID_FEEDBACK:
+                feedback.setType(null);
                 feedback.setLabel(VALID_FEEDBACK_LABEL);
                 feedback.setScore(VALID_FEEDBACK_SCORE);
                 feedback.setComment(VALID_FEEDBACK_COMMENT);
-                feedback.setVersion(FEEDBACK_CURRENT_VERSION);
+                feedback.setVersion(VALID_ENTITY_VERSION);
                 break;
 
             case INVALID_FEEDBACK_TYPE_NULL:
@@ -55,28 +49,28 @@ public class FeedbackFactory extends TestBase {
                 feedback.setVersion(VALID_ENTITY_VERSION);
                 break;
 
-            case INVALID_FEEDBACK_COMMENT_LONG:
+            case INVALID_FEEDBACK_SCORE_ZERO:
                 feedback.setType(FEEDBACK_TYPE_KUDOS);
                 feedback.setLabel(VALID_FEEDBACK_LABEL);
-                feedback.setScore(VALID_FEEDBACK_SCORE);
-                feedback.setComment(generateRandomString(1501));
+                feedback.setScore(0);
+                feedback.setComment(VALID_FEEDBACK_COMMENT);
                 feedback.setVersion(VALID_ENTITY_VERSION);
                 break;
 
             case INVALID_FEEDBACK_SCORE_OVERBOUND:
                 feedback.setType(FEEDBACK_TYPE_KUDOS);
                 feedback.setLabel(VALID_FEEDBACK_LABEL);
-                feedback.setScore(INVALID_FEEDBACK_SCORE_OVERBOUND);
+                feedback.setScore(INVALID_SCORE_OVERBOUND);
                 feedback.setComment(VALID_FEEDBACK_COMMENT);
                 feedback.setVersion(VALID_ENTITY_VERSION);
                 break;
 
-            case INVALID_FEEDBACK_VERSION_ZERO:
+            case INVALID_FEEDBACK_COMMENT_LONG:
                 feedback.setType(FEEDBACK_TYPE_KUDOS);
                 feedback.setLabel(VALID_FEEDBACK_LABEL);
                 feedback.setScore(VALID_FEEDBACK_SCORE);
-                feedback.setComment(VALID_FEEDBACK_COMMENT);
-                feedback.setVersion(0);
+                feedback.setComment(generateRandomString(1501));
+                feedback.setVersion(VALID_ENTITY_VERSION);
                 break;
 
             case INVALID_FEEDBACK_VERSION_NULL:
@@ -87,8 +81,13 @@ public class FeedbackFactory extends TestBase {
                 feedback.setVersion(null);
                 break;
 
-
-
+            case INVALID_FEEDBACK_VERSION_ZERO:
+                feedback.setType(FEEDBACK_TYPE_KUDOS);
+                feedback.setLabel(VALID_FEEDBACK_LABEL);
+                feedback.setScore(VALID_FEEDBACK_SCORE);
+                feedback.setComment(VALID_FEEDBACK_COMMENT);
+                feedback.setVersion(0);
+                break;
         }
 
         return feedback;

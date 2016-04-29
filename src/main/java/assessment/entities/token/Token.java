@@ -2,8 +2,6 @@ package assessment.entities.token;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.List;
-
 /**
  * Token object which will be used for OAuth
  * Doesn't worry about validation since it should only be passed and received, not manipulated
@@ -106,5 +104,20 @@ public class Token {
 
     public void setUserDetails(TokenUser userDetails) {
         this.userDetails = userDetails;
+    }
+
+    @Override
+    public String toString() {
+        return "Token{" +
+                "id='" + id + '\'' +
+                ", userId='" + userId + '\'' +
+                ", clientId='" + clientId + '\'' +
+                ", accessToken='" + accessToken + '\'' +
+                ", tokenType='" + tokenType + '\'' +
+                ", refreshToken='" + refreshToken + '\'' +
+                ", expiresIn=" + expiresIn +
+                ", scope='" + scope + '\'' +
+                ", userDetails=" + userDetails +
+                '}';
     }
 }

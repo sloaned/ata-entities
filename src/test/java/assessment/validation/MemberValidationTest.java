@@ -1,6 +1,6 @@
 package assessment.validation;
 
-import assessment.entities.membership.Membership;
+import assessment.entities.team.Member;
 import assessment.factories.membership.MembershipFactory;
 import assessment.factories.membership.MembershipOption;
 import org.junit.BeforeClass;
@@ -16,7 +16,7 @@ import java.util.Set;
 /**
  * Created by hmccardell on 4/8/2016.
  */
-public class MembershipValidationTest {
+public class MemberValidationTest {
 
     private static Validator validator;
     private MembershipFactory membershipFactory = new MembershipFactory();
@@ -29,43 +29,43 @@ public class MembershipValidationTest {
 
     @Test
     public void membershipHappyPath() throws ParseException{
-        Membership goodMembership = membershipFactory.assembleMembership(MembershipOption.VALID_ACTIVE_MEMBERSHIP);
-        Set<ConstraintViolation<Membership>> violations = validator.validate(goodMembership);
-        assertTrue("failed to create a valid Membership object", violations.isEmpty());
+        Member goodMember = membershipFactory.assembleMembership(MembershipOption.VALID_ACTIVE_MEMBERSHIP);
+        Set<ConstraintViolation<Member>> violations = validator.validate(goodMember);
+        assertTrue("failed to create a valid Member object", violations.isEmpty());
     }
 
     @Test
     public void SadPathValidationOfMembershipFactoryEmptyUserId() throws ParseException{
-        Membership invalidMembership = membershipFactory.assembleMembership(MembershipOption.INVALID_MEMBERSHIP_ID_EMPTY);
-        Set<ConstraintViolation<Membership>> violations = validator.validate(invalidMembership);
+        Member invalidMember = membershipFactory.assembleMembership(MembershipOption.INVALID_MEMBERSHIP_ID_EMPTY);
+        Set<ConstraintViolation<Member>> violations = validator.validate(invalidMember);
         assertFalse("expected empty user ID", violations.isEmpty());
     }
 
     @Test
     public void SadPathValidationOfMembershipFactoryNullIsActive() throws ParseException{
-        Membership invalidMembership = membershipFactory.assembleMembership(MembershipOption.INVALID_MEMBERSHIP_ISACTIVE_NULL);
-        Set<ConstraintViolation<Membership>> violations = validator.validate(invalidMembership);
+        Member invalidMember = membershipFactory.assembleMembership(MembershipOption.INVALID_MEMBERSHIP_ISACTIVE_NULL);
+        Set<ConstraintViolation<Member>> violations = validator.validate(invalidMember);
         assertFalse("expected null isActive", violations.isEmpty());
     }
 
     @Test
     public void SadPathValidationOfMembershipFactoryNullAddedOn() throws ParseException{
-        Membership invalidMembership = membershipFactory.assembleMembership(MembershipOption.INVALID_MEMBERSHIP_ADDED_DATE_NULL);
-        Set<ConstraintViolation<Membership>> violations = validator.validate(invalidMembership);
+        Member invalidMember = membershipFactory.assembleMembership(MembershipOption.INVALID_MEMBERSHIP_ADDED_DATE_NULL);
+        Set<ConstraintViolation<Member>> violations = validator.validate(invalidMember);
         assertFalse("expected null addedOn date", violations.isEmpty());
     }
 
     @Test
     public void SadPathValidationOfMembershipFactoryVersionZero() throws ParseException{
-        Membership invalidMembership = membershipFactory.assembleMembership(MembershipOption.INVALID_MEMBERSHIP_VERSION_ZERO);
-        Set<ConstraintViolation<Membership>> violations = validator.validate(invalidMembership);
+        Member invalidMember = membershipFactory.assembleMembership(MembershipOption.INVALID_MEMBERSHIP_VERSION_ZERO);
+        Set<ConstraintViolation<Member>> violations = validator.validate(invalidMember);
         assertFalse("expected version 0", violations.isEmpty());
     }
 
     @Test
     public void SadPathValidationOfMembershipFactoryNullVersion() throws ParseException{
-        Membership invalidMembership = membershipFactory.assembleMembership(MembershipOption.INVALID_MEMBERSHIP_VERSION_NULL);
-        Set<ConstraintViolation<Membership>> violations = validator.validate(invalidMembership);
+        Member invalidMember = membershipFactory.assembleMembership(MembershipOption.INVALID_MEMBERSHIP_VERSION_NULL);
+        Set<ConstraintViolation<Member>> violations = validator.validate(invalidMember);
         assertFalse("expected version null", violations.isEmpty());
     }
 

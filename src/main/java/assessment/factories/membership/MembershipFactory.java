@@ -1,6 +1,6 @@
 package assessment.factories.membership;
 
-import assessment.entities.membership.Membership;
+import assessment.entities.team.Member;
 import assessment.testbase.TestBase;
 import java.text.ParseException;
 
@@ -9,61 +9,61 @@ import java.text.ParseException;
  */
 public class MembershipFactory extends TestBase {
 
-    public Membership assembleMembership(MembershipOption option) throws ParseException {
+    public Member assembleMembership(MembershipOption option) throws ParseException {
 
-        Membership membership = new Membership();
+        Member member = new Member();
 
         switch (option) {
             case VALID_ACTIVE_MEMBERSHIP:
-                membership.setUserId(generateRandomHash(15));
-                membership.setActive(true);
-                membership.setAddedOn(getDate(VALID_DATE));
-                membership.setRemovedOn(null);
-                membership.setVersion(MEMBERSHIP_CURRENT_VERSION);
+                member.setUserId(generateRandomHash(15));
+                member.setActive(true);
+                member.setAddedOn(getDate(VALID_DATE));
+                member.setRemovedOn(null);
+                //member.setVersion(MEMBERSHIP_CURRENT_VERSION);
                 break;
 
             case INVALID_MEMBERSHIP_ID_EMPTY:
-                membership.setUserId(EMPTY_STRING);
-                membership.setActive(true);
-                membership.setAddedOn(getDate(VALID_DATE));
-                membership.setRemovedOn(null);
-                membership.setVersion(VALID_ENTITY_VERSION);
+                member.setUserId(EMPTY_STRING);
+                member.setActive(true);
+                member.setAddedOn(getDate(VALID_DATE));
+                member.setRemovedOn(null);
+                //member.setVersion(VALID_ENTITY_VERSION);
                 break;
 
             case INVALID_MEMBERSHIP_ISACTIVE_NULL:
-                membership.setUserId(generateRandomHash(15));
-                membership.setActive(null);
-                membership.setAddedOn(getDate(VALID_DATE));
-                membership.setRemovedOn(null);
-                membership.setVersion(VALID_ENTITY_VERSION);
+                member.setUserId(generateRandomHash(15));
+                member.setActive(null);
+                member.setAddedOn(getDate(VALID_DATE));
+                member.setRemovedOn(null);
+                //member.setVersion(VALID_ENTITY_VERSION);
                 break;
 
             case INVALID_MEMBERSHIP_ADDED_DATE_NULL:
-                membership.setUserId(generateRandomHash(15));
-                membership.setActive(true);
-                membership.setAddedOn(getDate(null));
-                membership.setRemovedOn(null);
-                membership.setVersion(VALID_ENTITY_VERSION);
+                member.setUserId(generateRandomHash(15));
+                member.setActive(true);
+                member.setAddedOn(getDate(null));
+                member.setRemovedOn(null);
+                //member.setVersion(VALID_ENTITY_VERSION);
                 break;
 
             case INVALID_MEMBERSHIP_VERSION_ZERO:
-                membership.setUserId(generateRandomHash(15));
-                membership.setActive(true);
-                membership.setAddedOn(getDate(VALID_DATE));
-                membership.setRemovedOn(null);
-                membership.setVersion(0);
+                member.setUserId(generateRandomHash(15));
+                member.setActive(true);
+                member.setAddedOn(getDate(VALID_DATE));
+                member.setRemovedOn(null);
+                //member.setVersion(0);
                 break;
 
             case INVALID_MEMBERSHIP_VERSION_NULL:
-                membership.setUserId(generateRandomHash(15));
-                membership.setActive(true);
-                membership.setAddedOn(getDate(VALID_DATE));
-                membership.setRemovedOn(null);
-                membership.setVersion(null);
+                member.setUserId(generateRandomHash(15));
+                member.setActive(true);
+                member.setAddedOn(getDate(VALID_DATE));
+                member.setRemovedOn(null);
+                //member.setVersion(null);
                 break;
         }
 
-        return membership;
+        return member;
     }
 
 }

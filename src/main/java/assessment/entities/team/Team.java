@@ -2,9 +2,6 @@ package assessment.entities.team;
 
 import assessment.testbase.TestBaseConstants;
 import assessment.utilities.RegexConstants;
-import assessment.entities.assessment.Assessment;
-import assessment.entities.membership.Membership;
-
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Range;
@@ -32,11 +29,7 @@ public class Team {
     @NotNull(message = "The team must be active or inactive")
     private Boolean isActive;
 
-    private Assessment assessment;
-
-    private List<Membership> userList;
-
-    private List<Membership> leaderList;
+    private List<Member> memberList;
 
     private String avatar;
 
@@ -44,49 +37,28 @@ public class Team {
             "255 characters.")
     private String description;
 
-    @NotNull(message = "Team type is required.")
-    private TeamType teamType;
-    
-    private Integer reviewFrequency;
+    private List<ReviewPeriod> reviewPeriods;
+
+    private Double summaryScore;
 
     @NotNull(message = "Version is required")
     @Range(min = 1, message = "version of at least 1 is required")
     private Integer version;
 
-    public Team(){
+    public Team() {
         this.version = TestBaseConstants.TEAM_CURRENT_VERSION;
     }
 
-    public Team(String name, Boolean isActive, Assessment assessment, List<Membership> userList,
-                List<Membership> leaderList, String avatar, String description, TeamType teamType,
-                Integer reviewFrequency) {
+    public Team(String id, String name, Boolean isActive, List<Member> memberList, String avatar, String description, List<ReviewPeriod> reviewPeriods, Double summaryScore, Integer version) {
+        this.id = id;
         this.name = name;
         this.isActive = isActive;
-        this.assessment = assessment;
-        this.userList = userList;
-        this.leaderList = leaderList;
+        this.memberList = memberList;
         this.avatar = avatar;
         this.description = description;
-        this.teamType = teamType;
-        this.reviewFrequency = reviewFrequency;
-        this.version = TestBaseConstants.TEAM_CURRENT_VERSION;
-    }
-
-    @Override
-    public String toString() {
-        return "Team {" +
-                "id ='" + id + '\'' +
-                ", name ='" + name + '\'' +
-                ", isActive =" + isActive + '\'' +
-                ", assessment ='" + assessment + '\'' +
-                ", userList ='" + userList + '\'' +
-                ", leaderList =" + leaderList + '\'' +
-                ", avatar ='" + avatar + '\'' +
-                ", description ='" + description + '\'' +
-                ", teamType = " +  teamType + '\'' +
-                ", reviewFrequency = " + reviewFrequency + '\'' +
-                ", version =" + version +
-                '}';
+        this.reviewPeriods = reviewPeriods;
+        this.summaryScore = summaryScore;
+        this.version = version;
     }
 
     public String getId() {
@@ -113,28 +85,12 @@ public class Team {
         isActive = active;
     }
 
-    public Assessment getAssessment() {
-        return assessment;
+    public List<Member> getMemberList() {
+        return memberList;
     }
 
-    public void setAssessment(Assessment assessment) {
-        this.assessment = assessment;
-    }
-
-    public List<Membership> getUserList() {
-        return userList;
-    }
-
-    public void setUserList(List<Membership> userList) {
-        this.userList = userList;
-    }
-
-    public List<Membership> getLeaderList() {
-        return leaderList;
-    }
-
-    public void setLeaderList(List<Membership> leaderList) {
-        this.leaderList = leaderList;
+    public void setMemberList(List<Member> memberList) {
+        this.memberList = memberList;
     }
 
     public String getAvatar() {
@@ -153,20 +109,20 @@ public class Team {
         this.description = description;
     }
 
-    public TeamType getTeamType() {
-        return teamType;
+    public List<ReviewPeriod> getReviewPeriods() {
+        return reviewPeriods;
     }
 
-    public void setTeamType(TeamType teamType) {
-        this.teamType = teamType;
+    public void setReviewPeriods(List<ReviewPeriod> reviewPeriods) {
+        this.reviewPeriods = reviewPeriods;
     }
 
-    public Integer getReviewFrequency() {
-        return reviewFrequency;
+    public Double getSummaryScore() {
+        return summaryScore;
     }
 
-    public void setReviewFrequency(Integer reviewFrequency) {
-        this.reviewFrequency = reviewFrequency;
+    public void setSummaryScore(Double summaryScore) {
+        this.summaryScore = summaryScore;
     }
 
     public Integer getVersion() {
@@ -175,5 +131,20 @@ public class Team {
 
     public void setVersion(Integer version) {
         this.version = version;
+    }
+
+    @Override
+    public String toString() {
+        return "Team{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", isActive=" + isActive +
+                ", memberList=" + memberList +
+                ", avatar='" + avatar + '\'' +
+                ", description='" + description + '\'' +
+                ", reviewPeriods=" + reviewPeriods +
+                ", summaryScore=" + summaryScore +
+                ", version=" + version +
+                '}';
     }
 }
