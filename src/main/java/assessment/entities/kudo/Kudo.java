@@ -1,5 +1,6 @@
 package assessment.entities.kudo;
 
+import assessment.testbase.TestBase;
 import assessment.testbase.TestBaseConstants;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.validator.constraints.Length;
@@ -10,6 +11,8 @@ import org.springframework.data.annotation.Id;
 import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -32,7 +35,6 @@ public class Kudo {
 
     @JsonFormat(pattern = "MM/dd/yyyy", timezone="PST")
     @NotNull(message = "Submitted date is required")
-    @Future(message = "Submitted date cannot be in the past")
     private Date submittedDate;
 
     @NotNull(message = "Version is required")
@@ -111,6 +113,18 @@ public class Kudo {
             }
 
         }
+
+        return result;
+    }
+
+    @AssertTrue(message = "Submitted date cannot be in the past")
+    private boolean dateNotPast() {
+        boolean result = true;
+        int offset = 60 * 1000;
+        Date currentDate = new Date();
+        Date theSubmittedDate = new Date(submittedDate.getTime() + offset);
+        int compareResult = currentDate.compareTo(theSubmittedDate);
+        result = compareResult >= 0;
 
         return result;
     }
