@@ -3,6 +3,7 @@ package assessment.entities.kudo;
 import assessment.testbase.TestBaseConstants;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Range;
 import org.springframework.data.annotation.Id;
 
@@ -19,10 +20,10 @@ public class Kudo {
     @Id
     private String id;
 
-    @NotNull(message = "Reviewer must be defined.")
+    @NotEmpty(message = "Reviewer must be defined.")
     private String reviewerId;
 
-    @NotNull(message = "Reviewee must be defined.")
+    @NotEmpty(message = "Reviewee must be defined.")
     private String reviewedId;
 
     @Length(max = 1500, message = "Comment length must not exceed 1,500 " +
@@ -99,20 +100,19 @@ public class Kudo {
     }
 
     @AssertTrue(message = "Reviewer and reviewee cannot be the same user")
-    private boolean isValid() {
+    private boolean isSelfReview() {
         boolean result = true;
 
-        /**
-         * If the the reviewer is null or empty or the reviewed is null or empty, don't check them
-         */
+        //Only validate the self review case if they both have values
         if (reviewerId != null && reviewedId != null) {
-            if (reviewerId != "" && reviewedId != "") {
-                result = !this.reviewerId.equals(this.reviewedId);
+
+            if (reviewerId.equals(reviewedId)){
+                result = false;
             }
+
         }
 
         return result;
     }
-
 
 }
