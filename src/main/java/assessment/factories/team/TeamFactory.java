@@ -2,6 +2,7 @@ package assessment.factories.team;
 
 import assessment.entities.team.Team;
 import assessment.testbase.TestBase;
+
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,11 +12,11 @@ import java.util.List;
  */
 public class TeamFactory extends TestBase {
 
-    public Team assembleTeam (TeamOption teamOption){
+    public Team assembleTeam(TeamOption teamOption) {
 
         Team team = new Team();
 
-        switch(teamOption){
+        switch (teamOption) {
 
             case VALID_ACTIVE_TEAM:
                 team.setId(generateRandomHash(24));

@@ -122,7 +122,7 @@ public class TestBaseConstants {
     protected final static String VALID_TEAM_NAME = "Hayes' Heroes";
     protected final static Integer VALID_REVIEW_FREQUENCY = 1;
     public List<Member> USER_LIST = new ArrayList<Member>();
-    public Template Template = new Template();
+    public Template TEMPLATE = new Template();
     protected final static String VALID_TEAM_DESCRIPTION = "An awesome team working on the Aperture Team Assessment project";
     public List<ReviewPeriod> REVIEW_PERIOD_LIST = new ArrayList<ReviewPeriod>();
     protected final static String VALID_INACTIVE_TEAM_NAME = "Hayes' Former Heroes";

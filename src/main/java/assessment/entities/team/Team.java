@@ -6,7 +6,6 @@ import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Range;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.index.Indexed;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -20,7 +19,7 @@ public class Team {
     @Id
     private String id;
 
-    @Indexed(unique = true)
+    //@Indexed(unique = true)
     @NotEmpty(message = "Team name is required.")
     @Length(max = 100, message = "Team name can be no longer than 100 characters.")
     @Pattern(regexp = RegexConstants.OBJECT_NAME, message = "Team name contains invalid characters.")

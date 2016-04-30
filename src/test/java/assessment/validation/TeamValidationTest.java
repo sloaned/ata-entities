@@ -24,7 +24,7 @@ public class TeamValidationTest {
     TeamFactory teamFactory = new TeamFactory();
 
     @Before
-    public static void setUp() {
+    public void setUp() {
         validator = Validation.buildDefaultValidatorFactory().getValidator();
     }
 
