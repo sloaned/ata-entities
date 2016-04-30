@@ -37,7 +37,7 @@ public class TemplateValidationTest {
 
     @Test
     public void HappyPathAssessmentValidation() {
-        testTemplate = templateFactory.assembleAssessment(TemplateOption.VALID_ASSESSMENT);
+        testTemplate = templateFactory.assembleAssessment(TemplateOption.VALID_TEMPLATE);
         Set<ConstraintViolation<Template>> violations = validator.validate(testTemplate);
         assertTrue("INVALID Template: the template factory assembled an template that doesn't " +
                 "pass entity validation", violations.isEmpty());
@@ -45,32 +45,32 @@ public class TemplateValidationTest {
 
     @Test
     public void SadPathValidationOfAssessmentFactoryBadAssessmentLongName() {
-        testTemplate = templateFactory.assembleAssessment(TemplateOption.INVALID_ASSESSMENT_NAME_LONG);
+        testTemplate = templateFactory.assembleAssessment(TemplateOption.INVALID_TEMPLATE_NAME_TOO_LONG);
         assertThereIsExactlyOneViolation(validator, testTemplate);
     }
 
     @Test
     public void SadPathValidationOfAssessmentFactoryBadAssessmentBadName() {
-        testTemplate = templateFactory.assembleAssessment(TemplateOption.INVALID_ASSESSMENT_NAME_SPECIAL_CHARACTERS);
+        testTemplate = templateFactory.assembleAssessment(TemplateOption.INVALID_TEMPLATE_NAME_SPECIAL_CHARACTERS);
         assertThereIsExactlyOneViolation(validator, testTemplate);
     }
 
     @Test
     public void SadPathValidationOfAssessmentFactoryBadAssessmentNullName() {
-        testTemplate = templateFactory.assembleAssessment(TemplateOption.INVALID_ASSESSMENT_NULL_NAME);
+        testTemplate = templateFactory.assembleAssessment(TemplateOption.INVALID_TEMPLATE_NULL_NAME);
         assertThereIsExactlyOneViolation(validator, testTemplate);
     }
 
     @Test
     public void SadPathValidationOfAssessmentFactoryVersionZero() throws ParseException {
-        testTemplate = templateFactory.assembleAssessment(TemplateOption.INVALID_ASSESSMENT_VERSION_ZERO);
+        testTemplate = templateFactory.assembleAssessment(TemplateOption.INVALID_TEMPLATE_VERSION_ZERO);
         Set<ConstraintViolation<Template>> violations = validator.validate(testTemplate);
         assertFalse("expected version 0", violations.isEmpty());
     }
 
     @Test
     public void SadPathValidationOfAssessmentFactoryNullVersion() throws ParseException{
-        testTemplate = templateFactory.assembleAssessment(TemplateOption.INVALID_ASSESSMENT_VERSION_NULL);
+        testTemplate = templateFactory.assembleAssessment(TemplateOption.INVALID_TEMPLATE_VERSION_NULL);
         Set<ConstraintViolation<Template>> violations = validator.validate(testTemplate);
         assertFalse("expected version null", violations.isEmpty());
     }

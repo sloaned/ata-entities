@@ -15,40 +15,47 @@ public class TemplateFactory extends TestBase {
     public Template assembleAssessment(TemplateOption templateOption) {
 
         Template template = new Template();
-
+        Template template2 = new Template();
         switch(templateOption){
 
-            case VALID_ASSESSMENT:
+            case VALID_TEMPLATE:
                 template.setName(VALID_OBJECT_NAME);
                 template.setQuestionList(QUESTION_LIST);
                 template.setVersion(TEMPLATE_CURRENT_VERSION);
                 break;
 
-            case INVALID_ASSESSMENT_NAME_LONG:
+            case INVALID_TEMPLATE_DUPLICATE:
+                template.setName(TEMPLATE_NAME1);
+                template.setQuestionList(QUESTION_LIST);
+                template.setVersion(TEMPLATE_CURRENT_VERSION);
+                template2.setName(TEMPLATE_NAME2);
+                break;
+
+            case INVALID_TEMPLATE_NAME_TOO_LONG:
                 template.setName(generateRandomString(102));
                 template.setQuestionList(QUESTION_LIST);
                 template.setVersion(TEMPLATE_CURRENT_VERSION);
                 break;
 
-            case INVALID_ASSESSMENT_NAME_SPECIAL_CHARACTERS:
+            case INVALID_TEMPLATE_NAME_SPECIAL_CHARACTERS:
                 template.setName(INVALID_OBJECT_NAME_SPECIAL_CHARACTERS);
                 template.setQuestionList(QUESTION_LIST);
                 template.setVersion(TEMPLATE_CURRENT_VERSION);
                 break;
 
-            case INVALID_ASSESSMENT_NULL_NAME:
+            case INVALID_TEMPLATE_NULL_NAME:
                 template.setName(null);
                 template.setQuestionList(QUESTION_LIST);
                 template.setVersion(TEMPLATE_CURRENT_VERSION);
                 break;
 
-            case INVALID_ASSESSMENT_VERSION_ZERO:
+            case INVALID_TEMPLATE_VERSION_ZERO:
                 template.setName(VALID_OBJECT_NAME);
                 template.setQuestionList(QUESTION_LIST);
                 template.setVersion(0);
                 break;
 
-            case INVALID_ASSESSMENT_VERSION_NULL:
+            case INVALID_TEMPLATE_VERSION_NULL:
                 template.setName(VALID_OBJECT_NAME);
                 template.setQuestionList(QUESTION_LIST);
                 template.setVersion(null);

@@ -17,6 +17,7 @@ import static org.junit.Assert.assertTrue;
 /**
  * Created by jtucker on 4/1/2016.
  */
+
 public class ReviewValidationTest {
 
     private static Validator validator;

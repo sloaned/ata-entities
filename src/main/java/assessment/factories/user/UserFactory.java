@@ -10,6 +10,7 @@ import java.util.List;
 /**
  * Created by hmccardell on 3/29/2016.
  */
+
 public class UserFactory extends TestBase {
 
     public User assembleUser(UserOption userOption) {
@@ -37,6 +38,7 @@ public class UserFactory extends TestBase {
                 user.setFirstName(VALID_USER_NAME);
                 user.setLastName(VALID_USER_NAME);
                 user.setProfileDescription(VALID_DESCRIPTION);
+                //user.setStartDate();
                 user.setTitle(VALID_TITLE);
                 break;
 

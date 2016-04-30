@@ -1,6 +1,8 @@
 package assessment.testbase;
 
+import assessment.entities.team.Frequency;
 import assessment.entities.team.Member;
+import assessment.entities.team.ReviewPeriod;
 import assessment.entities.template.Template;
 import assessment.entities.feedback.FeedbackType;
 import assessment.entities.question.Question;
@@ -22,7 +24,6 @@ public class TestBaseConstants {
      *
      */
     public final static int FEEDBACK_CURRENT_VERSION = 1;
-    public final static int MEMBERSHIP_CURRENT_VERSION = 1;
     public final static int QUESTION_CURRENT_VERSION = 1;
     public final static int REVIEW_CURRENT_VERSION = 1;
     public final static int TEAM_CURRENT_VERSION = 1;
@@ -109,18 +110,23 @@ public class TestBaseConstants {
     protected final static FeedbackType FEEDBACK_TYPE_ASSESSMENT = FeedbackType.ASSESSMENT;
 
     /**
-     * Template SECTION
+     * TEMPLATE SECTION
      */
     protected List<Question> QUESTION_LIST = new ArrayList<Question>();
+    protected final static String TEMPLATE_NAME1 = "Template Name";
+    protected final static String TEMPLATE_NAME2 = "Template Name";
 
     /**
      * TEAM SECTION
      */
     protected final static String VALID_TEAM_NAME = "Hayes' Heroes";
     protected final static Integer VALID_REVIEW_FREQUENCY = 1;
-    public List<Member> LEADER_LIST = new ArrayList<Member>();
     public List<Member> USER_LIST = new ArrayList<Member>();
     public Template Template = new Template();
+    protected final static String VALID_TEAM_DESCRIPTION = "An awesome team working on the Aperture Team Assessment project";
+    public List<ReviewPeriod> REVIEW_PERIOD_LIST = new ArrayList<ReviewPeriod>();
+    protected final static String VALID_INACTIVE_TEAM_NAME = "Hayes' Former Heroes";
+    protected final static Frequency FREQUENCY_WEEK = Frequency.valueOf("WEEK");
 
     /**
      * TEAM TYPE SECTION

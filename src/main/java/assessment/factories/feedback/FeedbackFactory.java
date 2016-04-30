@@ -18,7 +18,7 @@ public class FeedbackFactory extends TestBase {
         switch (option) {
 
             case VALID_FEEDBACK:
-                feedback.setType(null);
+                feedback.setType(FEEDBACK_TYPE_KUDOS);
                 feedback.setLabel(VALID_FEEDBACK_LABEL);
                 feedback.setScore(VALID_FEEDBACK_SCORE);
                 feedback.setComment(VALID_FEEDBACK_COMMENT);
@@ -41,7 +41,7 @@ public class FeedbackFactory extends TestBase {
                 feedback.setVersion(VALID_ENTITY_VERSION);
                 break;
 
-            case INVALID_FEEDBACK_LABEL_LONG:
+            case INVALID_FEEDBACK_LABEL_TOO_LONG:
                 feedback.setType(FEEDBACK_TYPE_KUDOS);
                 feedback.setLabel(generateRandomString(256));
                 feedback.setScore(VALID_FEEDBACK_SCORE);
@@ -65,7 +65,7 @@ public class FeedbackFactory extends TestBase {
                 feedback.setVersion(VALID_ENTITY_VERSION);
                 break;
 
-            case INVALID_FEEDBACK_COMMENT_LONG:
+            case INVALID_FEEDBACK_COMMENT_TOO_LONG:
                 feedback.setType(FEEDBACK_TYPE_KUDOS);
                 feedback.setLabel(VALID_FEEDBACK_LABEL);
                 feedback.setScore(VALID_FEEDBACK_SCORE);

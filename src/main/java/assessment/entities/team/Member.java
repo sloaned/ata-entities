@@ -16,7 +16,7 @@ public class Member {
     @NotEmpty(message = "user ID is required")
     private String userId;
 
-    @NotNull(message = "The membership must be active or inactive")
+    @NotNull(message = "The member must be active or inactive")
     private Boolean isActive;
 
     @NotNull(message = "A user on a team must have a date they were added to that team")

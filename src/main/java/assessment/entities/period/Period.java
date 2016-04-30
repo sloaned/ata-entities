@@ -22,14 +22,14 @@ public class Period {
     @NotNull
     private Template template;
 
+    @NotNull(message = "Series number cannot be null")
+    @Range(min = 1, message = "Series number of at least 1 is required")
+    private Integer seriesNumber;
+
     @NotEmpty(message = "Period name cannot be empty")
     @Length(max = 100, message = "Period name can be no longer than 100 characters.")
     @Pattern(regexp = RegexConstants.OBJECT_NAME, message = "Period name contains invalid characters.")
     private String name;
-
-    @NotNull(message = "Series number cannot be null")
-    @Range(min = 1, message = "Series number of at least 1 is required")
-    private Integer seriesNumber;
 
     @NotEmpty(message = "Team id cannot be empty")
     private String teamId;
@@ -52,8 +52,8 @@ public class Period {
     public Period(String id, Template template, String name, Integer seriesNumber, String teamId, Date dateTriggered, Double summaryScore, List<Review> reviews, Integer version) {
         this.id = id;
         this.template = template;
-        this.name = name;
         this.seriesNumber = seriesNumber;
+        this.name = name;
         this.teamId = teamId;
         this.dateTriggered = dateTriggered;
         this.summaryScore = summaryScore;
@@ -77,14 +77,6 @@ public class Period {
         this.template = template;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public Integer getSeriesNumber() {
         return seriesNumber;
     }
@@ -92,6 +84,12 @@ public class Period {
     public void setSeriesNumber(Integer seriesNumber) {
         this.seriesNumber = seriesNumber;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) { this.name = name; }
 
     public String getTeamId() {
         return teamId;

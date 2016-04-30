@@ -15,6 +15,7 @@ import java.util.List;
 /**
  * Created by jtucker on 4/1/2016.
  */
+
 public class ReviewFactory extends TestBase{
 
     public Review assembleBaseReview() {
@@ -27,10 +28,9 @@ public class ReviewFactory extends TestBase{
 
         baseReview.setTeamName(VALID_TEAM_NAME);
 
-        /**
-         * Add an offset to make sure the date isn't in the past.
-         * 1000 * 60 = one minute in milliseconds
-         */
+     /*Add an offset to make sure the date isn't in the past.
+     * 1000 * 60 = one minute in milliseconds*/
+
         long offset = 1000 * 60;
 
         baseReview.setSubmittedDate(new Date(System.currentTimeMillis() + offset));
