@@ -21,7 +21,7 @@ public class UserFactory extends TestBase {
         switch(userOption){
 
             case VALID_ACTIVE_DEVELOPER:
-                user.setVersion(VALID_ENTITY_VERSION);
+                user.setVersion(USER_CURRENT_VERSION);
                 user.setActive(true);
                 user.setAvatar(VALID_GRAVATAR_HASH);
                 user.setEmail(VALID_USER_EMAIL);
@@ -30,11 +30,10 @@ public class UserFactory extends TestBase {
                 user.setProfileDescription(VALID_DESCRIPTION);
                 user.setStartDate(new Date());
                 user.setTitle(VALID_TITLE);
-                user.setVersion(USER_CURRENT_VERSION);
                 break;
 
             case VALID_INACTIVE_DEVELOPER:
-                user.setVersion(VALID_ENTITY_VERSION);
+                user.setVersion(USER_CURRENT_VERSION);
                 user.setActive(false);
                 user.setAvatar(VALID_GRAVATAR_HASH);
                 user.setEmail(VALID_USER_EMAIL);
@@ -43,7 +42,6 @@ public class UserFactory extends TestBase {
                 user.setProfileDescription(VALID_DESCRIPTION);
                 user.setStartDate(new Date());
                 user.setTitle(VALID_TITLE);
-                user.setVersion(USER_CURRENT_VERSION);
                 break;
 
             case INVALID_USER_FIRST_NAME_EMPTY:
@@ -56,7 +54,6 @@ public class UserFactory extends TestBase {
                 user.setProfileDescription(VALID_DESCRIPTION);
                 user.setStartDate(new Date());
                 user.setTitle(VALID_TITLE);
-                user.setVersion(USER_CURRENT_VERSION);
                 break;
 
             case INVALID_USER_FIRST_NAME_NULL:
@@ -69,7 +66,6 @@ public class UserFactory extends TestBase {
                 user.setProfileDescription(VALID_DESCRIPTION);
                 user.setStartDate(new Date());
                 user.setTitle(VALID_TITLE);
-                user.setVersion(USER_CURRENT_VERSION);
                 break;
 
             case INVALID_USER_FIRST_NAME_SPECIAL_CHARACTERS:
@@ -108,7 +104,6 @@ public class UserFactory extends TestBase {
                 user.setProfileDescription(VALID_DESCRIPTION);
                 user.setStartDate(new Date());
                 user.setTitle(VALID_TITLE);
-                user.setVersion(USER_CURRENT_VERSION);
                 break;
 
             case INVALID_USER_LAST_NAME_NULL:
@@ -121,7 +116,6 @@ public class UserFactory extends TestBase {
                 user.setProfileDescription(VALID_DESCRIPTION);
                 user.setStartDate(new Date());
                 user.setTitle(VALID_TITLE);
-                user.setVersion(USER_CURRENT_VERSION);
                 break;
 
             case INVALID_USER_LAST_NAME_SPECIAL_CHARACTERS:
@@ -134,7 +128,6 @@ public class UserFactory extends TestBase {
                 user.setStartDate(new Date());
                 user.setProfileDescription(VALID_DESCRIPTION);
                 user.setTitle(VALID_TITLE);
-                user.setVersion(USER_CURRENT_VERSION);
                 break;
 
             case INVALID_USER_LAST_NAME_LONG:
@@ -147,33 +140,18 @@ public class UserFactory extends TestBase {
                 user.setProfileDescription(VALID_DESCRIPTION);
                 user.setStartDate(new Date());
                 user.setTitle(VALID_TITLE);
-                user.setVersion(USER_CURRENT_VERSION);
-                break;
-
-            case INVALID_USER_ROLE_NULL:
-                user.setVersion(VALID_ENTITY_VERSION);
-                user.setActive(true);
-                user.setAvatar(VALID_GRAVATAR_HASH);
-                user.setEmail(VALID_USER_EMAIL);
-                user.setFirstName(VALID_USER_NAME);
-                user.setLastName(VALID_USER_NAME);
-                user.setProfileDescription(VALID_DESCRIPTION);
-                user.setStartDate(new Date());
-                user.setTitle(VALID_TITLE);
-                user.setVersion(USER_CURRENT_VERSION);
                 break;
 
             case INVALID_USER_EMAIL_EMPTY:
                 user.setVersion(VALID_ENTITY_VERSION);
                 user.setActive(true);
                 user.setAvatar(VALID_GRAVATAR_HASH);
-                user.setEmail(VALID_USER_EMAIL);
-                user.setFirstName(EMPTY_STRING);
+                user.setEmail(EMPTY_STRING);
+                user.setFirstName(VALID_USER_NAME);
                 user.setLastName(VALID_USER_NAME);
                 user.setProfileDescription(VALID_DESCRIPTION);
                 user.setStartDate(new Date());
                 user.setTitle(VALID_TITLE);
-                user.setVersion(USER_CURRENT_VERSION);
                 break;
 
             case INVALID_USER_EMAIL_NULL:
@@ -186,7 +164,6 @@ public class UserFactory extends TestBase {
                 user.setProfileDescription(VALID_DESCRIPTION);
                 user.setStartDate(new Date());
                 user.setTitle(VALID_TITLE);
-                user.setVersion(USER_CURRENT_VERSION);
                 break;
 
             case INVALID_USER_EMAIL_INVALID_ADDRESS:
@@ -198,7 +175,6 @@ public class UserFactory extends TestBase {
                 user.setLastName(VALID_USER_NAME);
                 user.setProfileDescription(VALID_DESCRIPTION);
                 user.setStartDate(new Date());
-                user.setVersion(USER_CURRENT_VERSION);
                 break;
 
             case INVALID_USER_VERSION_ZERO:
@@ -211,7 +187,6 @@ public class UserFactory extends TestBase {
                 user.setProfileDescription(VALID_DESCRIPTION);
                 user.setStartDate(new Date());
                 user.setTitle(VALID_TITLE);
-                user.setVersion(0);
                 break;
 
             case INVALID_USER_VERSION_NULL:
@@ -224,7 +199,6 @@ public class UserFactory extends TestBase {
                 user.setProfileDescription(VALID_DESCRIPTION);
                 user.setStartDate(new Date());
                 user.setTitle(VALID_TITLE);
-                user.setVersion(null);
                 break;
 
             case INVALID_USER_DESCRIPTION_LONG:
@@ -237,7 +211,6 @@ public class UserFactory extends TestBase {
                 user.setProfileDescription(generateRandomString(256));
                 user.setStartDate(new Date());
                 user.setTitle(VALID_TITLE);
-                user.setVersion(USER_CURRENT_VERSION);
                 break;
 
             case INVALID_USER_ISACTIVE_NULL:
@@ -247,36 +220,33 @@ public class UserFactory extends TestBase {
                 user.setEmail(VALID_USER_EMAIL);
                 user.setFirstName(VALID_USER_NAME);
                 user.setLastName(VALID_USER_NAME);
-                user.setProfileDescription(generateRandomString(256));
+                user.setProfileDescription(VALID_DESCRIPTION);
                 user.setStartDate(new Date());
                 user.setTitle(VALID_TITLE);
-                user.setVersion(USER_CURRENT_VERSION);
                 break;
 
             case INVALID_USER_TITLE_NULL:
                 user.setVersion(VALID_ENTITY_VERSION);
-                user.setActive(null);
+                user.setActive(true);
                 user.setAvatar(VALID_GRAVATAR_HASH);
                 user.setEmail(VALID_USER_EMAIL);
                 user.setFirstName(VALID_USER_NAME);
                 user.setLastName(VALID_USER_NAME);
-                user.setProfileDescription(generateRandomString(256));
+                user.setProfileDescription(VALID_DESCRIPTION);
                 user.setStartDate(new Date());
                 user.setTitle(null);
-                user.setVersion(USER_CURRENT_VERSION);
                 break;
 
             case INVALID_USER_TITLE_EMPTY:
                 user.setVersion(VALID_ENTITY_VERSION);
-                user.setActive(null);
+                user.setActive(true);
                 user.setAvatar(VALID_GRAVATAR_HASH);
                 user.setEmail(VALID_USER_EMAIL);
                 user.setFirstName(VALID_USER_NAME);
                 user.setLastName(VALID_USER_NAME);
-                user.setProfileDescription(generateRandomString(256));
+                user.setProfileDescription(VALID_DESCRIPTION);
                 user.setStartDate(new Date());
                 user.setTitle(EMPTY_STRING);
-                user.setVersion(USER_CURRENT_VERSION);
                 break;
         }
 

@@ -33,14 +33,14 @@ public class UserValidationTest {
     public void HappyPathValidationOfUserFactoryValidActiveDeveloper() {
         testUser = userFactory.assembleUser(UserOption.VALID_ACTIVE_DEVELOPER);
         Set<ConstraintViolation<User>> violations = validator.validate(testUser);
-        assertFalse("INVALID USER: the user factory assembled a user that doesn't pass entity validation", violations.isEmpty());
+        assertTrue("INVALID USER: the user factory assembled a user that doesn't pass entity validation", violations.isEmpty());
     }
 
     @Test
     public void HappyPathValidationOfUserFactoryValidInactiveDeveloper() {
         testUser = userFactory.assembleUser(UserOption.VALID_INACTIVE_DEVELOPER);
         Set<ConstraintViolation<User>> violations = validator.validate(testUser);
-        assertFalse("INVALID USER: the user factory assembled a user that doesn't pass entity validation", violations.isEmpty());
+        assertTrue("INVALID USER: the user factory assembled a user that doesn't pass entity validation", violations.isEmpty());
     }
 
     @Test
@@ -97,13 +97,6 @@ public class UserValidationTest {
         testUser = userFactory.assembleUser(UserOption.INVALID_USER_LAST_NAME_LONG);
         Set<ConstraintViolation<User>> violations = validator.validate(testUser);
         assertFalse("expected last name to be too long", violations.isEmpty());
-    }
-
-    @Test
-    public void SadPathValidationOUserFactoryRoleNull() {
-        testUser = userFactory.assembleUser(UserOption.INVALID_USER_ROLE_NULL);
-        Set<ConstraintViolation<User>> violations = validator.validate(testUser);
-        assertFalse("expected role to be null", violations.isEmpty());
     }
 
     @Test

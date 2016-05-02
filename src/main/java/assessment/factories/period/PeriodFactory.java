@@ -1,9 +1,6 @@
 package assessment.factories.period;
 
 import assessment.entities.period.Period;
-import assessment.entities.question.Question;
-import assessment.factories.template.TemplateFactory;
-import assessment.factories.template.TemplateOption;
 import assessment.testbase.TestBase;
 
 import java.util.ArrayList;
@@ -75,15 +72,6 @@ public class PeriodFactory extends TestBase {
                 period.setDateTriggered(new Date());
                 period.setVersion(VALID_ENTITY_VERSION);
                 break;
-            case INVALID_PERIOD_NAME_TOO_LONG:
-                period.setId(generateRandomHash(24));
-                period.setTemplate(TEMPLATE);
-                period.setSeriesNumber(generateRandomInteger(1, 10));
-                period.setName(generateRandomString(101));
-                period.setTeamId(generateRandomHash(24));
-                period.setDateTriggered(new Date());
-                period.setVersion(VALID_ENTITY_VERSION);
-                break;
             case INVALID_PERIOD_NAME_WITH_SPECIAL_CHARS:
                 period.setId(generateRandomHash(24));
                 period.setTemplate(TEMPLATE);
@@ -93,12 +81,39 @@ public class PeriodFactory extends TestBase {
                 period.setDateTriggered(new Date());
                 period.setVersion(VALID_ENTITY_VERSION);
                 break;
-            case INVALID_PERIOD_TEAM_ID_EMPTY:
+            case INVALID_PERIOD_NAME_EMPTY_STRING:
+                period.setId(generateRandomHash(24));
+                period.setTemplate(TEMPLATE);
+                period.setSeriesNumber(generateRandomInteger(1, 10));
+                period.setName(EMPTY_STRING);
+                period.setTeamId(generateRandomHash(24));
+                period.setDateTriggered(new Date());
+                period.setVersion(VALID_ENTITY_VERSION);
+                break;
+            case INVALID_PERIOD_NAME_TOO_LONG:
+                period.setId(generateRandomHash(24));
+                period.setTemplate(TEMPLATE);
+                period.setSeriesNumber(generateRandomInteger(1, 10));
+                period.setName(generateRandomString(101));
+                period.setTeamId(generateRandomHash(24));
+                period.setDateTriggered(new Date());
+                period.setVersion(VALID_ENTITY_VERSION);
+                break;
+            case INVALID_PERIOD_TEAM_ID_NULL:
                 period.setId(generateRandomHash(24));
                 period.setTemplate(TEMPLATE);
                 period.setSeriesNumber(generateRandomInteger(1, 10));
                 period.setName(VALID_PERIOD_NAME + generateRandomString(5));
                 period.setTeamId("");
+                period.setDateTriggered(new Date());
+                period.setVersion(VALID_ENTITY_VERSION);
+                break;
+            case INVALID_PERIOD_TEAM_ID_EMPTY_STRING:
+                period.setId(generateRandomHash(24));
+                period.setTemplate(TEMPLATE);
+                period.setSeriesNumber(generateRandomInteger(1, 10));
+                period.setName(VALID_PERIOD_NAME + generateRandomString(5));
+                period.setTeamId(EMPTY_STRING);
                 period.setDateTriggered(new Date());
                 period.setVersion(VALID_ENTITY_VERSION);
                 break;

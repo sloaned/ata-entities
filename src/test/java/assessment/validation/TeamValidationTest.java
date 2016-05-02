@@ -42,13 +42,6 @@ public class TeamValidationTest {
         assertTrue("INVALID TEAM: The team factory assembled a team that doesn't pass entity validation", violations.isEmpty());
     }
 
-    /*@Test
-    public void SadPathValidationOfTeamFactoryTeamDuplicate() {
-        testTeam = teamFactory.assembleTeam(TeamOption.INVALID_TEAM_DUPLICATE);
-        Set<ConstraintViolation<Team>> violations = validator.validate(testTeam);
-        assertTrue("INVALID TEAM: duplicate", violations.isEmpty());
-    }*/
-
     @Test
     public void SadPathValidationOfTeamFactoryNameHasSpecialCharacters() {
         testTeam = teamFactory.assembleTeam(TeamOption.INVALID_TEAM_NAME_SPECIAL_CHARACTERS);

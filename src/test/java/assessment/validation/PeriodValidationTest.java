@@ -34,6 +34,7 @@ public class PeriodValidationTest {
     @Test
     public void happyValidPeriodWithIdPassesValidation() {
         Period period = factory.assemblePeriod(PeriodOption.VALID_PERIOD_WITH_ID);
+
         Set<ConstraintViolation<Period>> violations = validator.validate(period);
         assertTrue("INVALID PERIOD: the period factory assembled a period that doesn't pass entity validation", violations.isEmpty());
     }
@@ -41,15 +42,17 @@ public class PeriodValidationTest {
     @Test
     public void happyValidPeriodWithoutIdPassesValidation() {
         Period period = factory.assemblePeriod(PeriodOption.VALID_PERIOD_WITHOUT_ID);
+
         Set<ConstraintViolation<Period>> violations = validator.validate(period);
         assertTrue("INVALID PERIOD: the period factory assembled a period that doesn't pass entity validation", violations.isEmpty());
     }
 
-    /*@Test
+    @Test
     public void sadInvalidPeriodTemplateNull() {
         Period period = factory.assemblePeriod(PeriodOption.INVALID_PERIOD_TEMPLATE_NULL);
+
         assertThereIsExactlyOneViolation(validator, period);
-    }*/
+    }
 
     @Test
     public void sadInvalidPeriodWithSeriesNumberAsNullFailsValidation() {
@@ -66,15 +69,8 @@ public class PeriodValidationTest {
     }
 
     @Test
-    public void sadInvalidPeriodWithNameAsEmptyFailsValidation() {
+    public void sadInvalidPeriodWithNameAsNullFailsValidation() {
         Period period = factory.assemblePeriod(PeriodOption.INVALID_PERIOD_NAME_NULL);
-
-        assertThereIsExactlyOneViolation(validator, period);
-    }
-
-    @Test
-    public void sadInvalidPeriodWithNameTooLongFailsValidation() {
-        Period period = factory.assemblePeriod(PeriodOption.INVALID_PERIOD_NAME_TOO_LONG);
 
         assertThereIsExactlyOneViolation(validator, period);
     }
@@ -87,8 +83,30 @@ public class PeriodValidationTest {
     }
 
     @Test
+    public void sadInvalidPeriodWithNameAsEmptyStringFailsValidation() {
+        Period period = factory.assemblePeriod(PeriodOption.INVALID_PERIOD_NAME_EMPTY_STRING);
+
+        Set<ConstraintViolation<Period>> violations = validator.validate(period);
+        assertTrue("Entity passes either NotEmpty validation, Pattern validation, or both on name", violations.size() == 2);
+    }
+
+    @Test
+    public void sadInvalidPeriodWithNameContainingAStringThatsTooLongFailsValidation() {
+        Period period = factory.assemblePeriod(PeriodOption.INVALID_PERIOD_NAME_TOO_LONG);
+
+        assertThereIsExactlyOneViolation(validator, period);
+    }
+
+    @Test
+    public void sadInvalidPeriodWithTeamIdAsNullStringFailsValidation() {
+        Period period = factory.assemblePeriod(PeriodOption.INVALID_PERIOD_TEAM_ID_NULL);
+
+        assertThereIsExactlyOneViolation(validator, period);
+    }
+
+    @Test
     public void sadInvalidPeriodWithTeamIdAsEmptyStringFailsValidation() {
-        Period period = factory.assemblePeriod(PeriodOption.INVALID_PERIOD_TEAM_ID_EMPTY);
+        Period period = factory.assemblePeriod(PeriodOption.INVALID_PERIOD_TEAM_ID_EMPTY_STRING);
 
         assertThereIsExactlyOneViolation(validator, period);
     }
