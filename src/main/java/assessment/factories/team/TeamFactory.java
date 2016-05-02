@@ -42,9 +42,6 @@ public class TeamFactory extends TestBase {
                 team.setVersion(TEAM_CURRENT_VERSION);
                 break;
 
-            case INVALID_TEAM_DUPLICATE:
-                break;
-
             case INVALID_TEAM_NAME_SPECIAL_CHARACTERS:
                 team.setId(generateRandomHash(24));
                 team.setName(INVALID_OBJECT_NAME_SPECIAL_CHARACTERS);
@@ -102,6 +99,30 @@ public class TeamFactory extends TestBase {
                 team.setDescription(generateRandomString(256));
                 team.setReviewPeriods(REVIEW_PERIOD_LIST);
                 team.setSummaryScore(VALID_SUMMARY_SCORE);
+                team.setVersion(TEAM_CURRENT_VERSION);
+                break;
+
+            case INVALID_TEAM_SUMMARY_SCORE_MIN:
+                team.setId(generateRandomHash(24));
+                team.setName(VALID_TEAM_NAME);
+                team.setActive(true);
+                team.setMemberList(USER_LIST);
+                team.setAvatar(VALID_GRAVATAR_HASH);
+                team.setDescription(VALID_TEAM_DESCRIPTION);
+                team.setReviewPeriods(REVIEW_PERIOD_LIST);
+                team.setSummaryScore(generateRandomDouble(SMALL_SUMMARY_SCORE, 1.0));
+                team.setVersion(TEAM_CURRENT_VERSION);
+                break;
+
+            case INVALID_TEAM_SUMMARY_SCORE_MAX:
+                team.setId(generateRandomHash(24));
+                team.setName(VALID_TEAM_NAME);
+                team.setActive(true);
+                team.setMemberList(USER_LIST);
+                team.setAvatar(VALID_GRAVATAR_HASH);
+                team.setDescription(VALID_TEAM_DESCRIPTION);
+                team.setReviewPeriods(REVIEW_PERIOD_LIST);
+                team.setSummaryScore(generateRandomDouble(LARGE_SUMMARY_SCORE, 5.01));
                 team.setVersion(TEAM_CURRENT_VERSION);
                 break;
 

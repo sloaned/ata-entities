@@ -119,6 +119,20 @@ public class PeriodValidationTest {
     }
 
     @Test
+    public void sadInvalidPeriodSummaryScoreMinFailsValidation() {
+        Period period = factory.assemblePeriod(PeriodOption.INVALID_PERIOD_SUMMARY_SCORE_MIN);
+
+        assertThereIsExactlyOneViolation(validator, period);
+    }
+
+    @Test
+    public void sadInvalidPeriodSummaryScoreMaxFailsValidation() {
+        Period period = factory.assemblePeriod(PeriodOption.INVALID_PERIOD_SUMMARY_SCORE_MAX);
+
+        assertThereIsExactlyOneViolation(validator, period);
+    }
+
+    @Test
     public void sadInvalidPeriodWithVersionAsNullFailsValidation() {
         Period period = factory.assemblePeriod(PeriodOption.INVALID_PERIOD_VERSION_NULL);
 

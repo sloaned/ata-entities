@@ -55,18 +55,6 @@ public class ReviewValidationTest {
     }
 
     @Test
-    public void SadPathReviewTeamNameEmpty() {
-        testReview = reviewFactory.assembleReview(ReviewOption.INVALID_REVIEW_TEAM_NAME_EMPTY);
-        assertThereIsExactlyOneViolation(validator, testReview);
-    }
-
-    @Test
-    public void SadPathReviewTeamNameNull() {
-        testReview = reviewFactory.assembleReview(ReviewOption.INVALID_REVIEW_TEAM_NAME_NULL);
-        assertThereIsExactlyOneViolation(validator, testReview);
-    }
-
-    @Test
     public void SadPathReviewSubmittedDateNull() {
         testReview = reviewFactory.assembleReview(ReviewOption.INVALID_REVIEW_SUBMITTED_DATE_NULL);
         assertThereIsExactlyOneViolation(validator, testReview);

@@ -4,14 +4,11 @@ import assessment.entities.team.Frequency;
 import assessment.entities.team.Member;
 import assessment.entities.team.ReviewPeriod;
 import assessment.entities.template.Template;
-import assessment.entities.feedback.FeedbackType;
 import assessment.entities.question.Question;
 import assessment.entities.question.QuestionType;
-import assessment.entities.team.TeamType;
-import assessment.entities.user.Role;
+import assessment.entities.team.Role;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 /**
@@ -102,13 +99,6 @@ public class TestBaseConstants {
      */
     protected final static Integer INVALID_SCORE_OVERBOUND = 6;
 
-
-    /**
-     * FEEDBACK TYPE SECTION
-     */
-    protected final static FeedbackType FEEDBACK_TYPE_KUDOS = FeedbackType.KUDOS;
-    protected final static FeedbackType FEEDBACK_TYPE_ASSESSMENT = FeedbackType.ASSESSMENT;
-
     /**
      * TEMPLATE SECTION
      */
@@ -127,13 +117,6 @@ public class TestBaseConstants {
     public List<ReviewPeriod> REVIEW_PERIOD_LIST = new ArrayList<ReviewPeriod>();
     protected final static String VALID_INACTIVE_TEAM_NAME = "Hayes' Former Heroes";
     protected final static Frequency FREQUENCY_WEEK = Frequency.WEEK;
-
-    /**
-     * TEAM TYPE SECTION
-     */
-    protected final static TeamType TEAM_O3 = TeamType.valueOf("O3");
-    protected final static TeamType TEAM_DEV = TeamType.valueOf("DEV");
-
 
     /**
      * REVIEW SECTION

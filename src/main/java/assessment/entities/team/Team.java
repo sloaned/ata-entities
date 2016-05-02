@@ -39,6 +39,7 @@ public class Team {
 
     private List<ReviewPeriod> reviewPeriods;
 
+    @Range(min = 1, max = 5)
     private Double summaryScore;
 
     @NotNull(message = "Version is required")

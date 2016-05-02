@@ -26,8 +26,6 @@ public class ReviewFactory extends TestBase{
         List<Feedback> testFeedback = new ArrayList<Feedback>();
         testFeedback.add(testFeedbackObject);
 
-        baseReview.setTeamName(VALID_TEAM_NAME);
-
      /*Add an offset to make sure the date isn't in the past.
      * 1000 * 60 = one minute in milliseconds*/
 
@@ -63,14 +61,6 @@ public class ReviewFactory extends TestBase{
 
             case INVALID_REVIEW_REVIEWED_ID_NULL:
                 review.setReviewedId(null);
-                break;
-
-            case INVALID_REVIEW_TEAM_NAME_EMPTY:
-                review.setTeamName("");
-                break;
-
-            case INVALID_REVIEW_TEAM_NAME_NULL:
-                review.setTeamName(null);
                 break;
 
             case INVALID_REVIEW_SUBMITTED_DATE_NULL:

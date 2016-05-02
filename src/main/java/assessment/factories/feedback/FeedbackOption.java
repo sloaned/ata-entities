@@ -5,7 +5,6 @@ package assessment.factories.feedback;
  */
 public enum FeedbackOption {
     VALID_FEEDBACK,
-    INVALID_FEEDBACK_TYPE_NULL,
     INVALID_FEEDBACK_LABEL_EMPTY,
     INVALID_FEEDBACK_LABEL_TOO_LONG,
     INVALID_FEEDBACK_SCORE_ZERO,

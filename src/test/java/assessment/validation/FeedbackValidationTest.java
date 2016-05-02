@@ -37,13 +37,6 @@ public class FeedbackValidationTest {
     }
 
     @Test
-    public void SadPathValidationOfFeedbackTypeNull() {
-        Feedback myFeedback = feedbackFactory.assembleFeedback(INVALID_FEEDBACK_TYPE_NULL);
-        Set<ConstraintViolation<Feedback>> violations = validator.validate(myFeedback);
-        assertFalse("should not pass due to null type", violations.isEmpty());
-    }
-
-    @Test
     public void SadPathValidationOfFeedbackLabelEmpty() {
         Feedback myFeedback = feedbackFactory.assembleFeedback(INVALID_FEEDBACK_LABEL_EMPTY);
         Set<ConstraintViolation<Feedback>> violations = validator.validate(myFeedback);

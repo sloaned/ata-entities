@@ -78,6 +78,20 @@ public class TeamValidationTest {
     }
 
     @Test
+    public void SadPathValidationOfTeamFactoryInvalidTeamSummaryScoreMin() {
+        testTeam = teamFactory.assembleTeam(TeamOption.INVALID_TEAM_SUMMARY_SCORE_MIN);
+        Set<ConstraintViolation<Team>> violations = validator.validate(testTeam);
+        assertFalse("INVALID TEAM: summary score should be a minimum of 1", violations.isEmpty());
+    }
+
+    @Test
+    public void SadPathValidationOfTeamFactoryInvalidTeamSummaryScoreMax() {
+        testTeam = teamFactory.assembleTeam(TeamOption.INVALID_TEAM_SUMMARY_SCORE_MAX);
+        Set<ConstraintViolation<Team>> violations = validator.validate(testTeam);
+        assertFalse("INVALID TEAM: summary score should be a maximum of 5", violations.isEmpty());
+    }
+
+    @Test
     public void SadPathValidationOfTeamFactoryInvalidTeamVersionNull() {
         testTeam = teamFactory.assembleTeam(TeamOption.INVALID_TEAM_VERSION_NULL);
         Set<ConstraintViolation<Team>> violations = validator.validate(testTeam);

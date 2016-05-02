@@ -37,6 +37,7 @@ public class Period {
     @NotNull(message = "Date triggered cannot be null")
     private Date dateTriggered;
 
+    @Range(min = 1, max = 5)
     private Double summaryScore;
 
     private List<Review> reviews;

@@ -23,16 +23,11 @@ public class Review {
     @Id
     private String id;
 
-    @DBRef
     @NotNull(message = "Reviewer must be defined.")
     private User reviewerId;
 
-    @DBRef
     @NotNull(message = "Reviewee must be defined.")
     private User reviewedId;
-
-    @NotEmpty(message = "Reviewee's associated team must be defined.")
-    private String teamName;
 
     @JsonFormat(pattern = "MM/dd/yyyy", timezone = "PST")
     @NotNull(message = "Submitted date is required")
@@ -78,16 +73,14 @@ public class Review {
      *
      * @param reviewerId
      * @param reviewedId
-     * @param teamName
      * @param submittedDate
      * @param feedback
      * @param summaryScore
      */
-    public Review(User reviewerId, User reviewedId, String teamName, Date submittedDate, List<Feedback> feedback,
+    public Review(User reviewerId, User reviewedId, Date submittedDate, List<Feedback> feedback,
                   Double summaryScore) {
         this.reviewerId = reviewerId;
         this.reviewedId = reviewedId;
-        this.teamName = teamName;
         this.submittedDate = submittedDate;
         this.feedback = feedback;
         this.summaryScore = summaryScore;
@@ -111,14 +104,6 @@ public class Review {
 
     public void setReviewedId(User reviewedId) {
         this.reviewedId = reviewedId;
-    }
-
-    public String getTeamName() {
-        return teamName;
-    }
-
-    public void setTeamName(String teamName) {
-        this.teamName = teamName;
     }
 
     public Date getSubmittedDate() {
@@ -159,7 +144,6 @@ public class Review {
                 "id='" + id + '\'' +
                 ", reviewerId=" + reviewerId +
                 ", reviewedId=" + reviewedId +
-                ", teamName='" + teamName + '\'' +
                 ", submittedDate=" + submittedDate +
                 ", feedback=" + feedback +
                 ", summaryScore=" + summaryScore +

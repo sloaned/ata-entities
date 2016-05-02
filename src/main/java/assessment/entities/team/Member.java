@@ -1,6 +1,5 @@
 package assessment.entities.team;
 
-import assessment.entities.user.Role;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.EnumType;
