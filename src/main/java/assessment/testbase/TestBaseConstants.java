@@ -11,6 +11,7 @@ import assessment.entities.team.TeamType;
 import assessment.entities.user.Role;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -58,7 +59,6 @@ public class TestBaseConstants {
      *
      * Valid Input:
      */
-
     protected final static String VALID_USER_EMAIL = "squag@catalystdevworks.com";
 
     /**
@@ -126,7 +126,7 @@ public class TestBaseConstants {
     protected final static String VALID_TEAM_DESCRIPTION = "An awesome team working on the Aperture Team Assessment project";
     public List<ReviewPeriod> REVIEW_PERIOD_LIST = new ArrayList<ReviewPeriod>();
     protected final static String VALID_INACTIVE_TEAM_NAME = "Hayes' Former Heroes";
-    protected final static Frequency FREQUENCY_WEEK = Frequency.valueOf("WEEK");
+    protected final static Frequency FREQUENCY_WEEK = Frequency.WEEK;
 
     /**
      * TEAM TYPE SECTION

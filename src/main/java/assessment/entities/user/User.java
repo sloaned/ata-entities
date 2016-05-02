@@ -145,7 +145,7 @@ public class User {
     }
 
     public void setStartDate(Date startDate) {
-        this.startDate = startDate;
+        this.startDate = this.startDate;
     }
 
     public Date getEndDate() {

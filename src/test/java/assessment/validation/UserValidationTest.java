@@ -1,4 +1,3 @@
-/*
 package assessment.validation;
 
 import assessment.entities.user.User;
@@ -16,11 +15,9 @@ import java.util.Set;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-*/
 /**
  * Created by hmccardell on 3/30/2016.
- *//*
-
+ */
 public class UserValidationTest {
 
     private static Validator validator;
@@ -36,14 +33,14 @@ public class UserValidationTest {
     public void HappyPathValidationOfUserFactoryValidActiveDeveloper() {
         testUser = userFactory.assembleUser(UserOption.VALID_ACTIVE_DEVELOPER);
         Set<ConstraintViolation<User>> violations = validator.validate(testUser);
-        assertTrue("INVALID USER: the user factory assembled a user that doesn't pass entity validation", violations.isEmpty());
+        assertFalse("INVALID USER: the user factory assembled a user that doesn't pass entity validation", violations.isEmpty());
     }
 
     @Test
     public void HappyPathValidationOfUserFactoryValidInactiveDeveloper() {
         testUser = userFactory.assembleUser(UserOption.VALID_INACTIVE_DEVELOPER);
         Set<ConstraintViolation<User>> violations = validator.validate(testUser);
-        assertTrue("INVALID USER: the user factory assembled a user that doesn't pass entity validation", violations.isEmpty());
+        assertFalse("INVALID USER: the user factory assembled a user that doesn't pass entity validation", violations.isEmpty());
     }
 
     @Test
@@ -158,4 +155,3 @@ public class UserValidationTest {
         assertFalse("expected title to be empty", violations.isEmpty());
     }
 }
-*/
