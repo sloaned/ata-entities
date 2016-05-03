@@ -1,6 +1,7 @@
 package assessment.entities.period;
 
 import assessment.entities.review.Review;
+import assessment.entities.template.Template;
 import assessment.testbase.TestBaseConstants;
 import assessment.utilities.RegexConstants;
 import org.hibernate.validator.constraints.Length;
@@ -18,8 +19,8 @@ public class Period {
     @Id
     private String id;
 
-    @NotEmpty(message = "Assessment ID cannot be empty")
-    private String assessmentId;
+    @NotNull
+    private Template template;
 
     @NotNull(message = "Series number cannot be null")
     @Range(min = 1, message = "Series number of at least 1 is required")
@@ -36,6 +37,7 @@ public class Period {
     @NotNull(message = "Date triggered cannot be null")
     private Date dateTriggered;
 
+    @Range(min = 1, max = 5)
     private Double summaryScore;
 
     private List<Review> reviews;
@@ -48,19 +50,16 @@ public class Period {
         version = TestBaseConstants.PERIOD_CURRENT_VERSION;
     }
 
-    @Override
-    public String toString() {
-        return "Period{" +
-                "id='" + id + '\'' +
-                ", assessmentId='" + assessmentId + '\'' +
-                ", seriesNumber=" + seriesNumber +
-                ", name='" + name + '\'' +
-                ", teamId='" + teamId + '\'' +
-                ", dateTriggered=" + dateTriggered +
-                ", summaryScore=" + summaryScore +
-                ", reviews=" + reviews +
-                ", version=" + version +
-                '}';
+    public Period(String id, Template template, String name, Integer seriesNumber, String teamId, Date dateTriggered, Double summaryScore, List<Review> reviews, Integer version) {
+        this.id = id;
+        this.template = template;
+        this.seriesNumber = seriesNumber;
+        this.name = name;
+        this.teamId = teamId;
+        this.dateTriggered = dateTriggered;
+        this.summaryScore = summaryScore;
+        this.reviews = reviews;
+        this.version = version;
     }
 
     public String getId() {
@@ -71,12 +70,12 @@ public class Period {
         this.id = id;
     }
 
-    public String getAssessmentId() {
-        return assessmentId;
+    public Template getTemplate() {
+        return template;
     }
 
-    public void setAssessmentId(String assessmentId) {
-        this.assessmentId = assessmentId;
+    public void setTemplate(Template template) {
+        this.template = template;
     }
 
     public Integer getSeriesNumber() {
@@ -91,9 +90,7 @@ public class Period {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    public void setName(String name) { this.name = name; }
 
     public String getTeamId() {
         return teamId;
@@ -133,5 +130,20 @@ public class Period {
 
     public void setVersion(Integer version) {
         this.version = version;
+    }
+
+    @Override
+    public String toString() {
+        return "Period{" +
+                "id='" + id + '\'' +
+                ", template=" + template +
+                ", name='" + name + '\'' +
+                ", seriesNumber=" + seriesNumber +
+                ", teamId='" + teamId + '\'' +
+                ", dateTriggered=" + dateTriggered +
+                ", summaryScore=" + summaryScore +
+                ", reviews=" + reviews +
+                ", version=" + version +
+                '}';
     }
 }

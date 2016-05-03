@@ -100,13 +100,6 @@ public class UserValidationTest {
     }
 
     @Test
-    public void SadPathValidationOUserFactoryRoleNull() {
-        testUser = userFactory.assembleUser(UserOption.INVALID_USER_ROLE_NULL);
-        Set<ConstraintViolation<User>> violations = validator.validate(testUser);
-        assertFalse("expected role to be null", violations.isEmpty());
-    }
-
-    @Test
     public void SadPathValidationOUserFactoryEmailEmpty() {
         testUser = userFactory.assembleUser(UserOption.INVALID_USER_EMAIL_EMPTY);
         Set<ConstraintViolation<User>> violations = validator.validate(testUser);

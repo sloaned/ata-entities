@@ -6,9 +6,9 @@ import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Range;
 import org.springframework.data.annotation.Id;
 
-import javax.validation.constraints.NotNull;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.validation.constraints.NotNull;
 
 /**
  * Created by gfisher on 3/16/2016.
@@ -41,16 +41,6 @@ public class Question {
         this.version = TestBaseConstants.QUESTION_CURRENT_VERSION;
     }
 
-    @Override
-    public String toString() {
-        return "Question{" +
-                "id='" + id + '\'' +
-                ", type=" + type +
-                ", label='" + label + '\'' +
-                ", version=" + version +
-                '}';
-    }
-
     public String getId() {
         return id;
     }
@@ -81,5 +71,15 @@ public class Question {
 
     public void setVersion(Integer version) {
         this.version = version;
+    }
+
+    @Override
+    public String toString() {
+        return "Question{" +
+                "id='" + id + '\'' +
+                ", type=" + type +
+                ", label='" + label + '\'' +
+                ", version=" + version +
+                '}';
     }
 }

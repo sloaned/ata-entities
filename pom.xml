@@ -6,19 +6,19 @@
 
     <groupId>com.catalystdevworks</groupId>
     <artifactId>aperture-entities</artifactId>
-    <version>0.1.5</version>
+    <version>0.1.6</version>
 
 
     <distributionManagement>
         <repository>
             <id>archiva.internal</id>
-            <name>aperture-assessment</name>
+            <name>aperture-template</name>
             <url>http://docker.brainsphere.io:8080/repository/devlabs-aa</url>
 
         </repository>
         <snapshotRepository>
             <id>archiva.internal</id>
-            <name>aperture-assessment</name>
+            <name>aperture-template</name>
             <url>http://docker.brainsphere.io:8080/repository/devlabs-aa</url>
         </snapshotRepository>
     </distributionManagement>

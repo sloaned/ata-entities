@@ -2,8 +2,6 @@ package assessment.validation;
 
 import assessment.entities.feedback.Feedback;
 import assessment.factories.feedback.FeedbackFactory;
-import static assessment.factories.feedback.FeedbackOption.*;
-
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -13,6 +11,7 @@ import javax.validation.Validator;
 import java.text.ParseException;
 import java.util.Set;
 
+import static assessment.factories.feedback.FeedbackOption.*;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -32,16 +31,9 @@ public class FeedbackValidationTest {
 
     @Test
     public void HappyPathFeedbackValidation() {
-        Feedback myFeedback = feedbackFactory.assembleFeedback(VALID_QUANTITATIVE_FEEDBACK);
+        Feedback myFeedback = feedbackFactory.assembleFeedback(VALID_FEEDBACK);
         Set<ConstraintViolation<Feedback>> violations = validator.validate(myFeedback);
-        assertTrue("valid feedback assembler failed", violations.isEmpty());
-    }
-
-    @Test
-    public void SadPathValidationOfFeedbackTypeNull() {
-        Feedback myFeedback = feedbackFactory.assembleFeedback(INVALID_FEEDBACK_TYPE_NULL);
-        Set<ConstraintViolation<Feedback>> violations = validator.validate(myFeedback);
-        assertFalse("should not pass due to null type", violations.isEmpty());
+        assertTrue("failed to create a valid object", violations.isEmpty());
     }
 
     @Test
@@ -52,37 +44,44 @@ public class FeedbackValidationTest {
     }
 
     @Test
-    public void SadPathValidationOfFeedbackLabelTooLongTest() {
-        Feedback myFeedback = feedbackFactory.assembleFeedback(INVALID_FEEDBACK_LABEL_LONG);
+    public void SadPathValidationOfFeedbackLabelTooLong() {
+        Feedback myFeedback = feedbackFactory.assembleFeedback(INVALID_FEEDBACK_LABEL_TOO_LONG);
         Set<ConstraintViolation<Feedback>> violations = validator.validate(myFeedback);
         assertFalse("should fail because your label was too long", violations.isEmpty());
     }
 
     @Test
-    public void SadPathValidationOfFeedbackCommentTooLongTest() {
-        Feedback myFeedback = feedbackFactory.assembleFeedback(INVALID_FEEDBACK_COMMENT_LONG);
+    public void SadPathValidationOfFeedbackScoreZero() {
+        Feedback myFeedback = feedbackFactory.assembleFeedback(INVALID_FEEDBACK_SCORE_ZERO);
         Set<ConstraintViolation<Feedback>> violations = validator.validate(myFeedback);
-        assertFalse("should fail because your comment was too long", violations.isEmpty());
+        assertFalse("your rating should have a minimum of 1", violations.isEmpty());
     }
 
     @Test
-    public void SadPathValidationOfFeedbackScoreRangeTestOverBound() {
+    public void SadPathValidationOfFeedbackScoreOverbound() {
         Feedback myFeedback = feedbackFactory.assembleFeedback(INVALID_FEEDBACK_SCORE_OVERBOUND);
         Set<ConstraintViolation<Feedback>> violations = validator.validate(myFeedback);
         assertFalse("your rating was out of the acceptable range", violations.isEmpty());
     }
 
     @Test
-    public void SadPathValidationOfFeedbackFactoryVersionZero() throws ParseException {
-        Feedback myFeedback = feedbackFactory.assembleFeedback(INVALID_FEEDBACK_VERSION_ZERO);
+    public void SadPathValidationOfFeedbackCommentTooLong() {
+        Feedback myFeedback = feedbackFactory.assembleFeedback(INVALID_FEEDBACK_COMMENT_TOO_LONG);
         Set<ConstraintViolation<Feedback>> violations = validator.validate(myFeedback);
-        assertFalse("expected version 0", violations.isEmpty());
+        assertFalse("should fail because your comment was too long", violations.isEmpty());
     }
 
     @Test
-    public void SadPathValidationOfFeedbackFactoryNullVersion() throws ParseException{
+    public void SadPathValidationOfFeedbackFactoryNullVersion() throws ParseException {
         Feedback myFeedback = feedbackFactory.assembleFeedback(INVALID_FEEDBACK_VERSION_NULL);
         Set<ConstraintViolation<Feedback>> violations = validator.validate(myFeedback);
         assertFalse("expected version null", violations.isEmpty());
+    }
+
+    @Test
+    public void SadPathValidationOfFeedbackFactoryVersionZero() throws ParseException {
+        Feedback myFeedback = feedbackFactory.assembleFeedback(INVALID_FEEDBACK_VERSION_ZERO);
+        Set<ConstraintViolation<Feedback>> violations = validator.validate(myFeedback);
+        assertFalse("expected version should be a minimum of 1", violations.isEmpty());
     }
 }

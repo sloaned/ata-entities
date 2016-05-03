@@ -1,4 +1,4 @@
-package assessment.entities.assessment;
+package assessment.entities.template;
 
 import assessment.entities.question.Question;
 import assessment.testbase.TestBaseConstants;
@@ -16,15 +16,15 @@ import java.util.List;
 /**
  * Created by gfisher on 3/16/2016.
  */
-public class Assessment {
+public class Template {
 
     @Id
     private String id;
 
     @Indexed(unique = true)
-    @NotEmpty(message = "Assessment name is required")
-    @Length(max = 100, message = "Assessment name can be no longer than 100 characters.")
-    @Pattern(regexp = RegexConstants.OBJECT_NAME, message = "Assessment name contains invalid characters.")
+    @NotEmpty(message = "Template name is required")
+    @Length(max = 100, message = "Template name can be no longer than 100 characters.")
+    @Pattern(regexp = RegexConstants.OBJECT_NAME, message = "Template name contains invalid characters.")
     private String name;
 
     private List<Question> questionList;
@@ -33,27 +33,14 @@ public class Assessment {
     @Range(min = 1, message = "version of at least 1 is required")
     private Integer version;
 
-    public Assessment(){}
+    public Template() { this.version = TestBaseConstants.TEMPLATE_CURRENT_VERSION; }
 
-    public Assessment(String name, List<Question> questionList) {
+    public Template(String name, List<Question> questionList) {
         this.name = name;
         this.questionList = questionList;
-        this.version = TestBaseConstants.ASSESSMENT_CURRENT_VERSION;
     }
 
-    @Override
-    public String toString() {
-        return "Assessment{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", questionList=" + questionList +
-                ", version=" + version +
-                '}';
-    }
-
-    public String getId() {
-        return id;
-    }
+    public String getId() { return id; }
 
     public void setId(String id) {
         this.id = id;
@@ -81,5 +68,15 @@ public class Assessment {
 
     public void setVersion(Integer version) {
         this.version = version;
+    }
+
+    @Override
+    public String toString() {
+        return "Template{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", questionList=" + questionList +
+                ", version=" + version +
+                '}';
     }
 }

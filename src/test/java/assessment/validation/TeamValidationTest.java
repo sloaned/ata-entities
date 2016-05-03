@@ -15,7 +15,7 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 /**
- * Created by Alysha Recore on 4/1/2016.
+ * Updated by mmosley on 4/29/2016.
  */
 public class TeamValidationTest {
 
@@ -46,48 +46,62 @@ public class TeamValidationTest {
     public void SadPathValidationOfTeamFactoryNameHasSpecialCharacters() {
         testTeam = teamFactory.assembleTeam(TeamOption.INVALID_TEAM_NAME_SPECIAL_CHARACTERS);
         Set<ConstraintViolation<Team>> violations = validator.validate(testTeam);
-        assertFalse("INVALID TEAM: The team factory assembled a team that doesn't pass entity validation", violations.isEmpty());
+        assertFalse("INVALID TEAM: name should not include special characters", violations.isEmpty());
     }
 
     @Test
     public void SadPathValidationOfTeamFactoryTeamNameTooLong() {
-        testTeam = teamFactory.assembleTeam(TeamOption.INVALID_TEAM_NAME_LONG);
+        testTeam = teamFactory.assembleTeam(TeamOption.INVALID_TEAM_NAME_TOO_LONG);
         Set<ConstraintViolation<Team>> violations = validator.validate(testTeam);
-        assertFalse("INVALID TEAM: The team factory assembled a team that doesn't pass entity validation", violations.isEmpty());
+        assertFalse("INVALID TEAM: name should not exceed maximum limit of characters", violations.isEmpty());
     }
 
     @Test
     public void SadPathValidationOfTeamFactoryTeamNameIsNull() {
         testTeam = teamFactory.assembleTeam(TeamOption.INVALID_TEAM_NAME_NULL);
         Set<ConstraintViolation<Team>> violations = validator.validate(testTeam);
-        assertFalse("INVALID TEAM: The team factory assembled a team that doesn't pass entity validation", violations.isEmpty());
+        assertFalse("INVALID TEAM: name should not be null", violations.isEmpty());
     }
 
     @Test
     public void SadPathValidationOfTeamFactoryTeamActiveNull() {
-        testTeam = teamFactory.assembleTeam(TeamOption.INVALID_TEAM_ACTIVE_NULL);
+        testTeam = teamFactory.assembleTeam(TeamOption.INVALID_TEAM_IS_ACTIVE_NULL);
         Set<ConstraintViolation<Team>> violations = validator.validate(testTeam);
-        assertFalse("INVALID TEAM: The team factory assembled a team that doesn't pass entity validation", violations.isEmpty());
+        assertFalse("INVALID TEAM: team isActive should not be null", violations.isEmpty());
     }
 
     @Test
-    public void SadPathValidationOfTeamFactoryTeamTypeIsNull() {
-        testTeam = teamFactory.assembleTeam(TeamOption.INVALID_TEAM_TYPE_NULL);
+    public void SadPathValidationOfTeamFactoryTeamDescriptionTooLong() {
+        testTeam = teamFactory.assembleTeam(TeamOption.INVALID_TEAM_DESCRIPTION_TOO_LONG);
         Set<ConstraintViolation<Team>> violations = validator.validate(testTeam);
-        assertFalse("INVALID TEAM: The team factory assembled a team that doesn't pass entity validation", violations.isEmpty());
+        assertFalse("INVALID TEAM: description should not exceed maximum limit of characters", violations.isEmpty());
+    }
+
+    @Test
+    public void SadPathValidationOfTeamFactoryInvalidTeamSummaryScoreMin() {
+        testTeam = teamFactory.assembleTeam(TeamOption.INVALID_TEAM_SUMMARY_SCORE_MIN);
+        Set<ConstraintViolation<Team>> violations = validator.validate(testTeam);
+        assertFalse("INVALID TEAM: summary score should be a minimum of 1", violations.isEmpty());
+    }
+
+    @Test
+    public void SadPathValidationOfTeamFactoryInvalidTeamSummaryScoreMax() {
+        testTeam = teamFactory.assembleTeam(TeamOption.INVALID_TEAM_SUMMARY_SCORE_MAX);
+        Set<ConstraintViolation<Team>> violations = validator.validate(testTeam);
+        assertFalse("INVALID TEAM: summary score should be a maximum of 5", violations.isEmpty());
     }
 
     @Test
     public void SadPathValidationOfTeamFactoryInvalidTeamVersionNull() {
         testTeam = teamFactory.assembleTeam(TeamOption.INVALID_TEAM_VERSION_NULL);
         Set<ConstraintViolation<Team>> violations = validator.validate(testTeam);
-        assertFalse("INVALID TEAM: The team factory assembled a team that doesn't pass entity validation", violations.isEmpty());
+        assertFalse("INVALID TEAM: version should not be null", violations.isEmpty());
     }
 
     @Test
     public void SadPathValidationOfTeamFactoryInvalidTeamVersionZero() {
         testTeam = teamFactory.assembleTeam(TeamOption.INVALID_TEAM_VERSION_ZERO);
         Set<ConstraintViolation<Team>> violations = validator.validate(testTeam);
-        assertFalse("INVALID TEAM: The team factory assembled a team that doesn't pass entity validation", violations.isEmpty());
+        assertFalse("INVALID TEAM: version should be minimum of 1", violations.isEmpty());
     }
 }

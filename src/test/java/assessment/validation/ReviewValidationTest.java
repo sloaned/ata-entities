@@ -17,6 +17,7 @@ import static org.junit.Assert.assertTrue;
 /**
  * Created by jtucker on 4/1/2016.
  */
+
 public class ReviewValidationTest {
 
     private static Validator validator;
@@ -50,18 +51,6 @@ public class ReviewValidationTest {
     @Test
     public void SadPathReviewReviewedIdNull() {
         testReview = reviewFactory.assembleReview(ReviewOption.INVALID_REVIEW_REVIEWED_ID_NULL);
-        assertThereIsExactlyOneViolation(validator, testReview);
-    }
-
-    @Test
-    public void SadPathReviewTeamNameEmpty() {
-        testReview = reviewFactory.assembleReview(ReviewOption.INVALID_REVIEW_TEAM_NAME_EMPTY);
-        assertThereIsExactlyOneViolation(validator, testReview);
-    }
-
-    @Test
-    public void SadPathReviewTeamNameNull() {
-        testReview = reviewFactory.assembleReview(ReviewOption.INVALID_REVIEW_TEAM_NAME_NULL);
         assertThereIsExactlyOneViolation(validator, testReview);
     }
 

@@ -1,0 +1,16 @@
+package assessment.factories.template;
+
+/**
+ * Created by jtucker on 4/5/2016.
+ */
+public enum TemplateOption {
+
+    VALID_TEMPLATE,
+    INVALID_TEMPLATE_DUPLICATE,
+    INVALID_TEMPLATE_NAME_TOO_LONG,
+    INVALID_TEMPLATE_NAME_SPECIAL_CHARACTERS,
+    INVALID_TEMPLATE_NULL_NAME,
+    INVALID_TEMPLATE_VERSION_ZERO,
+    INVALID_TEMPLATE_VERSION_NULL
+
+}

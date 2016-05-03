@@ -84,4 +84,18 @@ public class TokenUser {
     public void setJobTitle(String jobTitle) {
         this.jobTitle = jobTitle;
     }
+
+    @Override
+    public String toString() {
+        return "TokenUser{" +
+                "displayName='" + displayName + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", domainAccountName='" + domainAccountName + '\'' +
+                ", department='" + department + '\'' +
+                ", jobTitle='" + jobTitle + '\'' +
+                '}';
+    }
 }

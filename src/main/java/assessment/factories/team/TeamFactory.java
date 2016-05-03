@@ -2,6 +2,7 @@ package assessment.factories.team;
 
 import assessment.entities.team.Team;
 import assessment.testbase.TestBase;
+
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,125 +12,141 @@ import java.util.List;
  */
 public class TeamFactory extends TestBase {
 
-    public Team assembleTeam (TeamOption teamOption){
+    public Team assembleTeam(TeamOption teamOption) {
 
         Team team = new Team();
 
-        switch(teamOption){
+        switch (teamOption) {
 
             case VALID_ACTIVE_TEAM:
+                team.setId(generateRandomHash(24));
+                team.setName(VALID_TEAM_NAME);
                 team.setActive(true);
+                team.setMemberList(USER_LIST);
                 team.setAvatar(VALID_GRAVATAR_HASH);
-                team.setDescription(VALID_DESCRIPTION);
-                team.setName(VALID_OBJECT_NAME);
-                team.setReviewFrequency(VALID_REVIEW_FREQUENCY);
-                team.setTeamType(TEAM_DEV);
+                team.setDescription(VALID_TEAM_DESCRIPTION);
+                team.setReviewPeriods(REVIEW_PERIOD_LIST);
+                team.setSummaryScore(VALID_SUMMARY_SCORE);
                 team.setVersion(TEAM_CURRENT_VERSION);
-                team.setLeaderList(LEADER_LIST);
-                team.setUserList(USER_LIST);
-                team.setAssessment(ASSESSMENT);
                 break;
 
             case VALID_INACTIVE_TEAM:
+                team.setId(generateRandomHash(24));
+                team.setName(VALID_INACTIVE_TEAM_NAME);
                 team.setActive(false);
+                team.setMemberList(USER_LIST);
                 team.setAvatar(VALID_GRAVATAR_HASH);
-                team.setDescription(VALID_DESCRIPTION);
-                team.setName(VALID_OBJECT_NAME);
-                team.setReviewFrequency(VALID_REVIEW_FREQUENCY);
-                team.setTeamType(TEAM_O3);
-                team.setVersion(VALID_ENTITY_VERSION);
-                team.setLeaderList(LEADER_LIST);
-                team.setUserList(USER_LIST);
-                team.setAssessment(ASSESSMENT);
+                team.setDescription(VALID_TEAM_DESCRIPTION);
+                team.setReviewPeriods(REVIEW_PERIOD_LIST);
+                team.setSummaryScore(VALID_SUMMARY_SCORE);
+                team.setVersion(TEAM_CURRENT_VERSION);
                 break;
 
             case INVALID_TEAM_NAME_SPECIAL_CHARACTERS:
-                team.setActive(true);
+                team.setId(generateRandomHash(24));
                 team.setName(INVALID_OBJECT_NAME_SPECIAL_CHARACTERS);
-                team.setReviewFrequency(VALID_REVIEW_FREQUENCY);
-                team.setTeamType(TEAM_O3);
-                team.setVersion(VALID_ENTITY_VERSION);
-                team.setLeaderList(LEADER_LIST);
-                team.setUserList(USER_LIST);
-                team.setAssessment(ASSESSMENT);
+                team.setActive(true);
+                team.setMemberList(USER_LIST);
                 team.setAvatar(VALID_GRAVATAR_HASH);
-                team.setDescription(VALID_DESCRIPTION);
+                team.setDescription(VALID_TEAM_DESCRIPTION);
+                team.setReviewPeriods(REVIEW_PERIOD_LIST);
+                team.setSummaryScore(VALID_SUMMARY_SCORE);
+                team.setVersion(TEAM_CURRENT_VERSION);
                 break;
 
-            case INVALID_TEAM_NAME_LONG:
-                team.setActive(false);
-                team.setReviewFrequency(VALID_REVIEW_FREQUENCY);
-                team.setTeamType(TEAM_O3);
-                team.setVersion(VALID_ENTITY_VERSION);
-                team.setLeaderList(LEADER_LIST);
-                team.setUserList(USER_LIST);
-                team.setAssessment(ASSESSMENT);
+            case INVALID_TEAM_NAME_TOO_LONG:
+                team.setId(generateRandomHash(24));
+                team.setName(generateRandomString(101));
+                team.setActive(true);
+                team.setMemberList(USER_LIST);
                 team.setAvatar(VALID_GRAVATAR_HASH);
-                team.setDescription(VALID_DESCRIPTION);
-                team.setName(generateRandomString(110));
+                team.setDescription(VALID_TEAM_DESCRIPTION);
+                team.setReviewPeriods(REVIEW_PERIOD_LIST);
+                team.setSummaryScore(VALID_SUMMARY_SCORE);
+                team.setVersion(TEAM_CURRENT_VERSION);
+                break;
 
             case INVALID_TEAM_NAME_NULL:
-                team.setActive(false);
-                team.setAvatar(VALID_GRAVATAR_HASH);
-                team.setDescription(VALID_DESCRIPTION);
-                team.setReviewFrequency(VALID_REVIEW_FREQUENCY);
-                team.setTeamType(TEAM_O3);
-                team.setVersion(VALID_ENTITY_VERSION);
-                team.setLeaderList(LEADER_LIST);
-                team.setUserList(USER_LIST);
-                team.setAssessment(ASSESSMENT);
+                team.setId(generateRandomHash(24));
                 team.setName(null);
+                team.setActive(true);
+                team.setMemberList(USER_LIST);
+                team.setAvatar(VALID_GRAVATAR_HASH);
+                team.setDescription(VALID_TEAM_DESCRIPTION);
+                team.setReviewPeriods(REVIEW_PERIOD_LIST);
+                team.setSummaryScore(VALID_SUMMARY_SCORE);
+                team.setVersion(TEAM_CURRENT_VERSION);
                 break;
 
-            case INVALID_TEAM_ACTIVE_NULL:
-                team.setAvatar(VALID_GRAVATAR_HASH);
-                team.setDescription(VALID_DESCRIPTION);
-                team.setName(VALID_OBJECT_NAME);
-                team.setReviewFrequency(VALID_REVIEW_FREQUENCY);
-                team.setTeamType(TEAM_O3);
-                team.setVersion(VALID_ENTITY_VERSION);
-                team.setLeaderList(LEADER_LIST);
-                team.setUserList(USER_LIST);
-                team.setAssessment(ASSESSMENT);
+            case INVALID_TEAM_IS_ACTIVE_NULL:
+                team.setId(generateRandomHash(24));
+                team.setName(VALID_TEAM_NAME);
                 team.setActive(null);
+                team.setMemberList(USER_LIST);
+                team.setAvatar(VALID_GRAVATAR_HASH);
+                team.setDescription(VALID_TEAM_DESCRIPTION);
+                team.setReviewPeriods(REVIEW_PERIOD_LIST);
+                team.setSummaryScore(VALID_SUMMARY_SCORE);
+                team.setVersion(TEAM_CURRENT_VERSION);
                 break;
 
-            case INVALID_TEAM_TYPE_NULL:
-                team.setActive(false);
+            case INVALID_TEAM_DESCRIPTION_TOO_LONG:
+                team.setId(generateRandomHash(24));
+                team.setName(VALID_TEAM_NAME);
+                team.setActive(true);
+                team.setMemberList(USER_LIST);
                 team.setAvatar(VALID_GRAVATAR_HASH);
-                team.setDescription(VALID_DESCRIPTION);
-                team.setName(VALID_OBJECT_NAME);
-                team.setReviewFrequency(VALID_REVIEW_FREQUENCY);
-                team.setVersion(VALID_ENTITY_VERSION);
-                team.setLeaderList(LEADER_LIST);
-                team.setUserList(USER_LIST);
-                team.setAssessment(ASSESSMENT);
-                team.setTeamType(null);
+                team.setDescription(generateRandomString(256));
+                team.setReviewPeriods(REVIEW_PERIOD_LIST);
+                team.setSummaryScore(VALID_SUMMARY_SCORE);
+                team.setVersion(TEAM_CURRENT_VERSION);
+                break;
+
+            case INVALID_TEAM_SUMMARY_SCORE_MIN:
+                team.setId(generateRandomHash(24));
+                team.setName(VALID_TEAM_NAME);
+                team.setActive(true);
+                team.setMemberList(USER_LIST);
+                team.setAvatar(VALID_GRAVATAR_HASH);
+                team.setDescription(VALID_TEAM_DESCRIPTION);
+                team.setReviewPeriods(REVIEW_PERIOD_LIST);
+                team.setSummaryScore(generateRandomDouble(SMALL_SUMMARY_SCORE, 1.0));
+                team.setVersion(TEAM_CURRENT_VERSION);
+                break;
+
+            case INVALID_TEAM_SUMMARY_SCORE_MAX:
+                team.setId(generateRandomHash(24));
+                team.setName(VALID_TEAM_NAME);
+                team.setActive(true);
+                team.setMemberList(USER_LIST);
+                team.setAvatar(VALID_GRAVATAR_HASH);
+                team.setDescription(VALID_TEAM_DESCRIPTION);
+                team.setReviewPeriods(REVIEW_PERIOD_LIST);
+                team.setSummaryScore(generateRandomDouble(LARGE_SUMMARY_SCORE, 5.01));
+                team.setVersion(TEAM_CURRENT_VERSION);
                 break;
 
             case INVALID_TEAM_VERSION_NULL:
-                team.setActive(false);
+                team.setId(generateRandomHash(24));
+                team.setName(VALID_TEAM_NAME);
+                team.setActive(true);
+                team.setMemberList(USER_LIST);
                 team.setAvatar(VALID_GRAVATAR_HASH);
-                team.setDescription(VALID_DESCRIPTION);
-                team.setName(VALID_OBJECT_NAME);
-                team.setReviewFrequency(VALID_REVIEW_FREQUENCY);
-                team.setTeamType(TEAM_O3);
-                team.setLeaderList(LEADER_LIST);
-                team.setUserList(USER_LIST);
-                team.setAssessment(ASSESSMENT);
+                team.setDescription(VALID_TEAM_DESCRIPTION);
+                team.setReviewPeriods(REVIEW_PERIOD_LIST);
+                team.setSummaryScore(VALID_SUMMARY_SCORE);
                 team.setVersion(null);
                 break;
 
             case INVALID_TEAM_VERSION_ZERO:
-                team.setActive(false);
+                team.setId(generateRandomHash(24));
+                team.setName(VALID_TEAM_NAME);
+                team.setActive(true);
+                team.setMemberList(USER_LIST);
                 team.setAvatar(VALID_GRAVATAR_HASH);
-                team.setDescription(VALID_DESCRIPTION);
-                team.setName(VALID_OBJECT_NAME);
-                team.setReviewFrequency(VALID_REVIEW_FREQUENCY);
-                team.setTeamType(TEAM_O3);
-                team.setLeaderList(LEADER_LIST);
-                team.setUserList(USER_LIST);
-                team.setAssessment(ASSESSMENT);
+                team.setDescription(VALID_TEAM_DESCRIPTION);
+                team.setReviewPeriods(REVIEW_PERIOD_LIST);
+                team.setSummaryScore(VALID_SUMMARY_SCORE);
                 team.setVersion(0);
                 break;
         }

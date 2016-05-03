@@ -1,12 +1,12 @@
 package assessment.testbase;
 
-import assessment.entities.assessment.Assessment;
-import assessment.entities.feedback.FeedbackType;
-import assessment.entities.membership.Membership;
+import assessment.entities.team.Frequency;
+import assessment.entities.team.Member;
+import assessment.entities.team.ReviewPeriod;
+import assessment.entities.template.Template;
 import assessment.entities.question.Question;
 import assessment.entities.question.QuestionType;
-import assessment.entities.team.TeamType;
-import assessment.entities.user.Role;
+import assessment.entities.team.Role;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,12 +21,11 @@ public class TestBaseConstants {
      * ENTITY VERSIONS
      *
      */
-    public final static int ASSESSMENT_CURRENT_VERSION = 1;
     public final static int FEEDBACK_CURRENT_VERSION = 1;
-    public final static int MEMBERSHIP_CURRENT_VERSION = 1;
     public final static int QUESTION_CURRENT_VERSION = 1;
     public final static int REVIEW_CURRENT_VERSION = 1;
     public final static int TEAM_CURRENT_VERSION = 1;
+    public final static int TEMPLATE_CURRENT_VERSION = 1;
     public final static int USER_CURRENT_VERSION = 1;
     public final static int KUDO_CURRENT_VERSION = 1;
     public final static int PERIOD_CURRENT_VERSION = 1;
@@ -59,7 +58,6 @@ public class TestBaseConstants {
      *
      * Valid Input:
      */
-
     protected final static String VALID_USER_EMAIL = "squag@catalystdevworks.com";
 
 
@@ -98,39 +96,30 @@ public class TestBaseConstants {
     protected final static String VALID_FEEDBACK_LABEL = "Valid Feedback Label";
     protected final static Integer VALID_FEEDBACK_SCORE = 3;
     protected final static String VALID_FEEDBACK_COMMENT = "A Valid comment for a feedback entity";
+
     /**
      * Invalid Input:
      */
-
-    protected final static Integer INVALID_FEEDBACK_SCORE_OVERBOUND = 6;
-
+    protected final static Integer INVALID_SCORE_OVERBOUND = 6;
 
     /**
-     * FEEDBACK TYPE
-     */
-    protected final static FeedbackType FEEDBACK_TYPE_KUDOS = FeedbackType.KUDOS;
-    protected final static FeedbackType FEEDBACK_TYPE_ASSESSMENT = FeedbackType.ASSESSMENT;
-
-    /**
-     * ASSESSMENT
+     * TEMPLATE SECTION
      */
     protected List<Question> QUESTION_LIST = new ArrayList<Question>();
+    protected final static String TEMPLATE_NAME1 = "Template Name";
+    protected final static String TEMPLATE_NAME2 = "Template Name";
 
     /**
      * TEAM
      */
     protected final static String VALID_TEAM_NAME = "Hayes' Heroes";
     protected final static Integer VALID_REVIEW_FREQUENCY = 1;
-    public List<Membership> LEADER_LIST = new ArrayList<Membership>();
-    public List<Membership> USER_LIST = new ArrayList<Membership>();
-    public Assessment ASSESSMENT = new Assessment();
-
-    /**
-     * TEAM TYPE
-     */
-    protected final static TeamType TEAM_O3 = TeamType.valueOf("O3");
-    protected final static TeamType TEAM_DEV = TeamType.valueOf("DEV");
-
+    public List<Member> USER_LIST = new ArrayList<Member>();
+    public Template TEMPLATE = new Template();
+    protected final static String VALID_TEAM_DESCRIPTION = "An awesome team working on the Aperture Team Assessment project";
+    public List<ReviewPeriod> REVIEW_PERIOD_LIST = new ArrayList<ReviewPeriod>();
+    protected final static String VALID_INACTIVE_TEAM_NAME = "Hayes' Former Heroes";
+    protected final static Frequency FREQUENCY_WEEK = Frequency.WEEK;
 
     /**
      * REVIEW
