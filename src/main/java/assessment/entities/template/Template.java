@@ -1,7 +1,7 @@
 package assessment.entities.template;
 
 import assessment.entities.question.Question;
-import assessment.testbase.TestBaseConstants;
+import assessment.utilities.Constants;
 import assessment.utilities.RegexConstants;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -33,11 +33,12 @@ public class Template {
     @Range(min = 1, message = "version of at least 1 is required")
     private Integer version;
 
-    public Template() { this.version = TestBaseConstants.TEMPLATE_CURRENT_VERSION; }
+    public Template() { this.version = Constants.TEMPLATE_CURRENT_VERSION; }
 
     public Template(String name, List<Question> questionList) {
         this.name = name;
         this.questionList = questionList;
+        this.version = Constants.TEMPLATE_CURRENT_VERSION;
     }
 
     public String getId() { return id; }

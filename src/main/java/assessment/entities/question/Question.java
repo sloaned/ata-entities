@@ -1,6 +1,6 @@
 package assessment.entities.question;
 
-import assessment.testbase.TestBaseConstants;
+import assessment.utilities.Constants;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Range;
@@ -32,13 +32,13 @@ public class Question {
     private Integer version;
 
     public Question() {
-        this.version = TestBaseConstants.QUESTION_CURRENT_VERSION;
+        this.version = Constants.QUESTION_CURRENT_VERSION;
     }
 
     public Question(QuestionType type, String label) {
         this.type = type;
         this.label = label;
-        this.version = TestBaseConstants.QUESTION_CURRENT_VERSION;
+        this.version = Constants.QUESTION_CURRENT_VERSION;
     }
 
     public String getId() {

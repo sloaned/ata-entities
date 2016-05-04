@@ -1,6 +1,6 @@
 package assessment.entities.team;
 
-import assessment.testbase.TestBaseConstants;
+import assessment.utilities.Constants;
 import assessment.utilities.RegexConstants;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -47,10 +47,10 @@ public class Team {
     private Integer version;
 
     public Team() {
-        this.version = TestBaseConstants.TEAM_CURRENT_VERSION;
+        this.version = Constants.TEAM_CURRENT_VERSION;
     }
 
-    public Team(String name, Boolean isActive, List<Member> memberList, String avatar, String description, List<ReviewPeriod> reviewPeriods, Double summaryScore, Integer version) {
+    public Team(String name, Boolean isActive, List<Member> memberList, String avatar, String description, List<ReviewPeriod> reviewPeriods, Double summaryScore) {
         this.name = name;
         this.isActive = isActive;
         this.memberList = memberList;
@@ -58,7 +58,7 @@ public class Team {
         this.description = description;
         this.reviewPeriods = reviewPeriods;
         this.summaryScore = summaryScore;
-        this.version = version;
+        this.version = Constants.TEAM_CURRENT_VERSION;
     }
 
     public String getId() {

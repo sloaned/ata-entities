@@ -1,12 +1,10 @@
 package assessment.entities.feedback;
 
-import assessment.testbase.TestBaseConstants;
+import assessment.utilities.Constants;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Range;
 
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.validation.constraints.NotNull;
 
 /**
@@ -31,7 +29,7 @@ public class Feedback {
     private Integer version;
 
     public Feedback() {
-        this.version = TestBaseConstants.FEEDBACK_CURRENT_VERSION;
+        this.version = Constants.FEEDBACK_CURRENT_VERSION;
     }
 
     public Feedback(String label, Integer score, String
@@ -39,7 +37,7 @@ public class Feedback {
         this.label = label;
         this.score = score;
         this.comment = comment;
-        this.version = TestBaseConstants.FEEDBACK_CURRENT_VERSION;
+        this.version = Constants.FEEDBACK_CURRENT_VERSION;
     }
 
     public String getLabel() {
