@@ -9,48 +9,41 @@ import java.text.ParseException;
  */
 public class MemberFactory extends TestBase {
 
+    public Member assembleBaseMember() {
+
+		Member baseMember = new Member();
+
+		baseMember.setUserId(generateRandomString(15));
+		baseMember.setActive(true);
+		baseMember.setAddedOn(getDate(PAST_DATE));
+		baseMember.setRemovedOn(null);
+		baseMember.setRole(ROLE_DEVELOPER);
+
+		return baseMember;
+
+    }
+
     public Member assembleMember(MemberOption option) throws ParseException {
 
-        Member member = new Member();
+        Member member = assembleBaseMember();
 
         switch (option) {
             case VALID_ACTIVE_MEMBER:
-                member.setUserId(generateRandomString(15));
-                member.setActive(true);
-                member.setAddedOn(getDate(PAST_DATE));
-                member.setRemovedOn(null);
-                member.setRole(ROLE_DEVELOPER);
                 break;
 
             case INVALID_MEMBER_ID_EMPTY:
                 member.setUserId(EMPTY_STRING);
-                member.setActive(true);
-                member.setAddedOn(getDate(PAST_DATE));
-                member.setRemovedOn(null);
-                member.setRole(ROLE_DEVELOPER);
                 break;
 
             case INVALID_MEMBER_ISACTIVE_NULL:
-                member.setUserId(generateRandomString(15));
                 member.setActive(null);
-                member.setAddedOn(getDate(PAST_DATE));
-                member.setRemovedOn(null);
-                member.setRole(ROLE_DEVELOPER);
                 break;
 
             case INVALID_MEMBER_ADDED_ON_DATE_NULL:
-                member.setUserId(generateRandomString(15));
-                member.setActive(true);
                 member.setAddedOn(getDate(null));
-                member.setRemovedOn(null);
-                member.setRole(ROLE_DEVELOPER);
                 break;
 
             case INVALID_MEMBER_ROLE_NULL:
-                member.setUserId(generateRandomString(15));
-                member.setActive(true);
-                member.setAddedOn(getDate(PAST_DATE));
-                member.setRemovedOn(null);
                 member.setRole(null);
                 break;
         }
