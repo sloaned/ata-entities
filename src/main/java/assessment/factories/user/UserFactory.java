@@ -18,7 +18,7 @@ public class UserFactory extends TestBase {
 
 		User baseUser = new User();
 
-		baseUser.setVersion(VALID_ENTITY_VERSION);
+		baseUser.setVersion(USER_CURRENT_VERSION);
 		baseUser.setActive(true);
 		baseUser.setAvatar(VALID_GRAVATAR_HASH);
 		baseUser.setEmail(VALID_USER_EMAIL);
@@ -39,11 +39,9 @@ public class UserFactory extends TestBase {
         switch(userOption){
 
             case VALID_ACTIVE_DEVELOPER:
-				user.setVersion(USER_CURRENT_VERSION);
                 break;
 
             case VALID_INACTIVE_DEVELOPER:
-                user.setVersion(USER_CURRENT_VERSION);
                 user.setActive(false);
                 break;
 
@@ -57,12 +55,10 @@ public class UserFactory extends TestBase {
 
             case INVALID_USER_FIRST_NAME_SPECIAL_CHARACTERS:
                 user.setFirstName(INVALID_USER_NAME_SPECIAL_CHARACTERS);
-                user.setVersion(USER_CURRENT_VERSION);
                 break;
 
             case INVALID_USER_FIRST_NAME_LONG:
                 user.setFirstName(generateRandomString(51));
-                user.setVersion(USER_CURRENT_VERSION);
                 break;
 
             case INVALID_USER_LAST_NAME_EMPTY:
