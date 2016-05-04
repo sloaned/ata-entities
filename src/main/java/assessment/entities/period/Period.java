@@ -50,8 +50,7 @@ public class Period {
         version = TestBaseConstants.PERIOD_CURRENT_VERSION;
     }
 
-    public Period(String id, Template template, String name, Integer seriesNumber, String teamId, Date dateTriggered, Double summaryScore, List<Review> reviews, Integer version) {
-        this.id = id;
+    public Period(Template template, String name, Integer seriesNumber, String teamId, Date dateTriggered, Double summaryScore, List<Review> reviews, Integer version) {
         this.template = template;
         this.seriesNumber = seriesNumber;
         this.name = name;

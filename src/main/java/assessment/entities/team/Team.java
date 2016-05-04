@@ -50,8 +50,7 @@ public class Team {
         this.version = TestBaseConstants.TEAM_CURRENT_VERSION;
     }
 
-    public Team(String id, String name, Boolean isActive, List<Member> memberList, String avatar, String description, List<ReviewPeriod> reviewPeriods, Double summaryScore, Integer version) {
-        this.id = id;
+    public Team(String name, Boolean isActive, List<Member> memberList, String avatar, String description, List<ReviewPeriod> reviewPeriods, Double summaryScore, Integer version) {
         this.name = name;
         this.isActive = isActive;
         this.memberList = memberList;
