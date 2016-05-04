@@ -2,12 +2,11 @@ package assessment.entities.review;
 
 import assessment.entities.feedback.Feedback;
 import assessment.entities.user.User;
-import assessment.testbase.TestBaseConstants;
+import assessment.utilities.Constants;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Range;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 
 import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.Future;
@@ -65,7 +64,7 @@ public class Review {
      * Default constructor
      */
     public Review() {
-        this.version = TestBaseConstants.REVIEW_CURRENT_VERSION;
+        this.version = Constants.REVIEW_CURRENT_VERSION;
     }
 
     /**
@@ -84,7 +83,7 @@ public class Review {
         this.submittedDate = submittedDate;
         this.feedback = feedback;
         this.summaryScore = summaryScore;
-        this.version = TestBaseConstants.REVIEW_CURRENT_VERSION;
+        this.version = Constants.REVIEW_CURRENT_VERSION;
     }
 
     /**

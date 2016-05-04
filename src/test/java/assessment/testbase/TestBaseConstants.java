@@ -16,7 +16,6 @@ import java.util.List;
  */
 public class TestBaseConstants {
 
-
     /**
      * ENTITY VERSIONS
      *
@@ -29,7 +28,6 @@ public class TestBaseConstants {
     public final static int USER_CURRENT_VERSION = 1;
     public final static int KUDO_CURRENT_VERSION = 1;
     public final static int PERIOD_CURRENT_VERSION = 1;
-
 
     /**
      * GENERAL

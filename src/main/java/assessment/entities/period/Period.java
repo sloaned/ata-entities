@@ -2,7 +2,7 @@ package assessment.entities.period;
 
 import assessment.entities.review.Review;
 import assessment.entities.template.Template;
-import assessment.testbase.TestBaseConstants;
+import assessment.utilities.Constants;
 import assessment.utilities.RegexConstants;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -47,11 +47,10 @@ public class Period {
     private Integer version;
 
     public Period() {
-        version = TestBaseConstants.PERIOD_CURRENT_VERSION;
+        version = Constants.PERIOD_CURRENT_VERSION;
     }
 
-    public Period(String id, Template template, String name, Integer seriesNumber, String teamId, Date dateTriggered, Double summaryScore, List<Review> reviews, Integer version) {
-        this.id = id;
+    public Period(Template template, String name, Integer seriesNumber, String teamId, Date dateTriggered, Double summaryScore, List<Review> reviews) {
         this.template = template;
         this.seriesNumber = seriesNumber;
         this.name = name;
@@ -59,7 +58,7 @@ public class Period {
         this.dateTriggered = dateTriggered;
         this.summaryScore = summaryScore;
         this.reviews = reviews;
-        this.version = version;
+        this.version = Constants.PERIOD_CURRENT_VERSION;
     }
 
     public String getId() {

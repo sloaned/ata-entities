@@ -1,7 +1,6 @@
 package assessment.entities.kudo;
 
-import assessment.testbase.TestBase;
-import assessment.testbase.TestBaseConstants;
+import assessment.utilities.Constants;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -9,10 +8,7 @@ import org.hibernate.validator.constraints.Range;
 import org.springframework.data.annotation.Id;
 
 import javax.validation.constraints.AssertTrue;
-import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -42,15 +38,15 @@ public class Kudo {
     private Integer version;
 
     public Kudo() {
-        this.version = TestBaseConstants.KUDO_CURRENT_VERSION;
+        this.version = Constants.KUDO_CURRENT_VERSION;
     }
 
-    public Kudo(Integer version, String reviewerId, String reviewedId, String comment, Date submittedDate) {
-        this.version = version;
+    public Kudo(String reviewerId, String reviewedId, String comment, Date submittedDate) {
         this.reviewerId = reviewerId;
         this.reviewedId = reviewedId;
         this.comment = comment;
         this.submittedDate = submittedDate;
+        this.version = Constants.KUDO_CURRENT_VERSION;
     }
 
     public String getId() {

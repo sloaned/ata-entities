@@ -19,7 +19,7 @@ public class UserFactory extends TestBase {
 		User baseUser = new User();
 
 		baseUser.setVersion(USER_CURRENT_VERSION);
-		baseUser.setActive(true);
+		baseUser.setIsActive(true);
 		baseUser.setAvatar(VALID_GRAVATAR_HASH);
 		baseUser.setEmail(VALID_USER_EMAIL);
 		baseUser.setFirstName(VALID_USER_NAME);
@@ -42,7 +42,7 @@ public class UserFactory extends TestBase {
                 break;
 
             case VALID_INACTIVE_DEVELOPER:
-                user.setActive(false);
+                user.setIsActive(false);
                 break;
 
             case INVALID_USER_FIRST_NAME_EMPTY:
@@ -102,7 +102,7 @@ public class UserFactory extends TestBase {
                 break;
 
             case INVALID_USER_ISACTIVE_NULL:
-                user.setActive(null);
+                user.setIsActive(null);
                 break;
 
             case INVALID_USER_TITLE_NULL:

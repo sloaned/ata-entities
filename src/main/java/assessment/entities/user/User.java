@@ -1,6 +1,6 @@
 package assessment.entities.user;
 
-import assessment.testbase.TestBaseConstants;
+import assessment.utilities.Constants;
 import assessment.utilities.RegexConstants;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -59,11 +59,10 @@ public class User {
     private Integer version;
 
     public User() {
-        this.version = TestBaseConstants.USER_CURRENT_VERSION;
+        this.version = Constants.USER_CURRENT_VERSION;
     }
 
-    public User(String id, String firstName, String lastName, String email, String title, String avatar, String profileDescription, Boolean isActive, Date startDate, Date endDate, Integer version) {
-        this.id = id;
+    public User(String firstName, String lastName, String email, String title, String avatar, String profileDescription, Boolean isActive, Date startDate, Date endDate) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -73,7 +72,7 @@ public class User {
         this.isActive = isActive;
         this.startDate = startDate;
         this.endDate = endDate;
-        this.version = version;
+        this.version = Constants.USER_CURRENT_VERSION;
     }
 
     public String getId() {
@@ -132,11 +131,11 @@ public class User {
         this.profileDescription = profileDescription;
     }
 
-    public Boolean getActive() {
+    public Boolean getIsActive() {
         return isActive;
     }
 
-    public void setActive(Boolean active) {
+    public void setIsActive(Boolean active) {
         isActive = active;
     }
 
