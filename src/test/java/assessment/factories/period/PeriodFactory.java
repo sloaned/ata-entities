@@ -9,6 +9,29 @@ import java.util.List;
 
 public class PeriodFactory extends TestBase {
 
+    private Period assembleBasePeriod() {
+
+		Period basePeriod = new Period();
+
+		basePeriod.setTemplate(TEMPLATE);
+		basePeriod.setSeriesNumber(generateRandomInteger(1, 10));
+		basePeriod.setName(VALID_PERIOD_NAME + generateRandomString(5));
+		basePeriod.setTeamId(generateRandomHash(24));
+		basePeriod.setDateTriggered(new Date());
+		basePeriod.setVersion(VALID_ENTITY_VERSION);
+
+		return basePeriod;
+
+    }
+
+	private Period assembleBasePeriodWithId() {
+
+		Period basePeriodWithId = assembleBasePeriod();
+		basePeriodWithId.setId(generateRandomHash(24));
+		return basePeriodWithId;
+
+	}
+
     /**
      * Assembles a period object
      * @param periodOption The type of period to assemble
@@ -16,152 +39,70 @@ public class PeriodFactory extends TestBase {
      */
     public Period assemblePeriod(PeriodOption periodOption) {
 
-        Period period = new Period();
+        Period period = assembleBasePeriodWithId();
 
         switch(periodOption){
+
             case VALID_PERIOD_WITH_ID:
-            period.setId(generateRandomHash(24));
-            period.setTemplate(TEMPLATE);
-            period.setSeriesNumber(generateRandomInteger(1, 10));
-            period.setName(VALID_PERIOD_NAME + generateRandomString(5));
-            period.setTeamId(generateRandomHash(24));
-            period.setDateTriggered(new Date());
-            period.setVersion(VALID_ENTITY_VERSION);
-            break;
+				break;
+
             case VALID_PERIOD_WITHOUT_ID:
-                period.setTemplate(TEMPLATE);
-                period.setSeriesNumber(generateRandomInteger(1, 10));
-                period.setName(VALID_PERIOD_NAME + generateRandomString(5));
-                period.setTeamId(generateRandomHash(24));
-                period.setDateTriggered(new Date());
-                period.setVersion(VALID_ENTITY_VERSION);
+				period = assembleBasePeriod();
                 break;
+
             case INVALID_PERIOD_TEMPLATE_NULL:
-                period.setId(generateRandomHash(24));
                 period.setTemplate(null);
-                period.setSeriesNumber(generateRandomInteger(1, 10));
-                period.setName(VALID_PERIOD_NAME + generateRandomString(5));
-                period.setTeamId(generateRandomHash(24));
-                period.setDateTriggered(new Date());
-                period.setVersion(VALID_ENTITY_VERSION);
                 break;
-           case INVALID_PERIOD_SERIES_NUMBER_NULL:
-                period.setId(generateRandomHash(24));
-               period.setTemplate(TEMPLATE);
+
+			case INVALID_PERIOD_SERIES_NUMBER_NULL:
                 period.setSeriesNumber(null);
-                period.setName(VALID_PERIOD_NAME + generateRandomString(5));
-                period.setTeamId(generateRandomHash(24));
-                period.setDateTriggered(new Date());
-                period.setVersion(VALID_ENTITY_VERSION);
                 break;
+
             case INVALID_PERIOD_SERIES_NUMBER_ZERO:
-                period.setId(generateRandomHash(24));
-                period.setTemplate(TEMPLATE);
                 period.setSeriesNumber(0);
-                period.setName(VALID_PERIOD_NAME + generateRandomString(5));
-                period.setTeamId(generateRandomHash(24));
-                period.setDateTriggered(new Date());
-                period.setVersion(VALID_ENTITY_VERSION);
                 break;
+
             case INVALID_PERIOD_NAME_NULL:
-                period.setId(generateRandomHash(24));
-                period.setTemplate(TEMPLATE);
-                period.setSeriesNumber(generateRandomInteger(1, 10));
                 period.setName(null);
-                period.setTeamId(generateRandomHash(24));
-                period.setDateTriggered(new Date());
-                period.setVersion(VALID_ENTITY_VERSION);
                 break;
+
             case INVALID_PERIOD_NAME_WITH_SPECIAL_CHARS:
-                period.setId(generateRandomHash(24));
-                period.setTemplate(TEMPLATE);
-                period.setSeriesNumber(generateRandomInteger(1, 10));
                 period.setName(INVALID_OBJECT_NAME_SPECIAL_CHARACTERS);
-                period.setTeamId(generateRandomHash(24));
-                period.setDateTriggered(new Date());
-                period.setVersion(VALID_ENTITY_VERSION);
                 break;
+
             case INVALID_PERIOD_NAME_EMPTY_STRING:
-                period.setId(generateRandomHash(24));
-                period.setTemplate(TEMPLATE);
-                period.setSeriesNumber(generateRandomInteger(1, 10));
                 period.setName(EMPTY_STRING);
-                period.setTeamId(generateRandomHash(24));
-                period.setDateTriggered(new Date());
-                period.setVersion(VALID_ENTITY_VERSION);
                 break;
+
             case INVALID_PERIOD_NAME_TOO_LONG:
-                period.setId(generateRandomHash(24));
-                period.setTemplate(TEMPLATE);
-                period.setSeriesNumber(generateRandomInteger(1, 10));
                 period.setName(generateRandomString(101));
-                period.setTeamId(generateRandomHash(24));
-                period.setDateTriggered(new Date());
-                period.setVersion(VALID_ENTITY_VERSION);
                 break;
+
             case INVALID_PERIOD_TEAM_ID_NULL:
-                period.setId(generateRandomHash(24));
-                period.setTemplate(TEMPLATE);
-                period.setSeriesNumber(generateRandomInteger(1, 10));
-                period.setName(VALID_PERIOD_NAME + generateRandomString(5));
-                period.setTeamId("");
-                period.setDateTriggered(new Date());
-                period.setVersion(VALID_ENTITY_VERSION);
+                period.setTeamId(null);
                 break;
+
             case INVALID_PERIOD_TEAM_ID_EMPTY_STRING:
-                period.setId(generateRandomHash(24));
-                period.setTemplate(TEMPLATE);
-                period.setSeriesNumber(generateRandomInteger(1, 10));
-                period.setName(VALID_PERIOD_NAME + generateRandomString(5));
                 period.setTeamId(EMPTY_STRING);
-                period.setDateTriggered(new Date());
-                period.setVersion(VALID_ENTITY_VERSION);
                 break;
+
             case INVALID_PERIOD_DATE_NULL:
-                period.setId(generateRandomHash(24));
-                period.setTemplate(TEMPLATE);
-                period.setSeriesNumber(generateRandomInteger(1, 10));
-                period.setName(VALID_PERIOD_NAME + generateRandomString(5));
-                period.setTeamId(generateRandomHash(24));
                 period.setDateTriggered(null);
-                period.setVersion(VALID_ENTITY_VERSION);
                 break;
+
             case INVALID_PERIOD_SUMMARY_SCORE_MIN:
-                period.setId(generateRandomHash(24));
-                period.setTemplate(TEMPLATE);
-                period.setSeriesNumber(generateRandomInteger(1, 10));
-                period.setName(VALID_PERIOD_NAME + generateRandomString(5));
-                period.setTeamId(generateRandomHash(24));
-                period.setDateTriggered(new Date());
                 period.setSummaryScore(generateRandomDouble(SMALL_SUMMARY_SCORE, 1.0));
-                period.setVersion(VALID_ENTITY_VERSION);
                 break;
+
             case INVALID_PERIOD_SUMMARY_SCORE_MAX:
-                period.setId(generateRandomHash(24));
-                period.setTemplate(TEMPLATE);
-                period.setSeriesNumber(generateRandomInteger(1, 10));
-                period.setName(VALID_PERIOD_NAME + generateRandomString(5));
-                period.setTeamId(generateRandomHash(24));
-                period.setDateTriggered(new Date());
                 period.setSummaryScore(generateRandomDouble(LARGE_SUMMARY_SCORE, 5.01));
-                period.setVersion(VALID_ENTITY_VERSION);
                 break;
+
             case INVALID_PERIOD_VERSION_NULL:
-                period.setId(generateRandomHash(24));
-                period.setTemplate(TEMPLATE);
-                period.setSeriesNumber(generateRandomInteger(1, 10));
-                period.setName(VALID_PERIOD_NAME + generateRandomString(5));
-                period.setTeamId(generateRandomHash(24));
-                period.setDateTriggered(new Date());
                 period.setVersion(null);
                 break;
+
             case INVALID_PERIOD_VERSION_ZERO:
-                period.setId(generateRandomHash(24));
-                period.setTemplate(TEMPLATE);
-                period.setSeriesNumber(generateRandomInteger(1, 10));
-                period.setName(VALID_PERIOD_NAME + generateRandomString(5));
-                period.setTeamId(generateRandomHash(24));
-                period.setDateTriggered(new Date());
                 period.setVersion(0);
                 break;
         }

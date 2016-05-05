@@ -11,65 +11,53 @@ import java.util.List;
  */
 public class FeedbackFactory extends TestBase {
 
+    private Feedback assembleBaseFeedback() {
+
+		Feedback baseFeedback = new Feedback();
+
+		baseFeedback.setLabel(VALID_FEEDBACK_LABEL);
+		baseFeedback.setScore(VALID_FEEDBACK_SCORE);
+		baseFeedback.setComment(VALID_FEEDBACK_COMMENT);
+		baseFeedback.setVersion(VALID_ENTITY_VERSION);
+
+		return baseFeedback;
+
+    }
+
     public Feedback assembleFeedback(FeedbackOption option) {
 
-        Feedback feedback = new Feedback();
+        Feedback feedback = assembleBaseFeedback();
 
         switch (option) {
 
             case VALID_FEEDBACK:
-                feedback.setLabel(VALID_FEEDBACK_LABEL);
-                feedback.setScore(VALID_FEEDBACK_SCORE);
-                feedback.setComment(VALID_FEEDBACK_COMMENT);
-                feedback.setVersion(VALID_ENTITY_VERSION);
                 break;
 
             case INVALID_FEEDBACK_LABEL_EMPTY:
                 feedback.setLabel(EMPTY_STRING);
-                feedback.setScore(VALID_FEEDBACK_SCORE);
-                feedback.setComment(VALID_FEEDBACK_COMMENT);
-                feedback.setVersion(VALID_ENTITY_VERSION);
                 break;
 
             case INVALID_FEEDBACK_LABEL_TOO_LONG:
                 feedback.setLabel(generateRandomString(256));
-                feedback.setScore(VALID_FEEDBACK_SCORE);
-                feedback.setComment(VALID_FEEDBACK_COMMENT);
-                feedback.setVersion(VALID_ENTITY_VERSION);
                 break;
 
             case INVALID_FEEDBACK_SCORE_ZERO:
-                feedback.setLabel(VALID_FEEDBACK_LABEL);
                 feedback.setScore(0);
-                feedback.setComment(VALID_FEEDBACK_COMMENT);
-                feedback.setVersion(VALID_ENTITY_VERSION);
                 break;
 
             case INVALID_FEEDBACK_SCORE_OVERBOUND:
-                feedback.setLabel(VALID_FEEDBACK_LABEL);
                 feedback.setScore(INVALID_SCORE_OVERBOUND);
-                feedback.setComment(VALID_FEEDBACK_COMMENT);
-                feedback.setVersion(VALID_ENTITY_VERSION);
                 break;
 
             case INVALID_FEEDBACK_COMMENT_TOO_LONG:
-                feedback.setLabel(VALID_FEEDBACK_LABEL);
-                feedback.setScore(VALID_FEEDBACK_SCORE);
                 feedback.setComment(generateRandomString(1501));
-                feedback.setVersion(VALID_ENTITY_VERSION);
                 break;
 
             case INVALID_FEEDBACK_VERSION_NULL:
-                feedback.setLabel(VALID_FEEDBACK_LABEL);
-                feedback.setScore(VALID_FEEDBACK_SCORE);
-                feedback.setComment(VALID_FEEDBACK_COMMENT);
                 feedback.setVersion(null);
                 break;
 
             case INVALID_FEEDBACK_VERSION_ZERO:
-                feedback.setLabel(VALID_FEEDBACK_LABEL);
-                feedback.setScore(VALID_FEEDBACK_SCORE);
-                feedback.setComment(VALID_FEEDBACK_COMMENT);
                 feedback.setVersion(0);
                 break;
         }
