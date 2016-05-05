@@ -9,7 +9,7 @@ import assessment.testbase.TestBase;
  */
 public class ReviewPeriodFactory extends TestBase {
 
-    public ReviewPeriod assembleBaseReviewPeriod() {
+    private ReviewPeriod assembleBaseReviewPeriod() {
 
 		ReviewPeriod baseReviewPeriod = new ReviewPeriod();
 

@@ -13,7 +13,7 @@ import java.util.Date;
  */
 public class KudoFactory extends TestBase {
 
-    public Kudo assembleBaseKudo() {
+    private Kudo assembleBaseKudo() {
 
 		Kudo baseKudo = new Kudo();
 

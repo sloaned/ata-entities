@@ -14,7 +14,7 @@ import java.util.List;
 
 public class UserFactory extends TestBase {
 
-    public User assembleBaseUser() {
+    private User assembleBaseUser() {
 
 		User baseUser = new User();
 

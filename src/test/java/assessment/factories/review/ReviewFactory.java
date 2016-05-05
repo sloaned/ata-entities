@@ -18,7 +18,7 @@ import java.util.List;
 
 public class ReviewFactory extends TestBase{
 
-    public Review assembleBaseReview() {
+    private Review assembleBaseReview() {
 
         Review baseReview = new Review();
 

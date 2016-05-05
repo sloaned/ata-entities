@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class TemplateFactory extends TestBase {
 
-    public Template assembleBaseTemplate() {
+    private Template assembleBaseTemplate() {
 
 		Template baseTemplate = new Template();
 

@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class FeedbackFactory extends TestBase {
 
-    public Feedback assembleBaseFeedback() {
+    private Feedback assembleBaseFeedback() {
 
 		Feedback baseFeedback = new Feedback();
 

@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class TeamFactory extends TestBase {
 
-    public Team assembleBaseTeam() {
+    private Team assembleBaseTeam() {
 
 		Team baseTeam = new Team();
 

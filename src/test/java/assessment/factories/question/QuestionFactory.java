@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class QuestionFactory extends TestBase {
 
-    public Question assembleBaseQuestion() {
+    private Question assembleBaseQuestion() {
 
 		Question baseQuestion = new Question();
 

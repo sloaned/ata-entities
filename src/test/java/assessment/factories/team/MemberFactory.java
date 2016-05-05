@@ -9,7 +9,7 @@ import java.text.ParseException;
  */
 public class MemberFactory extends TestBase {
 
-    public Member assembleBaseMember() {
+    private Member assembleBaseMember() {
 
 		Member baseMember = new Member();
 
