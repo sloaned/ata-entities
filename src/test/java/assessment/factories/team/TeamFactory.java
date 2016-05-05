@@ -18,7 +18,7 @@ public class TeamFactory extends TestBase {
 
 		baseTeam.setId(generateRandomHash(24));
 		baseTeam.setName(VALID_TEAM_NAME);
-		baseTeam.setActive(true);
+		baseTeam.setIsActive(true);
 		baseTeam.setMemberList(USER_LIST);
 		baseTeam.setAvatar(VALID_GRAVATAR_HASH);
 		baseTeam.setDescription(VALID_TEAM_DESCRIPTION);
@@ -40,7 +40,7 @@ public class TeamFactory extends TestBase {
                 break;
 
             case VALID_INACTIVE_TEAM:
-                team.setActive(false);
+                team.setIsActive(false);
                 break;
 
             case INVALID_TEAM_NAME_SPECIAL_CHARACTERS:
@@ -56,7 +56,7 @@ public class TeamFactory extends TestBase {
                 break;
 
             case INVALID_TEAM_IS_ACTIVE_NULL:
-                team.setActive(null);
+                team.setIsActive(null);
                 break;
 
             case INVALID_TEAM_DESCRIPTION_TOO_LONG:
