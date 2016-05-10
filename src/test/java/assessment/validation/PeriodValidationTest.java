@@ -48,8 +48,15 @@ public class PeriodValidationTest {
     }
 
     @Test
-    public void sadInvalidPeriodTemplateNull() {
-        Period period = factory.assemblePeriod(PeriodOption.INVALID_PERIOD_TEMPLATE_NULL);
+    public void sadInvalidPeriodTemplateIdNull() {
+        Period period = factory.assemblePeriod(PeriodOption.INVALID_PERIOD_TEMPLATEID_NULL);
+
+        assertThereIsExactlyOneViolation(validator, period);
+    }
+
+    @Test
+    public void sadInvalidPeriodTemplateIdEmpty() {
+        Period period = factory.assemblePeriod(PeriodOption.INVALID_PERIOD_TEMPLATEID_EMPTY);
 
         assertThereIsExactlyOneViolation(validator, period);
     }

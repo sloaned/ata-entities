@@ -13,7 +13,7 @@ public class PeriodFactory extends TestBase {
 
 		Period basePeriod = new Period();
 
-		basePeriod.setTemplate(TEMPLATE);
+		basePeriod.setTemplateId(VALID_OBJECT_NAME);
 		basePeriod.setSeriesNumber(generateRandomInteger(1, 10));
 		basePeriod.setName(VALID_PERIOD_NAME + generateRandomString(5));
 		basePeriod.setTeamId(generateRandomHash(24));
@@ -50,8 +50,12 @@ public class PeriodFactory extends TestBase {
 				period = assembleBasePeriod();
                 break;
 
-            case INVALID_PERIOD_TEMPLATE_NULL:
-                period.setTemplate(null);
+            case INVALID_PERIOD_TEMPLATEID_NULL:
+                period.setTemplateId(null);
+                break;
+
+            case INVALID_PERIOD_TEMPLATEID_EMPTY:
+                period.setTemplateId("");
                 break;
 
 			case INVALID_PERIOD_SERIES_NUMBER_NULL:

@@ -49,8 +49,20 @@ public class ReviewValidationTest {
     }
 
     @Test
+    public void SadPathReviewReviewerIdEmpty() {
+        testReview = reviewFactory.assembleReview(ReviewOption.INVALID_REVIEW_REVIEWER_ID_EMPTY);
+        assertThereIsExactlyOneViolation(validator, testReview);
+    }
+
+    @Test
     public void SadPathReviewReviewedIdNull() {
         testReview = reviewFactory.assembleReview(ReviewOption.INVALID_REVIEW_REVIEWED_ID_NULL);
+        assertThereIsExactlyOneViolation(validator, testReview);
+    }
+
+    @Test
+    public void SadPathReviewReviewedIdEmpty() {
+        testReview = reviewFactory.assembleReview(ReviewOption.INVALID_REVIEW_REVIEWED_ID_EMPTY);
         assertThereIsExactlyOneViolation(validator, testReview);
     }
 

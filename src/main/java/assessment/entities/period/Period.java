@@ -1,7 +1,6 @@
 package assessment.entities.period;
 
 import assessment.entities.review.Review;
-import assessment.entities.template.Template;
 import assessment.utilities.Constants;
 import assessment.utilities.RegexConstants;
 import org.hibernate.validator.constraints.Length;
@@ -19,8 +18,8 @@ public class Period {
     @Id
     private String id;
 
-    @NotNull
-    private Template template;
+    @NotEmpty
+    private String templateId;
 
     @NotNull(message = "Series number cannot be null")
     @Range(min = 1, message = "Series number of at least 1 is required")
@@ -50,8 +49,8 @@ public class Period {
         version = Constants.PERIOD_CURRENT_VERSION;
     }
 
-    public Period(Template template, String name, Integer seriesNumber, String teamId, Date dateTriggered, Double summaryScore, List<Review> reviews) {
-        this.template = template;
+    public Period(String templateId, String name, Integer seriesNumber, String teamId, Date dateTriggered, Double summaryScore, List<Review> reviews) {
+        this.templateId = templateId;
         this.seriesNumber = seriesNumber;
         this.name = name;
         this.teamId = teamId;
@@ -69,12 +68,12 @@ public class Period {
         this.id = id;
     }
 
-    public Template getTemplate() {
-        return template;
+    public String getTemplateId() {
+        return templateId;
     }
 
-    public void setTemplate(Template template) {
-        this.template = template;
+    public void setTemplateId(String templateId) {
+        this.templateId = templateId;
     }
 
     public Integer getSeriesNumber() {
@@ -135,7 +134,7 @@ public class Period {
     public String toString() {
         return "Period{" +
                 "id='" + id + '\'' +
-                ", template=" + template +
+                ", templateId=" + templateId +
                 ", name='" + name + '\'' +
                 ", seriesNumber=" + seriesNumber +
                 ", teamId='" + teamId + '\'' +

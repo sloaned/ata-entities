@@ -2,9 +2,7 @@ package assessment.factories.review;
 
 import assessment.entities.feedback.Feedback;
 import assessment.entities.review.Review;
-import assessment.entities.user.User;
 import assessment.factories.user.UserFactory;
-import assessment.factories.user.UserOption;
 import assessment.testbase.TestBase;
 
 import java.text.ParseException;
@@ -44,11 +42,9 @@ public class ReviewFactory extends TestBase{
         Review review = assembleBaseReview();
 
         UserFactory userFactory = new UserFactory();
-        User testReviewer = userFactory.assembleUser(UserOption.VALID_ACTIVE_DEVELOPER);
-        User testReviewed = userFactory.assembleUser(UserOption.VALID_INACTIVE_DEVELOPER);
 
-        review.setReviewerId(testReviewer);
-        review.setReviewedId(testReviewed);
+        review.setReviewerId(VALID_REVIEWER_HASH);
+        review.setReviewedId(VALID_REVIEWED_HASH);
 
         switch(reviewOption){
 
@@ -59,8 +55,16 @@ public class ReviewFactory extends TestBase{
                 review.setReviewerId(null);
                 break;
 
+            case INVALID_REVIEW_REVIEWER_ID_EMPTY:
+                review.setReviewerId("");
+                break;
+
             case INVALID_REVIEW_REVIEWED_ID_NULL:
                 review.setReviewedId(null);
+                break;
+
+            case INVALID_REVIEW_REVIEWED_ID_EMPTY:
+                review.setReviewedId("");
                 break;
 
             case INVALID_REVIEW_SUBMITTED_DATE_NULL:
@@ -94,11 +98,8 @@ public class ReviewFactory extends TestBase{
             case INVALID_REVIEW_SELF_REVIEW:
                 String randomId = generateRandomString(10);
 
-                testReviewer.setId(randomId);
-                testReviewed.setId(randomId);
-
-                review.setReviewerId(testReviewer);
-                review.setReviewedId(testReviewed);
+                review.setReviewerId(randomId);
+                review.setReviewedId(randomId);
                 break;
         }
 

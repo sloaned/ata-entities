@@ -1,7 +1,6 @@
 package assessment.entities.review;
 
 import assessment.entities.feedback.Feedback;
-import assessment.entities.user.User;
 import assessment.utilities.Constants;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -22,11 +21,11 @@ public class Review {
     @Id
     private String id;
 
-    @NotNull(message = "Reviewer must be defined.")
-    private User reviewerId;
+    @NotEmpty(message = "Reviewer must be defined.")
+    private String reviewerId;
 
-    @NotNull(message = "Reviewee must be defined.")
-    private User reviewedId;
+    @NotEmpty(message = "Reviewee must be defined.")
+    private String reviewedId;
 
     @JsonFormat(pattern = "MM/dd/yyyy", timezone = "PST")
     @NotNull(message = "Submitted date is required")
@@ -48,12 +47,12 @@ public class Review {
         boolean result = true;
 
         /**
-         * User ids cannot be checked if Users are null; if either id is null
+         * User ids cannot be checked if Users are empty; if either id is empty
          * there is no need to validate
          */
         if (reviewerId != null && reviewedId != null) {
-            if (reviewerId.getId() != null && reviewedId.getId() != null) {
-                result = !this.reviewerId.getId().equals(this.reviewedId.getId());
+            if (reviewerId != null && reviewedId != null) {
+                result = !this.reviewerId.equals(this.reviewedId);
             }
         }
 
@@ -76,7 +75,7 @@ public class Review {
      * @param feedback
      * @param summaryScore
      */
-    public Review(User reviewerId, User reviewedId, Date submittedDate, List<Feedback> feedback,
+    public Review(String reviewerId, String reviewedId, Date submittedDate, List<Feedback> feedback,
                   Double summaryScore) {
         this.reviewerId = reviewerId;
         this.reviewedId = reviewedId;
@@ -89,19 +88,19 @@ public class Review {
     /**
      * Getters and Setters
      */
-    public User getReviewerId() {
+    public String getReviewerId() {
         return reviewerId;
     }
 
-    public void setReviewerId(User reviewerId) {
+    public void setReviewerId(String reviewerId) {
         this.reviewerId = reviewerId;
     }
 
-    public User getReviewedId() {
+    public String getReviewedId() {
         return reviewedId;
     }
 
-    public void setReviewedId(User reviewedId) {
+    public void setReviewedId(String reviewedId) {
         this.reviewedId = reviewedId;
     }
 
