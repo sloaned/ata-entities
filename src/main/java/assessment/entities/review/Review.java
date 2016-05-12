@@ -38,6 +38,8 @@ public class Review {
     @Range(min = 1, max = 5)
     private Double summaryScore;
 
+    private String teamName;
+
     @NotNull(message = "Version is required")
     @Range(min = 1, message = "version of at least 1 is required")
     private Integer version;
@@ -76,12 +78,13 @@ public class Review {
      * @param summaryScore
      */
     public Review(String reviewerId, String reviewedId, Date submittedDate, List<Feedback> feedback,
-                  Double summaryScore) {
+                  Double summaryScore, String teamName) {
         this.reviewerId = reviewerId;
         this.reviewedId = reviewedId;
         this.submittedDate = submittedDate;
         this.feedback = feedback;
         this.summaryScore = summaryScore;
+        this.teamName = teamName;
         this.version = Constants.REVIEW_CURRENT_VERSION;
     }
 
@@ -128,6 +131,14 @@ public class Review {
         this.summaryScore = summaryScore;
     }
 
+    public String getTeamName() {
+        return teamName;
+    }
+
+    public void setTeamName(String teamName) {
+        this.teamName = teamName;
+    }
+
     public Integer getVersion() {
         return version;
     }
@@ -145,6 +156,7 @@ public class Review {
                 ", submittedDate=" + submittedDate +
                 ", feedback=" + feedback +
                 ", summaryScore=" + summaryScore +
+                ", teamName=" + teamName +
                 ", version=" + version +
                 '}';
     }
