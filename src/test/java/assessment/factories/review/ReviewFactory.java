@@ -32,6 +32,7 @@ public class ReviewFactory extends TestBase{
         baseReview.setSubmittedDate(new Date(System.currentTimeMillis() + offset));
         baseReview.setFeedback(testFeedback);
         baseReview.setSummaryScore(VALID_SUMMARY_SCORE);
+		baseReview.setTeamName(VALID_TEAM_NAME);
         baseReview.setVersion(REVIEW_CURRENT_VERSION);
 
         return baseReview;
@@ -95,7 +96,19 @@ public class ReviewFactory extends TestBase{
                 review.setSummaryScore(generateRandomDouble(5.01, LARGE_SUMMARY_SCORE));
                 break;
 
-            case INVALID_REVIEW_SELF_REVIEW:
+			case INVALID_TEAM_NAME_SPECIAL_CHARACTERS:
+				review.setTeamName(INVALID_OBJECT_NAME_SPECIAL_CHARACTERS);
+				break;
+
+			case INVALID_TEAM_NAME_TOO_LONG:
+				review.setTeamName(generateRandomString(101));
+				break;
+
+			case INVALID_TEAM_NAME_NULL:
+				review.setTeamName(null);
+				break;
+
+			case INVALID_REVIEW_SELF_REVIEW:
                 String randomId = generateRandomString(10);
 
                 review.setReviewerId(randomId);
