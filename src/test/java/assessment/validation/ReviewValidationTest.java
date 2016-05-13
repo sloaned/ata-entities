@@ -1,10 +1,8 @@
 package assessment.validation;
 
 import assessment.entities.review.Review;
-import assessment.entities.team.Team;
 import assessment.factories.review.ReviewFactory;
 import assessment.factories.review.ReviewOption;
-import assessment.factories.team.TeamOption;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
