@@ -2,14 +2,18 @@ package assessment.entities.review;
 
 import assessment.entities.feedback.Feedback;
 import assessment.utilities.Constants;
+import assessment.utilities.RegexConstants;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.Range;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
 
 import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import java.util.Date;
 import java.util.List;
 
@@ -38,6 +42,9 @@ public class Review {
     @Range(min = 1, max = 5)
     private Double summaryScore;
 
+    @NotEmpty(message = "Team name is required.")
+    @Length(max = 100, message = "Team name can be no longer than 100 characters.")
+    @Pattern(regexp = RegexConstants.OBJECT_NAME, message = "Team name contains invalid characters.")
     private String teamName;
 
     @NotNull(message = "Version is required")

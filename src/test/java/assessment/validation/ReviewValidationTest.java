@@ -1,8 +1,10 @@
 package assessment.validation;
 
 import assessment.entities.review.Review;
+import assessment.entities.team.Team;
 import assessment.factories.review.ReviewFactory;
 import assessment.factories.review.ReviewOption;
+import assessment.factories.team.TeamOption;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -105,6 +107,24 @@ public class ReviewValidationTest {
     @Test
     public void SadPathReviewSummaryScoreLarge() {
         testReview = reviewFactory.assembleReview(ReviewOption.INVALID_REVIEW_SUMMARY_SCORE_LARGE);
+        assertThereIsExactlyOneViolation(validator, testReview);
+    }
+
+    @Test
+    public void SadPathTeamNameHasSpecialCharacters() {
+        testReview = reviewFactory.assembleReview(ReviewOption.INVALID_TEAM_NAME_SPECIAL_CHARACTERS);
+        assertThereIsExactlyOneViolation(validator, testReview);
+    }
+
+    @Test
+    public void SadPathTeamNameTooLong() {
+        testReview = reviewFactory.assembleReview(ReviewOption.INVALID_TEAM_NAME_TOO_LONG);
+        assertThereIsExactlyOneViolation(validator, testReview);
+    }
+
+    @Test
+    public void SadPathTeamNameIsNull() {
+        testReview = reviewFactory.assembleReview(ReviewOption.INVALID_TEAM_NAME_NULL);
         assertThereIsExactlyOneViolation(validator, testReview);
     }
 
