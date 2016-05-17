@@ -9,33 +9,35 @@ import java.util.Date;
  */
 public class FeedbackDto {
 
+	private String templateId;
+
 	private String avatar;
 
 	private String firstName;
 
 	private String lastName;
 
-	private Date submittedDate;
-
-	private String teamName;
-
 	private String templateName;
-
-	private Double summaryscore;
 
 	private Review review;
 
 	public FeedbackDto() {}
 
-	public FeedbackDto(String avatar, String firstName, String lastName, Date submittedDate, String teamName, String templateName, Double summaryscore, Review review) {
+	public FeedbackDto(String templateId, String avatar, String firstName, String lastName, String templateName, Review review) {
+		this.templateId = templateId;
 		this.avatar = avatar;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.submittedDate = submittedDate;
-		this.teamName = teamName;
 		this.templateName = templateName;
-		this.summaryscore = summaryscore;
 		this.review = review;
+	}
+
+	public String getTemplateId() {
+		return templateId;
+	}
+
+	public void setTemplateId(String templateId) {
+		this.templateId = templateId;
 	}
 
 	public String getAvatar() {
@@ -62,36 +64,12 @@ public class FeedbackDto {
 		this.lastName = lastName;
 	}
 
-	public Date getSubmittedDate() {
-		return submittedDate;
-	}
-
-	public void setSubmittedDate(Date submittedDate) {
-		this.submittedDate = submittedDate;
-	}
-
-	public String getTeamName() {
-		return teamName;
-	}
-
-	public void setTeamName(String teamName) {
-		this.teamName = teamName;
-	}
-
 	public String getTemplateName() {
 		return templateName;
 	}
 
 	public void setTemplateName(String templateName) {
 		this.templateName = templateName;
-	}
-
-	public Double getSummaryscore() {
-		return summaryscore;
-	}
-
-	public void setSummaryscore(Double summaryscore) {
-		this.summaryscore = summaryscore;
 	}
 
 	public Review getReview() {
