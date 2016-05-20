@@ -15,7 +15,6 @@ public class PeriodFactory extends TestBase {
 
 		basePeriod.setTemplateId(VALID_OBJECT_NAME);
 		basePeriod.setSeriesNumber(generateRandomInteger(1, 10));
-		basePeriod.setName(VALID_PERIOD_NAME + generateRandomString(5));
 		basePeriod.setTeamId(generateRandomHash(24));
 		basePeriod.setDateTriggered(new Date());
 		basePeriod.setVersion(VALID_ENTITY_VERSION);
@@ -64,22 +63,6 @@ public class PeriodFactory extends TestBase {
 
             case INVALID_PERIOD_SERIES_NUMBER_ZERO:
                 period.setSeriesNumber(0);
-                break;
-
-            case INVALID_PERIOD_NAME_NULL:
-                period.setName(null);
-                break;
-
-            case INVALID_PERIOD_NAME_WITH_SPECIAL_CHARS:
-                period.setName(INVALID_OBJECT_NAME_SPECIAL_CHARACTERS);
-                break;
-
-            case INVALID_PERIOD_NAME_EMPTY_STRING:
-                period.setName(EMPTY_STRING);
-                break;
-
-            case INVALID_PERIOD_NAME_TOO_LONG:
-                period.setName(generateRandomString(101));
                 break;
 
             case INVALID_PERIOD_TEAM_ID_NULL:

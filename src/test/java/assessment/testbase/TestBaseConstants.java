@@ -142,12 +142,4 @@ public class TestBaseConstants {
     protected final static String VALID_REVIEWER_HASH = "205e460b479e2e5b48aec07710c08d50";
     protected final static String VALID_REVIEWED_HASH = "E7e104weasdfaeASF117650ae01843";
 
-
-    /**
-    * PERIOD SECTION
-    *
-    * Valid input
-    */
-    protected final static String VALID_PERIOD_NAME = "PeriodTest-";
-
 }

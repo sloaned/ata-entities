@@ -29,19 +29,24 @@ public class Template {
 
     private List<Question> questionList;
 
+    private List<String> tags;
+
     @NotNull(message = "Version is required")
     @Range(min = 1, message = "version of at least 1 is required")
     private Integer version;
 
     public Template() { this.version = Constants.TEMPLATE_CURRENT_VERSION; }
 
-    public Template(String name, List<Question> questionList) {
+    public Template(String name, List<Question> questionList, List<String> tags) {
         this.name = name;
         this.questionList = questionList;
+        this.tags = tags;
         this.version = Constants.TEMPLATE_CURRENT_VERSION;
     }
 
-    public String getId() { return id; }
+    public String getId() {
+        return id;
+    }
 
     public void setId(String id) {
         this.id = id;
@@ -71,6 +76,14 @@ public class Template {
         this.version = version;
     }
 
+    public List<String> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<String> tags) {
+        this.tags = tags;
+    }
+
     @Override
     public String toString() {
         return "Template{" +
@@ -78,6 +91,7 @@ public class Template {
                 ", name='" + name + '\'' +
                 ", questionList=" + questionList +
                 ", version=" + version +
+                ", tags=" + tags +
                 '}';
     }
 }

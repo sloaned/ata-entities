@@ -25,11 +25,6 @@ public class Period {
     @Range(min = 1, message = "Series number of at least 1 is required")
     private Integer seriesNumber;
 
-    @NotEmpty(message = "Period name cannot be empty")
-    @Length(max = 100, message = "Period name can be no longer than 100 characters.")
-    @Pattern(regexp = RegexConstants.OBJECT_NAME, message = "Period name contains invalid characters.")
-    private String name;
-
     @NotEmpty(message = "Team id cannot be empty")
     private String teamId;
 
@@ -52,7 +47,6 @@ public class Period {
     public Period(String templateId, String name, Integer seriesNumber, String teamId, Date dateTriggered, Double summaryScore, List<Review> reviews) {
         this.templateId = templateId;
         this.seriesNumber = seriesNumber;
-        this.name = name;
         this.teamId = teamId;
         this.dateTriggered = dateTriggered;
         this.summaryScore = summaryScore;
@@ -83,12 +77,6 @@ public class Period {
     public void setSeriesNumber(Integer seriesNumber) {
         this.seriesNumber = seriesNumber;
     }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) { this.name = name; }
 
     public String getTeamId() {
         return teamId;
@@ -135,7 +123,6 @@ public class Period {
         return "Period{" +
                 "id='" + id + '\'' +
                 ", templateId=" + templateId +
-                ", name='" + name + '\'' +
                 ", seriesNumber=" + seriesNumber +
                 ", teamId='" + teamId + '\'' +
                 ", dateTriggered=" + dateTriggered +
